@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml>
+   <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+      <name>
+         <text>New version of New version of New version of simple auction with threshold</text>
+      </name>
+      <page id="n0">
+         <name>
+            <text/>
+         </name>
+         <place id="n1">
+            <name>
+               <text>start</text>
+            </name>
+            <initialMarking>
+               <text>1</text>
+            </initialMarking>
+         </place>
+
+         <place id="n2">
+            <name>
+               <text>p1</text>
+            </name>
+
+         </place>
+         <place id="n3">
+            <name>
+               <text>p2</text>
+            </name>
+
+         </place>
+         <place id="n4">
+            <name>
+               <text>end</text>
+            </name>
+            
+            <finalMarking>
+               <text>1</text>
+            </finalMarking>
+         </place>
+
+
+
+
+
+
+         <transition guard="((t'&gt;0)&amp;&amp;(o'==0))" id="n5">
+            <name>
+               <text>init</text>
+            </name>
+            <writeVariable>t</writeVariable>
+            <writeVariable>o</writeVariable>
+         </transition>
+
+         <transition guard="((t&gt;0)&amp;&amp;(o'&gt;o))" id="n6">
+            <name>
+               <text>bid</text>
+            </name>
+            <writeVariable>o</writeVariable>
+         </transition>
+
+         <transition guard="((t&gt;0)&amp;&amp;(t'&lt;t))" id="n7">
+            <name>
+               <text>dec</text>
+            </name>
+            <writeVariable>t</writeVariable>
+
+         </transition>
+         <transition guard="((t&lt;=0)&amp;&amp;(o&gt;0))" id="n8">
+            <name>
+               <text>expire</text>
+            </name>
+         </transition>
+
+         <transition guard="(o&gt;1000)" id="n9">
+            <name>
+               <text>thresh</text>
+            </name>
+         </transition>
+
+
+
+
+
+         <arc id="arc10" source="n3" target="n9">
+            <name>
+               <text>1</text>
+            </name>
+            <arctype>
+               <text>normal</text>
+            </arctype>
+         </arc>
+         <arc id="arc11" source="n5" target="n3">
+            <name>
+               <text>1</text>
+            </name>
+            <arctype>
+               <text>normal</text>
+            </arctype>
+         </arc>
+         <arc id="arc12" source="n3" target="n6">
+            <name>
+               <text>1</text>
+            </name>
+            <arctype>
+               <text>normal</text>
+            </arctype>
+         </arc>
+         <arc id="arc13" source="n6" target="n3">
+            <name>
+               <text>1</text>
+            </name>
+            <arctype>
+               <text>normal</text>
+            </arctype>
+         </arc>
+         <arc id="arc14" source="n8" target="n4">
+            <name>
+               <text>1</text>
+            </name>
+            <arctype>
+               <text>normal</text>
+            </arctype>
+         </arc>
+         <arc id="arc15" source="n7" target="n2">
+            <name>
+               <text>1</text>
+            </name>
+            <arctype>
+               <text>normal</text>
+            </arctype>
+         </arc>
+         <arc id="arc16" source="n1" target="n5">
+            <name>
+               <text>1</text>
+            </name>
+            <arctype>
+               <text>normal</text>
+            </arctype>
+         </arc>
+         <arc id="arc17" source="n5" target="n2">
+            <name>
+               <text>1</text>
+            </name>
+            <arctype>
+               <text>normal</text>
+            </arctype>
+         </arc>
+         <arc id="arc18" source="n2" target="n7">
+            <name>
+               <text>1</text>
+            </name>
+            <arctype>
+               <text>normal</text>
+            </arctype>
+         </arc>
+         <arc id="arc19" source="n3" target="n8">
+            <name>
+               <text>1</text>
+            </name>
+            <arctype>
+               <text>normal</text>
+            </arctype>
+         </arc>
+         <arc id="arc20" source="n9" target="n4">
+            <name>
+               <text>1</text>
+            </name>
+            <arctype>
+               <text>normal</text>
+            </arctype>
+         </arc>
+         <arc id="arc21" source="n2" target="n8">
+            <name>
+               <text>1</text>
+            </name>
+            <arctype>
+               <text>normal</text>
+            </arctype>
+         </arc>
+      </page>
+
+
+
+
+
+      <finalmarkings>
+         <marking>
+            <place idref="n1">
+               <text>0</text>
+            </place>
+            <place idref="n2">
+               <text>0</text>
+            </place>
+            <place idref="n3">
+               <text>0</text>
+            </place>
+            <place idref="n4">
+               <text>1</text>
+            </place>
+         </marking>
+      </finalmarkings>
+
+
+
+
+
+      <variables>
+         <variable maxValue="100000.0" minValue="0.0" type="java.lang.Double">
+            <name>t</name>
+         </variable>
+
+         <variable maxValue="100000.0" minValue="0.0" type="java.lang.Double">
+            <name>o</name>
+         </variable>
+      </variables>
+   </net>
+</pnml>
