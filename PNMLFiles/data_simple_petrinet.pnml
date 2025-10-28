@@ -56,7 +56,8 @@
         <name><text>Subtask 2</text></name>
       <writeVariable>p4</writeVariable></transition>
 
-      <transition id="t5" guard="((p5 &lt;= 1.0)&amp;&amp;(p7' &gt; 0))">
+      
+      <transition id="t5" guard="((p4 &lt;= 1.0)&amp;&amp;(p7' &gt; 0))">
         <name><text>Finalize</text></name>
       <writeVariable>p7</writeVariable></transition>
 

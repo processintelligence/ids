@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+    <net id="simplest ex" type="http://www.pnml.org/version-2009/grammar/ptnet">
+      <n>
+        <text>New Petri Net</text>
+      </n>
+      <place id="p1">
+        <n>
+          <text>P1</text>
+        </n>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="520" y="560" />
+        </graphics>
+      </place>
+      <place id="p2">
+        <n>
+          <text>P2</text>
+        </n>
+        <initialMarking>
+          <text>0</text>
+        </initialMarking>
+        <graphics>
+          <position x="890" y="530" />
+        </graphics>
+      </place>
+      <place id="p3">
+        <n>
+          <text>P3</text>
+        </n>
+        <initialMarking>
+          <text>0</text>
+        </initialMarking>
+        <graphics>
+          <position x="1150" y="550" />
+        </graphics>
+      </place>
+      <transition id="t1" guard="((p1 &gt; 0.5 &amp;&amp; p1 &lt;= 1.0)&amp;&amp;(p2' &gt; 0))">
+        <n>
+          <text>T1</text>
+        </n>
+        <graphics>
+          <position x="710" y="570" />
+        </graphics>
+      <writeVariable>p2</writeVariable></transition>
+      <transition id="t2" guard="((p1 &lt;= 0.5)&amp;&amp;(p2' &gt; 0))">
+        <n>
+          <text>T2</text>
+        </n>
+        <graphics>
+          <position x="710" y="460" />
+        </graphics>
+      <writeVariable>p2</writeVariable></transition>
+      <transition id="t3" guard="((p2 &lt;= 1.0)&amp;&amp;(p3' &gt; 0))">
+        <n>
+          <text>T3</text>
+        </n>
+        <graphics>
+          <position x="1000" y="530" />
+        </graphics>
+      <writeVariable>p3</writeVariable></transition>
+      <arc id="a1" source="p1" target="t2">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a2" source="p1" target="t1">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a3" source="t1" target="p2">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a4" source="t2" target="p2">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a5" source="p2" target="t3">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="a6" source="t3" target="p3">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+    <variables><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p1</name></variable><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p2</name></variable></variables></net>
+  </pnml>

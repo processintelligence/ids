@@ -294,11 +294,10 @@ class PetriNetUtil(IPetriNetUtil):
 
         tree.write(pnml_path, encoding="utf-8", xml_declaration=True)
 
-
 # -----------------------------------
 if __name__ == "__main__":
     # Input PNML and output config
-    pnml_file = "PNMLFiles/simple_petrinet.pnml"
+    pnml_file = "PNMLFiles/simplest_ex.pnml"
     config_path = "/Users/emilpontoppidanrasmussen/Dropbox/Dtu/Kandidat/4_semester/Masters/Master Repo/MasterRepo/Configs/config1.json"
     config_path1 = "/Users/emilpontoppidanrasmussen/Dropbox/Dtu/Kandidat/4_semester/Masters/Master Repo/MasterRepo/Configs/config2.json"
 
@@ -333,4 +332,3 @@ if __name__ == "__main__":
 
     #6. inject the obtain guards into the pnml
     data_pnml_path = util.create_data_pnml(combined, pnml_file, config_path1)
-
