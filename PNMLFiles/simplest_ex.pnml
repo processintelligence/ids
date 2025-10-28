@@ -18,9 +18,6 @@
         <n>
           <text>P2</text>
         </n>
-        <initialMarking>
-          <text>0</text>
-        </initialMarking>
         <graphics>
           <position x="890" y="530"/>
         </graphics>
@@ -29,12 +26,9 @@
         <n>
           <text>P3</text>
         </n>
-        <initialMarking>
-          <text>0</text>
-        </initialMarking>
         <finalMarking>
           <text>1</text>
-        </initialMarking>
+        </finalMarking>
         <graphics>
           <position x="1150" y="550"/>
         </graphics>
