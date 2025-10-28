@@ -1,6 +1,11 @@
 {
     "pnmlfilename": "simplest_ex",
     "behavior": "",
+    "places": [
+        "p1",
+        "p2",
+        "p3"
+    ],
     "place_transition_arc": {
         "p1": {
             "p1_t2": "0.5",

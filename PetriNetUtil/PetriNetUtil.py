@@ -46,9 +46,12 @@ class PetriNetUtil(IPetriNetUtil):
 
             place_transition_arc[place_id][arc_key] = ""
 
+        places = [place.name for place in petrinet.places]
+
         config = {
             "pnmlfilename": os.path.basename(petrinet.name),
             "behavior": "",
+            "places": places,
             "place_transition_arc": place_transition_arc
         }
 
@@ -153,8 +156,7 @@ class PetriNetUtil(IPetriNetUtil):
         with open(config_path, "r", encoding="utf-8") as f:
             config_json = json.load(f)
 
-        config_arcs = config_json.get("place_transition_arc", {})
-        place_names = list(config_arcs.keys())
+        place_names = config_json.get("places", [])
 
         tree = ET.parse(pnml_path)
         root = tree.getroot()
@@ -296,7 +298,7 @@ class PetriNetUtil(IPetriNetUtil):
 
 # -----------------------------------
 if __name__ == "__main__":
-    # Input PNML and output config
+    # initialize
     pnml_file = "PNMLFiles/simplest_ex.pnml"
     config_path = "/Users/emilpontoppidanrasmussen/Dropbox/Dtu/Kandidat/4_semester/Masters/Master Repo/MasterRepo/Configs/config1.json"
     config_path1 = "/Users/emilpontoppidanrasmussen/Dropbox/Dtu/Kandidat/4_semester/Masters/Master Repo/MasterRepo/Configs/config2.json"

@@ -94,5 +94,5 @@
           <text>1</text>
         </inscription>
       </arc>
-    <variables><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p1</name></variable><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p2</name></variable></variables></net>
+    <variables><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p1</name></variable><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p2</name></variable><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p3</name></variable></variables></net>
   </pnml>
