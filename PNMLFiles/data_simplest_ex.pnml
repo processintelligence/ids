@@ -33,6 +33,9 @@
         <initialMarking>
           <text>0</text>
         </initialMarking>
+        <finalMarking>
+          <text>0</text>
+        </finalMarking>
         <graphics>
           <position x="1150" y="550" />
         </graphics>
