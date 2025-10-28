@@ -64,8 +64,8 @@
                <text>dec</text>
             </name>
             <writeVariable>t</writeVariable>
-
          </transition>
+
          <transition guard="((t&lt;=0)&amp;&amp;(o&gt;0))" id="n8">
             <name>
                <text>expire</text>

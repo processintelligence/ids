@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
   <net id="n_complex" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
@@ -7,7 +7,7 @@
 
     <page id="page1">
 
-      <!-- Places -->
+      
       <place id="p1">
         <name><text>Start</text></name>
         <initialMarking><text>1</text></initialMarking>
@@ -37,33 +37,32 @@
         <name><text>End</text></name>
       </place>
 
-      <!-- Transitions -->
-      <!-- Choice from p1 -->
-      <transition id="t1">
+      
+      
+      <transition id="t1" guard="((p1 &lt;= 0.5)&amp;&amp;(p2' &gt; 0))">
         <name><text>Do Path A</text></name>
-      </transition>
+      <writeVariable>p2</writeVariable></transition>
 
-      <transition id="t2">
+      <transition id="t2" guard="((p1 &gt; 0.5 &amp;&amp; p1 &lt;= 1.0)&amp;&amp;(p5' &gt; 0))">
         <name><text>Do Path B</text></name>
-      </transition>
+      <writeVariable>p5</writeVariable></transition>
 
-      <!-- From p2, branch to two possible subtasks -->
-      <transition id="t3">
+      
+      <transition id="t3" guard="((p2 &lt;= 0.7)&amp;&amp;(p3' &gt; 0))">
         <name><text>Subtask 1</text></name>
-      </transition>
+      <writeVariable>p3</writeVariable></transition>
 
-      <transition id="t4">
+      <transition id="t4" guard="((p2 &gt; 0.7 &amp;&amp; p2 &lt;= 1.0)&amp;&amp;(p4' &gt; 0))">
         <name><text>Subtask 2</text></name>
-      </transition>
+      <writeVariable>p4</writeVariable></transition>
 
-      <!-- Merge and finish -->
-      <transition id="t5">
+      <transition id="t5" guard="((p5 &lt;= 1.0)&amp;&amp;(p7' &gt; 0))">
         <name><text>Finalize</text></name>
-      </transition>
+      <writeVariable>p7</writeVariable></transition>
 
-      <!-- Arcs -->
+      
 
-      <!-- Start place goes to two alternative transitions t1 and t2 -->
+      
       <arc id="a1" source="p1" target="t1">
         <inscription><text>1</text></inscription>
       </arc>
@@ -71,17 +70,17 @@
         <inscription><text>1</text></inscription>
       </arc>
 
-      <!-- t1 produces tokens in p2 -->
+      
       <arc id="a3" source="t1" target="p2">
         <inscription><text>1</text></inscription>
       </arc>
 
-      <!-- t2 produces tokens in p5 (an alternate branch) -->
+      
       <arc id="a4" source="t2" target="p5">
         <inscription><text>1</text></inscription>
       </arc>
 
-      <!-- p2 can go to t3 OR t4 (two different subtasks) -->
+      
       <arc id="a5" source="p2" target="t3">
         <inscription><text>1</text></inscription>
       </arc>
@@ -89,22 +88,22 @@
         <inscription><text>1</text></inscription>
       </arc>
 
-      <!-- t3 leads to p3 -->
+      
       <arc id="a7" source="t3" target="p3">
         <inscription><text>1</text></inscription>
       </arc>
 
-      <!-- t4 leads to p4 -->
+      
       <arc id="a8" source="t4" target="p4">
         <inscription><text>1</text></inscription>
       </arc>
 
-      <!-- p5 goes to t5 (this is the continuation of the t2 branch) -->
+      
       <arc id="a9" source="p5" target="t5">
         <inscription><text>1</text></inscription>
       </arc>
 
-      <!-- p3 and p4 eventually "join" by flowing into p6 via imaginary cleanup -->
+      
       <arc id="a10" source="p3" target="t5">
         <inscription><text>1</text></inscription>
       </arc>
@@ -112,11 +111,11 @@
         <inscription><text>1</text></inscription>
       </arc>
 
-      <!-- t5 ends in p7 (End) -->
+      
       <arc id="a12" source="t5" target="p7">
         <inscription><text>1</text></inscription>
       </arc>
 
     </page>
-  </net>
+  <variables><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p4</name></variable><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p1</name></variable><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p2</name></variable><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p5</name></variable><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p3</name></variable></variables></net>
 </pnml>

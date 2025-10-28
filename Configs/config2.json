@@ -1,0 +1,23 @@
+{
+    "pnmlfilename": "simple_petrinet.pnml",
+    "behavior": "",
+    "place_transition_arc": {
+        "p4": {
+            "p4_t5": "1"
+        },
+        "p1": {
+            "p1_t1": "0.5",
+            "p1_t2": "0.5"
+        },
+        "p2": {
+            "p2_t3": "0.7",
+            "p2_t4": "0.3"
+        },
+        "p5": {
+            "p5_t5": "1"
+        },
+        "p3": {
+            "p3_t5": "1"
+        }
+    }
+}
