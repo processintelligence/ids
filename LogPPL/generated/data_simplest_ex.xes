@@ -1,0 +1,1712 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<log xes.version="1849-2016" xes.features="nested-attributes" xmlns="http://www.xes-standard.org/">
+<extension name="Organizational" prefix="org" uri="http://www.xes-standard.org/org.xesext" />
+<extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext" />
+<extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext" />
+<extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext" />
+<string key="origin" value="csv" />
+<trace>
+<string key="concept:name" value="1"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.29065142900001906"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.7093485709999809"/>
+<float key="p2" value="0.8956418802724486"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="2"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7157561772536831"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.2842438227463169"/>
+<float key="p2" value="0.2652791869276434"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.16188573025933128"/>
+<float key="p2" value="-0.7347208130723566"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.8381142697406687"/>
+<float key="p2" value="0.46366659883083305"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.5471375894750914"/>
+<float key="p2" value="-0.536333401169167"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.4528624105249086"/>
+<float key="p2" value="0.6277926974353736"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.5858248511342885"/>
+<float key="p2" value="-0.3722073025646264"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.4141751488657115"/>
+<float key="p2" value="0.14415865950624873"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.8876789604712989"/>
+<float key="p2" value="-0.8558413404937513"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.1123210395287011"/>
+<float key="p2" value="0.5901451333452943"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.3201753991930729"/>
+<float key="p2" value="-0.4098548666547057"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.6798246008069271"/>
+<float key="p2" value="0.41838046814329766"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7600260348223769"/>
+<float key="p2" value="-0.5816195318567023"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.23997396517762315"/>
+<float key="p2" value="0.5371237379675233"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.0163478532915724"/>
+<float key="p2" value="-0.46287626203247667"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.9836521467084276"/>
+<float key="p2" value="0.059995489250145306"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.5942911547277507"/>
+<float key="p2" value="-0.9400045107498547"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.40570884527224926"/>
+<float key="p2" value="0.46761137905485173"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7656678300219684"/>
+<float key="p2" value="-0.5323886209451483"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="3"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.5422966491388637"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.45770335086113634"/>
+<float key="p2" value="0.17569228317946828"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.9047489603872632"/>
+<float key="p2" value="-0.8243077168205317"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.09525103961273684"/>
+<float key="p2" value="0.1473845626079977"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.04863279345313676"/>
+<float key="p2" value="-0.8526154373920023"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.9513672065468632"/>
+<float key="p2" value="0.9207325529557882"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="4"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.6927944296452424"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.3072055703547576"/>
+<float key="p2" value="0.6048652843070637"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.8251441739595582"/>
+<float key="p2" value="-0.39513471569293634"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.1748558260404418"/>
+<float key="p2" value="0.4035724179811939"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.5707293569828489"/>
+<float key="p2" value="-0.5964275820188061"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.4292706430171511"/>
+<float key="p2" value="0.8618052475551847"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="5"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.9128152820286541"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.08718471797134586"/>
+<float key="p2" value="0.9595598941831562"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="6"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.8590100905171323"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.14098990948286771"/>
+<float key="p2" value="0.38452942241882093"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.9948742882950021"/>
+<float key="p2" value="-0.6154705775811791"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.005125711704997871"/>
+<float key="p2" value="0.5854113130675951"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.6971342891467431"/>
+<float key="p2" value="-0.4145886869324049"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.30286571085325686"/>
+<float key="p2" value="0.5330588135182224"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7404637771145803"/>
+<float key="p2" value="-0.4669411864817776"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.25953622288541967"/>
+<float key="p2" value="0.13459490218530412"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.24373085604261546"/>
+<float key="p2" value="-0.8654050978146959"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.7562691439573845"/>
+<float key="p2" value="0.12801599389356189"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7941161066187505"/>
+<float key="p2" value="-0.8719840061064381"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.20588389338124946"/>
+<float key="p2" value="0.1603499106839943"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7049635870040836"/>
+<float key="p2" value="-0.8396500893160057"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.29503641299591643"/>
+<float key="p2" value="0.5802342620419032"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.04799801957311023"/>
+<float key="p2" value="-0.4197657379580968"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.9520019804268898"/>
+<float key="p2" value="0.4760804288167091"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7436333087350406"/>
+<float key="p2" value="-0.5239195711832909"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.25636669126495937"/>
+<float key="p2" value="0.594418023062764"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.17437546133792803"/>
+<float key="p2" value="-0.40558197693723597"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="7"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.15115937554140046"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.8488406244585995"/>
+<float key="p2" value="0.026846062733291376"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.28201644823253913"/>
+<float key="p2" value="-0.9731539372667086"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.7179835517674609"/>
+<float key="p2" value="0.17897309392469407"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.38044604090567713"/>
+<float key="p2" value="-0.8210269060753059"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.6195539590943229"/>
+<float key="p2" value="0.6054278682074383"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.04673575660861595"/>
+<float key="p2" value="-0.3945721317925617"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.953264243391384"/>
+<float key="p2" value="0.6439499028569704"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.5986684044526274"/>
+<float key="p2" value="-0.3560500971430296"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.40133159554737263"/>
+<float key="p2" value="0.02512215957601538"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.6759316057714073"/>
+<float key="p2" value="-0.9748778404239846"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.3240683942285927"/>
+<float key="p2" value="0.6868501010376755"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.3397103860188968"/>
+<float key="p2" value="-0.3131498989623245"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.6602896139811032"/>
+<float key="p2" value="0.2357507450159304"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.19383434286904366"/>
+<float key="p2" value="-0.7642492549840696"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.8061656571309563"/>
+<float key="p2" value="0.6109286342981275"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.6982578433874602"/>
+<float key="p2" value="-0.3890713657018725"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.3017421566125398"/>
+<float key="p2" value="0.7586049641121886"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="8"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.039825396205313"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.960174603794687"/>
+<float key="p2" value="0.07962871813130112"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.2317716465019224"/>
+<float key="p2" value="-0.9203712818686989"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.7682283534980776"/>
+<float key="p2" value="0.22172616930667033"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.5268438061477747"/>
+<float key="p2" value="-0.7782738306933297"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.4731561938522253"/>
+<float key="p2" value="0.3037755302196876"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.860344083062138"/>
+<float key="p2" value="-0.6962244697803124"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.13965591693786195"/>
+<float key="p2" value="0.5451106030147255"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.27805301245818304"/>
+<float key="p2" value="-0.45488939698527453"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.721946987541817"/>
+<float key="p2" value="0.146424355247327"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.18088976294441506"/>
+<float key="p2" value="-0.853575644752673"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.8191102370555849"/>
+<float key="p2" value="0.4177728102332663"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7497494863507019"/>
+<float key="p2" value="-0.5822271897667337"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.25025051364929807"/>
+<float key="p2" value="0.5999173522737664"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.582904343530394"/>
+<float key="p2" value="-0.4000826477262336"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.417095656469606"/>
+<float key="p2" value="0.9480772868119098"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="9"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.9248155228835999"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.07518447711640008"/>
+<float key="p2" value="0.8868856523979407"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="10"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.9326862399403453"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.06731376005965473"/>
+<float key="p2" value="0.6274416483193981"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.655228890289179"/>
+<float key="p2" value="-0.3725583516806019"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.34477110971082103"/>
+<float key="p2" value="0.7443930250711521"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="11"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.224508707244095"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.775491292755905"/>
+<float key="p2" value="0.8002016242608703"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="12"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.45543961905079566"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.5445603809492043"/>
+<float key="p2" value="0.5221213892730383"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.679830878668541"/>
+<float key="p2" value="-0.4778786107269617"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.32016912133145903"/>
+<float key="p2" value="0.5090973686210225"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.9949707909452117"/>
+<float key="p2" value="-0.4909026313789775"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.0050292090547883195"/>
+<float key="p2" value="0.4443139666549327"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.4102033335299706"/>
+<float key="p2" value="-0.5556860333450673"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.5897966664700294"/>
+<float key="p2" value="0.2346773172718235"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.25523446934074934"/>
+<float key="p2" value="-0.7653226827281765"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.7447655306592507"/>
+<float key="p2" value="0.9048281621516292"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="13"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.4063047021784485"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.5936952978215515"/>
+<float key="p2" value="0.5332988783418711"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.5655183326741922"/>
+<float key="p2" value="-0.46670112165812894"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.43448166732580784"/>
+<float key="p2" value="0.6082107659277216"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.1939074641367895"/>
+<float key="p2" value="-0.3917892340722784"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.8060925358632105"/>
+<float key="p2" value="0.5592304788418936"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.5150746227517222"/>
+<float key="p2" value="-0.4407695211581064"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.4849253772482778"/>
+<float key="p2" value="0.8965196156532644"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="14"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.19344374751805882"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.8065562524819412"/>
+<float key="p2" value="0.3975884447348843"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.5700143387532586"/>
+<float key="p2" value="-0.6024115552651157"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.4299856612467414"/>
+<float key="p2" value="0.2387286361698684"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.3875454427710474"/>
+<float key="p2" value="-0.7612713638301316"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.6124545572289526"/>
+<float key="p2" value="0.17744529179157964"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.9184388779072856"/>
+<float key="p2" value="-0.8225547082084204"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.08156112209271438"/>
+<float key="p2" value="0.4764919497089337"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7585586189414264"/>
+<float key="p2" value="-0.5235080502910663"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.2414413810585736"/>
+<float key="p2" value="0.6192736633940965"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.39687615064124393"/>
+<float key="p2" value="-0.3807263366059035"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.6031238493587561"/>
+<float key="p2" value="0.24107096542230488"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.33936592061801996"/>
+<float key="p2" value="-0.7589290345776951"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.66063407938198"/>
+<float key="p2" value="0.6075937754155285"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.5543011089828949"/>
+<float key="p2" value="-0.3924062245844715"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.44569889101710514"/>
+<float key="p2" value="0.8021954759245244"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="15"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.3858206959662751"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.6141793040337249"/>
+<float key="p2" value="0.7117607133379658"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="16"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.21922774557390112"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.7807722544260989"/>
+<float key="p2" value="0.4007992674638423"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.38474810915754"/>
+<float key="p2" value="-0.5992007325361577"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.61525189084246"/>
+<float key="p2" value="0.679461311834856"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.39961640337858406"/>
+<float key="p2" value="-0.32053868816514397"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.6003835966214159"/>
+<float key="p2" value="0.5547136015534295"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.698161873321103"/>
+<float key="p2" value="-0.4452863984465705"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.301838126678897"/>
+<float key="p2" value="0.36764344306732943"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.92784393605766"/>
+<float key="p2" value="-0.6323565569326706"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.07215606394233998"/>
+<float key="p2" value="0.9290769594495696"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="17"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.49604114919128683"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.5039588508087132"/>
+<float key="p2" value="0.876954821232359"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="18"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.36480479209561656"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.6351952079043834"/>
+<float key="p2" value="0.9293070715893355"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="19"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.59653868575989"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.40346131424011"/>
+<float key="p2" value="0.5890141171835865"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.6541291854518665"/>
+<float key="p2" value="-0.41098588281641346"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.3458708145481335"/>
+<float key="p2" value="0.23107771627264517"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.12151973400739458"/>
+<float key="p2" value="-0.7689222837273548"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.8784802659926054"/>
+<float key="p2" value="0.8937667851312041"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="20"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7613447411979384"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.23865525880206162"/>
+<float key="p2" value="0.49606883996446616"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.03916731483593905"/>
+<float key="p2" value="-0.5039311600355338"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.960832685164061"/>
+<float key="p2" value="0.3252287185113303"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.9753491884731964"/>
+<float key="p2" value="-0.6747712814886697"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.024650811526803595"/>
+<float key="p2" value="0.013957636667519369"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.8882257599507855"/>
+<float key="p2" value="-0.9860423633324806"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.11177424004921455"/>
+<float key="p2" value="0.30213685892465514"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.2200916849797665"/>
+<float key="p2" value="-0.6978631410753449"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.7799083150202335"/>
+<float key="p2" value="0.897155456563379"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="21"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.9094560301256518"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.0905439698743482"/>
+<float key="p2" value="0.7258346683873051"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="22"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7871343135714224"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.21286568642857762"/>
+<float key="p2" value="0.0557817976876378"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.27443525159125315"/>
+<float key="p2" value="-0.9442182023123622"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.7255647484087469"/>
+<float key="p2" value="0.25966822184768446"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.1486017582781869"/>
+<float key="p2" value="-0.7403317781523155"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.8513982417218131"/>
+<float key="p2" value="0.6634107687521149"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.3069192499367217"/>
+<float key="p2" value="-0.3365892312478851"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.6930807500632783"/>
+<float key="p2" value="0.3554304914180062"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7149113791142756"/>
+<float key="p2" value="-0.6445695085819938"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.2850886208857244"/>
+<float key="p2" value="0.5399202238420611"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.9961936092974295"/>
+<float key="p2" value="-0.46007977615793894"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.0038063907025704946"/>
+<float key="p2" value="0.589118910879957"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.9344654047547081"/>
+<float key="p2" value="-0.41088108912004295"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.06553459524529193"/>
+<float key="p2" value="0.31540848975894553"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.6516246595553938"/>
+<float key="p2" value="-0.6845915102410545"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.34837534044460616"/>
+<float key="p2" value="0.40215219090069754"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.3252567498183885"/>
+<float key="p2" value="-0.5978478090993025"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.6747432501816115"/>
+<float key="p2" value="0.9827184658023334"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="23"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7556432835966151"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.24435671640338485"/>
+<float key="p2" value="0.7552069957726864"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="24"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7741216745489525"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.22587832545104747"/>
+<float key="p2" value="0.07760538135535544"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.5048578542955469"/>
+<float key="p2" value="-0.9223946186446446"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.49514214570445314"/>
+<float key="p2" value="0.1505817219237482"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.3981289587077377"/>
+<float key="p2" value="-0.8494182780762518"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.6018710412922623"/>
+<float key="p2" value="0.25826963633782385"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.08289824545074653"/>
+<float key="p2" value="-0.7417303636621762"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.9171017545492535"/>
+<float key="p2" value="0.42753844142721054"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.6425785712311605"/>
+<float key="p2" value="-0.5724615585727895"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.35742142876883953"/>
+<float key="p2" value="0.769571436087858"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="25"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.6149853489268053"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.38501465107319466"/>
+<float key="p2" value="0.6940834967713452"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.24647814347357366"/>
+<float key="p2" value="-0.3059165032286548"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.7535218565264263"/>
+<float key="p2" value="0.9379493615549752"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="26"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.17794744359228676"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.8220525564077132"/>
+<float key="p2" value="0.2528248150738672"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.2405744321098655"/>
+<float key="p2" value="-0.7471751849261328"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.7594255678901345"/>
+<float key="p2" value="0.4741893631594196"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.678052172046427"/>
+<float key="p2" value="-0.5258106368405804"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.321947827953573"/>
+<float key="p2" value="0.7835209636548426"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="27"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.14834004546154778"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.8516599545384522"/>
+<float key="p2" value="0.2509766657468522"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.671310841124376"/>
+<float key="p2" value="-0.7490233342531478"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.328689158875624"/>
+<float key="p2" value="0.029918787211963283"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7037238534248178"/>
+<float key="p2" value="-0.9700812127880367"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.2962761465751822"/>
+<float key="p2" value="0.30169430523147045"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.6776679658179583"/>
+<float key="p2" value="-0.6983056947685296"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.3223320341820417"/>
+<float key="p2" value="0.0983157943946722"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.9496869482554833"/>
+<float key="p2" value="-0.9016842056053278"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.050313051744516724"/>
+<float key="p2" value="0.2799328141115671"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7716150716823649"/>
+<float key="p2" value="-0.7200671858884329"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.22838492831763513"/>
+<float key="p2" value="0.7047110943688153"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="28"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.8878344198726387"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.11216558012736133"/>
+<float key="p2" value="0.9808105118710067"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="29"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.4627486678081083"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.5372513321918917"/>
+<float key="p2" value="0.3095691890705432"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.30937491370597603"/>
+<float key="p2" value="-0.6904308109294568"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.690625086294024"/>
+<float key="p2" value="0.66141987364958"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.9160365763899356"/>
+<float key="p2" value="-0.33858012635042"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.08396342361006437"/>
+<float key="p2" value="0.514223497494928"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.17975729036337929"/>
+<float key="p2" value="-0.485776502505072"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.8202427096366207"/>
+<float key="p2" value="0.47939910361794413"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.2276320605893818"/>
+<float key="p2" value="-0.5206008963820559"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.7723679394106182"/>
+<float key="p2" value="0.24593423438806572"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.5261400611336362"/>
+<float key="p2" value="-0.7540657656119343"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.4738599388663638"/>
+<float key="p2" value="0.010301659279720932"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.1737637413615527"/>
+<float key="p2" value="-0.9896983407202791"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.8262362586384473"/>
+<float key="p2" value="0.5277050981203673"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.4703958964787238"/>
+<float key="p2" value="-0.47229490187963274"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.5296041035212762"/>
+<float key="p2" value="0.07379310015991325"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T1"/>
+<float key="p1" value="0.7162588259531626"/>
+<float key="p2" value="-0.9262068998400868"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="newt"/>
+<float key="p1" value="-0.2837411740468374"/>
+<float key="p2" value="0.03494881149029294"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.03702334695726828"/>
+<float key="p2" value="-0.9650511885097071"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="30"/>
+<event>
+<string key="concept:name" value="startt"/>
+<float key="p1" value="0"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T2"/>
+<float key="p1" value="0.0111073321519497"/>
+<float key="p2" value="0"/>
+<float key="p3" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="T3"/>
+<float key="p1" value="-0.9888926678480503"/>
+<float key="p2" value="0.8078160561182333"/>
+<float key="p3" value="0"/>
+</event>
+</trace>
+</log>

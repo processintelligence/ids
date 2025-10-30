@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml>
+   <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+      <name>
+         <text>New Petri Net</text>
+      </name>
+      <page id="n0">
+         <place id="n1">
+            <name>
+               <text>P1</text>
+            </name>
+            <initialMarking>
+               <text>1</text>
+            </initialMarking>
+         </place>
+         <place id="n2">
+            <name>
+               <text>P2</text>
+            </name>
+            <finalMarking>
+               <text>1</text>
+            </finalMarking>
+         </place>
+         <transition guard="(x&gt;0.8)" id="n3">
+            <name>
+               <text>DT1</text>
+            </name>
+         </transition>
+         <transition guard="(x'&gt;0)" id="n4">
+            <name>
+               <text>DT2</text>
+            </name>
+            <writeVariable>x</writeVariable>
+         </transition>
+         <arc id="arc10" source="n1" target="n3">
+            <arctype>
+               <text>regular</text>
+            </arctype>
+         </arc>
+         <arc id="arc11" source="n3" target="n2">
+            <arctype>
+               <text>regular</text>
+            </arctype>
+         </arc>
+         <arc id="arc12" source="n1" target="n4">
+            <arctype>
+               <text>regular</text>
+            </arctype>
+         </arc>
+         <arc id="arc13" source="n4" target="n1">
+            <arctype>
+               <text>regular</text>
+            </arctype>
+         </arc>
+      </page>
+        <finalmarkings>
+         <marking>
+            <place idref="n1">
+               <text>0</text>
+            </place>
+            <place idref="n2">
+               <text>1</text>
+            </place>
+         </marking>
+      </finalmarkings>
+      <variables>
+         <variable maxValue="100000.0" minValue="0.0" type="java.lang.Double">
+            <name>x</name>
+         </variable>
+      </variables>
+   </net>
+</pnml>

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<log xes.version="1849-2016" xes.features="nested-attributes" xmlns="http://www.xes-standard.org/">
+<extension name="Organizational" prefix="org" uri="http://www.xes-standard.org/org.xesext" />
+<extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext" />
+<extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext" />
+<extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext" />
+<string key="origin" value="csv" />
+<trace>
+<string key="concept:name" value="1"/>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.44846217299572566"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.015813260939054885"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.6824017579519841"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.07168558487142285"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.8280033513716911"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.32866538021340674"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.6040266638584388"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.4301958069341525"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.06929535631968076"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="2"/>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.5090256896268737"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.31469898371986105"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.8035352894590468"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.6066202644558887"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.317438709754694"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.7646217598095497"/>
+</event>
+<event>
+<string key="concept:name" value="DT1"/>
+<float key="x" value="0.9811720063254716"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="3"/>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.7214079762019832"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.5061402545745188"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.31419462546101884"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.49537482716512415"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.2757363047986521"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.06224052202201036"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.6156127232598945"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.7487694715734075"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.38528407134802745"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="4"/>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.5584989587096993"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.3311618219236323"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.7524475876649552"/>
+</event>
+<event>
+<string key="concept:name" value="DT1"/>
+<float key="x" value="0.8698536181223906"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="5"/>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.6452265189382433"/>
+</event>
+<event>
+<string key="concept:name" value="DT1"/>
+<float key="x" value="0.9067369753537324"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="6"/>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.04367681924000899"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.5996662950322684"/>
+</event>
+<event>
+<string key="concept:name" value="DT1"/>
+<float key="x" value="0.9123865362574557"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="7"/>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.2348201131152834"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.08861431085914395"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.5906060093099468"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.06931983703033229"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.3358781099107737"/>
+</event>
+<event>
+<string key="concept:name" value="DT1"/>
+<float key="x" value="0.8630683872928209"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="8"/>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.5895109157023077"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.6777925826680513"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.41883132543327695"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.9370048720429611"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.008361508460562384"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.6228080150494966"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.6770164428151075"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.9070514788541355"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.684102161127542"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="9"/>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.2870861334893793"/>
+</event>
+<event>
+<string key="concept:name" value="DT1"/>
+<float key="x" value="0.9983816073915275"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="10"/>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.5255692821118116"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.2518573156360482"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.6761470501828106"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.26924055511579836"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.6853896848753709"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.18298912812978263"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.48260866161698246"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.4763576199302193"/>
+</event>
+<event>
+<string key="concept:name" value="DT2"/>
+<float key="x" value="0.7297486324585203"/>
+</event>
+</trace>
+</log>

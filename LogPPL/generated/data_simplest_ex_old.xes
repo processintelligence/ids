@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<log xes.version="1849-2016" xes.features="nested-attributes" xmlns="http://www.xes-standard.org/">
+<extension name="Organizational" prefix="org" uri="http://www.xes-standard.org/org.xesext" />
+<extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext" />
+<extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext" />
+<extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext" />
+<string key="origin" value="csv" />
+<trace>
+<string key="concept:name" value="1"/>
+<event>
+<string key="concept:name" value="t1"/>
+</event>
+<event>
+<string key="concept:name" value="t3"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="2"/>
+<event>
+<string key="concept:name" value="t1"/>
+</event>
+<event>
+<string key="concept:name" value="t3"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="3"/>
+<event>
+<string key="concept:name" value="t1"/>
+</event>
+<event>
+<string key="concept:name" value="t3"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="4"/>
+<event>
+<string key="concept:name" value="t1"/>
+</event>
+<event>
+<string key="concept:name" value="t3"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="5"/>
+<event>
+<string key="concept:name" value="t1"/>
+</event>
+<event>
+<string key="concept:name" value="t3"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="6"/>
+<event>
+<string key="concept:name" value="t1"/>
+</event>
+<event>
+<string key="concept:name" value="t3"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="7"/>
+<event>
+<string key="concept:name" value="t1"/>
+</event>
+<event>
+<string key="concept:name" value="t3"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="8"/>
+<event>
+<string key="concept:name" value="t1"/>
+</event>
+<event>
+<string key="concept:name" value="t3"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="9"/>
+<event>
+<string key="concept:name" value="t1"/>
+</event>
+<event>
+<string key="concept:name" value="t3"/>
+</event>
+</trace>
+<trace>
+<string key="concept:name" value="10"/>
+<event>
+<string key="concept:name" value="t1"/>
+</event>
+<event>
+<string key="concept:name" value="t3"/>
+</event>
+</trace>
+</log>
