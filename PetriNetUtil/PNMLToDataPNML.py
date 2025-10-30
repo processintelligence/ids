@@ -9,14 +9,14 @@ from pm4py.objects.petri_net.exporter import exporter as pnml_exporter
 from pm4py.objects.petri_net.obj import PetriNet, Marking
 from pm4py.objects.petri_net.utils import petri_utils
 
-from PetriNetUtil.IPetriNetUtil import IPetriNetUtil
+from PetriNetUtil.IPNMLToDataPNML import IPNMLToDataPNML
 
 
-class PetriNetUtil(IPetriNetUtil):
-    def __init__(self, pnml_path: str, data_pnml_out_dir: str, config_out_dir: str):
+class PNMLToDataPNML(IPNMLToDataPNML):
+    def __init__(self, pnml_path: str, config_dir: str):
         self.pnml_path = pnml_path
-        self.data_pnml_out_dir = data_pnml_out_dir
-        self.config_out_dir = config_out_dir
+        self.data_pnml_out_dir = "GeneratedFiles/DataPNML"
+        self.config_dir = config_dir
 
     # PUBLIC API
     def generate_config_structure(self) -> str:
@@ -32,7 +32,7 @@ class PetriNetUtil(IPetriNetUtil):
 
     def generate_data_petrinet(self) -> str:
         base_name = os.path.splitext(os.path.basename(self.pnml_path))[0]
-        config_path = os.path.join(self.config_out_dir, f"{base_name}_config.json")
+        config_path = os.path.join(self.config_dir, f"{base_name}_config.json")
 
         is_valid = self._validate_config(config_path)
 
@@ -121,11 +121,11 @@ class PetriNetUtil(IPetriNetUtil):
         return data_pnml_path
 
     def _create_blanc_config(self, petrinet) -> str:
-        os.makedirs(self.config_out_dir, exist_ok=True)
+        os.makedirs(self.config_dir, exist_ok=True)
 
         # name based on the original pnml we were constructed with
         base_name = os.path.splitext(os.path.basename(self.pnml_path))[0]
-        config_path = os.path.join(self.config_out_dir, f"{base_name}_config.json")
+        config_path = os.path.join(self.config_dir, f"{base_name}_config.json")
 
         place_transition_arc = {}
 
@@ -387,7 +387,7 @@ class PetriNetUtil(IPetriNetUtil):
 
         tree.write(pnml_path, encoding="utf-8", xml_declaration=True)
 
-
+"""
 # -----------------------------------
 if __name__ == "__main__":
     pnml_file = "/Users/emilpontoppidanrasmussen/Dropbox/Dtu/Kandidat/4_semester/Masters/Master Repo/MasterRepo/PNMLFiles/simplest_ex.pnml"
@@ -406,3 +406,4 @@ if __name__ == "__main__":
     path = "/Users/emilpontoppidanrasmussen/Dropbox/Dtu/Kandidat/4_semester/Masters/Master Repo/MasterRepo/Configs/simplest_ex_config.json"
     data_pnml = util.generate_data_petrinet()
     print("data pnml:", data_pnml)
+"""
