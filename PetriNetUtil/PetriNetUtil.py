@@ -1,50 +1,159 @@
 import json
 import os
+import copy
+import re
+import xml.etree.ElementTree as ET
+
 from pm4py.objects.petri_net.importer import importer as pnml_importer
 from pm4py.objects.petri_net.exporter import exporter as pnml_exporter
 from pm4py.objects.petri_net.obj import PetriNet, Marking
+from pm4py.objects.petri_net.utils import petri_utils
+
 from PetriNetUtil.IPetriNetUtil import IPetriNetUtil
-import xml.etree.ElementTree as ET
-import shutil
-import re
+
 
 class PetriNetUtil(IPetriNetUtil):
-    def __init__(self):
-        pass
+    def __init__(self, pnml_path: str, data_pnml_out_dir: str, config_out_dir: str):
+        self.pnml_path = pnml_path
+        self.data_pnml_out_dir = data_pnml_out_dir
+        self.config_out_dir = config_out_dir
 
-    def get_petrinet(self, pnml_path):
+    # =====================
+    # PUBLIC API
+    # =====================
+    def generate_config_structure(self, pnml_path: str) -> str:
+        net, im, fm = self._get_petrinet(pnml_path)
 
+        # wrap the net
+        new_net, new_im, new_fm = self._add_init_place(net, im, fm)
+
+        # save wrapped PNML to data directory
+        # this will be data_<netname>.pnml
+        self._create_pnml(new_net, new_im, new_fm, self.data_pnml_out_dir)
+
+        # create the blank config (now handled internally)
+        config_path = self._create_blanc_config(net)
+
+        return config_path
+
+    def generate_data_petrinet(self, config_path: str) -> str:
+        # 1. validate
+        is_valid = self._validate_config(config_path)
+        if not is_valid:
+            raise ValueError("Config is not valid: probabilities per place must sum to 1.0")
+
+        # 2. read config to know which pnml it refers to
+        with open(config_path, "r", encoding="utf-8") as f:
+            cfg = json.load(f)
+
+        pnml_filename = cfg.get("pnmlfilename")
+        if not pnml_filename:
+            raise ValueError("Config is missing 'pnmlfilename'")
+
+        # 3. try to use the *wrapped* pnml in data_pnml_out_dir
+        base_name = os.path.splitext(pnml_filename)[0]
+        wrapped_name = f"data_{base_name}.pnml"
+        wrapped_path = os.path.join(self.data_pnml_out_dir, wrapped_name)
+
+        if os.path.exists(wrapped_path):
+            pnml_path_to_use = wrapped_path
+        else:
+            # fallback: use the pnml right next to the config
+            cfg_dir = os.path.dirname(config_path)
+            pnml_path_to_use = os.path.join(cfg_dir, pnml_filename)
+
+        # 4. load that pnml
+        petrinet, im, fm = self._get_petrinet(pnml_path_to_use)
+
+        # 5. build guards
+        pre_conditions, post_conditions = self._obtain_guards(petrinet, config_path)
+        combined_guards = self._combine_guards(pre_conditions, post_conditions)
+
+        # 6. inject into the pnml we chose
+        data_pnml_path = self._create_data_pnml(combined_guards, pnml_path_to_use, config_path)
+
+        return data_pnml_path
+
+    # =====================
+    # PRIVATE METHODS
+    # =====================
+    def _get_petrinet(self, pnml_path: str):
         net, initial_marking, final_marking = pnml_importer.apply(pnml_path)
-
         net.name = os.path.splitext(os.path.basename(pnml_path))[0]
-
         return net, initial_marking, final_marking
 
-    def create_blanc_config(self, petrinet, output_path, save_to_disk):
+    def _add_init_place(self, petrinet: PetriNet, im: Marking, fm: Marking):
+        if not im:
+            raise ValueError("Petri net has to have an initial marking.")
+
+        originally_marked_place_names = [p.name for p in im.keys()]
+
+        # sanity
+        if "init_p" in [p.name for p in petrinet.places]:
+            raise ValueError("You can not have a place called init_p.")
+        if "init_t" in [t.name for t in petrinet.transitions]:
+            raise ValueError("You can not have a transition called init_t")
+
+        new_net = copy.deepcopy(petrinet)
+        new_im = Marking()
+        new_fm = copy.deepcopy(fm)
+
+        places_by_name = {p.name: p for p in new_net.places}
+
+        init_place = PetriNet.Place("init_p")
+        new_net.places.add(init_place)
+
+        init_transition = PetriNet.Transition("init_t", "init_t")
+        new_net.transitions.add(init_transition)
+
+        # init_p -> init_t
+        petri_utils.add_arc_from_to(init_place, init_transition, new_net)
+
+        # init_t -> originally marked places
+        for place_name in originally_marked_place_names:
+            target_place = places_by_name[place_name]
+            already_connected = any(
+                arc.source is init_transition and arc.target is target_place
+                for arc in new_net.arcs
+            )
+            if not already_connected:
+                petri_utils.add_arc_from_to(init_transition, target_place, new_net)
+
+        # new initial marking
+        new_im[init_place] = 1
+
+        return new_net, new_im, new_fm
+
+    def _create_pnml(self, petri_net, im, fm, output_folder: str) -> str:
+        os.makedirs(output_folder, exist_ok=True)
+        base_name = os.path.splitext(os.path.basename(petri_net.name))[0]
+        filename = f"data_{base_name}.pnml"
+        data_pnml_path = os.path.join(output_folder, filename)
+        pnml_exporter.apply(petri_net, im, data_pnml_path, final_marking=fm)
+        return data_pnml_path
+
+    def _create_blanc_config(self, petrinet) -> str:
+        os.makedirs(self.config_out_dir, exist_ok=True)
+
+        # name based on the original pnml we were constructed with
+        base_name = os.path.splitext(os.path.basename(self.pnml_path))[0]
+        config_path = os.path.join(self.config_out_dir, f"{base_name}_config.json")
+
         place_transition_arc = {}
 
         for arc in petrinet.arcs:
             src = arc.source
             tgt = arc.target
 
-            # we only care about arcs Place -> Transition
-            is_place_to_trans = (
-                hasattr(src, "in_arcs") and hasattr(src, "out_arcs") and
-                hasattr(tgt, "in_arcs") and hasattr(tgt, "out_arcs") and
-                (src in petrinet.places) and (tgt in petrinet.transitions)
-            )
-            if not is_place_to_trans:
-                continue
+            if (src in petrinet.places) and (tgt in petrinet.transitions):
+                place_id = src.name
+                trans_id = tgt.name
 
-            place_id = src.name
-            trans_id = tgt.name
+                if place_id not in place_transition_arc:
+                    place_transition_arc[place_id] = {}
 
-            if place_id not in place_transition_arc:
-                place_transition_arc[place_id] = {}
-
-            arc_key = f"{place_id}_{trans_id}"
-
-            place_transition_arc[place_id][arc_key] = ""
+                arc_key = f"{place_id}_{trans_id}"
+                place_transition_arc[place_id][arc_key] = ""
 
         places = [place.name for place in petrinet.places]
 
@@ -52,18 +161,16 @@ class PetriNetUtil(IPetriNetUtil):
             "pnmlfilename": os.path.basename(petrinet.name),
             "behavior": "",
             "places": places,
-            "place_transition_arc": place_transition_arc
+            "place_transition_arc": place_transition_arc,
         }
 
-        if save_to_disk:
-            os.makedirs(os.path.dirname(output_path), exist_ok=True)
-            with open(output_path, "w", encoding="utf-8") as f:
-                json.dump(config, f, indent=4)
+        with open(config_path, "w", encoding="utf-8") as f:
+            json.dump(config, f, indent=4)
 
-        return config
-    
-    def validate_config(self, config):
-        with open(config, "r", encoding="utf-8") as f:
+        return config_path
+
+    def _validate_config(self, config_path):
+        with open(config_path, "r", encoding="utf-8") as f:
             config_json = json.load(f)
 
         arcs = config_json.get("place_transition_arc", {})
@@ -83,75 +190,78 @@ class PetriNetUtil(IPetriNetUtil):
                 all_valid = False
 
         return all_valid
-    
-    def obtain_guards(self, petrinet, config):
-        with open(config, "r", encoding="utf-8") as f:
+
+    def _obtain_guards(self, petrinet, config_path: str):
+        with open(config_path, "r", encoding="utf-8") as f:
             config_json = json.load(f)
+
         config_arcs = config_json.get("place_transition_arc", {})
 
-        pre_conditions = {}
-        post_conditions = {}
+        pre_conditions = self._build_pre_conditions(petrinet, config_arcs)
+        post_conditions = self._build_post_conditions(petrinet)
 
-        #finding preconditions
-        for p in petrinet.places:
-            prob_sum = 0
-            for arc in p.out_arcs:
-                transition = arc.target.name
-                place = arc.source
-                config_key = f"{place}_{transition}"
-
-
-                prob = float(config_arcs[str(p)][config_key])
-
-                if prob_sum == 0:
-                    pre_conditions[transition] = f"{p} <= {prob}"
-                    prob_sum = prob_sum + prob
-                else:
-                    pre_conditions[transition] = f"{p} > {prob_sum} && {p} <= {prob_sum + prob}"
-                    prob_sum = prob_sum + prob
-
-        #finding postconditions
-        for p in petrinet.places:
-            for arc in p.in_arcs:
-                transition = arc.source.name
-
-                post_conditions[transition] = f"{p}' > 0"                    
-                    
         return pre_conditions, post_conditions
 
-    def combine_guards(self, pre_conditions, post_conditions):
+    def _build_pre_conditions(self, petrinet, config_arcs: dict):
+        pre_conditions = {}
+
+        for place in petrinet.places:
+            p_name = place.name
+
+            if p_name not in config_arcs:
+                continue
+
+            prob_sum = 0.0
+            for arc in place.out_arcs:
+                transition_name = arc.target.name
+                config_key = f"{p_name}_{transition_name}"
+
+                if config_key not in config_arcs[p_name]:
+                    continue
+
+                prob = float(config_arcs[p_name][config_key])
+
+                if prob_sum == 0.0:
+                    pre_conditions[transition_name] = f"{p_name} <= {prob}"
+                else:
+                    pre_conditions[transition_name] = (
+                        f"{p_name} > {prob_sum} && {p_name} <= {prob_sum + prob}"
+                    )
+
+                prob_sum += prob
+
+        return pre_conditions
+
+    def _build_post_conditions(self, petrinet):
+        post_conditions = {}
+        for place in petrinet.places:
+            p_name = place.name
+            for arc in place.in_arcs:
+                transition_name = arc.source.name
+                post_conditions[transition_name] = f"{p_name}' > 0"
+        return post_conditions
+
+    def _combine_guards(self, pre_conditions, post_conditions):
         combined_guards = {}
-
         all_transitions = set(pre_conditions.keys()) | set(post_conditions.keys())
-        
         for t in all_transitions:
-                pre = pre_conditions.get(t)
-                post = post_conditions.get(t)
-
-                if pre and post:
-                    combined_guards[t] = f"(({pre})&&({post}))"
-                elif pre:
-                    combined_guards[t] = pre
-                elif post:
-                    combined_guards[t] = post
-
+            pre = pre_conditions.get(t)
+            post = post_conditions.get(t)
+            if pre and post:
+                combined_guards[t] = f"(({pre})&&({post}))"
+            elif pre:
+                combined_guards[t] = pre
+            elif post:
+                combined_guards[t] = post
         return combined_guards
-    
-    def create_data_pnml(self, guards, pnml_path, config_path):
-        folder = os.path.dirname(pnml_path)
-        filename = os.path.basename(pnml_path)
-        data_filename = f"data_{filename}"
-        data_pnml_path = os.path.join(folder, data_filename)
-        shutil.copyfile(pnml_path, data_pnml_path)
 
+    def _create_data_pnml(self, guards, data_pnml_path: str, config_path: str):
         self._inject_variables(config_path, data_pnml_path)
-
         self._inject_guards(guards, data_pnml_path)
-
         self._inject_write_varibales(data_pnml_path)
-
         return data_pnml_path
 
+    # ---------- XML injection helpers ----------
     def _inject_variables(self, config_path, pnml_path):
         with open(config_path, "r", encoding="utf-8") as f:
             config_json = json.load(f)
@@ -181,8 +291,8 @@ class PetriNetUtil(IPetriNetUtil):
                     {
                         "maxValue": "100000.0",
                         "minValue": "0.0",
-                        "type": "java.lang.Double"
-                    }
+                        "type": "java.lang.Double",
+                    },
                 )
                 name_el = ET.SubElement(var_el, q("name"))
                 name_el.text = place_name
@@ -192,9 +302,6 @@ class PetriNetUtil(IPetriNetUtil):
             ET.register_namespace("", ns_uri)
 
         else:
-            def q(tag: str) -> str:
-                return tag
-
             net_el = root.find("net")
             if net_el is None:
                 raise RuntimeError("Could not find <net> element in PNML (no namespace).")
@@ -208,8 +315,8 @@ class PetriNetUtil(IPetriNetUtil):
                     {
                         "maxValue": "100000.0",
                         "minValue": "0.0",
-                        "type": "java.lang.Double"
-                    }
+                        "type": "java.lang.Double",
+                    },
                 )
                 name_el = ET.SubElement(var_el, "name")
                 name_el.text = place_name
@@ -232,7 +339,6 @@ class PetriNetUtil(IPetriNetUtil):
             transition_elems = root.findall(".//pnml:transition", nsmap)
 
             ET.register_namespace("", ns_uri)
-
         else:
             def q(tag: str) -> str:
                 return tag
@@ -242,16 +348,15 @@ class PetriNetUtil(IPetriNetUtil):
         for t_el in transition_elems:
             t_id = t_el.get("id")
             if not t_id:
-                continue 
+                continue
 
             if t_id in guards:
                 raw_guard = guards[t_id]
-
                 t_el.set("guard", raw_guard)
 
         tree.write(pnml_path, encoding="utf-8", xml_declaration=True)
 
-    def _inject_write_varibales(self, pnml_path: str) -> None:
+    def _inject_write_varibales(self, pnml_path):
         tree = ET.parse(pnml_path)
         root = tree.getroot()
 
@@ -279,15 +384,13 @@ class PetriNetUtil(IPetriNetUtil):
                 continue
 
             written_vars = set(prime_pattern.findall(guard_expr))
-
             if not written_vars:
                 continue
 
             existing_vars = set()
             for child in list(t_el):
-                if child.tag == q("writeVariable"):
-                    if child.text is not None:
-                        existing_vars.add(child.text.strip())
+                if child.tag == q("writeVariable") and child.text is not None:
+                    existing_vars.add(child.text.strip())
 
             for var in written_vars:
                 if var not in existing_vars:
@@ -296,41 +399,22 @@ class PetriNetUtil(IPetriNetUtil):
 
         tree.write(pnml_path, encoding="utf-8", xml_declaration=True)
 
+
 # -----------------------------------
 if __name__ == "__main__":
-    # initialize
-    pnml_file = "PNMLFiles/simplest_ex.pnml"
-    config_path = "/Users/emilpontoppidanrasmussen/Dropbox/Dtu/Kandidat/4_semester/Masters/Master Repo/MasterRepo/Configs/config1.json"
-    config_path1 = "/Users/emilpontoppidanrasmussen/Dropbox/Dtu/Kandidat/4_semester/Masters/Master Repo/MasterRepo/Configs/config2.json"
+    pnml_file = "/Users/emilpontoppidanrasmussen/Dropbox/Dtu/Kandidat/4_semester/Masters/Master Repo/MasterRepo/PNMLFiles/simplest_ex.pnml"
+    pnml_output_dir = "/Users/emilpontoppidanrasmussen/Dropbox/Dtu/Kandidat/4_semester/Masters/Master Repo/MasterRepo/PNMLFiles"
+    config_output_dir = "/Users/emilpontoppidanrasmussen/Dropbox/Dtu/Kandidat/4_semester/Masters/Master Repo/MasterRepo/Configs"
 
-    util = PetriNetUtil()
+    util = PetriNetUtil(
+        pnml_path=pnml_file,
+        data_pnml_out_dir=pnml_output_dir,
+        config_out_dir=config_output_dir,
+    )
 
-    # 1. Load Petri net from PNML
-    net, im, fm = util.get_petrinet(pnml_file)
-    print("Petri net loaded successfully!")
-    print(f"Net name: {net.name}")
-    print("Places:", [p.name for p in net.places])
-    print("Transitions:", [t.name for t in net.transitions])
-    print("Initial marking:", {p.name: t for p, t in im.items()})
+    #cfg = util.generate_config_structure(pnml_file)
+    #print("config:", cfg)
 
-    # 2. Create blank config JSON in the new nested structure
-    config = util.create_blanc_config(net, config_path, True)
-    print("\nGenerated blank config:")
-    print(json.dumps(config, indent=4))
-
-    # 3. Validate that config
-    is_valid = util.validate_config(config_path1)
-    print("Overall valid?", is_valid)
-
-    # 4. inject guards into pnml
-    pre, post = util.obtain_guards(net, config_path1)
-
-    print("pre:", pre)
-    print("post:", post)
-
-    # 5. combine the guards
-    combined = util.combine_guards(pre, post)
-    print("combined", combined)
-
-    #6. inject the obtain guards into the pnml
-    data_pnml_path = util.create_data_pnml(combined, pnml_file, config_path1)
+    path = "/Users/emilpontoppidanrasmussen/Dropbox/Dtu/Kandidat/4_semester/Masters/Master Repo/MasterRepo/Configs/simplest_ex_config.json"
+    data_pnml = util.generate_data_petrinet(path)
+    print("data pnml:", data_pnml)

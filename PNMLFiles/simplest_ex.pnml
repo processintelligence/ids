@@ -2,7 +2,7 @@
   <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
     <net id="simplest ex" type="http://www.pnml.org/version-2009/grammar/ptnet">
       <n>
-        <text>New Petri Net</text>
+        <text>simplest_ex</text>
       </n>
       <place id="p1">
         <n>
