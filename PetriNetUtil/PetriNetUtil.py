@@ -18,31 +18,27 @@ class PetriNetUtil(IPetriNetUtil):
         self.data_pnml_out_dir = data_pnml_out_dir
         self.config_out_dir = config_out_dir
 
-    # =====================
     # PUBLIC API
-    # =====================
-    def generate_config_structure(self, pnml_path: str) -> str:
-        net, im, fm = self._get_petrinet(pnml_path)
+    def generate_config_structure(self) -> str:
+        net, im, fm = self._get_petrinet(self.pnml_path)
 
-        # wrap the net
         new_net, new_im, new_fm = self._add_init_place(net, im, fm)
 
-        # save wrapped PNML to data directory
-        # this will be data_<netname>.pnml
         self._create_pnml(new_net, new_im, new_fm, self.data_pnml_out_dir)
 
-        # create the blank config (now handled internally)
         config_path = self._create_blanc_config(net)
 
         return config_path
 
-    def generate_data_petrinet(self, config_path: str) -> str:
-        # 1. validate
+    def generate_data_petrinet(self) -> str:
+        base_name = os.path.splitext(os.path.basename(self.pnml_path))[0]
+        config_path = os.path.join(self.config_out_dir, f"{base_name}_config.json")
+
         is_valid = self._validate_config(config_path)
+
         if not is_valid:
             raise ValueError("Config is not valid: probabilities per place must sum to 1.0")
 
-        # 2. read config to know which pnml it refers to
         with open(config_path, "r", encoding="utf-8") as f:
             cfg = json.load(f)
 
@@ -50,7 +46,6 @@ class PetriNetUtil(IPetriNetUtil):
         if not pnml_filename:
             raise ValueError("Config is missing 'pnmlfilename'")
 
-        # 3. try to use the *wrapped* pnml in data_pnml_out_dir
         base_name = os.path.splitext(pnml_filename)[0]
         wrapped_name = f"data_{base_name}.pnml"
         wrapped_path = os.path.join(self.data_pnml_out_dir, wrapped_name)
@@ -58,25 +53,19 @@ class PetriNetUtil(IPetriNetUtil):
         if os.path.exists(wrapped_path):
             pnml_path_to_use = wrapped_path
         else:
-            # fallback: use the pnml right next to the config
             cfg_dir = os.path.dirname(config_path)
             pnml_path_to_use = os.path.join(cfg_dir, pnml_filename)
 
-        # 4. load that pnml
         petrinet, im, fm = self._get_petrinet(pnml_path_to_use)
 
-        # 5. build guards
         pre_conditions, post_conditions = self._obtain_guards(petrinet, config_path)
         combined_guards = self._combine_guards(pre_conditions, post_conditions)
 
-        # 6. inject into the pnml we chose
         data_pnml_path = self._create_data_pnml(combined_guards, pnml_path_to_use, config_path)
 
         return data_pnml_path
 
-    # =====================
     # PRIVATE METHODS
-    # =====================
     def _get_petrinet(self, pnml_path: str):
         net, initial_marking, final_marking = pnml_importer.apply(pnml_path)
         net.name = os.path.splitext(os.path.basename(pnml_path))[0]
@@ -88,7 +77,6 @@ class PetriNetUtil(IPetriNetUtil):
 
         originally_marked_place_names = [p.name for p in im.keys()]
 
-        # sanity
         if "init_p" in [p.name for p in petrinet.places]:
             raise ValueError("You can not have a place called init_p.")
         if "init_t" in [t.name for t in petrinet.transitions]:
@@ -412,9 +400,9 @@ if __name__ == "__main__":
         config_out_dir=config_output_dir,
     )
 
-    #cfg = util.generate_config_structure(pnml_file)
+    #cfg = util.generate_config_structure()
     #print("config:", cfg)
 
     path = "/Users/emilpontoppidanrasmussen/Dropbox/Dtu/Kandidat/4_semester/Masters/Master Repo/MasterRepo/Configs/simplest_ex_config.json"
-    data_pnml = util.generate_data_petrinet(path)
+    data_pnml = util.generate_data_petrinet()
     print("data pnml:", data_pnml)
