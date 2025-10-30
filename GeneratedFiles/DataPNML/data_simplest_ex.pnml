@@ -10,9 +10,9 @@
           <text>p1</text>
         </name>
       </place>
-      <place id="p3">
+      <place id="p2">
         <name>
-          <text>p3</text>
+          <text>p2</text>
         </name>
       </place>
       <place id="init_p">
@@ -23,9 +23,9 @@
           <text>1</text>
         </initialMarking>
       </place>
-      <place id="p2">
+      <place id="p3">
         <name>
-          <text>p2</text>
+          <text>p3</text>
         </name>
       </place>
       <transition id="t1" guard="((p1 &gt; 0.5 &amp;&amp; p1 &lt;= 1.0)&amp;&amp;(p2' &gt; 0))">
@@ -33,6 +33,11 @@
           <text>t1</text>
         </name>
       <writeVariable>p2</writeVariable></transition>
+      <transition id="t3" guard="((p2 &lt;= 1.0)&amp;&amp;(p3' &gt; 0))">
+        <name>
+          <text>t3</text>
+        </name>
+      <writeVariable>p3</writeVariable></transition>
       <transition id="t2" guard="((p1 &lt;= 0.5)&amp;&amp;(p2' &gt; 0))">
         <name>
           <text>t2</text>
@@ -43,19 +48,14 @@
           <text>init_t</text>
         </name>
       <writeVariable>p1</writeVariable></transition>
-      <transition id="t3" guard="((p2 &lt;= 1.0)&amp;&amp;(p3' &gt; 0))">
-        <name>
-          <text>t3</text>
-        </name>
-      <writeVariable>p3</writeVariable></transition>
-      <arc id="5162049360" source="p1" target="t2" />
-      <arc id="5162050576" source="p1" target="t1" />
-      <arc id="5162050704" source="t2" target="p2" />
-      <arc id="5162050192" source="p2" target="t3" />
-      <arc id="5162050832" source="t1" target="p2" />
-      <arc id="5162050960" source="t3" target="p3" />
-      <arc id="5162051280" source="init_p" target="init_t" />
-      <arc id="5162051408" source="init_t" target="p1" />
+      <arc id="3112619931408" source="p1" target="t2" />
+      <arc id="3112624554320" source="p2" target="t3" />
+      <arc id="3112624554448" source="t1" target="p2" />
+      <arc id="3112624554128" source="p1" target="t1" />
+      <arc id="3112624554192" source="t2" target="p2" />
+      <arc id="3112624554576" source="t3" target="p3" />
+      <arc id="3112624554896" source="init_p" target="init_t" />
+      <arc id="3112624555024" source="init_t" target="p1" />
     </page>
     <finalmarkings>
       <marking>
@@ -64,5 +64,5 @@
         </place>
       </marking>
     </finalmarkings>
-  <variables><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p1</name></variable><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p2</name></variable><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p3</name></variable></variables></net>
+  <variables><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p1</name></variable><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p3</name></variable><variable maxValue="100000.0" minValue="0.0" type="java.lang.Double"><name>p2</name></variable></variables></net>
 </pnml>

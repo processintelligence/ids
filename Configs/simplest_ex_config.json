@@ -3,8 +3,8 @@
     "behavior": "",
     "places": [
         "p1",
-        "p2",
-        "p3"
+        "p3",
+        "p2"
     ],
     "place_transition_arc": {
         "p1": {

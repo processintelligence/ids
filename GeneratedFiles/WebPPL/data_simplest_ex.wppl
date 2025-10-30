@@ -1,0 +1,273 @@
+var init = function(){
+globalStore.countEnabled = 0;
+globalStore.trace = "";
+globalStore.p1 = 0;
+globalStore.p2 = 0;
+globalStore.p3 = 0;
+globalStore.init_p = 1;
+
+globalStore.enabled_t1 = false; // t1
+globalStore.enabled_t3 = false; // t3
+globalStore.enabled_init_t = false; // init_t
+globalStore.enabled_t2 = false; // t2
+
+globalStore.fired_t1 = 0;
+globalStore.fired_t3 = 0;
+globalStore.fired_init_t = 0;
+globalStore.fired_t2 = 0;
+
+globalStore.vars = { p1 : {'maxValue': 100000.0, 'minValue': 0.0, 'type': 'java.lang.Double'}, p3 : {'maxValue': 100000.0, 'minValue': 0.0, 'type': 'java.lang.Double'}, p2 : {'maxValue': 100000.0, 'minValue': 0.0, 'type': 'java.lang.Double'} };
+
+globalStore.p1 = 0;
+globalStore.p3 = 0;
+globalStore.p2 = 0;
+}
+
+var update_enabled_t1 = function() {
+if(globalStore.p1 > 0 && globalStore.p1>0.5&&globalStore.p1<=1.0) {
+if (!globalStore.enabled_t1) {
+globalStore.enabled_t1 = true;
+globalStore.countEnabled = globalStore.countEnabled + 1;
+}
+} else {
+if (globalStore.enabled_t1) {
+globalStore.enabled_t1 = false;
+globalStore.countEnabled = globalStore.countEnabled - 1;
+}
+}
+}
+
+var update_enabled_t3 = function() {
+if(globalStore.p2 > 0 && globalStore.p2<=1.0) {
+if (!globalStore.enabled_t3) {
+globalStore.enabled_t3 = true;
+globalStore.countEnabled = globalStore.countEnabled + 1;
+}
+} else {
+if (globalStore.enabled_t3) {
+globalStore.enabled_t3 = false;
+globalStore.countEnabled = globalStore.countEnabled - 1;
+}
+}
+}
+
+var update_enabled_init_t = function() {
+if(globalStore.init_p > 0) {
+if (!globalStore.enabled_init_t) {
+globalStore.enabled_init_t = true;
+globalStore.countEnabled = globalStore.countEnabled + 1;
+}
+} else {
+if (globalStore.enabled_init_t) {
+globalStore.enabled_init_t = false;
+globalStore.countEnabled = globalStore.countEnabled - 1;
+}
+}
+}
+
+var update_enabled_t2 = function() {
+if(globalStore.p1 > 0 && globalStore.p1<=0.5) {
+if (!globalStore.enabled_t2) {
+globalStore.enabled_t2 = true;
+globalStore.countEnabled = globalStore.countEnabled + 1;
+}
+} else {
+if (globalStore.enabled_t2) {
+globalStore.enabled_t2 = false;
+globalStore.countEnabled = globalStore.countEnabled - 1;
+}
+}
+}
+
+
+var fire_t1 = function() {
+globalStore.p1 = globalStore.p1 - 1;
+globalStore.p2 = globalStore.p2 + 1;
+
+globalStore.fired_t1 = globalStore.fired_t1 + 1;
+
+var old_var_p2 = globalStore.p2;
+globalStore.p2 = uniform({a: 0, b: 1});
+condition(globalStore.p2>0);
+
+update_enabled_t1();
+update_enabled_t2();
+update_enabled_t3();
+}
+
+
+var fire_t3 = function() {
+globalStore.p2 = globalStore.p2 - 1;
+globalStore.p3 = globalStore.p3 + 1;
+
+globalStore.fired_t3 = globalStore.fired_t3 + 1;
+
+var old_var_p3 = globalStore.p3;
+globalStore.p3 = uniform({a: 0, b: 1});
+condition(globalStore.p3>0);
+
+update_enabled_t3();
+}
+
+
+var fire_init_t = function() {
+globalStore.init_p = globalStore.init_p - 1;
+globalStore.p1 = globalStore.p1 + 1;
+
+globalStore.fired_init_t = globalStore.fired_init_t + 1;
+
+var old_var_p1 = globalStore.p1;
+globalStore.p1 = uniform({a: 0, b: 1});
+condition(globalStore.p1>0);
+
+update_enabled_t1();
+update_enabled_init_t();
+update_enabled_t2();
+}
+
+
+var fire_t2 = function() {
+globalStore.p1 = globalStore.p1 - 1;
+globalStore.p2 = globalStore.p2 + 1;
+
+globalStore.fired_t2 = globalStore.fired_t2 + 1;
+
+var old_var_p2 = globalStore.p2;
+globalStore.p2 = uniform({a: 0, b: 1});
+condition(globalStore.p2>0);
+
+update_enabled_t1();
+update_enabled_t2();
+update_enabled_t3();
+}
+
+
+var getXMLtag = function (type) {
+if (type.includes("Double")) {
+return "float";
+} else if (type.includes("Integer")) {
+return "integer";
+} else if (type.includes("Boolean")) {
+return "boolean";
+}
+return "string";
+}
+
+var log_transition = function(transition) {
+if (transition !== "None") {
+var p1Tag = getXMLtag(globalStore.vars.p1.type);
+var p3Tag = getXMLtag(globalStore.vars.p3.type);
+var p2Tag = getXMLtag(globalStore.vars.p2.type);
+globalStore.xesOutput += "<event>\n";
+globalStore.xesOutput +=  "<string key=\"concept:name\" value=\"" + transition + "\"/>\n";
+if (globalStore.p1 !== undefined &&  globalStore.p1 !== null) {
+if (globalStore.vars.p1.valueMapping) {
+var p1Value = globalStore.vars.p1.valueMapping[globalStore.p1] || globalStore.p1;
+globalStore.xesOutput +=  "<" + p1Tag +   " key=\"p1\" value=\"" + p1Value + "\"/>\n";
+}
+else {
+globalStore.xesOutput +=  "<" + p1Tag +   " key=\"p1\" value=\"" + globalStore.p1 + "\"/>\n";
+}
+}
+if (globalStore.p3 !== undefined &&  globalStore.p3 !== null) {
+if (globalStore.vars.p3.valueMapping) {
+var p3Value = globalStore.vars.p3.valueMapping[globalStore.p3] || globalStore.p3;
+globalStore.xesOutput +=  "<" + p3Tag +   " key=\"p3\" value=\"" + p3Value + "\"/>\n";
+}
+else {
+globalStore.xesOutput +=  "<" + p3Tag +   " key=\"p3\" value=\"" + globalStore.p3 + "\"/>\n";
+}
+}
+if (globalStore.p2 !== undefined &&  globalStore.p2 !== null) {
+if (globalStore.vars.p2.valueMapping) {
+var p2Value = globalStore.vars.p2.valueMapping[globalStore.p2] || globalStore.p2;
+globalStore.xesOutput +=  "<" + p2Tag +   " key=\"p2\" value=\"" + p2Value + "\"/>\n";
+}
+else {
+globalStore.xesOutput +=  "<" + p2Tag +   " key=\"p2\" value=\"" + globalStore.p2 + "\"/>\n";
+}
+}
+globalStore.xesOutput +=  "</event>\n";
+globalStore.trace += globalStore.xesOutput;
+}
+};
+
+var simulator_loop = function(steps) {
+
+globalStore.xesOutput = "";
+
+var enabledTransitions = filter(function(x) {
+return (x == 0 && globalStore.enabled_t1)||
+(x == 1 && globalStore.enabled_t3)||
+(x == 2 && globalStore.enabled_init_t)||
+(x == 3 && globalStore.enabled_t2);
+}, [0, 1, 2, 3]);
+
+if (steps <= 0) {
+return;
+}
+
+if (enabledTransitions.length == 0) {
+return;
+}
+
+if (false){
+return;
+}
+
+var transition = sample(Categorical({vs: enabledTransitions}));
+
+if (transition == 0) {
+log_transition("t1");
+fire_t1();
+}
+else if (transition == 1) {
+log_transition("t3");
+fire_t3();
+}
+else if (transition == 2) {
+log_transition("init_t");
+fire_init_t();
+}
+else if (transition == 3) {
+log_transition("t2");
+fire_t2();
+}
+else {
+console.log("Selected illegal transition; should never happen.");
+}
+simulator_loop(steps - 1);
+}
+
+var simulator = function(){
+init();
+update_enabled_t1();
+update_enabled_t3();
+update_enabled_init_t();
+update_enabled_t2();
+
+globalStore.trace += "<trace>\n";
+
+simulator_loop(10);
+
+globalStore.trace += "</trace>\n";
+
+console.log(globalStore.trace);
+
+return false;
+}
+
+var dist = Infer({
+method: 'forward', 
+samples: 10,
+},simulator);
+
+// Extract the samples from the distribution
+var samplesArray = dist.samples;
+var params = dist.params;
+
+// Convert the samples array to a JSON string
+var jsonString = JSON.stringify({"dist":dist});
+
+// Output the JSON string
+jsonString;
