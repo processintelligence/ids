@@ -23,8 +23,11 @@ p14 = PetriNet.Place("p14")
 p15 = PetriNet.Place("p15")
 p16 = PetriNet.Place("p16")
 p17 = PetriNet.Place("p17")
+p18 = PetriNet.Place("p18")
+p19 = PetriNet.Place("p19")
 
-phase_1_net.places.update({p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17})
+
+phase_1_net.places.update({p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19})
 
 # traces
 t_4608 = PetriNet.Transition("t_4608", "t_4608")
@@ -67,6 +70,7 @@ tau_3 = PetriNet.Transition("tau_3", "tau_3")
 tau_4 = PetriNet.Transition("tau_4", "tau_4")
 tau_5 = PetriNet.Transition("tau_5", "tau_5")
 tau_6 = PetriNet.Transition("tau_6", "tau_6")
+tau_7 = PetriNet.Transition("tau_7", "tau_7")
 
 phase_1_net.transitions.update({
     t_4608, t_4624_3, t_4634_3, t_4625_9_8_2_7_3, t_1100, t_4609,
@@ -84,26 +88,21 @@ petri_utils.add_arc_from_to(p1, t_4608, phase_1_net)
 # p2
 petri_utils.add_arc_from_to(p2, t_4634_3, phase_1_net)
 # p4
-petri_utils.add_arc_from_to(p4, t_4624_9, phase_1_net)
+petri_utils.add_arc_from_to(p18, t_4624_9, phase_1_net)
 petri_utils.add_arc_from_to(p4, t_4624_8, phase_1_net)
 petri_utils.add_arc_from_to(p4, t_4624_2, phase_1_net)
 petri_utils.add_arc_from_to(p4, t_4624_7, phase_1_net)
-petri_utils.add_arc_from_to(p4, t_4634_2_7_8_9, phase_1_net) #fail
 petri_utils.add_arc_from_to(p4, t_4624_3, phase_1_net)
 petri_utils.add_arc_from_to(p4, t_4625_9_8_2_7_3, phase_1_net)
-petri_utils.add_arc_from_to(p4, t_1100, phase_1_net)
-petri_utils.add_arc_from_to(p4, t_4609, phase_1_net)
 # p5
 petri_utils.add_arc_from_to(p5, t_4672, phase_1_net)
 # p6
 petri_utils.add_arc_from_to(p6, tau_1, phase_1_net)
 petri_utils.add_arc_from_to(p6, t_4800, phase_1_net)
-petri_utils.add_arc_from_to(p6, t_4634_2_7_8_9, phase_1_net)
 petri_utils.add_arc_from_to(p6, tau_2, phase_1_net)
 petri_utils.add_arc_from_to(p6, t_4648, phase_1_net)
 # p7 
 petri_utils.add_arc_from_to(p7, t_4801, phase_1_net)
-petri_utils.add_arc_from_to(p7, t_4634_4, phase_1_net)
 # p8 
 petri_utils.add_arc_from_to(p8, t_4634_5, phase_1_net)
 # p9 
@@ -114,8 +113,8 @@ petri_utils.add_arc_from_to(p9, tau_3, phase_1_net)
 petri_utils.add_arc_from_to(p9, t_4624_3, phase_1_net)
 petri_utils.add_arc_from_to(p9, t_4688_cmd, phase_1_net)
 # p10
-petri_utils.add_arc_from_to(p10, t_4663, phase_1_net)
-petri_utils.add_arc_from_to(p10, tau_4, phase_1_net)
+petri_utils.add_arc_from_to(p10, t_4688_priv, phase_1_net)
+petri_utils.add_arc_from_to(p10, t_4656, phase_1_net)
 # p11
 petri_utils.add_arc_from_to(p11, t_4663, phase_1_net)
 petri_utils.add_arc_from_to(p11, tau_4, phase_1_net)
@@ -131,12 +130,20 @@ petri_utils.add_arc_from_to(p14, t_4657_registry, phase_1_net)
 petri_utils.add_arc_from_to(p15, t_4658, phase_1_net)
 # p16
 petri_utils.add_arc_from_to(p16, tau_6, phase_1_net)
+petri_utils.add_arc_from_to(p16, t_4634_2_7_8_9, phase_1_net)
+#p17
+#p18
+petri_utils.add_arc_from_to(p18, t_4609, phase_1_net)
+petri_utils.add_arc_from_to(p18, t_1100, phase_1_net)
+petri_utils.add_arc_from_to(p18, tau_7, phase_1_net)
+# p19
+petri_utils.add_arc_from_to(p19, t_4634_4, phase_1_net)
 # t_4608
 petri_utils.add_arc_from_to(t_4608, p4, phase_1_net)
 # t_4624_3
 petri_utils.add_arc_from_to(t_4624_3, p2, phase_1_net)
 # t_4634_3
-petri_utils.add_arc_from_to(t_4634_3, p4, phase_1_net)
+petri_utils.add_arc_from_to(t_4634_3, p18, phase_1_net)
 # t_4625_9_8_2_7_3
 petri_utils.add_arc_from_to(t_4625_9_8_2_7_3, p4, phase_1_net)
 # t_1100
@@ -163,12 +170,14 @@ petri_utils.add_arc_from_to(tau_4, p14, phase_1_net)
 petri_utils.add_arc_from_to(tau_5, p16, phase_1_net)
 # tau_6
 petri_utils.add_arc_from_to(tau_6, p6, phase_1_net)
+# tau_7
+petri_utils.add_arc_from_to(tau_7, p4, phase_1_net)
 # t_4800
 petri_utils.add_arc_from_to(t_4800, p7, phase_1_net)
 # t_4801
 petri_utils.add_arc_from_to(t_4801, p6, phase_1_net)
 # t_4624_4
-petri_utils.add_arc_from_to(t_4624_4, p7, phase_1_net)
+petri_utils.add_arc_from_to(t_4624_4, p19, phase_1_net)
 # t_4634_4
 petri_utils.add_arc_from_to(t_4634_4, p9, phase_1_net)
 # t_4624_5
@@ -199,6 +208,8 @@ petri_utils.add_arc_from_to(t_4688_priv, p16, phase_1_net)
 petri_utils.add_arc_from_to(t_4688_unpriv, p16, phase_1_net)
 # t_4658
 petri_utils.add_arc_from_to(t_4658, p16, phase_1_net)
+# t_4634_2_7_8_9
+petri_utils.add_arc_from_to(t_4634_2_7_8_9, p18, phase_1_net)
 
 # check
 print("Places:", [p.name for p in phase_1_net.places])
