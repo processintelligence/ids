@@ -205,10 +205,3 @@ print("Places:", [p.name for p in phase_1_net.places])
 print("Transitions:", [t.name for t in phase_1_net.transitions])
 print("Arcs:", [(a.source.name, a.target.name) for a in phase_1_net.arcs])
 
-
-
-
-
-
-
-

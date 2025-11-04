@@ -8,7 +8,6 @@ phase_1_net = PetriNet("phase_1_net")
 # places
 p1 = PetriNet.Place("p1")
 p2 = PetriNet.Place("p2")
-p3 = PetriNet.Place("p3")
 p4 = PetriNet.Place("p4")
 p5 = PetriNet.Place("p5")
 p6 = PetriNet.Place("p6")
@@ -26,8 +25,7 @@ p17 = PetriNet.Place("p17")
 p18 = PetriNet.Place("p18")
 p19 = PetriNet.Place("p19")
 
-
-phase_1_net.places.update({p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19})
+phase_1_net.places.update({p1, p2, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19})
 
 # traces
 t_4608 = PetriNet.Transition("t_4608", "t_4608")
@@ -78,7 +76,7 @@ phase_1_net.transitions.update({
     t_4801, t_4800, t_4624_4, t_4634_4, t_4634_5, t_4624_5,
     t_4625_4_5, t_4672, t_4688_cmd, t_4688_conhost, t_4648,
     t_4688_priv, t_4688_unpriv, t_4656, t_4663, t_4657_common, t_4657_registry, t_4658,
-    tau_1, tau_2, tau_3, tau_4, tau_5, tau_6
+    tau_1, tau_2, tau_3, tau_4, tau_5, tau_6, tau_7
 })
 
 
@@ -88,7 +86,7 @@ petri_utils.add_arc_from_to(p1, t_4608, phase_1_net)
 # p2
 petri_utils.add_arc_from_to(p2, t_4634_3, phase_1_net)
 # p4
-petri_utils.add_arc_from_to(p18, t_4624_9, phase_1_net)
+petri_utils.add_arc_from_to(p4, t_4624_9, phase_1_net)
 petri_utils.add_arc_from_to(p4, t_4624_8, phase_1_net)
 petri_utils.add_arc_from_to(p4, t_4624_2, phase_1_net)
 petri_utils.add_arc_from_to(p4, t_4624_7, phase_1_net)
@@ -216,6 +214,20 @@ print("Places:", [p.name for p in phase_1_net.places])
 print("Transitions:", [t.name for t in phase_1_net.transitions])
 print("Arcs:", [(a.source.name, a.target.name) for a in phase_1_net.arcs])
 
+# generate pnml
+im = Marking()
+im[p1] = 1
+
+# final marking
+fm = Marking()
+fm[p17] = 1
+
+out_dir = "PNMLFiles"
+os.makedirs(out_dir, exist_ok=True)
+pnml_path = os.path.join(out_dir, "phase_1_net_2.pnml")
+pnml_exporter.apply(phase_1_net, im, pnml_path, final_marking=fm)
+
+print(f"PNML written to: {pnml_path}")
 
 
 

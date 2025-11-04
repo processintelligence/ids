@@ -15,7 +15,7 @@ def main():
     data_pnml_path = util.generate_data_petrinet()
     print(f"Data PNML written to: {data_pnml_path}")
 
-    print(">>> Simulating data PNML to generate uniform traces...")
+    print(">>> Simulating data PNML to generate uniform traces...") #TODO: add sample size and steps to arg parser
     simulate_dpn(steps=10, sample_size=10, pnml_path=data_pnml_path)
 
 if __name__ == "__main__":
