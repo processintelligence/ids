@@ -5,7 +5,7 @@ from pm4py.objects.petri_net.obj import PetriNet, Marking
 
 class IPNMLToDataPNML(ABC):
     @abstractmethod
-    def generate_config_structure(self, pnml_path: str) -> str:
+    def generate_config_structure(self) -> str:
         pass
 
     @abstractmethod
