@@ -9,7 +9,7 @@ def main():
     parser.add_argument("--config-out", required=True, help="Directory where configs are stored (same as before).")
     args = parser.parse_args()
 
-    util = PNMLToDataPNML(pnml_path=args.pnml, config_dir=args.config_out)
+    util = PNMLToDataPNML(pnml_path=args.pnml, config_dir=args.config_out) #should take path to config instead of path to config dir
 
     print(">>> Generating data PNML from config...")
     data_pnml_path = util.generate_data_petrinet()
