@@ -2,8 +2,8 @@ import argparse
 from PetriNetUtil.PNMLToDataPNML import PNMLToDataPNML
 from LogPPL.scripts.generate_uniform_traces import simulate_dpn
 
-
-def main():
+# TODO: Rename file to something with simulate?
+def main(): 
     parser = argparse.ArgumentParser(description="Generate data PNML by injecting variables, guards, and write variables using a config JSON.")
     parser.add_argument("--pnml", required=True, help="Path to the original PNML file (same one used to create the config).")
     parser.add_argument("--config-out", required=True, help="Directory where configs are stored (same as before).")
