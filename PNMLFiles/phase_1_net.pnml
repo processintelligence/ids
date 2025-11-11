@@ -1,0 +1,381 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="phase_1_net" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>phase_1_net</text>
+    </name>
+    <page id="n0">
+      <place id="p20">
+        <name>
+          <text>p20</text>
+        </name>
+      </place>
+      <place id="p4">
+        <name>
+          <text>p4</text>
+        </name>
+      </place>
+      <place id="p2">
+        <name>
+          <text>p2</text>
+        </name>
+      </place>
+      <place id="p7">
+        <name>
+          <text>p7</text>
+        </name>
+      </place>
+      <place id="p8">
+        <name>
+          <text>p8</text>
+        </name>
+      </place>
+      <place id="p1">
+        <name>
+          <text>p1</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="p9">
+        <name>
+          <text>p9</text>
+        </name>
+      </place>
+      <place id="p10">
+        <name>
+          <text>p10</text>
+        </name>
+      </place>
+      <place id="p11">
+        <name>
+          <text>p11</text>
+        </name>
+      </place>
+      <place id="p16">
+        <name>
+          <text>p16</text>
+        </name>
+      </place>
+      <place id="p17">
+        <name>
+          <text>p17</text>
+        </name>
+      </place>
+      <place id="p19">
+        <name>
+          <text>p19</text>
+        </name>
+      </place>
+      <place id="p12">
+        <name>
+          <text>p12</text>
+        </name>
+      </place>
+      <place id="p13">
+        <name>
+          <text>p13</text>
+        </name>
+      </place>
+      <place id="p14">
+        <name>
+          <text>p14</text>
+        </name>
+      </place>
+      <place id="p5">
+        <name>
+          <text>p5</text>
+        </name>
+      </place>
+      <place id="p15">
+        <name>
+          <text>p15</text>
+        </name>
+      </place>
+      <place id="p18">
+        <name>
+          <text>p18</text>
+        </name>
+      </place>
+      <place id="p6">
+        <name>
+          <text>p6</text>
+        </name>
+      </place>
+      <transition id="t_4688_cmd">
+        <name>
+          <text>t_4688_cmd</text>
+        </name>
+      </transition>
+      <transition id="t_4656">
+        <name>
+          <text>t_4656</text>
+        </name>
+      </transition>
+      <transition id="t_4657_common">
+        <name>
+          <text>t_4657_common</text>
+        </name>
+      </transition>
+      <transition id="t_4658">
+        <name>
+          <text>t_4658</text>
+        </name>
+      </transition>
+      <transition id="t_4688_conhost">
+        <name>
+          <text>t_4688_conhost</text>
+        </name>
+      </transition>
+      <transition id="tau_2">
+        <name>
+          <text>tau_2</text>
+        </name>
+      </transition>
+      <transition id="tau_4">
+        <name>
+          <text>tau_4</text>
+        </name>
+      </transition>
+      <transition id="tau_6">
+        <name>
+          <text>tau_6</text>
+        </name>
+      </transition>
+      <transition id="t_4648">
+        <name>
+          <text>t_4648</text>
+        </name>
+      </transition>
+      <transition id="tau_8">
+        <name>
+          <text>tau_8</text>
+        </name>
+      </transition>
+      <transition id="t_4688_priv">
+        <name>
+          <text>t_4688_priv</text>
+        </name>
+      </transition>
+      <transition id="t_4688_unpriv">
+        <name>
+          <text>t_4688_unpriv</text>
+        </name>
+      </transition>
+      <transition id="t_4663">
+        <name>
+          <text>t_4663</text>
+        </name>
+      </transition>
+      <transition id="t_4657_registry">
+        <name>
+          <text>t_4657_registry</text>
+        </name>
+      </transition>
+      <transition id="tau_1">
+        <name>
+          <text>tau_1</text>
+        </name>
+      </transition>
+      <transition id="t_4624_3">
+        <name>
+          <text>t_4624_3</text>
+        </name>
+      </transition>
+      <transition id="tau_3">
+        <name>
+          <text>tau_3</text>
+        </name>
+      </transition>
+      <transition id="t_4624_5">
+        <name>
+          <text>t_4624_5</text>
+        </name>
+      </transition>
+      <transition id="t_4625_4_5">
+        <name>
+          <text>t_4625_4_5</text>
+        </name>
+      </transition>
+      <transition id="t_4634_2_7_8_9">
+        <name>
+          <text>t_4634_2_7_8_9</text>
+        </name>
+      </transition>
+      <transition id="t_4634_4">
+        <name>
+          <text>t_4634_4</text>
+        </name>
+      </transition>
+      <transition id="t_4672">
+        <name>
+          <text>t_4672</text>
+        </name>
+      </transition>
+      <transition id="t_4801">
+        <name>
+          <text>t_462t_48014_9</text>
+        </name>
+      </transition>
+      <transition id="t_4608">
+        <name>
+          <text>t_4608</text>
+        </name>
+      </transition>
+      <transition id="t_1100">
+        <name>
+          <text>t_1100</text>
+        </name>
+      </transition>
+      <transition id="t_4634_3">
+        <name>
+          <text>t_4634_3</text>
+        </name>
+      </transition>
+      <transition id="t_4625_9_8_2_7_3">
+        <name>
+          <text>t_4625_9_8_2_7_3</text>
+        </name>
+      </transition>
+      <transition id="t_4609">
+        <name>
+          <text>t_4609</text>
+        </name>
+      </transition>
+      <transition id="t_4624_9">
+        <name>
+          <text>t_4624_9</text>
+        </name>
+      </transition>
+      <transition id="tau_5">
+        <name>
+          <text>tau_5</text>
+        </name>
+      </transition>
+      <transition id="t_4624_8">
+        <name>
+          <text>t_4624_8</text>
+        </name>
+      </transition>
+      <transition id="t_4624_2">
+        <name>
+          <text>t_4624_2</text>
+        </name>
+      </transition>
+      <transition id="t_4624_7">
+        <name>
+          <text>t_4624_7</text>
+        </name>
+      </transition>
+      <transition id="tau_7">
+        <name>
+          <text>tau_7</text>
+        </name>
+      </transition>
+      <transition id="t_4800">
+        <name>
+          <text>t_4800</text>
+        </name>
+      </transition>
+      <transition id="tau_9">
+        <name>
+          <text>tau_9</text>
+        </name>
+      </transition>
+      <transition id="t_4624_4">
+        <name>
+          <text>t_4624_4</text>
+        </name>
+      </transition>
+      <transition id="t_4634_5">
+        <name>
+          <text>t_4634_5</text>
+        </name>
+      </transition>
+      <arc id="2639253222928" source="tau_3" target="p10"/>
+      <arc id="2639253223056" source="tau_4" target="p14"/>
+      <arc id="2639253223184" source="tau_5" target="p16"/>
+      <arc id="2639253223312" source="tau_6" target="p6"/>
+      <arc id="2639253217232" source="p4" target="tau_8"/>
+      <arc id="2639251354000" source="p1" target="t_4608"/>
+      <arc id="2639253219600" source="p11" target="tau_4"/>
+      <arc id="2639253219728" source="p12" target="t_4688_unpriv"/>
+      <arc id="2639253217360" source="p4" target="t_4625_9_8_2_7_3"/>
+      <arc id="2639253219856" source="p13" target="t_4688_conhost"/>
+      <arc id="2639253219984" source="p14" target="tau_5"/>
+      <arc id="2639253220112" source="p14" target="t_4657_common"/>
+      <arc id="2639253217488" source="p5" target="t_4672"/>
+      <arc id="2639253220240" source="p14" target="t_4657_registry"/>
+      <arc id="2639253220368" source="p15" target="t_4658"/>
+      <arc id="2639253223440" source="tau_7" target="p4"/>
+      <arc id="2639253217616" source="p6" target="tau_1"/>
+      <arc id="2639253223568" source="tau_8" target="p20"/>
+      <arc id="2639253223696" source="tau_9" target="p20"/>
+      <arc id="2639253223824" source="t_4800" target="p7"/>
+      <arc id="2639253217744" source="p6" target="t_4800"/>
+      <arc id="2639253274704" source="t_4657_common" target="p15"/>
+      <arc id="2639253223952" source="t_4801" target="p6"/>
+      <arc id="2639253221392" source="t_4608" target="p4"/>
+      <arc id="2639253274960" source="t_4688_priv" target="p16"/>
+      <arc id="2639253275088" source="t_4688_unpriv" target="p16"/>
+      <arc id="2639253224080" source="t_4624_4" target="p19"/>
+      <arc id="2639253275216" source="t_4658" target="p16"/>
+      <arc id="2639253275344" source="t_4634_2_7_8_9" target="p18"/>
+      <arc id="2639253224208" source="t_4634_4" target="p9"/>
+      <arc id="2639253224336" source="t_4624_5" target="p8"/>
+      <arc id="2639253224464" source="t_4634_5" target="p9"/>
+      <arc id="2639253218384" source="p9" target="t_4624_5"/>
+      <arc id="2639253274832" source="t_4657_registry" target="p15"/>
+      <arc id="2639253220496" source="p16" target="tau_6"/>
+      <arc id="2639253224592" source="t_4625_4_5" target="p9"/>
+      <arc id="2639253218512" source="p9" target="t_4624_4"/>
+      <arc id="2639253220624" source="p16" target="t_4634_2_7_8_9"/>
+      <arc id="2639253224720" source="t_4672" target="p9"/>
+      <arc id="2639253218640" source="p9" target="t_4625_4_5"/>
+      <arc id="2639253220752" source="p18" target="t_4609"/>
+      <arc id="2639253224848" source="t_4688_cmd" target="p13"/>
+      <arc id="2639253220880" source="p18" target="t_1100"/>
+      <arc id="2639253224976" source="t_4688_conhost" target="p16"/>
+      <arc id="2639253218896" source="p9" target="tau_9"/>
+      <arc id="2639253221008" source="p18" target="tau_7"/>
+      <arc id="2639253225104" source="t_4648" target="p10"/>
+      <arc id="2639253219024" source="p9" target="t_4688_cmd"/>
+      <arc id="2639253221136" source="p19" target="t_4634_4"/>
+      <arc id="2639253225232" source="t_4656" target="p11"/>
+      <arc id="2639253219152" source="p10" target="t_4688_priv"/>
+      <arc id="2639253221264" source="p20" target="t_4624_3"/>
+      <arc id="2639253225360" source="t_4663" target="p14"/>
+      <arc id="2639253219280" source="p10" target="t_4656"/>
+      <arc id="2639253217872" source="p6" target="tau_2"/>
+      <arc id="2639253218768" source="p9" target="tau_3"/>
+      <arc id="2639253218000" source="p6" target="t_4648"/>
+      <arc id="2639253218128" source="p7" target="t_4801"/>
+      <arc id="2639253218256" source="p8" target="t_4634_5"/>
+      <arc id="2639253216592" source="p2" target="t_4634_3"/>
+      <arc id="2639253216848" source="p4" target="t_4624_8"/>
+      <arc id="2639253216976" source="p4" target="t_4624_2"/>
+      <arc id="2639253216720" source="p4" target="t_4624_9"/>
+      <arc id="2639253217104" source="p4" target="t_4624_7"/>
+      <arc id="2639253219408" source="p11" target="t_4663"/>
+      <arc id="2639253221520" source="t_4624_3" target="p2"/>
+      <arc id="2639253221648" source="t_4634_3" target="p18"/>
+      <arc id="2639253221776" source="t_4625_9_8_2_7_3" target="p4"/>
+      <arc id="2639253221904" source="t_1100" target="p17"/>
+      <arc id="2639253222032" source="t_4609" target="p17"/>
+      <arc id="2639253222160" source="t_4624_9" target="p5"/>
+      <arc id="2639253222288" source="t_4624_8" target="p6"/>
+      <arc id="2639253222416" source="t_4624_2" target="p6"/>
+      <arc id="2639253222544" source="t_4624_7" target="p6"/>
+      <arc id="2639253222672" source="tau_1" target="p5"/>
+      <arc id="2639253222800" source="tau_2" target="p12"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="p17">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

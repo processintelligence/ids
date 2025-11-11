@@ -16,7 +16,7 @@ def main():
     print(f"Data PNML written to: {data_pnml_path}")
 
     print(">>> Simulating data PNML to generate uniform traces...") #TODO: add sample size and steps to arg parser
-    simulate_dpn(steps=10, sample_size=10, pnml_path=data_pnml_path)
+    simulate_dpn(steps=20, sample_size=20000, pnml_path=data_pnml_path)
 
 if __name__ == "__main__":
     main()
