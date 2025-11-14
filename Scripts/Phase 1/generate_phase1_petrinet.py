@@ -41,8 +41,8 @@ t_4624_2 = PetriNet.Transition("4624_2", "4624_2")
 t_4624_7 = PetriNet.Transition("4624_7", "4624_7")
 t_4634_2_7_8_9 = PetriNet.Transition("4634_2_7_8_9", "4634_2_7_8_9")
 
-t_4801 = PetriNet.Transition("4801", "4801")
 t_4800 = PetriNet.Transition("4800", "4800")
+t_4801 = PetriNet.Transition("4801", "4801")
 
 t_4624_4 = PetriNet.Transition("4624_4", "4624_4")
 t_4634_4 = PetriNet.Transition("4634_4", "4634_4")

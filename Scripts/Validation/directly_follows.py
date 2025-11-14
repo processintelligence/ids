@@ -1,6 +1,9 @@
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 import os
+import math
+import numpy as np
+import copy
 
 def generate_naive_directly_follows(xes_path):
     directly_follows = defaultdict(lambda: defaultdict(int))
@@ -111,15 +114,32 @@ def generate_translated_directly_follows(xes_path):
 
     return directly_follows
 
-def normalize_directly_follows(directly_follows_dict):
-    pass
+def log_normalize_directly_follows(directly_follows_dict, base=10):
+    # Work on a deep copy
+    normalized = copy.deepcopy(directly_follows_dict)
 
-""" base_dir = os.path.dirname(__file__)
-file_path = os.path.join(base_dir, '..', '..', 'GeneratedFiles', 'WebPPL_XES', 'data_phase_1_net.xes')
-xes_file_path  = os.path.abspath(file_path) """
+    epsilon = 1e-9
 
-xes_file_path = r"c:\Users\lomo0\Documents\RandomScripts\wls_800MB.xes"
+    for src, inner in normalized.items():
+        for dst, value in inner.items():
+            normalized[src][dst] = math.log(value + epsilon, base)
 
-df_matrix = generate_translated_directly_follows(xes_file_path)
-for e1, next_events in df_matrix.items():
-    print(e1)
+    return normalized
+
+
+def row_normalize_directly_follows(directly_follows_dict):
+    # Work on a deep copy
+    normalized = copy.deepcopy(directly_follows_dict)
+
+    for src, inner in normalized.items():
+        row_sum = sum(inner.values())
+
+        if row_sum == 0:
+            # Avoid division by zero
+            for dst in inner:
+                normalized[src][dst] = 0.0
+        else:
+            for dst, val in inner.items():
+                normalized[src][dst] = (val / row_sum) * 100.0
+
+    return normalized

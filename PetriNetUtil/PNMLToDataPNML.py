@@ -184,8 +184,11 @@ class PNMLToDataPNML(IPNMLToDataPNML):
             config_json = json.load(f)
 
         config_arcs = config_json.get("place_transition_arc", {})
+        #print("config_arcs: ", config_arcs)
 
         pre_conditions = self._build_pre_conditions(petrinet, config_arcs)
+        #print("pre_conditions: ", pre_conditions)
+
         post_conditions = self._build_post_conditions(petrinet)
 
         return pre_conditions, post_conditions
@@ -202,7 +205,7 @@ class PNMLToDataPNML(IPNMLToDataPNML):
             prob_sum = 0.0
             for arc in place.out_arcs:
                 transition_name = arc.target.name
-                config_key = f"{p_name}_{transition_name}"
+                config_key = f"{p_name}_t_{transition_name}" #TODO: Remove all t_!
 
                 if config_key not in config_arcs[p_name]:
                     continue
