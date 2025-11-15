@@ -6,6 +6,8 @@ from plotting_util import plot_directly_follows_heatmap_4_col
 from plotting_util import diff_maps
 from collections import defaultdict
 
+
+# TODO: as arguments? to support mac vs windows
 xes_path_R = r"c:\Users\lomo0\Documents\RandomScripts\wls_800MB.xes"
 xes_path_P = r"C:\Users\lomo0\Documents\GitHub\MasterRepo\MasterRepo\GeneratedFiles\WebPPL_XES\data_phase_1_net.xes"
 
