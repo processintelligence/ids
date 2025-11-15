@@ -25,10 +25,11 @@ p17 = PetriNet.Place("p17")
 p18 = PetriNet.Place("p18")
 p19 = PetriNet.Place("p19")
 p20 = PetriNet.Place("p20")
+p21 = PetriNet.Place("p21")
 
-phase_1_net.places.update({p1, p2, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20})
+phase_1_net.places.update({p1, p2, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21})
 
-# traces
+# transitions
 t_4608 = PetriNet.Transition("4608", "4608")
 t_4624_3 = PetriNet.Transition("4624_3", "4624_3")
 t_4634_3 = PetriNet.Transition("4634_3", "4634_3")
@@ -72,6 +73,7 @@ tau_6 = PetriNet.Transition("tau_6", "tau_6")
 tau_7 = PetriNet.Transition("tau_7", "tau_7")
 tau_8 = PetriNet.Transition("tau_8", "tau_8")
 tau_9 = PetriNet.Transition("tau_9", "tau_9")
+tau_10 = PetriNet.Transition("tau_10", "tau_10")
 
 phase_1_net.transitions.update({
     t_4608, t_4624_3, t_4634_3, t_4625_9_8_2_7_3, t_1100, t_4609,
@@ -79,7 +81,7 @@ phase_1_net.transitions.update({
     t_4801, t_4800, t_4624_4, t_4634_4, t_4634_5, t_4624_5,
     t_4625_4_5, t_4672, t_4688_cmd, t_4688_conhost, t_4648,
     t_4688_priv, t_4688_unpriv, t_4656, t_4663, t_4657_common, t_4657_registry, t_4658,
-    tau_1, tau_2, tau_3, tau_4, tau_5, tau_6, tau_7, tau_8, tau_9
+    tau_1, tau_2, tau_3, tau_4, tau_5, tau_6, tau_7, tau_8, tau_9, tau_10
 })
 
 
@@ -141,6 +143,8 @@ petri_utils.add_arc_from_to(p18, tau_7, phase_1_net)
 petri_utils.add_arc_from_to(p19, t_4634_4, phase_1_net)
 # p20
 petri_utils.add_arc_from_to(p20, t_4624_3, phase_1_net)
+#p21
+petri_utils.add_arc_from_to(p21, tau_10, phase_1_net)
 # t_4608
 petri_utils.add_arc_from_to(t_4608, p4, phase_1_net)
 # t_4624_3
@@ -156,11 +160,11 @@ petri_utils.add_arc_from_to(t_4609, p17, phase_1_net)
 # t_4624_9 
 petri_utils.add_arc_from_to(t_4624_9, p5, phase_1_net)
 # t_4624_8 
-petri_utils.add_arc_from_to(t_4624_8, p6, phase_1_net)
+petri_utils.add_arc_from_to(t_4624_8, p21, phase_1_net)
 # t_4624_2 
-petri_utils.add_arc_from_to(t_4624_2, p6, phase_1_net)
+petri_utils.add_arc_from_to(t_4624_2, p21, phase_1_net)
 # t_4624_7
-petri_utils.add_arc_from_to(t_4624_7, p6, phase_1_net)
+petri_utils.add_arc_from_to(t_4624_7, p21, phase_1_net)
 # tau_1
 petri_utils.add_arc_from_to(tau_1, p5, phase_1_net)
 # tau_2
@@ -179,6 +183,8 @@ petri_utils.add_arc_from_to(tau_7, p4, phase_1_net)
 petri_utils.add_arc_from_to(tau_8, p20, phase_1_net)
 # tau_9
 petri_utils.add_arc_from_to(tau_9, p20, phase_1_net)
+# tau_10
+petri_utils.add_arc_from_to(tau_10, p16, phase_1_net)
 # t_4800
 petri_utils.add_arc_from_to(t_4800, p7, phase_1_net)
 # t_4801
@@ -198,7 +204,7 @@ petri_utils.add_arc_from_to(t_4672, p9, phase_1_net)
 # t_4688_cmd
 petri_utils.add_arc_from_to(t_4688_cmd, p13, phase_1_net)
 # t_4688_conhost
-petri_utils.add_arc_from_to(t_4688_conhost, p16, phase_1_net)
+petri_utils.add_arc_from_to(t_4688_conhost, p10, phase_1_net)
 # t_4648
 petri_utils.add_arc_from_to(t_4648, p10, phase_1_net)
 # t_4656
@@ -237,10 +243,3 @@ pnml_path = os.path.join(out_dir, "phase_1_net.pnml")
 pnml_exporter.apply(phase_1_net, im, pnml_path, final_marking=fm)
 
 print(f"PNML written to: {pnml_path}")
-
-
-
-
-
-
-

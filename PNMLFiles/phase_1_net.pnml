@@ -5,34 +5,27 @@
       <text>phase_1_net</text>
     </name>
     <page id="n0">
-      <place id="p10">
-        <name>
-          <text>p10</text>
-        </name>
-      </place>
-      <place id="p12">
-        <name>
-          <text>p12</text>
-        </name>
-      </place>
-      <place id="p13">
-        <name>
-          <text>p13</text>
-        </name>
-      </place>
-      <place id="p11">
-        <name>
-          <text>p11</text>
-        </name>
-      </place>
-      <place id="p5">
-        <name>
-          <text>p5</text>
-        </name>
-      </place>
       <place id="p6">
         <name>
           <text>p6</text>
+        </name>
+      </place>
+      <place id="p14">
+        <name>
+          <text>p14</text>
+        </name>
+      </place>
+      <place id="p1">
+        <name>
+          <text>p1</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="p4">
+        <name>
+          <text>p4</text>
         </name>
       </place>
       <place id="p2">
@@ -40,19 +33,44 @@
           <text>p2</text>
         </name>
       </place>
-      <place id="p4">
+      <place id="p10">
         <name>
-          <text>p4</text>
+          <text>p10</text>
         </name>
       </place>
-      <place id="p7">
+      <place id="p11">
         <name>
-          <text>p7</text>
+          <text>p11</text>
         </name>
       </place>
-      <place id="p14">
+      <place id="p19">
         <name>
-          <text>p14</text>
+          <text>p19</text>
+        </name>
+      </place>
+      <place id="p12">
+        <name>
+          <text>p12</text>
+        </name>
+      </place>
+      <place id="p20">
+        <name>
+          <text>p20</text>
+        </name>
+      </place>
+      <place id="p13">
+        <name>
+          <text>p13</text>
+        </name>
+      </place>
+      <place id="p16">
+        <name>
+          <text>p16</text>
+        </name>
+      </place>
+      <place id="p9">
+        <name>
+          <text>p9</text>
         </name>
       </place>
       <place id="p15">
@@ -70,47 +88,39 @@
           <text>p18</text>
         </name>
       </place>
-      <place id="p16">
-        <name>
-          <text>p16</text>
-        </name>
-      </place>
       <place id="p8">
         <name>
           <text>p8</text>
         </name>
       </place>
-      <place id="p19">
+      <place id="p5">
         <name>
-          <text>p19</text>
+          <text>p5</text>
         </name>
       </place>
-      <place id="p20">
+      <place id="p21">
         <name>
-          <text>p20</text>
+          <text>p21</text>
         </name>
       </place>
-      <place id="p1">
+      <place id="p7">
         <name>
-          <text>p1</text>
-        </name>
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
-      <place id="p9">
-        <name>
-          <text>p9</text>
+          <text>p7</text>
         </name>
       </place>
-      <transition id="tau_4">
+      <transition id="4609">
         <name>
-          <text>tau_4</text>
+          <text>4609</text>
         </name>
       </transition>
       <transition id="4624_9">
         <name>
           <text>4624_9</text>
+        </name>
+      </transition>
+      <transition id="tau_5">
+        <name>
+          <text>tau_5</text>
         </name>
       </transition>
       <transition id="4624_8">
@@ -123,59 +133,19 @@
           <text>4624_2</text>
         </name>
       </transition>
-      <transition id="tau_6">
+      <transition id="4656">
         <name>
-          <text>tau_6</text>
+          <text>4656</text>
         </name>
       </transition>
-      <transition id="4624_4">
+      <transition id="4657_common">
         <name>
-          <text>4624_4</text>
+          <text>4657_common</text>
         </name>
       </transition>
-      <transition id="4634_4">
+      <transition id="4658">
         <name>
-          <text>4634_4</text>
-        </name>
-      </transition>
-      <transition id="4634_5">
-        <name>
-          <text>4634_5</text>
-        </name>
-      </transition>
-      <transition id="4624_5">
-        <name>
-          <text>4624_5</text>
-        </name>
-      </transition>
-      <transition id="4608">
-        <name>
-          <text>4608</text>
-        </name>
-      </transition>
-      <transition id="4624_3">
-        <name>
-          <text>4624_3</text>
-        </name>
-      </transition>
-      <transition id="4625_9_8_2_7_3">
-        <name>
-          <text>4625_9_8_2_7_3</text>
-        </name>
-      </transition>
-      <transition id="4634_3">
-        <name>
-          <text>4634_3</text>
-        </name>
-      </transition>
-      <transition id="1100">
-        <name>
-          <text>1100</text>
-        </name>
-      </transition>
-      <transition id="4609">
-        <name>
-          <text>t4609</text>
+          <text>4658</text>
         </name>
       </transition>
       <transition id="4624_7">
@@ -183,14 +153,29 @@
           <text>4624_7</text>
         </name>
       </transition>
-      <transition id="4634_2_7_8_9">
+      <transition id="tau_2">
         <name>
-          <text>4634_2_7_8_9</text>
+          <text>tau_2</text>
         </name>
       </transition>
-      <transition id="4801">
+      <transition id="tau_4">
         <name>
-          <text>4801</text>
+          <text>tau_4</text>
+        </name>
+      </transition>
+      <transition id="tau_6">
+        <name>
+          <text>tau_6</text>
+        </name>
+      </transition>
+      <transition id="tau_7">
+        <name>
+          <text>tau_7</text>
+        </name>
+      </transition>
+      <transition id="tau_9">
+        <name>
+          <text>tau_9</text>
         </name>
       </transition>
       <transition id="4800">
@@ -201,6 +186,16 @@
       <transition id="tau_8">
         <name>
           <text>tau_8</text>
+        </name>
+      </transition>
+      <transition id="4801">
+        <name>
+          <text>4801</text>
+        </name>
+      </transition>
+      <transition id="tau_10">
+        <name>
+          <text>tau_10</text>
         </name>
       </transition>
       <transition id="4625_4_5">
@@ -238,9 +233,54 @@
           <text>4688_unpriv</text>
         </name>
       </transition>
-      <transition id="4656">
+      <transition id="4624_4">
         <name>
-          <text>4656</text>
+          <text>4624_4</text>
+        </name>
+      </transition>
+      <transition id="4634_4">
+        <name>
+          <text>4634_4</text>
+        </name>
+      </transition>
+      <transition id="4634_5">
+        <name>
+          <text>4634_5</text>
+        </name>
+      </transition>
+      <transition id="4634_2_7_8_9">
+        <name>
+          <text>4634_2_7_8_9</text>
+        </name>
+      </transition>
+      <transition id="4624_5">
+        <name>
+          <text>4624_5</text>
+        </name>
+      </transition>
+      <transition id="4608">
+        <name>
+          <text>4608</text>
+        </name>
+      </transition>
+      <transition id="1100">
+        <name>
+          <text>1100</text>
+        </name>
+      </transition>
+      <transition id="4624_3">
+        <name>
+          <text>4624_3</text>
+        </name>
+      </transition>
+      <transition id="4625_9_8_2_7_3">
+        <name>
+          <text>4625_9_8_2_7_3</text>
+        </name>
+      </transition>
+      <transition id="4634_3">
+        <name>
+          <text>4634_3</text>
         </name>
       </transition>
       <transition id="4663">
@@ -263,112 +303,84 @@
           <text>tau_3</text>
         </name>
       </transition>
-      <transition id="tau_5">
-        <name>
-          <text>tau_5</text>
-        </name>
-      </transition>
-      <transition id="tau_7">
-        <name>
-          <text>tau_7</text>
-        </name>
-      </transition>
-      <transition id="tau_9">
-        <name>
-          <text>tau_9</text>
-        </name>
-      </transition>
-      <transition id="4657_common">
-        <name>
-          <text>4657_common</text>
-        </name>
-      </transition>
-      <transition id="4658">
-        <name>
-          <text>4658</text>
-        </name>
-      </transition>
-      <transition id="tau_2">
-        <name>
-          <text>tau_2</text>
-        </name>
-      </transition>
-      <arc id="1897996396048" source="tau_8" target="p20"/>
-      <arc id="1897996389968" source="p5" target="4672"/>
-      <arc id="1897996396176" source="tau_9" target="p20"/>
-      <arc id="1897996390096" source="p6" target="tau_1"/>
-      <arc id="1897996396304" source="4800" target="p7"/>
-      <arc id="1897996396432" source="4801" target="p6"/>
-      <arc id="1897996389008" source="p1" target="4608"/>
-      <arc id="1897996392080" source="p11" target="tau_4"/>
-      <arc id="1897996392208" source="p12" target="4688_unpriv"/>
-      <arc id="1897996390480" source="p6" target="4648"/>
-      <arc id="1897996392336" source="p13" target="4688_conhost"/>
-      <arc id="1897996392464" source="p14" target="tau_5"/>
-      <arc id="1897996392592" source="p14" target="4657_common"/>
-      <arc id="1897996392720" source="p14" target="4657_registry"/>
-      <arc id="1897996392848" source="p15" target="4658"/>
-      <arc id="1897996392976" source="p16" target="tau_6"/>
-      <arc id="1897996396560" source="4624_4" target="p19"/>
-      <arc id="1897996390736" source="p8" target="4634_5"/>
-      <arc id="1897996396688" source="4634_4" target="p9"/>
-      <arc id="1897996396816" source="4624_5" target="p8"/>
-      <arc id="1897996396944" source="4634_5" target="p9"/>
-      <arc id="1897996390864" source="p9" target="4624_5"/>
-      <arc id="1897996397072" source="4625_4_5" target="p9"/>
-      <arc id="1897996393104" source="p16" target="4634_2_7_8_9"/>
-      <arc id="1897996397200" source="4672" target="p9"/>
-      <arc id="1897996393232" source="p18" target="4609"/>
-      <arc id="1897996397328" source="4688_cmd" target="p13"/>
-      <arc id="1897996393360" source="p18" target="1100"/>
-      <arc id="1897996397456" source="4688_conhost" target="p16"/>
-      <arc id="1897996391376" source="p9" target="tau_9"/>
-      <arc id="1897996393488" source="p18" target="tau_7"/>
-      <arc id="1897996397584" source="4648" target="p10"/>
-      <arc id="1897996391504" source="p9" target="4688_cmd"/>
-      <arc id="1897996393616" source="p19" target="4634_4"/>
-      <arc id="1897996397712" source="4656" target="p11"/>
-      <arc id="1897996391632" source="p10" target="4688_priv"/>
-      <arc id="1897996393744" source="p20" target="4624_3"/>
-      <arc id="1897996397840" source="4663" target="p14"/>
-      <arc id="1897996391760" source="p10" target="4656"/>
-      <arc id="1897996393872" source="4608" target="p4"/>
-      <arc id="1897996397968" source="4657_common" target="p15"/>
-      <arc id="1897996391888" source="p11" target="4663"/>
-      <arc id="1897996394000" source="4624_3" target="p2"/>
-      <arc id="1897996398096" source="4657_registry" target="p15"/>
-      <arc id="1897996398608" source="4634_2_7_8_9" target="p18"/>
-      <arc id="1897996394128" source="4634_3" target="p18"/>
-      <arc id="1897996398224" source="4688_priv" target="p16"/>
-      <arc id="1897996394256" source="4625_9_8_2_7_3" target="p4"/>
-      <arc id="1897996398352" source="4688_unpriv" target="p16"/>
-      <arc id="1897996394384" source="1100" target="p17"/>
-      <arc id="1897996398480" source="4658" target="p16"/>
-      <arc id="1897996390992" source="p9" target="4624_4"/>
-      <arc id="1897996390608" source="p7" target="4801"/>
-      <arc id="1897996391120" source="p9" target="4625_4_5"/>
-      <arc id="1897996390224" source="p6" target="4800"/>
-      <arc id="1897996391248" source="p9" target="tau_3"/>
-      <arc id="1897996390352" source="p6" target="tau_2"/>
-      <arc id="1897996389200" source="p4" target="4624_9"/>
-      <arc id="1897996389456" source="p4" target="4624_2"/>
-      <arc id="1897996389328" source="p4" target="4624_8"/>
-      <arc id="1897991347152" source="p2" target="4634_3"/>
-      <arc id="1897996394512" source="4609" target="p17"/>
-      <arc id="1897996394640" source="4624_9" target="p5"/>
-      <arc id="1897996394768" source="4624_8" target="p6"/>
-      <arc id="1897996394896" source="4624_2" target="p6"/>
-      <arc id="1897996395024" source="4624_7" target="p6"/>
-      <arc id="1897996395152" source="tau_1" target="p5"/>
-      <arc id="1897996395280" source="tau_2" target="p12"/>
-      <arc id="1897996395408" source="tau_3" target="p10"/>
-      <arc id="1897996395536" source="tau_4" target="p14"/>
-      <arc id="1897996395664" source="tau_5" target="p16"/>
-      <arc id="1897996389584" source="p4" target="4624_7"/>
-      <arc id="1897996395792" source="tau_6" target="p6"/>
-      <arc id="1897996389712" source="p4" target="tau_8"/>
-      <arc id="1897996395920" source="tau_7" target="p4"/>
-      <arc id="1897996389840" source="p4" target="4625_9_8_2_7_3"/>
+      <arc id="5061527056" source="p4" target="tau_8"/>
+      <arc id="5061528080" source="p8" target="4634_5"/>
+      <arc id="5061528592" source="p9" target="tau_3"/>
+      <arc id="5061526544" source="p4" target="4624_9"/>
+      <arc id="5061527568" source="p6" target="4800"/>
+      <arc id="5061529104" source="p10" target="4656"/>
+      <arc id="5061533264" source="tau_6" target="p6"/>
+      <arc id="5061533776" source="tau_10" target="p16"/>
+      <arc id="5061534288" source="4634_4" target="p9"/>
+      <arc id="5061530704" source="p18" target="1100"/>
+      <arc id="5061534800" source="4672" target="p9"/>
+      <arc id="5061531216" source="p21" target="tau_10"/>
+      <arc id="5061535312" source="4656" target="p11"/>
+      <arc id="5061529680" source="p13" target="4688_conhost"/>
+      <arc id="5061530192" source="p15" target="4658"/>
+      <arc id="5061531728" source="4625_9_8_2_7_3" target="p4"/>
+      <arc id="5061536208" source="4634_2_7_8_9" target="p18"/>
+      <arc id="5061532240" source="4624_8" target="p21"/>
+      <arc id="5061532752" source="tau_2" target="p12"/>
+      <arc id="5061527184" source="p4" target="4625_9_8_2_7_3"/>
+      <arc id="5061528208" source="p9" target="4624_5"/>
+      <arc id="5061526672" source="p4" target="4624_8"/>
+      <arc id="5061527696" source="p6" target="tau_2"/>
+      <arc id="5061528720" source="p9" target="tau_9"/>
+      <arc id="5061529232" source="p11" target="4663"/>
+      <arc id="5061533392" source="tau_7" target="p4"/>
+      <arc id="5061533904" source="4800" target="p7"/>
+      <arc id="5061534416" source="4624_5" target="p8"/>
+      <arc id="5061530832" source="p18" target="tau_7"/>
+      <arc id="5061534928" source="4688_cmd" target="p13"/>
+      <arc id="5061531344" source="4608" target="p4"/>
+      <arc id="5061535440" source="4663" target="p14"/>
+      <arc id="5061529808" source="p14" target="tau_5"/>
+      <arc id="5061530320" source="p16" target="tau_6"/>
+      <arc id="5061531856" source="1100" target="p17"/>
+      <arc id="5061535824" source="4688_priv" target="p16"/>
+      <arc id="5061532368" source="4624_2" target="p21"/>
+      <arc id="5061532880" source="tau_3" target="p10"/>
+      <arc id="5061527312" source="p5" target="4672"/>
+      <arc id="5061528336" source="p9" target="4624_4"/>
+      <arc id="5061526800" source="p4" target="4624_2"/>
+      <arc id="5061527824" source="p6" target="4648"/>
+      <arc id="5061528848" source="p9" target="4688_cmd"/>
+      <arc id="5061533520" source="tau_8" target="p20"/>
+      <arc id="5061534032" source="4801" target="p6"/>
+      <arc id="5061534544" source="4634_5" target="p9"/>
+      <arc id="5061530960" source="p19" target="4634_4"/>
+      <arc id="5061535056" source="4688_conhost" target="p10"/>
+      <arc id="5061531472" source="4624_3" target="p2"/>
+      <arc id="5061535568" source="4657_common" target="p15"/>
+      <arc id="5061529424" source="p11" target="tau_4"/>
+      <arc id="5061529936" source="p14" target="4657_common"/>
+      <arc id="5061530448" source="p16" target="4634_2_7_8_9"/>
+      <arc id="5061535952" source="4688_unpriv" target="p16"/>
+      <arc id="5061531984" source="4609" target="p17"/>
+      <arc id="5061532496" source="4624_7" target="p21"/>
+      <arc id="5061533008" source="tau_4" target="p14"/>
+      <arc id="5061527440" source="p6" target="tau_1"/>
+      <arc id="5061528464" source="p9" target="4625_4_5"/>
+      <arc id="5049597328" source="p1" target="4608"/>
+      <arc id="5061526416" source="p2" target="4634_3"/>
+      <arc id="5061527952" source="p7" target="4801"/>
+      <arc id="5061528976" source="p10" target="4688_priv"/>
+      <arc id="5061526928" source="p4" target="4624_7"/>
+      <arc id="5061533648" source="tau_9" target="p20"/>
+      <arc id="5061534160" source="4624_4" target="p19"/>
+      <arc id="5061534672" source="4625_4_5" target="p9"/>
+      <arc id="5061531088" source="p20" target="4624_3"/>
+      <arc id="5061535184" source="4648" target="p10"/>
+      <arc id="5061535696" source="4657_registry" target="p15"/>
+      <arc id="5061531600" source="4634_3" target="p18"/>
+      <arc id="5061529552" source="p12" target="4688_unpriv"/>
+      <arc id="5061530064" source="p14" target="4657_registry"/>
+      <arc id="5061530576" source="p18" target="4609"/>
+      <arc id="5061536080" source="4658" target="p16"/>
+      <arc id="5061532112" source="4624_9" target="p5"/>
+      <arc id="5061532624" source="tau_1" target="p5"/>
+      <arc id="5061533136" source="tau_5" target="p16"/>
     </page>
     <finalmarkings>
       <marking>
