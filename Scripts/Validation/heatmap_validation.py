@@ -6,8 +6,6 @@ from plotting_util import plot_directly_follows_heatmap_4_col
 from plotting_util import diff_maps
 from collections import defaultdict
 
-
-# TODO: as arguments? to support mac vs windows
 xes_path_R = r"c:\Users\lomo0\Documents\RandomScripts\wls_800MB.xes"
 xes_path_P = r"C:\Users\lomo0\Documents\GitHub\MasterRepo\MasterRepo\GeneratedFiles\WebPPL_XES\data_phase_1_net.xes"
 
@@ -30,6 +28,4 @@ plot_directly_follows_heatmap_4_col(row_normalize_R, "Row R directly follows hea
     BLU: We have something they don't have"""
 
 diff_row = diff_maps(row_normalize_R, row_normalize_P)
-#diff_log = diff_maps(log_normalize_P, log_normalize_R)
 plot_directly_follows_heatmap_3_col(diff_row, "Row-normalized difference heatmap (R - P)")
-#plot_directly_follows_heatmap(diff_log, "Log-normalized difference heatmap (P - R)")
