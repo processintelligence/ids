@@ -64,6 +64,10 @@ def generate_translated_directly_follows(xes_path):
                 elif name_attr.get('value').startswith('4688'):
                     events.append('4688')
                     continue
+                #if name starts with '4672', add it as '4672'
+                if name_attr.get('value').startswith('4672'):
+                    events.append('4672')
+                    continue
                 #if name starts with '4625', dont add it
                 if name_attr.get('value').startswith('4625'):
                     continue
