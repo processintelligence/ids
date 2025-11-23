@@ -109,35 +109,39 @@ def plot_dfg_heatmap(
     plt.tight_layout()
     plt.show()
 
-
-def diff_maps(mapA, mapB):
+def diff_maps(mapA, mapB, verbose=False):
     diff = {}
     for src in mapA:
         diff[src] = {}
         for dst in mapA[src]:
             a = mapA[src].get(dst, 0.0)
-            b = mapB[src].get(dst, 0.0)
-            diff[src][dst] = a - b
+            b = mapB.get(src, {}).get(dst, 0.0)
+            result = a - b
+            diff[src][dst] = result
+            if verbose: 
+                print(f"{src}: {a} - {dst}: {b} = {result}")
     return diff
 
-
-def diff_maps_bw(mapA, mapB):
+def diff_maps_bw(mapA, mapB, verbose=False, threshold=0):
     diff = {}
     for src in mapA:
         diff[src] = {}
         for dst in mapA[src]:
             a = mapA[src].get(dst, 0.0)
             b = mapB[src].get(dst, 0.0)
+            result = a - b
+
+            if verbose: 
+                print(f"{src}: {a} - {dst}: {b} = {result}")
 
             if a == 0 and b == 0:
-                diff[src][dst] = 0.0
+                diff[src][dst] = result
             elif a == 0 and b > 0:
                 diff[src][dst] = DIFF_WHITE
-            elif a > 0 and b == 0 and a > 0.1:
+            elif a > threshold and b == 0: #threshold on a? 
                 diff[src][dst] = DIFF_BLACK
             else:
-                diff[src][dst] = a - b
-
+                diff[src][dst] = result
     return diff
 
 def generate_random_directly_follows_data(n=20, min_val=0, max_val=20, seed=42):

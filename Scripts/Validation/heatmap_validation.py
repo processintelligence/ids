@@ -18,10 +18,19 @@ row_normalize_P = row_normalize_directly_follows(directly_follows_P)
 row_normalize_R = row_normalize_directly_follows(directly_follows_R)
 
 #plot_dfg_heatmap(log_normalize_P, "Log-normalized P directly-follows heatmap", "4-band", "nearest")
-plot_dfg_heatmap(row_normalize_P, "Row-normalized P directly-follows heatmap", "4-band", "nearest")
+#plot_dfg_heatmap(row_normalize_P, "Row-normalized P directly-follows heatmap", "4-band", "nearest")
 
 #plot_dfg_heatmap(log_normalize_R, "Log-normalized R directly-follows heatmap", "4-band", "nearest")
-plot_dfg_heatmap(row_normalize_R, "Row-normalized R directly-follows heatmap", "4-band", "nearest")
+#plot_dfg_heatmap(row_normalize_R, "Row-normalized R directly-follows heatmap", "4-band", "nearest")
 
-diff_row = diff_maps_bw(row_normalize_R, row_normalize_P)
-plot_dfg_heatmap(diff_row, "Row-normalized difference heatmap (R - P)", "diff", "nearest")
+#diff_row = diff_maps_bw(row_normalize_R, row_normalize_P)
+
+#plot_dfg_heatmap(diff_row, "Row-normalized difference heatmap (R - P)", "diff", "nearest")
+
+diff_row = diff_maps(row_normalize_R, row_normalize_P)
+diff_bw_1 = diff_maps_bw(row_normalize_R,row_normalize_P, threshold=0)
+diff_bw_2 = diff_maps_bw(row_normalize_R,row_normalize_P, threshold=10)
+
+plot_dfg_heatmap(diff_row, "Row-normalized difference heatmap (R - P)", "3-band", "nearest")
+plot_dfg_heatmap(diff_bw_1, "Row-normalized difference heatmap (R - P)", "diff", "nearest")
+plot_dfg_heatmap(diff_bw_2, "Row-normalized difference heatmap (R - P)", "diff", "nearest")
