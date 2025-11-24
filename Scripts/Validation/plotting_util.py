@@ -24,17 +24,7 @@ COLOR_SCHEMES = {
         (0.75, "gold"),
         (0.76, "orangered"),
         (1.00, "darkred"),
-    ],
-    "diff": [
-        (0.00, "black"),
-        (0.01, "navy"),
-        (0.33, "deepskyblue"),
-        (0.34, "green"),
-        (0.66, "lime"),
-        (0.67, "orangered"),
-        (0.99, "darkred"),
-        (1.00, "white"),
-    ],
+    ]
 }
 
 def get_colormap(scheme_name: str) -> LinearSegmentedColormap:
@@ -60,30 +50,22 @@ def nested_map_to_matrix(nested_map):
 
     return mat, labels, idx
 
+import matplotlib.patches as patches
+
 def plot_dfg_heatmap(
-    nested_map,
+        nested_map,
     title="Directly-Follows Heatmap",
+    black_list=None,
+    white_list=None,
     color_scheme="4-band",
     interpolation="nearest",
     figsize_scale=0.3
 ):
+    black_list = black_list or []
+    white_list = white_list or []
+
     mat, labels, idx = nested_map_to_matrix(nested_map)
     n = len(labels)
-
-    # Normalize special diff values
-    if color_scheme == "diff":
-        m = mat.copy()
-        mask_black = (m == DIFF_BLACK)
-        mask_white = (m == DIFF_WHITE)
-        normal = m[~(mask_black | mask_white)]
-        if normal.size > 0:
-            lo, hi = normal.min(), normal.max()
-        else:
-            lo, hi = 0, 1
-        m = (m - lo) / (hi - lo + 1e-12)
-        m[mask_black] = 0.0
-        m[mask_white] = 1.0
-        mat = m
 
     cmap = get_colormap(color_scheme)
 
@@ -106,10 +88,39 @@ def plot_dfg_heatmap(
     cbar = plt.colorbar(im, ax=ax)
     cbar.ax.set_ylabel("count", rotation=270, labelpad=12)
 
+    for src, dst in black_list:
+        i = idx[src]
+        j = idx[dst]
+        ax.add_patch(
+            patches.Rectangle(
+                (j - 0.5, i - 0.5),
+                1, 1,
+                facecolor="black",
+                edgecolor="black",
+                linewidth=1
+            )
+        )
+
+    for src, dst in white_list:
+        i = idx[src]
+        j = idx[dst]
+        ax.add_patch(
+            patches.Rectangle(
+                (j - 0.5, i - 0.5),
+                1, 1,
+                facecolor="white",
+                edgecolor="black",
+                linewidth=1
+            )
+        )
+
     plt.tight_layout()
     plt.show()
 
-def diff_maps(mapA, mapB, verbose=False):
+
+def diff_maps(mapA, mapB, verbose=False, threshold=0):
+    black_list, white_list = find_black_white(mapA, mapB, threshold=threshold)
+
     diff = {}
     for src in mapA:
         diff[src] = {}
@@ -118,31 +129,30 @@ def diff_maps(mapA, mapB, verbose=False):
             b = mapB.get(src, {}).get(dst, 0.0)
             result = a - b
             diff[src][dst] = result
-            if verbose: 
-                print(f"{src}: {a} - {dst}: {b} = {result}")
-    return diff
 
-def diff_maps_bw(mapA, mapB, verbose=False, threshold=0):
-    diff = {}
+            if verbose:
+                print(f"{src}: {a} - {dst}: {b} = {result}")
+
+    return diff, black_list, white_list
+
+
+def find_black_white(mapA, mapB, threshold=0):
+    black_list = []
+    white_list = []
+
     for src in mapA:
-        diff[src] = {}
         for dst in mapA[src]:
             a = mapA[src].get(dst, 0.0)
-            b = mapB[src].get(dst, 0.0)
-            result = a - b
+            b = mapB.get(src, {}).get(dst, 0.0)
 
-            if verbose: 
-                print(f"{src}: {a} - {dst}: {b} = {result}")
+            if a == 0 and b > 0:
+                white_list.append((src, dst))
 
-            if a == 0 and b == 0:
-                diff[src][dst] = result
-            elif a == 0 and b > 0:
-                diff[src][dst] = DIFF_WHITE
-            elif a > threshold and b == 0: #threshold on a? 
-                diff[src][dst] = DIFF_BLACK
-            else:
-                diff[src][dst] = result
-    return diff
+            if a > threshold and b == 0:
+                black_list.append((src, dst))
+
+    return black_list, white_list
+
 
 def generate_random_directly_follows_data(n=20, min_val=0, max_val=20, seed=42):
     random.seed(seed)
