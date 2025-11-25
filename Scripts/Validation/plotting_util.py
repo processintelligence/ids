@@ -3,9 +3,6 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 import random
 
-DIFF_BLACK = -999999.0
-DIFF_WHITE =  999999.0
-
 COLOR_SCHEMES = {
     "3-band": [
         (0.00, "navy"),
