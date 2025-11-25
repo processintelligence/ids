@@ -14,6 +14,7 @@ ACTIONS         ::= ( ACTION )* ;
 
 ACTION          ::= SUBLOGON_BLOCK
                   | OBJECT_OP
+                  | REGISTRY_OP
                   | PROCESS_OP
                   | LOCK_UNLOCK ;
 
