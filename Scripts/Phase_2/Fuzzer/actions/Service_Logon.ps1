@@ -3,17 +3,15 @@ param(
     [string]$Executable = "C:\Windows\System32\notepad.exe"
 )
 
-$serviceAccount = "NT AUTHORITY\LocalService"
+# Create service using LocalService account
+sc.exe create $ServiceName binPath= "\"$Executable\"" obj= "NT AUTHORITY\LocalService" type= own
 
-New-Service -Name $ServiceName `
-            -BinaryPathName $Executable `
-            -Credential $serviceAccount `
-            -DisplayName "Temp Service for 4624 Type 5 Event" `
-            -Description "Triggers a 4624_5 Service Logon event" `
-            -StartupType Manual
-
-Start-Service -Name $ServiceName
+# Start service → triggers 4624 Type 5
+Start-Service $ServiceName
 Start-Sleep -Seconds 2
-Stop-Service -Name $ServiceName -Force
 
-Remove-Service -Name $ServiceName -Force
+# Stop service → triggers 4634 Type 5
+Stop-Service $ServiceName -Force
+
+# Remove service
+sc.exe delete $ServiceName
