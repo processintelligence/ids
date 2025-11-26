@@ -2,5 +2,5 @@ param(
     [string]$Path = "C:\Temp\FuzzFile.txt"
 )
 
-# Creates the file (overwrites if exists)
+#create or overwrite, does not log if the file does already exist
 New-Item -Path $Path -ItemType File -Force | Out-Null
