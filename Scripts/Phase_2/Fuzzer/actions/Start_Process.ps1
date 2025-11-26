@@ -1,6 +1,5 @@
 param(
-    [string]$ExePath,
-    [string[]]$Arguments = @()
+    [string]$ExePath = "cmd.exe",
 )
 
-Start-Process -FilePath $ExePath -ArgumentList $Arguments
+Start-Process -FilePath $ExePath
