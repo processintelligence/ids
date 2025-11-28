@@ -3,7 +3,7 @@ import random
 
 
 # -------------------------------------------------------------
-# TERMINAL SYMBOL GROUPS FROM YOUR GRAMMAR (exact names)
+# TERMINAL SYMBOLS
 # -------------------------------------------------------------
 
 SUCCESSFUL_MAIN_LOGONS = [
@@ -16,7 +16,8 @@ FAILED_LOGON = "Failed_Logon"
 SUBLOGONS = [
     "Batch_Logon",
     "Service_Logon",
-    "RunAs_Logon"
+    "RunAs_Logon",
+    "Network_Logon"
 ]
 
 OBJECT_OPS = [
@@ -43,14 +44,12 @@ SUBLOGOFF = ["Sub_Logoff"]
 
 
 # -------------------------------------------------------------
-# PRODUCTION RULES IMPLEMENTED AS PYTHON FUNCTIONS
+# PRODUCTION RULES
 # -------------------------------------------------------------
 
 def generate_SESSION():
     events = []
     events.extend(generate_MAIN_LOGON())
-    events.extend(generate_ACTIONS())
-    events.extend(generate_MAIN_LOGOFF())
     return events
 
 
@@ -63,7 +62,11 @@ def generate_MAIN_LOGON():
         events.extend([FAILED_LOGON] * failures)
 
     # SUCCESSFUL_MAIN_LOGON
-    events.append(random.choice(SUCCESSFUL_MAIN_LOGONS))
+    main_logon_choice = random.choice(SUCCESSFUL_MAIN_LOGONS)
+    events.append(main_logon_choice)
+    if main_logon_choice == "Interactive_Logon":
+        events.extend(generate_ACTIONS())
+        events.extend(generate_MAIN_LOGOFF())
 
     return events
 
@@ -72,51 +75,56 @@ def generate_MAIN_LOGOFF():
     return [random.choice(LOGOFF)]
 
 
-def generate_ACTIONS(depth=0, max_depth=2):
+def generate_ACTIONS():
     events = []
 
     num_actions = random.randint(0, 4)
 
     for _ in range(num_actions):
-        events.extend(generate_ACTION(depth=depth, max_depth=max_depth))
+        events.extend(generate_ACTION())
 
     return events
 
 
-def generate_ACTION(depth=0, max_depth=2):
-    choice = random.choice(["sub", "obj", "reg", "proc", "lock"])
+def generate_ACTION():
+    ACTION = [
+        "SUBLOGON",
+        "OBJECT_OP",
+        "REGISTRY_OP",
+        "PROCESS_OP",
+        "LOCK_UNLOCK"
+    ]
+    choice = random.choice(ACTION)
 
-    if choice == "sub" and depth < max_depth:
-        return generate_SUBLOGON_BLOCK(depth + 1, max_depth)
+    if choice == "SUBLOGON":
+        return generate_SUBLOGON()
 
-    elif choice == "obj":
+    elif choice == "OBJECT_OP":
         return generate_OBJECT_OP()
 
-    elif choice == "reg":
+    elif choice == "REGISTRY_OP":
         return generate_REGISTRY_OP()
 
-    elif choice == "proc":
+    elif choice == "PROCESS_OP":
         return generate_PROCESS_OP()
 
-    elif choice == "lock":
+    elif choice == "LOCK_UNLOCK":
         return generate_LOCK_UNLOCK()
 
-    # fallback (if max recursion reached)
+    # if max recursion reached
     return []
 
 
-def generate_SUBLOGON_BLOCK(depth, max_depth):
-    events = []
-    events.extend(generate_SUBLOGON())
-    if depth < max_depth:
-        events.extend(generate_ACTIONS(depth, max_depth))
-    events.extend(generate_SUBLOGOFF())
-    return events
-
-
 def generate_SUBLOGON():
-    return [random.choice(SUBLOGONS)]
+    events = []
 
+    sublogin_choice = random.choice(SUBLOGONS)
+    events.append(sublogin_choice)
+
+    if sublogin_choice == "RunAs_Logon":
+        events.extend(generate_ACTIONS())
+        events.extend(generate_SUBLOGOFF())
+    return events
 
 def generate_SUBLOGOFF():
     return [random.choice(SUBLOGOFF)]

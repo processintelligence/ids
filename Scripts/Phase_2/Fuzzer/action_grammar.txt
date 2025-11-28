@@ -1,9 +1,9 @@
-SESSION         ::= MAIN_LOGON ACTIONS MAIN_LOGOFF ;
+SESSION         ::= MAIN_LOGON ;
 
 MAIN_LOGON      ::= SUCCESSFUL_MAIN_LOGON
                   | FAILED_LOGIN MAIN_LOGON ; 
 
-SUCCESSFUL_MAIN_LOGON ::= "Interactive_Logon"
+SUCCESSFUL_MAIN_LOGON ::= "Interactive_Logon" ACTIONS MAIN_LOGOFF
                         | "Network_Logon" ;
 
 FAILED_LOGIN    ::= "Failed_Logon" ;
@@ -12,25 +12,24 @@ MAIN_LOGOFF     ::= "Logoff" ;
 
 ACTIONS         ::= ( ACTION )* ;
 
-ACTION          ::= SUBLOGON_BLOCK
+ACTION          ::= SUBLOGON
                   | OBJECT_OP
                   | REGISTRY_OP
                   | PROCESS_OP
                   | LOCK_UNLOCK ;
 
-SUBLOGON_BLOCK  ::= SUBLOGON ACTIONS SUBLOGOFF ;
-
 SUBLOGON        ::= "Batch_Logon"
                   | "Service_Logon"
-                  | "RunAs_Logon" ;
+                  | "RunAs_Logon" ACTIONS SUBLOGOFF   // Not sure if this takes ACTIONS or more like action is just a parameter we choose
+                  | "Network_Logon" ;
 
 SUBLOGOFF       ::= "Logoff" ;
 
-OBJECT_OP         ::= "Create_Object"
+OBJECT_OP       ::= "Create_Object"
                   | "Delete_Object"
                   | "Modify_Object" ;
 
-REGISTRY_OP       ::= "Create_Registry"
+REGISTRY_OP     ::= "Create_Registry"
                   | "Delete_Registry"
                   | "Modify_Registry"
                   | "Modify_CommonStartup_Registry" ;
