@@ -1,3 +1,7 @@
 {
-    "process1": "path/to/process"
+    "process1": "chrome.exe",
+    "process2": "powershell.exe",
+    "process3": "cmd.exe",
+    "process4": "svchost.exe",
+    "process5": "explorer.exe"
 }
