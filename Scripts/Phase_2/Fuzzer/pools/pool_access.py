@@ -10,8 +10,8 @@ def _load_json(filename):
         return json.load(f)
 
 
-def getrandomfile():
-    files = _load_json("files.json")
+def getrandomfile(): # TODO: Should there be delete files and create files?
+    files = _load_json("files.json") # TODO: Are these files safe to modify/delete?
     return random.choice(list(files.values()))
 
 
@@ -20,6 +20,8 @@ def getrandomprocess():
     return random.choice(list(processes.values()))
 
 
-def getrandomuserpass():
-    users = _load_json("users.json")
-    return random.choice(list(users.values()))
+def getrandomuserpass(): # TODO: Should the return be (user, password)?
+    users = _load_json("users.json") # TODO: We should add these users on the VM
+    return random.choice(list(users.values())) # TODO: Should the json have user and password fields?
+
+# TODO: get_random_registry_key
