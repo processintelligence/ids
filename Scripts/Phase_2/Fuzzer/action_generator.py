@@ -1,4 +1,3 @@
-# Should rename this to something like action_generator.py
 import random
 
 
@@ -149,10 +148,8 @@ def generate_LOCK_UNLOCK():
     return LOCK_UNLOCK_PAIR[:]
 
 
-# -------------------------------------------------------------
-# DEMO
-# -------------------------------------------------------------
+""" #TEST
 if __name__ == "__main__":
     seq = generate_SESSION()
     for e in seq:
-        print(e)
+        print(e) """
