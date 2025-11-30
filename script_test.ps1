@@ -16,23 +16,18 @@ public class LogonUtil {
         int dwLogonProvider,
         out IntPtr phToken);
 }
-"@
 
-$token = [IntPtr]::Zero
-[LogonUtil]::LogonUser($username, $domain, $password, 2, 0, [ref] $token) | Out-Null
-
-Start-Process -FilePath "notepad.exe"
-
-New-Item -Path "C:\Temp\FuzzFile97.txt" -ItemType File -Force | Out-Null
-
-Add-Type @"
-using System;
-using System.Runtime.InteropServices;
-
-public class KernelUtil {
+public class HandleUtil {
     [DllImport("kernel32.dll", SetLastError=true)]
     public static extern bool CloseHandle(IntPtr hObject);
 }
 "@
 
-[KernelUtil]::CloseHandle($token)
+$token = [IntPtr]::Zero
+[LogonUtil]::LogonUser($username, $domain, $password, 2, 0, [ref] $token)
+
+Start-Process -FilePath "notepad.exe"
+
+New-Item -Path "C:\Temp\FuzzFile50.txt" -ItemType File -Force | Out-Null
+
+[HandleUtil]::CloseHandle($token) | Out-Null
