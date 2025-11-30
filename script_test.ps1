@@ -23,6 +23,16 @@ $token = [IntPtr]::Zero
 
 Start-Process -FilePath "notepad.exe"
 
-New-Item -Path "C:\Temp\FuzzFile84.txt" -ItemType File -Force | Out-Null
+New-Item -Path "C:\Temp\FuzzFile97.txt" -ItemType File -Force | Out-Null
 
-[System.Runtime.InteropServices.Marshal]::FreeHGlobal($token)
+Add-Type @"
+using System;
+using System.Runtime.InteropServices;
+
+public class KernelUtil {
+    [DllImport("kernel32.dll", SetLastError=true)]
+    public static extern bool CloseHandle(IntPtr hObject);
+}
+"@
+
+[KernelUtil]::CloseHandle($token)
