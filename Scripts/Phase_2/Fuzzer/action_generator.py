@@ -120,9 +120,9 @@ def generate_SUBLOGON():
     sublogin_choice = random.choice(SUBLOGONS)
     events.append(sublogin_choice)
 
-    if sublogin_choice == "RunAs_Logon":
-        events.extend(generate_ACTIONS())
-        events.extend(generate_SUBLOGOFF())
+    #if sublogin_choice == "RunAs_Logon":
+        #events.extend(generate_ACTIONS())
+        #events.extend(generate_SUBLOGOFF())  # TODO: No sublogoff command - remove? And what do we do with actions?
     return events
 
 def generate_SUBLOGOFF():

@@ -4,9 +4,9 @@ from action_to_command_mapper import map_actions_to_commands
 from script_builder import build_powershell_script
 
 # 1. Define your trace
-actions = ["Interactive_Logon", "Start_Process", "Create_Object", "Logoff"]
+actions = ["Interactive_Logon", "Start_Process", "Create_Object", "Create_Registry", "Logoff"]
 
-# 2. Map the trace to PowerShell command strings
+# 2. Map the trace to PowerShell command stringsa
 command_strings = map_actions_to_commands(actions)
 
 # 3. Specify output path

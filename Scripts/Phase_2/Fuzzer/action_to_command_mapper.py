@@ -1,21 +1,4 @@
-from commands import (
-    BatchLogonCommand,
-    CreateObjectCommand,
-    CreateRegistryCommand,
-    DeleteObjectCommand,
-    DeleteRegistryCommand,
-    FailedLogonCommand,
-    InteractiveLogonCommand,
-    LogoffCommand,
-    LockWorkstationCommand,
-    ModifyObjectCommand,
-    ModifyRegistryCommand,
-    NetworkLogonCommand,
-    RunAsLogonCommand,
-    ServiceLogonCommand,
-    StartCMDProcessCommand,
-    StartProcessCommand
-)
+from Scripts.Phase_2.Fuzzer.commands import *
 
 def map_action_to_command(action): # TODO: make private?
     mapping = {
@@ -28,6 +11,7 @@ def map_action_to_command(action): # TODO: make private?
         "Interactive_Logon": InteractiveLogonCommand,
         "Logoff": LogoffCommand,
         "Lock_Workstation": LockWorkstationCommand,
+        "Unlock_Workstation": UnlockWorkstationCommand,
         "Modify_Object": ModifyObjectCommand,
         "Modify_Registry": ModifyRegistryCommand,
         "Network_Logon": NetworkLogonCommand,

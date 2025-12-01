@@ -1,7 +1,5 @@
 {
-    "user1": "alice:Password123!",
-    "user2": "bob:q8#LmP3r",
-    "user3": "guest:guest123",
-    "user4": "admin:Admin!2025",
-    "user5": "testuser:P@ssw0rd!"
+    "user1": "Thesis:Master123",
+    "user2": "bob:bob123",
+    "user3": "basicUser:guest123"
 }

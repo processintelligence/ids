@@ -1,7 +1,7 @@
 {
-    "file1": "C:/Users/Public/report1.docx",
-    "file2": "C:/Temp/update.dll",
-    "file3": "C:/Windows/System32/drivers/etc/hosts",
-    "file4": "C:/ProgramData/app/config.json",
-    "file5": "C:/Logs/system.log"
+    "file1": "C:/Temp/testfile1.txt",
+    "file2": "C:/Temp/testfile2.txt",
+    "file3": "C:/Temp/testfile3.txt",
+    "file4": "C:/Temp/testfile4.txt",
+    "file5": "C:/Temp/testfile5.txt"
 }

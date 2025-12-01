@@ -1,7 +1,5 @@
 {
-    "process1": "chrome.exe",
+    "process1": "notepad.exe",
     "process2": "powershell.exe",
-    "process3": "cmd.exe",
-    "process4": "svchost.exe",
-    "process5": "explorer.exe"
+    "process3": "cmd.exe"
 }

@@ -1,6 +1,16 @@
 import random
 from pathlib import Path
-from pools.pool_access import getrandomfile, getrandomprocess, getrandomuserpass
+from Scripts.Phase_2.Fuzzer.pools.pool_access import *
+
+FILES_PATH = "files.json"
+PROCESSES_PATH = "processes.json"
+REGISTRY_NAMES_PATH = "registry_names.json"
+REGISTRY_VALUES_PATH = "registry_values.json"
+TASKS_PATH = "tasks.json"
+USERS_PATH = "users.json"
+DELETE_MODIFY_FILES_PATH = "delete_modify_files.json"
+REGISTRY_KEY = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run"
+
 
 class Command:
     def getCommand(self):
@@ -9,28 +19,26 @@ class Command:
 
 class BatchLogonCommand(Command):
     def __init__(self):
-        task_name = "CMD Task" # TODO: Should this be randomized? And does it even matter?
+        task_name = get_random_value(TASKS_PATH)
         self.command_string = f'Start-ScheduledTask -TaskName "{task_name}"'
 
 
 class CreateObjectCommand(Command):
     def __init__(self):
-        #path = getrandomfile() UNCOMMENT
-        # TODO: remove mock data
-        path =  f"C:\Temp\FuzzFile{random.randint(1,100)}.txt"
+        path = get_random_value(FILES_PATH)
 
         self.command_string = f'New-Item -Path "{path}" -ItemType File -Force | Out-Null'
 
 
 class DeleteObjectCommand(Command):
     def __init__(self):
-        # path = getrandomfile() TODO: Remove comment, special for delete?
-        self.command_string = f'Remove-Item -Path "{path}" -Force'
+        path = get_random_value(DELETE_MODIFY_FILES_PATH) 
+        self.command_string = f'Remove-Item -Path "{path}" -Force'    # TODO: maybe add try catch in case it doesnt exist
 
 
 class ModifyObjectCommand(Command):
     def __init__(self):
-        # path = getrandomfile() TODO: Remove comment, special for modify?
+        path = get_random_value(DELETE_MODIFY_FILES_PATH)
         self.command_string = (
             f'Add-Content -Path "{path}" -Value "Modified at $(Get-Date)"'
         )
@@ -38,9 +46,9 @@ class ModifyObjectCommand(Command):
 
 class CreateRegistryCommand(Command):
     def __init__(self):
-        key = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" # TODO: getrandomregistrykey
-        name = f"Test4657{random.randint(1,100)}"
-        value = "abc"
+        key = REGISTRY_KEY
+        name = get_random_value(REGISTRY_NAMES_PATH)
+        value = get_random_value(REGISTRY_VALUES_PATH)
         self.command_string = (
             f'Set-ItemProperty -Path "{key}" -Name "{name}" -Value "{value}"'
         )
@@ -48,8 +56,8 @@ class CreateRegistryCommand(Command):
 
 class DeleteRegistryCommand(Command):
     def __init__(self):
-        key = random_registry_key() # TODO: getrandomregistrykey (special for delete?)
-        name = random_registry_name()
+        key = REGISTRY_KEY
+        name = get_random_value(REGISTRY_NAMES_PATH)
         self.command_string = (
             f'Remove-ItemProperty -Path "{key}" -Name "{name}"'
         )
@@ -57,19 +65,29 @@ class DeleteRegistryCommand(Command):
 
 class ModifyRegistryCommand(Command):
     def __init__(self):
-        key = random_registry_key() # TODO: getrandomregistrykey (special for modify?)
-        name = random_registry_name() # maybe key is always the same, but name and value is random
-        value = random_registry_value()
+        key = REGISTRY_KEY
+        name = get_random_value(FILES_PATH)
+        value = get_random_value(REGISTRY_VALUES_PATH)
         self.command_string = (
             f'Set-ItemProperty -Path "{key}" -Name "{name}" -Value "{value}"'
         )
 
+
 # TODO: Should we add ModifyCommonStartupRegistryCommand?
-
-
-class FailedLogonCommand(Command):
+# We create a common startup registry key in the usual Run location, then modify that
+class ModifyCommonRegistryCommand(Command):
     def __init__(self):
-        user, correct_pass = getrandomuserpass().split(":")
+        key = REGISTRY_KEY
+        name = "SOMETHING SOMETHING COMMON"
+        value = get_random_value("SOMETHING SOMEHTING VALUE")
+        self.command_string = (
+            f'Set-ItemProperty -Path "{key}" -Name "{name}" -Value "{value}"'
+        )
+
+
+class FailedLogonCommand(Command): # TODO: could failedlogin be reprodiced without cmd?
+    def __init__(self):
+        user, correct_pass = get_random_key_value(USERS_PATH)
         wrong_pass = "Wrong"
         self.command_string = f"""
 $secure = ConvertTo-SecureString "{wrong_pass}" -AsPlainText -Force
@@ -85,7 +103,7 @@ catch {{
 
 class InteractiveLogonCommand(Command):
     def __init__(self):
-        user, password = getrandomuserpass().split(":")
+        user, password = get_random_key_value(USERS_PATH)
         domain = "."
         self.command_string = f'''
 $username = "{user}"
@@ -106,20 +124,25 @@ public class LogonUtil {{
         int dwLogonProvider,
         out IntPtr phToken);
 }}
+
+public class HandleUtil {{
+    [DllImport("kernel32.dll", SetLastError=true)]
+    public static extern bool CloseHandle(IntPtr hObject);
+}}
 "@
 
 $token = [IntPtr]::Zero
-[LogonUtil]::LogonUser($username, $domain, $password, 2, 0, [ref] $token) | Out-Null
+[LogonUtil]::LogonUser($username, $domain, $password, 2, 0, [ref] $token)
 '''.strip()
 
 class LogoffCommand(Command):
     def __init__(self):
-        self.command_string = '[System.Runtime.InteropServices.Marshal]::FreeHGlobal($token)'
+        self.command_string = '[HandleUtil]::CloseHandle($token) | Out-Null' # TODO: add try catch in case token does not exist for some reason
 
 
 class NetworkLogonCommand(Command):
     def __init__(self):
-        user, password = getrandomuserpass().split(":")
+        user, password = get_random_key_value(USERS_PATH)
         server = "10.0.2.15"
         self.command_string = (
             f'net use "\\\\{server}\\C$" /user:{user} {password}'
@@ -128,18 +151,18 @@ class NetworkLogonCommand(Command):
 
 class RunAsLogonCommand(Command): # TODO: Should we add as token login?
     def __init__(self):
-        user, password = getrandomuserpass().split(":")
+        user, password = get_random_key_value(USERS_PATH)
         full_user = f".\\{user}"
-        exe = getrandomprocess()
-        self.command_string = f"""
+        exe = getrandomprocess()     #TODO: should this take a whole script as argument? or just a process?
+        self.command_string = f"""    
 $RunAsCmd = "runas.exe /netonly /user:{full_user} `"{exe}`""
 cmd.exe /c $RunAsCmd
 """.strip()
 
 
-class ServiceLogonCommand(Command): # TODO: Not sure this actually works
+class ServiceLogonCommand(Command): # TODO: FIx the service script
     def __init__(self):
-        exe = getrandomprocess()
+        exe = get_random_value(PROCESSES_PATH)
         service_name = "TempService4624" # TODO: Random service name?
         self.command_string = f"""
 sc.exe create {service_name} binPath= "\\"{exe}\\"" obj= "NT AUTHORITY\\LocalService" type= own
@@ -155,7 +178,7 @@ class LockWorkstationCommand(Command):
         self.command_string = "rundll32.exe user32.dll,LockWorkStation"
 
 
-class UnlockWorkstationCommand(Command): # TODO: ?????
+class UnlockWorkstationCommand(Command): # TODO: ????? Manual ????
     def __init__(self):
         self.command_string = ""
 
@@ -167,5 +190,5 @@ class StartCMDProcessCommand(Command):
 
 class StartProcessCommand(Command):
     def __init__(self):
-        exe = getrandomprocess()
+        exe = get_random_value(PROCESSES_PATH)
         self.command_string = f'Start-Process -FilePath "{exe}"'
