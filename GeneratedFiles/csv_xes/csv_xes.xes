@@ -1,0 +1,2963 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<log xes.version="1849-2016" xes.features="nested-attributes" xmlns="http://www.xes-standard.org/">
+	<extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext" />
+	<extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext" />
+	<string key="origin" value="csv" />
+	<trace>
+		<string key="concept:name" value="0x00000000000003e7" />
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:41.093016+00:00" />
+			<int key="EventRecordID" value="527762" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000f18" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000a44" />
+			<string key="EventData.TargetHandleId" value="0x00000000000031c4" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:39:41.093016+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:41.093025+00:00" />
+			<int key="EventRecordID" value="527763" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x00000000000031c4" />
+			<string key="EventData.ProcessId" value="0x0000000000000a44" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\CompatTelRunner.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:39:41.093025+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:41.093039+00:00" />
+			<int key="EventRecordID" value="527764" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000f18" />
+			<string key="EventData.ProcessId" value="0x0000000000000a44" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\CompatTelRunner.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:39:41.093039+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:41.093042+00:00" />
+			<int key="EventRecordID" value="527765" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000f18" />
+			<string key="EventData.ProcessId" value="0x0000000000000a44" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\CompatTelRunner.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:39:41.093042+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:41.097698+00:00" />
+			<int key="EventRecordID" value="527766" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000bec" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000a44" />
+			<string key="EventData.TargetHandleId" value="0x00000000000031c4" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:39:41.097698+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:41.097704+00:00" />
+			<int key="EventRecordID" value="527767" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x00000000000031c4" />
+			<string key="EventData.ProcessId" value="0x0000000000000a44" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\CompatTelRunner.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:39:41.097704+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:41.097710+00:00" />
+			<int key="EventRecordID" value="527768" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000bec" />
+			<string key="EventData.ProcessId" value="0x0000000000000a44" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\CompatTelRunner.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:39:41.097710+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:41.097712+00:00" />
+			<int key="EventRecordID" value="527769" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000bec" />
+			<string key="EventData.ProcessId" value="0x0000000000000a44" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\CompatTelRunner.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:39:41.097712+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4688" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="13312" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:45.653427+00:00" />
+			<int key="EventRecordID" value="527771" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x00000000000004c8" />
+			<string key="EventData.NewProcessId" value="0x0000000000000304" />
+			<string key="EventData.NewProcessName" value="C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe" />
+			<string key="EventData.TokenElevationType" value="%%1936" />
+			<string key="EventData.CommandLine" value='"C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe" /c' />
+			<string key="EventData.TargetUserSid" value="S-1-0-0" />
+			<string key="EventData.TargetUserName" value="-" />
+			<string key="EventData.TargetDomainName" value="-" />
+			<string key="EventData.TargetLogonId" value="0x0000000000000000" />
+			<string key="EventData.ParentProcessName" value="C:\Windows\System32\svchost.exe" />
+			<string key="EventData.MandatoryLabel" value="S-1-16-16384" />
+			<date key="time:timestamp" value="2025-12-01T13:39:45.653427+00:00" />
+			<string key="concept:name" value="4688" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4688" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="13312" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:50.421743+00:00" />
+			<int key="EventRecordID" value="527775" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7568" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x0000000000000ad8" />
+			<string key="EventData.NewProcessId" value="0x0000000000000e78" />
+			<string key="EventData.NewProcessName" value="C:\Windows\System32\wbem\WMIADAP.exe" />
+			<string key="EventData.TokenElevationType" value="%%1936" />
+			<string key="EventData.CommandLine" value="wmiadap.exe /F /T /R" />
+			<string key="EventData.TargetUserSid" value="S-1-0-0" />
+			<string key="EventData.TargetUserName" value="-" />
+			<string key="EventData.TargetDomainName" value="-" />
+			<string key="EventData.TargetLogonId" value="0x0000000000000000" />
+			<string key="EventData.ParentProcessName" value="C:\Windows\System32\svchost.exe" />
+			<string key="EventData.MandatoryLabel" value="S-1-16-16384" />
+			<date key="time:timestamp" value="2025-12-01T13:39:50.421743+00:00" />
+			<string key="concept:name" value="4688" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:50.497702+00:00" />
+			<int key="EventRecordID" value="527776" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7568" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000330" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000a44" />
+			<string key="EventData.TargetHandleId" value="0x0000000000001d0c" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:39:50.497702+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12800" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:50.497707+00:00" />
+			<int key="EventRecordID" value="527777" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7568" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000001d0c" />
+			<string key="EventData.ProcessId" value="0x0000000000000a44" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\CompatTelRunner.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:39:50.497707+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12800" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:50.497746+00:00" />
+			<int key="EventRecordID" value="527778" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7568" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000330" />
+			<string key="EventData.ProcessId" value="0x0000000000000a44" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\CompatTelRunner.exe" />
+			<string key="EventData.ObjectType" value="File" />
+			<string key="EventData.ObjectName" value="C:\Windows\WinSxS\FileMaps\program_files_windows_defender_3e33901162166ae9.cdf-ms" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%1541&#10;&#9;&#9;&#9;&#9;%%4416&#10;&#9;&#9;&#9;&#9;%%4419&#10;&#9;&#9;&#9;&#9;%%4423" />
+			<string key="EventData.AccessReason" value="%%1538:&#9;%%1801&#9;D:(A;;0x1200a9;;;BA)&#10;&#9;&#9;&#9;&#9;%%1541:&#9;%%1801&#9;D:(A;;0x1200a9;;;BA)&#10;&#9;&#9;&#9;&#9;%%4416:&#9;%%1801&#9;D:(A;;0x1200a9;;;BA)&#10;&#9;&#9;&#9;&#9;%%4419:&#9;%%1801&#9;D:(A;;0x1200a9;;;BA)&#10;&#9;&#9;&#9;&#9;%%4423:&#9;%%1801&#9;D:(A;;0x1200a9;;;BA)" />
+			<string key="EventData.AccessMask" value="0x00120089" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:39:50.497746+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12800" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:50.497747+00:00" />
+			<int key="EventRecordID" value="527779" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7568" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000330" />
+			<string key="EventData.ProcessId" value="0x0000000000000a44" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\CompatTelRunner.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:39:50.497747+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4688" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="13312" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:49.024372+00:00" />
+			<int key="EventRecordID" value="527782" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x00000000000004c8" />
+			<string key="EventData.NewProcessId" value="0x0000000000001300" />
+			<string key="EventData.NewProcessName" value="C:\Windows\System32\taskhostw.exe" />
+			<string key="EventData.TokenElevationType" value="%%1936" />
+			<string key="EventData.CommandLine" value="taskhostw.exe SBServicing" />
+			<string key="EventData.TargetUserSid" value="S-1-0-0" />
+			<string key="EventData.TargetUserName" value="-" />
+			<string key="EventData.TargetDomainName" value="-" />
+			<string key="EventData.TargetLogonId" value="0x0000000000000000" />
+			<string key="EventData.ParentProcessName" value="C:\Windows\System32\svchost.exe" />
+			<string key="EventData.MandatoryLabel" value="S-1-16-16384" />
+			<date key="time:timestamp" value="2025-12-01T13:40:49.024372+00:00" />
+			<string key="concept:name" value="4688" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:49.249720+00:00" />
+			<int key="EventRecordID" value="527783" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000360" />
+			<string key="EventData.SourceProcessId" value="0x0000000000001300" />
+			<string key="EventData.TargetHandleId" value="0x0000000000001cb8" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:40:49.249720+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:49.249830+00:00" />
+			<int key="EventRecordID" value="527784" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000001cb8" />
+			<string key="EventData.ProcessId" value="0x0000000000001300" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\taskhostw.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:40:49.249830+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:49.249842+00:00" />
+			<int key="EventRecordID" value="527785" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000360" />
+			<string key="EventData.ProcessId" value="0x0000000000001300" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\taskhostw.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\SystemCertificates\ROOT\Certificates" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1537&#10;&#9;&#9;&#9;&#9;%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4433&#10;&#9;&#9;&#9;&#9;%%4434&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x0003001f" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:40:49.249842+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:49.249844+00:00" />
+			<int key="EventRecordID" value="527786" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000360" />
+			<string key="EventData.ProcessId" value="0x0000000000001300" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\taskhostw.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:40:49.249844+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:49.250563+00:00" />
+			<int key="EventRecordID" value="527787" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000364" />
+			<string key="EventData.SourceProcessId" value="0x0000000000001300" />
+			<string key="EventData.TargetHandleId" value="0x0000000000001cb8" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:40:49.250563+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:49.250566+00:00" />
+			<int key="EventRecordID" value="527788" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000001cb8" />
+			<string key="EventData.ProcessId" value="0x0000000000001300" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\taskhostw.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:40:49.250566+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:49.250570+00:00" />
+			<int key="EventRecordID" value="527789" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000364" />
+			<string key="EventData.ProcessId" value="0x0000000000001300" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\taskhostw.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1537&#10;&#9;&#9;&#9;&#9;%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4433&#10;&#9;&#9;&#9;&#9;%%4434&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x0003001f" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:40:49.250570+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:49.250677+00:00" />
+			<int key="EventRecordID" value="527790" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000364" />
+			<string key="EventData.ProcessId" value="0x0000000000001300" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\taskhostw.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:40:49.250677+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:49.250677+00:00" />
+			<int key="EventRecordID" value="527791" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000368" />
+			<string key="EventData.SourceProcessId" value="0x0000000000001300" />
+			<string key="EventData.TargetHandleId" value="0x0000000000001cb4" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:40:49.250677+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:49.250681+00:00" />
+			<int key="EventRecordID" value="527792" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000001cb4" />
+			<string key="EventData.ProcessId" value="0x0000000000001300" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\taskhostw.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:40:49.250681+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:49.250685+00:00" />
+			<int key="EventRecordID" value="527793" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000368" />
+			<string key="EventData.ProcessId" value="0x0000000000001300" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\taskhostw.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\EnterpriseCertificates\Root\Certificates" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1537&#10;&#9;&#9;&#9;&#9;%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4433&#10;&#9;&#9;&#9;&#9;%%4434&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x0003001f" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:40:49.250685+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:49.250689+00:00" />
+			<int key="EventRecordID" value="527794" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000368" />
+			<string key="EventData.ProcessId" value="0x0000000000001300" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\taskhostw.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:40:49.250689+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4688" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="13312" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:57.838005+00:00" />
+			<int key="EventRecordID" value="527795" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7584" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x0000000000000a60" />
+			<string key="EventData.NewProcessId" value="0x0000000000001228" />
+			<string key="EventData.NewProcessName" value="C:\Windows\System32\CompatTelRunner.exe" />
+			<string key="EventData.TokenElevationType" value="%%1936" />
+			<string key="EventData.CommandLine" value="C:\Windows\system32\CompatTelRunner.exe -m:appraiser.dll -f:UpdateAvStatus -cv:8j/ooiic00WkqB9C.3" />
+			<string key="EventData.TargetUserSid" value="S-1-0-0" />
+			<string key="EventData.TargetUserName" value="-" />
+			<string key="EventData.TargetDomainName" value="-" />
+			<string key="EventData.TargetLogonId" value="0x0000000000000000" />
+			<string key="EventData.ParentProcessName" value="C:\Windows\System32\CompatTelRunner.exe" />
+			<string key="EventData.MandatoryLabel" value="S-1-16-16384" />
+			<date key="time:timestamp" value="2025-12-01T13:40:57.838005+00:00" />
+			<string key="concept:name" value="4688" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4688" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="13312" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:57.958481+00:00" />
+			<int key="EventRecordID" value="527796" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7584" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x0000000000000a60" />
+			<string key="EventData.NewProcessId" value="0x0000000000001908" />
+			<string key="EventData.NewProcessName" value="C:\Windows\System32\CompatTelRunner.exe" />
+			<string key="EventData.TokenElevationType" value="%%1936" />
+			<string key="EventData.CommandLine" value="C:\Windows\system32\CompatTelRunner.exe -m:aemarebackup.dll -f:BackupMareData -cv:8j/ooiic00WkqB9C.6" />
+			<string key="EventData.TargetUserSid" value="S-1-0-0" />
+			<string key="EventData.TargetUserName" value="-" />
+			<string key="EventData.TargetDomainName" value="-" />
+			<string key="EventData.TargetLogonId" value="0x0000000000000000" />
+			<string key="EventData.ParentProcessName" value="C:\Windows\System32\CompatTelRunner.exe" />
+			<string key="EventData.MandatoryLabel" value="S-1-16-16384" />
+			<date key="time:timestamp" value="2025-12-01T13:40:57.958481+00:00" />
+			<string key="concept:name" value="4688" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4624" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12544" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:58.019093+00:00" />
+			<int key="EventRecordID" value="527797" />
+			<string key="Correlation.ActivityID" value="{3e0544ed-62c7-0000-4c45-053ec762dc01}" />
+			<int key="Execution.ProcessID" value="732" />
+			<int key="Execution.ThreadID" value="2496" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x00000000000002c4" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\services.exe" />
+			<string key="EventData.TargetUserSid" value="S-1-5-18" />
+			<string key="EventData.TargetUserName" value="SYSTEM" />
+			<string key="EventData.TargetDomainName" value="NT AUTHORITY" />
+			<string key="EventData.TargetLogonId" value="0x00000000000003e7" />
+			<float key="EventData.LogonType" value="5.0" />
+			<string key="EventData.LogonProcessName" value="Advapi" />
+			<string key="EventData.AuthenticationPackageName" value="Negotiate" />
+			<string key="EventData.WorkstationName" value="-" />
+			<string key="EventData.LogonGuid" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.TransmittedServices" value="-" />
+			<string key="EventData.LmPackageName" value="-" />
+			<float key="EventData.KeyLength" value="0.0" />
+			<string key="EventData.IpAddress" value="-" />
+			<string key="EventData.IpPort" value="-" />
+			<string key="EventData.ImpersonationLevel" value="%%1833" />
+			<string key="EventData.RestrictedAdminMode" value="-" />
+			<string key="EventData.TargetOutboundUserName" value="-" />
+			<string key="EventData.TargetOutboundDomainName" value="-" />
+			<string key="EventData.VirtualAccount" value="%%1843" />
+			<string key="EventData.TargetLinkedLogonId" value="0x0000000000000000" />
+			<string key="EventData.ElevatedToken" value="%%1842" />
+			<date key="time:timestamp" value="2025-12-01T13:40:58.019093+00:00" />
+			<string key="concept:name" value="4624" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4672" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12548" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:58.019100+00:00" />
+			<int key="EventRecordID" value="527798" />
+			<string key="Correlation.ActivityID" value="{3e0544ed-62c7-0000-4c45-053ec762dc01}" />
+			<int key="Execution.ProcessID" value="732" />
+			<int key="Execution.ThreadID" value="2496" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="SYSTEM" />
+			<string key="EventData.SubjectDomainName" value="NT AUTHORITY" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.PrivilegeList" value="SeAssignPrimaryTokenPrivilege&#10;&#9;&#9;&#9;SeTcbPrivilege&#10;&#9;&#9;&#9;SeSecurityPrivilege&#10;&#9;&#9;&#9;SeTakeOwnershipPrivilege&#10;&#9;&#9;&#9;SeLoadDriverPrivilege&#10;&#9;&#9;&#9;SeBackupPrivilege&#10;&#9;&#9;&#9;SeRestorePrivilege&#10;&#9;&#9;&#9;SeDebugPrivilege&#10;&#9;&#9;&#9;SeAuditPrivilege&#10;&#9;&#9;&#9;SeSystemEnvironmentPrivilege&#10;&#9;&#9;&#9;SeImpersonatePrivilege&#10;&#9;&#9;&#9;SeDelegateSessionUserImpersonatePrivilege" />
+			<date key="time:timestamp" value="2025-12-01T13:40:58.019100+00:00" />
+			<string key="concept:name" value="4672" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4688" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="13312" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:58.022234+00:00" />
+			<int key="EventRecordID" value="527799" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x00000000000002c4" />
+			<string key="EventData.NewProcessId" value="0x000000000000091c" />
+			<string key="EventData.NewProcessName" value="C:\Windows\System32\svchost.exe" />
+			<string key="EventData.TokenElevationType" value="%%1936" />
+			<string key="EventData.CommandLine" value="C:\Windows\system32\svchost.exe -k netsvcs -p -s wisvc" />
+			<string key="EventData.TargetUserSid" value="S-1-0-0" />
+			<string key="EventData.TargetUserName" value="-" />
+			<string key="EventData.TargetDomainName" value="-" />
+			<string key="EventData.TargetLogonId" value="0x0000000000000000" />
+			<string key="EventData.ParentProcessName" value="C:\Windows\System32\services.exe" />
+			<string key="EventData.MandatoryLabel" value="S-1-16-16384" />
+			<date key="time:timestamp" value="2025-12-01T13:40:58.022234+00:00" />
+			<string key="concept:name" value="4688" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4688" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="13312" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:58.288486+00:00" />
+			<int key="EventRecordID" value="527800" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7728" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x0000000000000350" />
+			<string key="EventData.NewProcessId" value="0x00000000000018b0" />
+			<string key="EventData.NewProcessName" value="C:\Windows\System32\backgroundTaskHost.exe" />
+			<string key="EventData.TokenElevationType" value="%%1938" />
+			<string key="EventData.CommandLine" value='"C:\Windows\system32\BackgroundTaskHost.exe" -ServerName:BackgroundTaskHost.WebAccountProvider' />
+			<string key="EventData.TargetUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.TargetUserName" value="Thesis" />
+			<string key="EventData.TargetDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.TargetLogonId" value="0x0000000000046c2f" />
+			<string key="EventData.ParentProcessName" value="C:\Windows\System32\svchost.exe" />
+			<string key="EventData.MandatoryLabel" value="S-1-16-4096" />
+			<date key="time:timestamp" value="2025-12-01T13:40:58.288486+00:00" />
+			<string key="concept:name" value="4688" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4688" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="13312" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:59.293163+00:00" />
+			<int key="EventRecordID" value="527805" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="328" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x00000000000004c8" />
+			<string key="EventData.NewProcessId" value="0x0000000000001994" />
+			<string key="EventData.NewProcessName" value="C:\Windows\System32\taskhostw.exe" />
+			<string key="EventData.TokenElevationType" value="%%1936" />
+			<string key="EventData.CommandLine" value="taskhostw.exe" />
+			<string key="EventData.TargetUserSid" value="S-1-0-0" />
+			<string key="EventData.TargetUserName" value="-" />
+			<string key="EventData.TargetDomainName" value="-" />
+			<string key="EventData.TargetLogonId" value="0x0000000000000000" />
+			<string key="EventData.ParentProcessName" value="C:\Windows\System32\svchost.exe" />
+			<string key="EventData.MandatoryLabel" value="S-1-16-16384" />
+			<date key="time:timestamp" value="2025-12-01T13:40:59.293163+00:00" />
+			<string key="concept:name" value="4688" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4688" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="13312" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:59.772064+00:00" />
+			<int key="EventRecordID" value="527806" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7568" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x00000000000002c4" />
+			<string key="EventData.NewProcessId" value="0x00000000000021a4" />
+			<string key="EventData.NewProcessName" value="C:\Windows\System32\sppsvc.exe" />
+			<string key="EventData.TokenElevationType" value="%%1936" />
+			<string key="EventData.CommandLine" value="C:\Windows\system32\sppsvc.exe" />
+			<string key="EventData.TargetUserSid" value="S-1-0-0" />
+			<string key="EventData.TargetUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.TargetDomainName" value="WORKGROUP" />
+			<string key="EventData.TargetLogonId" value="0x00000000000003e4" />
+			<string key="EventData.ParentProcessName" value="C:\Windows\System32\services.exe" />
+			<string key="EventData.MandatoryLabel" value="S-1-16-16384" />
+			<date key="time:timestamp" value="2025-12-01T13:40:59.772064+00:00" />
+			<string key="concept:name" value="4688" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4688" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="13312" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:01.807114+00:00" />
+			<int key="EventRecordID" value="527811" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="32" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x00000000000004c8" />
+			<string key="EventData.NewProcessId" value="0x0000000000001ba4" />
+			<string key="EventData.NewProcessName" value="C:\Windows\System32\sc.exe" />
+			<string key="EventData.TokenElevationType" value="%%1936" />
+			<string key="EventData.CommandLine" value='"C:\Windows\system32\sc.exe" start pushtoinstall login' />
+			<string key="EventData.TargetUserSid" value="S-1-0-0" />
+			<string key="EventData.TargetUserName" value="-" />
+			<string key="EventData.TargetDomainName" value="-" />
+			<string key="EventData.TargetLogonId" value="0x0000000000000000" />
+			<string key="EventData.ParentProcessName" value="C:\Windows\System32\svchost.exe" />
+			<string key="EventData.MandatoryLabel" value="S-1-16-16384" />
+			<date key="time:timestamp" value="2025-12-01T13:41:01.807114+00:00" />
+			<string key="concept:name" value="4688" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4688" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="13312" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:01.815926+00:00" />
+			<int key="EventRecordID" value="527812" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7728" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x0000000000001ba4" />
+			<string key="EventData.NewProcessId" value="0x0000000000001388" />
+			<string key="EventData.NewProcessName" value="C:\Windows\System32\conhost.exe" />
+			<string key="EventData.TokenElevationType" value="%%1936" />
+			<string key="EventData.CommandLine" value="\??\C:\Windows\system32\conhost.exe 0xffffffff -ForceV1" />
+			<string key="EventData.TargetUserSid" value="S-1-0-0" />
+			<string key="EventData.TargetUserName" value="-" />
+			<string key="EventData.TargetDomainName" value="-" />
+			<string key="EventData.TargetLogonId" value="0x0000000000000000" />
+			<string key="EventData.ParentProcessName" value="C:\Windows\System32\sc.exe" />
+			<string key="EventData.MandatoryLabel" value="S-1-16-16384" />
+			<date key="time:timestamp" value="2025-12-01T13:41:01.815926+00:00" />
+			<string key="concept:name" value="4688" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4624" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12544" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:01.878141+00:00" />
+			<int key="EventRecordID" value="527813" />
+			<string key="Correlation.ActivityID" value="{3e0544ed-62c7-0000-4c45-053ec762dc01}" />
+			<int key="Execution.ProcessID" value="732" />
+			<int key="Execution.ThreadID" value="768" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x00000000000002c4" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\services.exe" />
+			<string key="EventData.TargetUserSid" value="S-1-5-18" />
+			<string key="EventData.TargetUserName" value="SYSTEM" />
+			<string key="EventData.TargetDomainName" value="NT AUTHORITY" />
+			<string key="EventData.TargetLogonId" value="0x00000000000003e7" />
+			<float key="EventData.LogonType" value="5.0" />
+			<string key="EventData.LogonProcessName" value="Advapi" />
+			<string key="EventData.AuthenticationPackageName" value="Negotiate" />
+			<string key="EventData.WorkstationName" value="-" />
+			<string key="EventData.LogonGuid" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.TransmittedServices" value="-" />
+			<string key="EventData.LmPackageName" value="-" />
+			<float key="EventData.KeyLength" value="0.0" />
+			<string key="EventData.IpAddress" value="-" />
+			<string key="EventData.IpPort" value="-" />
+			<string key="EventData.ImpersonationLevel" value="%%1833" />
+			<string key="EventData.RestrictedAdminMode" value="-" />
+			<string key="EventData.TargetOutboundUserName" value="-" />
+			<string key="EventData.TargetOutboundDomainName" value="-" />
+			<string key="EventData.VirtualAccount" value="%%1843" />
+			<string key="EventData.TargetLinkedLogonId" value="0x0000000000000000" />
+			<string key="EventData.ElevatedToken" value="%%1842" />
+			<date key="time:timestamp" value="2025-12-01T13:41:01.878141+00:00" />
+			<string key="concept:name" value="4624" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4672" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12548" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:01.878149+00:00" />
+			<int key="EventRecordID" value="527814" />
+			<string key="Correlation.ActivityID" value="{3e0544ed-62c7-0000-4c45-053ec762dc01}" />
+			<int key="Execution.ProcessID" value="732" />
+			<int key="Execution.ThreadID" value="768" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="SYSTEM" />
+			<string key="EventData.SubjectDomainName" value="NT AUTHORITY" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.PrivilegeList" value="SeAssignPrimaryTokenPrivilege&#10;&#9;&#9;&#9;SeTcbPrivilege&#10;&#9;&#9;&#9;SeSecurityPrivilege&#10;&#9;&#9;&#9;SeTakeOwnershipPrivilege&#10;&#9;&#9;&#9;SeLoadDriverPrivilege&#10;&#9;&#9;&#9;SeBackupPrivilege&#10;&#9;&#9;&#9;SeRestorePrivilege&#10;&#9;&#9;&#9;SeDebugPrivilege&#10;&#9;&#9;&#9;SeAuditPrivilege&#10;&#9;&#9;&#9;SeSystemEnvironmentPrivilege&#10;&#9;&#9;&#9;SeImpersonatePrivilege&#10;&#9;&#9;&#9;SeDelegateSessionUserImpersonatePrivilege" />
+			<date key="time:timestamp" value="2025-12-01T13:41:01.878149+00:00" />
+			<string key="concept:name" value="4672" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4688" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="13312" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:01.880222+00:00" />
+			<int key="EventRecordID" value="527815" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7568" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-18" />
+			<string key="EventData.SubjectUserName" value="DESKTOP-40HV17C$" />
+			<string key="EventData.SubjectDomainName" value="WORKGROUP" />
+			<string key="EventData.SubjectLogonId" value="0x00000000000003e7" />
+			<string key="EventData.ProcessId" value="0x00000000000002c4" />
+			<string key="EventData.NewProcessId" value="0x0000000000000f90" />
+			<string key="EventData.NewProcessName" value="C:\Windows\System32\svchost.exe" />
+			<string key="EventData.TokenElevationType" value="%%1936" />
+			<string key="EventData.CommandLine" value="C:\Windows\System32\svchost.exe -k netsvcs -p -s PushToInstall" />
+			<string key="EventData.TargetUserSid" value="S-1-0-0" />
+			<string key="EventData.TargetUserName" value="-" />
+			<string key="EventData.TargetDomainName" value="-" />
+			<string key="EventData.TargetLogonId" value="0x0000000000000000" />
+			<string key="EventData.ParentProcessName" value="C:\Windows\System32\services.exe" />
+			<string key="EventData.MandatoryLabel" value="S-1-16-16384" />
+			<date key="time:timestamp" value="2025-12-01T13:41:01.880222+00:00" />
+			<string key="concept:name" value="4688" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="0x0000000000046c2f" />
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4688" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="13312" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:41.425528+00:00" />
+			<int key="EventRecordID" value="527770" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c2f" />
+			<string key="EventData.ProcessId" value="0x0000000000001cc4" />
+			<string key="EventData.NewProcessId" value="0x000000000000269c" />
+			<string key="EventData.NewProcessName" value="C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" />
+			<string key="EventData.TokenElevationType" value="%%1938" />
+			<string key="EventData.CommandLine" value='"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --type=utility --utility-sub-type=asset_store.mojom.AssetStoreService --lang=en-US --service-sandbox-type=asset_store_service --always-read-main-dll --metrics-shmem-handle=6060,i,968706163880334919,12995108994147436968,524288 --field-trial-handle=2372,i,13162257955122762025,4332410033794861740,262144 --variations-seed-version --trace-process-track-uuid=3190709000367499229 --mojo-platform-channel-handle=5312 /prefetch:8' />
+			<string key="EventData.TargetUserSid" value="S-1-0-0" />
+			<string key="EventData.TargetUserName" value="-" />
+			<string key="EventData.TargetDomainName" value="-" />
+			<string key="EventData.TargetLogonId" value="0x0000000000000000" />
+			<string key="EventData.ParentProcessName" value="C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" />
+			<string key="EventData.MandatoryLabel" value="S-1-16-4096" />
+			<date key="time:timestamp" value="2025-12-01T13:39:41.425528+00:00" />
+			<string key="concept:name" value="4688" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="0x0000000000046c03" />
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4624" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12544" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:46.590616+00:00" />
+			<int key="EventRecordID" value="527772" />
+			<string key="Correlation.ActivityID" value="{3e0544ed-62c7-0000-4c45-053ec762dc01}" />
+			<int key="Execution.ProcessID" value="732" />
+			<int key="Execution.ThreadID" value="844" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ProcessId" value="0x0000000000002770" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" />
+			<string key="EventData.TargetUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.TargetUserName" value="Thesis" />
+			<string key="EventData.TargetDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.TargetLogonId" value="0x000000000025dcbd" />
+			<float key="EventData.LogonType" value="2.0" />
+			<string key="EventData.LogonProcessName" value="Advapi" />
+			<string key="EventData.AuthenticationPackageName" value="Negotiate" />
+			<string key="EventData.WorkstationName" value="DESKTOP-40HV17C" />
+			<string key="EventData.LogonGuid" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.TransmittedServices" value="-" />
+			<string key="EventData.LmPackageName" value="-" />
+			<float key="EventData.KeyLength" value="0.0" />
+			<string key="EventData.IpAddress" value="-" />
+			<string key="EventData.IpPort" value="-" />
+			<string key="EventData.ImpersonationLevel" value="%%1833" />
+			<string key="EventData.RestrictedAdminMode" value="-" />
+			<string key="EventData.TargetOutboundUserName" value="-" />
+			<string key="EventData.TargetOutboundDomainName" value="-" />
+			<string key="EventData.VirtualAccount" value="%%1843" />
+			<string key="EventData.TargetLinkedLogonId" value="0x000000000025dcdb" />
+			<string key="EventData.ElevatedToken" value="%%1842" />
+			<date key="time:timestamp" value="2025-12-01T13:39:46.590616+00:00" />
+			<string key="concept:name" value="4624" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4624" />
+			<int key="Version" value="2" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12544" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:46.590630+00:00" />
+			<int key="EventRecordID" value="527773" />
+			<string key="Correlation.ActivityID" value="{3e0544ed-62c7-0000-4c45-053ec762dc01}" />
+			<int key="Execution.ProcessID" value="732" />
+			<int key="Execution.ThreadID" value="844" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ProcessId" value="0x0000000000002770" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" />
+			<string key="EventData.TargetUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.TargetUserName" value="Thesis" />
+			<string key="EventData.TargetDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.TargetLogonId" value="0x000000000025dcdb" />
+			<float key="EventData.LogonType" value="2.0" />
+			<string key="EventData.LogonProcessName" value="Advapi" />
+			<string key="EventData.AuthenticationPackageName" value="Negotiate" />
+			<string key="EventData.WorkstationName" value="DESKTOP-40HV17C" />
+			<string key="EventData.LogonGuid" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.TransmittedServices" value="-" />
+			<string key="EventData.LmPackageName" value="-" />
+			<float key="EventData.KeyLength" value="0.0" />
+			<string key="EventData.IpAddress" value="-" />
+			<string key="EventData.IpPort" value="-" />
+			<string key="EventData.ImpersonationLevel" value="%%1833" />
+			<string key="EventData.RestrictedAdminMode" value="-" />
+			<string key="EventData.TargetOutboundUserName" value="-" />
+			<string key="EventData.TargetOutboundDomainName" value="-" />
+			<string key="EventData.VirtualAccount" value="%%1843" />
+			<string key="EventData.TargetLinkedLogonId" value="0x000000000025dcbd" />
+			<string key="EventData.ElevatedToken" value="%%1843" />
+			<date key="time:timestamp" value="2025-12-01T13:39:46.590630+00:00" />
+			<string key="concept:name" value="4624" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:58.724174+00:00" />
+			<int key="EventRecordID" value="527801" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7584" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000a68" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000001bf4" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:40:58.724174+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:58.724339+00:00" />
+			<int key="EventRecordID" value="527802" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7584" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000001bf4" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:40:58.724339+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:58.724632+00:00" />
+			<int key="EventRecordID" value="527803" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7584" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000a68" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:40:58.724632+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:58.726231+00:00" />
+			<int key="EventRecordID" value="527804" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7584" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000a68" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:40:58.726231+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:59.976612+00:00" />
+			<int key="EventRecordID" value="527807" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7708" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000ae8" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000002434" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:40:59.976612+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:59.976620+00:00" />
+			<int key="EventRecordID" value="527808" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7708" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000002434" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:40:59.976620+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:59.976631+00:00" />
+			<int key="EventRecordID" value="527809" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7708" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000ae8" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:40:59.976631+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:40:59.976635+00:00" />
+			<int key="EventRecordID" value="527810" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7708" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000ae8" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:40:59.976635+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.772182+00:00" />
+			<int key="EventRecordID" value="527816" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000d9c" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000002dd0" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.772182+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.772192+00:00" />
+			<int key="EventRecordID" value="527817" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000002dd0" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.772192+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.772202+00:00" />
+			<int key="EventRecordID" value="527818" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d9c" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.772202+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.773130+00:00" />
+			<int key="EventRecordID" value="527819" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d9c" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.773130+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.773134+00:00" />
+			<int key="EventRecordID" value="527820" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000d88" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000002dd0" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.773134+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.773136+00:00" />
+			<int key="EventRecordID" value="527821" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000002dd0" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.773136+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.773142+00:00" />
+			<int key="EventRecordID" value="527822" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d88" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.773142+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.774208+00:00" />
+			<int key="EventRecordID" value="527823" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d88" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.774208+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.774212+00:00" />
+			<int key="EventRecordID" value="527824" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000d80" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000002dd0" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.774212+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.774214+00:00" />
+			<int key="EventRecordID" value="527825" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000002dd0" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.774214+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.774218+00:00" />
+			<int key="EventRecordID" value="527826" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d80" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.774218+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.775009+00:00" />
+			<int key="EventRecordID" value="527827" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d80" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.775009+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.775013+00:00" />
+			<int key="EventRecordID" value="527828" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000d9c" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000002dd0" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.775013+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.775013+00:00" />
+			<int key="EventRecordID" value="527829" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000002dd0" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.775013+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.775017+00:00" />
+			<int key="EventRecordID" value="527830" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d9c" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.775017+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.775940+00:00" />
+			<int key="EventRecordID" value="527831" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d9c" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.775940+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.778742+00:00" />
+			<int key="EventRecordID" value="527832" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000d9c" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000002dd0" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.778742+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.778751+00:00" />
+			<int key="EventRecordID" value="527833" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000002dd0" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.778751+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.778765+00:00" />
+			<int key="EventRecordID" value="527834" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d9c" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.778765+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.779398+00:00" />
+			<int key="EventRecordID" value="527835" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d9c" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.779398+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.797188+00:00" />
+			<int key="EventRecordID" value="527836" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000da4" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000003214" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.797188+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.797195+00:00" />
+			<int key="EventRecordID" value="527837" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000003214" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.797195+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.797203+00:00" />
+			<int key="EventRecordID" value="527838" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000da4" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.797203+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.798021+00:00" />
+			<int key="EventRecordID" value="527839" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000da4" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.798021+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.798025+00:00" />
+			<int key="EventRecordID" value="527840" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000da8" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000003214" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.798025+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.798027+00:00" />
+			<int key="EventRecordID" value="527841" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000003214" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.798027+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.798033+00:00" />
+			<int key="EventRecordID" value="527842" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000da8" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.798033+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.798586+00:00" />
+			<int key="EventRecordID" value="527843" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000da8" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.798586+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.799362+00:00" />
+			<int key="EventRecordID" value="527844" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000d6c" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000003214" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.799362+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.799366+00:00" />
+			<int key="EventRecordID" value="527845" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000003214" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.799366+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.799370+00:00" />
+			<int key="EventRecordID" value="527846" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d6c" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.799370+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.800770+00:00" />
+			<int key="EventRecordID" value="527847" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d6c" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.800770+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.802687+00:00" />
+			<int key="EventRecordID" value="527848" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000da4" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000003214" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.802687+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.802691+00:00" />
+			<int key="EventRecordID" value="527849" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000003214" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.802691+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.802698+00:00" />
+			<int key="EventRecordID" value="527850" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000da4" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.802698+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.802702+00:00" />
+			<int key="EventRecordID" value="527851" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000da4" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.802702+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.806499+00:00" />
+			<int key="EventRecordID" value="527852" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000d80" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000003214" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.806499+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.806509+00:00" />
+			<int key="EventRecordID" value="527853" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000003214" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.806509+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.806519+00:00" />
+			<int key="EventRecordID" value="527854" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d80" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.806519+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.807343+00:00" />
+			<int key="EventRecordID" value="527855" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000d80" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.807343+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.808498+00:00" />
+			<int key="EventRecordID" value="527856" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000da4" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000003214" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.808498+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.808502+00:00" />
+			<int key="EventRecordID" value="527857" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000003214" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.808502+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.808512+00:00" />
+			<int key="EventRecordID" value="527858" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000da4" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.808512+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.809696+00:00" />
+			<int key="EventRecordID" value="527859" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000da4" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.809696+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4690" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12807" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.820580+00:00" />
+			<int key="EventRecordID" value="527860" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.SourceHandleId" value="0x0000000000000da4" />
+			<string key="EventData.SourceProcessId" value="0x0000000000000c04" />
+			<string key="EventData.TargetHandleId" value="0x0000000000003214" />
+			<string key="EventData.TargetProcessId" value="0x0000000000000004" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.820580+00:00" />
+			<string key="concept:name" value="4690" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.820587+00:00" />
+			<int key="EventRecordID" value="527861" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000003214" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.820587+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4656" />
+			<int key="Version" value="1" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.820597+00:00" />
+			<int key="EventRecordID" value="527862" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000da4" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<string key="EventData.ObjectType" value="Key" />
+			<string key="EventData.ObjectName" value="\REGISTRY\MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" />
+			<string key="EventData.TransactionId" value="{00000000-0000-0000-0000-000000000000}" />
+			<string key="EventData.AccessList" value="%%1538&#10;&#9;&#9;&#9;&#9;%%4432&#10;&#9;&#9;&#9;&#9;%%4435&#10;&#9;&#9;&#9;&#9;%%4436" />
+			<string key="EventData.AccessReason" value="-" />
+			<string key="EventData.AccessMask" value="0x00020019" />
+			<string key="EventData.PrivilegeList" value="-" />
+			<float key="EventData.RestrictedSidCount" value="0.0" />
+			<string key="EventData.ResourceAttributes" value="-" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.820597+00:00" />
+			<string key="concept:name" value="4656" />
+		</event>
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4658" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12801" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:41:15.821777+00:00" />
+			<int key="EventRecordID" value="527863" />
+			<int key="Execution.ProcessID" value="4" />
+			<int key="Execution.ThreadID" value="7608" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x0000000000046c03" />
+			<string key="EventData.ObjectServer" value="Security" />
+			<string key="EventData.HandleId" value="0x0000000000000da4" />
+			<string key="EventData.ProcessId" value="0x0000000000000c04" />
+			<string key="EventData.ProcessName" value="C:\Windows\System32\mmc.exe" />
+			<date key="time:timestamp" value="2025-12-01T13:41:15.821777+00:00" />
+			<string key="concept:name" value="4658" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="0x000000000025dcbd" />
+		<event>
+			<string key="Provider.Name" value="Microsoft-Windows-Security-Auditing" />
+			<string key="Provider.Guid" value="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+			<int key="EventID" value="4672" />
+			<int key="Version" value="0" />
+			<int key="Level" value="0" />
+			<int key="Task" value="12548" />
+			<int key="Opcode" value="0" />
+			<string key="Keywords" value="0x8020000000000000" />
+			<string key="TimeCreated.SystemTime" value="2025-12-01 13:39:46.590635+00:00" />
+			<int key="EventRecordID" value="527774" />
+			<string key="Correlation.ActivityID" value="{3e0544ed-62c7-0000-4c45-053ec762dc01}" />
+			<int key="Execution.ProcessID" value="732" />
+			<int key="Execution.ThreadID" value="844" />
+			<string key="Channel" value="Security" />
+			<string key="Computer" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectUserSid" value="S-1-5-21-40032278-2919576402-3266025375-1001" />
+			<string key="EventData.SubjectUserName" value="Thesis" />
+			<string key="EventData.SubjectDomainName" value="DESKTOP-40HV17C" />
+			<string key="EventData.SubjectLogonId" value="0x000000000025dcbd" />
+			<string key="EventData.PrivilegeList" value="SeSecurityPrivilege&#10;&#9;&#9;&#9;SeTakeOwnershipPrivilege&#10;&#9;&#9;&#9;SeLoadDriverPrivilege&#10;&#9;&#9;&#9;SeBackupPrivilege&#10;&#9;&#9;&#9;SeRestorePrivilege&#10;&#9;&#9;&#9;SeDebugPrivilege&#10;&#9;&#9;&#9;SeSystemEnvironmentPrivilege&#10;&#9;&#9;&#9;SeImpersonatePrivilege&#10;&#9;&#9;&#9;SeDelegateSessionUserImpersonatePrivilege" />
+			<date key="time:timestamp" value="2025-12-01T13:39:46.590635+00:00" />
+			<string key="concept:name" value="4672" />
+		</event>
+	</trace>
+</log>
