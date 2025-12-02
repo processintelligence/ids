@@ -3,9 +3,9 @@ from Structure.WindowsEvent import WindowsEvent
 
 @dataclass
 class Event4688(WindowsEvent):
-    process_id: int
-    process_name: str
-    token_elevation_type: str
-    mandatory_level: str
-    creator_process_name: str
-    creator_process_id: int
+    process_id: int | None = None
+    process_name: str | None = None
+    token_elevation_type: str | None = None
+    mandatory_level: str | None = None
+    creator_process_name: str | None = None
+    creator_process_id: int | None = None

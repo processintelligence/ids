@@ -1,7 +1,7 @@
 from dataclasses import dataclass
-from Structure.Events.Event4624 import Event4624
+from Structure.Events.Event4634 import Event4634
 
 @dataclass
-class Event4624_8(Event4624):
+class Event4634_8(Event4634):
     def __post_init__(self):
         self.logon_type = 8

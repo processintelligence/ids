@@ -3,4 +3,4 @@ from Structure.WindowsEvent import WindowsEvent
 
 @dataclass
 class Event4634(WindowsEvent):
-    logon_type: int
+    logon_type: int | None = None

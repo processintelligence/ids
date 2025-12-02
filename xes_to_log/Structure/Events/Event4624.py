@@ -3,8 +3,8 @@ from Structure.WindowsEvent import WindowsEvent
 
 @dataclass
 class Event4624(WindowsEvent):
-    logon_type: int
-    process_id: int
-    process_name: str
-    elevated_token: bool
-    impersonation_level: str
+    logon_type: int | None = None
+    process_id: int | None = None
+    process_name: str | None = None
+    elevated_token: bool | None = None
+    impersonation_level: str | None = None

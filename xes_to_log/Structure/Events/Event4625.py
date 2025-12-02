@@ -3,7 +3,7 @@ from Structure.WindowsEvent import WindowsEvent
 
 @dataclass
 class Event4625(WindowsEvent):
-    logon_type: int
-    failure_reason: str
-    process_id: int
-    process_name: str
+    logon_type: int | None = None
+    failure_reason: str | None = None
+    process_id: int | None = None
+    process_name: str | None = None

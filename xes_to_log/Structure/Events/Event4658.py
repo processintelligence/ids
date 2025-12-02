@@ -3,10 +3,10 @@ from Structure.WindowsEvent import WindowsEvent
 
 @dataclass
 class Event4658(WindowsEvent):
-    object_server: str
-    object_type: str
-    object_name: str
-    handle_id: str
-    process_id: int
-    process_name: str
-    accesses: list[str]
+    object_server: str | None = None
+    object_type: str | None = None
+    object_name: str | None = None
+    handle_id: str | None = None
+    process_id: int | None = None
+    process_name: str | None = None
+    accesses: list[str] | None = None

@@ -3,4 +3,5 @@ from Structure.WindowsEvent import WindowsEvent
 
 @dataclass
 class Event4672(WindowsEvent):
-    privileges: list[str]   # e.g. ["SeDebugPrivilege", "SeBackupPrivilege"]
+    privileges: list[str] | None = None
+    # e.g. ["SeDebugPrivilege", "SeBackupPrivilege"]
