@@ -90,7 +90,7 @@ class EventFactory:
     }
 
     @staticmethod
-    def create(event_id: int, **kwargs):
+    def create(event_id, **kwargs):
         subclasses = EventFactory._subclasses.get(event_id)
         if subclasses is not None:
             logon_type = kwargs.get("logon_type")
@@ -144,3 +144,4 @@ if __name__ == "__main__":
     event_4688 = EventFactory.create(4688, **fields_4688)
     print(type(event_4688))
     print(event_4688)
+

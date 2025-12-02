@@ -7,3 +7,6 @@ class Event4625(WindowsEvent):
     failure_reason: str | None = None
     process_id: int | None = None
     process_name: str | None = None
+
+    def __post_init__(self):
+        self.activity_id = 4625

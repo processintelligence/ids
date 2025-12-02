@@ -8,3 +8,6 @@ class Event4648(WindowsEvent):
     target_server: str | None = None
     process_id: int | None = None
     process_name: str | None = None
+
+    def __post_init__(self):
+        self.activity_id = 4648

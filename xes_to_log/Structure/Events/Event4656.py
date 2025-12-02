@@ -10,3 +10,6 @@ class Event4656(WindowsEvent):
     process_id: int | None = None
     process_name: str | None = None
     accesses: list[str] | None = None
+
+    def __post_init__(self):
+        self.activity_id = 4656

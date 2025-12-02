@@ -9,3 +9,6 @@ class Event4688(WindowsEvent):
     mandatory_level: str | None = None
     creator_process_name: str | None = None
     creator_process_id: int | None = None
+
+    def __post_init__(self):
+        self.activity_id = 4688

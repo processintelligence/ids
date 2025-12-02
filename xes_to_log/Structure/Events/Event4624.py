@@ -8,3 +8,6 @@ class Event4624(WindowsEvent):
     process_name: str | None = None
     elevated_token: bool | None = None
     impersonation_level: str | None = None
+
+    def __post_init__(self):
+        self.activity_id = 4624

@@ -5,3 +5,6 @@ from Structure.WindowsEvent import WindowsEvent
 class Event4672(WindowsEvent):
     privileges: list[str] | None = None
     # e.g. ["SeDebugPrivilege", "SeBackupPrivilege"]
+
+    def __post_init__(self):
+        self.activity_id = 4672
