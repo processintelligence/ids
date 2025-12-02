@@ -5,6 +5,15 @@ import math
 import pm4py
 from pm4py.objects.conversion.log import converter as log_converter
 
+def _is_nan_value(v):
+    if v is None:
+        return False
+    if isinstance(v, float) and math.isnan(v):
+        return True
+    if isinstance(v, str) and v.lower() == "nan":
+        return True
+    return False
+
 def _parse_event_xml(xml_string):
     event_dict = {}
 
@@ -50,14 +59,7 @@ def evtx_to_csv(evtx_path, csv_out):
     df.to_csv(csv_out, index=False)
     print(f"CSV written to {csv_out}")
 
-def _is_nan_value(v):
-    if v is None:
-        return False
-    if isinstance(v, float) and math.isnan(v):
-        return True
-    if isinstance(v, str) and v.lower() == "nan":
-        return True
-    return False
+
 
 def csv_to_xes(csv_path, xes_out):
     df = pd.read_csv(csv_path)
@@ -78,13 +80,11 @@ def csv_to_xes(csv_path, xes_out):
     # drop events missing case id, timestamp, or activity
     df = df.dropna(subset=["case:concept:name", "time:timestamp", "concept:name"])
 
-    # cast core fields to string
     df["case:concept:name"] = df["case:concept:name"].astype(str)
     df["concept:name"] = df["concept:name"].astype(str)
 
     event_log = log_converter.apply(df, variant=log_converter.Variants.TO_EVENT_LOG)
 
-    # remove NaN / "nan" attributes from traces and events
     for trace in event_log:
         keys_to_del = [k for k, v in trace.attributes.items() if _is_nan_value(v)]
         for k in keys_to_del:
@@ -106,7 +106,6 @@ def csv_to_xes_time_windows(csv_path, xes_out, windows,
 
     df = df.copy()
 
-    # Parse as UTC, then drop timezone to make them tz-naive
     df["time:timestamp"] = (
         pd.to_datetime(df[timestamp_col], errors="coerce", utc=True)
           .dt.tz_convert(None)
@@ -116,8 +115,8 @@ def csv_to_xes_time_windows(csv_path, xes_out, windows,
 
     pieces = []
     for i, (start, end) in enumerate(windows, start=1):
-        start_ts = pd.to_datetime(start)  # naive
-        end_ts = pd.to_datetime(end)      # naive
+        start_ts = pd.to_datetime(start)
+        end_ts = pd.to_datetime(end)
 
         mask = (df["time:timestamp"] >= start_ts) & (df["time:timestamp"] <= end_ts)
         sub = df.loc[mask].copy()
@@ -151,7 +150,7 @@ def csv_to_xes_time_windows(csv_path, xes_out, windows,
 
     pm4py.write_xes(event_log, xes_out)
 
-
+#Main for testing 
 if __name__ == "__main__":
     EVTX_FILE = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Personal/testlog.evtx"
     CSV_OUT = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/evtx_csv/evtx_csv.csv"
