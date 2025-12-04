@@ -37,7 +37,8 @@ PROCESS_OPS_CMD = ["Start_CMD_Process"]
 
 LOCK_UNLOCK_PAIR = ["Lock_Workstation", "Unlock_Workstation"]
 
-LOGOFF = ["Logoff"]
+INTERACTIVE_LOGOFF = "Interactive_Logoff"
+NETWORK_LOGOFF = "Network_Logoff"
 
 SUBLOGOFF = ["Sub_Logoff"]
 
@@ -65,14 +66,11 @@ def generate_MAIN_LOGON():
     events.append(main_logon_choice)
     if main_logon_choice == "Interactive_Logon":
         events.extend(generate_ACTIONS())
-        events.extend(generate_MAIN_LOGOFF())
+        events.append(INTERACTIVE_LOGOFF)
+    elif main_logon_choice == "Network_Logon":
+        events.append(NETWORK_LOGOFF)
 
     return events
-
-
-def generate_MAIN_LOGOFF():
-    return [random.choice(LOGOFF)]
-
 
 def generate_ACTIONS():
     events = []
@@ -148,8 +146,8 @@ def generate_LOCK_UNLOCK():
     return LOCK_UNLOCK_PAIR[:]
 
 
-""" #TEST
+#TEST
 if __name__ == "__main__":
     seq = generate_SESSION()
     for e in seq:
-        print(e) """
+        print(e)

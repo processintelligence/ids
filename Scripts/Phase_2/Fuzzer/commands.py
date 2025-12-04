@@ -131,29 +131,58 @@ public class HandleUtil {{
 }}
 "@
 
-$token = [IntPtr]::Zero
-[LogonUtil]::LogonUser($username, $domain, $password, 2, 0, [ref] $token)
+$intertoken = [IntPtr]::Zero
+[LogonUtil]::LogonUser($username, $domain, $password, 2, 0, [ref] $intertoken)
 '''.strip()
 
-class LogoffCommand(Command):
+class InteractiveLogoffCommand(Command):
     def __init__(self):
-        self.command_string = '[HandleUtil]::CloseHandle($token) | Out-Null' # TODO: add try catch in case token does not exist for some reason
+        self.command_string = '[HandleUtil]::CloseHandle($intertoken) | Out-Null' # TODO: add try catch in case token does not exist for some reason
 
 
 class NetworkLogonCommand(Command):
     def __init__(self):
         user, password = get_random_key_value(USERS_PATH)
-        server = "10.0.2.15"
-        self.command_string = (
-            f'net use "\\\\{server}\\C$" /user:{user} {password}'
-        )
+        domain = "."
+        self.command_string = f'''
+$username = "{user}"
+$domain = "{domain}"
+$password = "{password}"
 
+Add-Type @"
+using System;
+using System.Runtime.InteropServices;
+
+public class LogonUtil {{
+    [DllImport("advapi32.dll", SetLastError=true, CharSet=CharSet.Unicode)]
+    public static extern bool LogonUser(
+        string lpszUsername,
+        string lpszDomain,
+        string lpszPassword,
+        int dwLogonType,
+        int dwLogonProvider,
+        out IntPtr phToken);
+}}
+
+public class HandleUtil {{
+    [DllImport("kernel32.dll", SetLastError=true)]
+    public static extern bool CloseHandle(IntPtr hObject);
+}}
+"@
+
+$nettoken = [IntPtr]::Zero
+[LogonUtil]::LogonUser($username, $domain, $password, 3, 0, [ref] $nettoken)
+'''.strip()
+
+class NetworkLogoffCommand(Command):
+    def __init__(self):
+        self.command_string = '[HandleUtil]::CloseHandle($nettoken) | Out-Null' # TODO: add try catch in case token does not exist for some reason
 
 class RunAsLogonCommand(Command): # TODO: Should we add as token login?
     def __init__(self):
         user, password = get_random_key_value(USERS_PATH)
         full_user = f".\\{user}"
-        exe = getrandomprocess()     #TODO: should this take a whole script as argument? or just a process?
+        exe = get_random_value(PROCESSES_PATH)     #TODO: should this take a whole script as argument? or just a process?
         self.command_string = f"""    
 $RunAsCmd = "runas.exe /netonly /user:{full_user} `"{exe}`""
 cmd.exe /c $RunAsCmd
