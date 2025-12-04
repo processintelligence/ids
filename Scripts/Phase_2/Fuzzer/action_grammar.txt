@@ -3,12 +3,10 @@ SESSION         ::= MAIN_LOGON ;
 MAIN_LOGON      ::= SUCCESSFUL_MAIN_LOGON
                   | FAILED_LOGIN MAIN_LOGON ; 
 
-SUCCESSFUL_MAIN_LOGON ::= "Interactive_Logon" ACTIONS MAIN_LOGOFF
-                        | "Network_Logon" ;
+SUCCESSFUL_MAIN_LOGON ::= "Interactive_Logon" ACTIONS "Interactive_Logoff"
+                        | "Network_Logon" "Network_Logoff";
 
 FAILED_LOGIN    ::= "Failed_Logon" ;
-
-MAIN_LOGOFF     ::= "Logoff" ;
 
 ACTIONS         ::= ( ACTION )* ;
 
