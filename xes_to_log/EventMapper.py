@@ -2,27 +2,26 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from EventFactory import EventFactory
 
-#THIS SHOULD BE REWRITTEN WHEN WE START ACCEPTING STRINGS AS SUFFIX
 def parse_label(label: str):
-    #use method to map label to tuple, fx. 4624_2 is actually 4624 with login type 2
+    #Parse labels of the form: <event_id> or <event_id>_<suffix>
     if "_" in label:
         event_str, suffix = label.split("_", 1)
+
         try:
             event_id = int(event_str)
         except ValueError:
             return None, None
 
         try:
-            logon_type = int(suffix)
+            return event_id, int(suffix)
         except ValueError:
-            return event_id, None
-
-        return event_id, logon_type
+            return event_id, suffix
 
     try:
         return int(label), None
     except ValueError:
         return None, None
+
 
 def placeholder_fields():
     now = datetime.now()
@@ -103,6 +102,3 @@ if __name__ == "__main__":
             if printed >= max_events:
                 stop = True
                 break
-
-
-

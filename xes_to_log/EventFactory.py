@@ -70,6 +70,16 @@ class EventFactory:
             8: Event4634_8,
             9: Event4634_9,
         },
+        4688: {
+            #"cmd": Event4688_cmd,
+            #"conhost": Event4688_conhost,
+            #"unpriv": Event4688_unpriv,
+            #"priv": Event4688_priv
+        },
+        4657: {
+            #"registry": Event4657_registry,
+            #"common": Event4657_common
+        },
     }
 
     _base = {
@@ -144,4 +154,3 @@ if __name__ == "__main__":
     event_4688 = EventFactory.create(4688, **fields_4688)
     print(type(event_4688))
     print(event_4688)
-
