@@ -14,7 +14,7 @@ FAILED_LOGON = "Failed_Logon"
 
 SUBLOGONS = [
     "Batch_Logon",
-    "Service_Logon",
+    #"Service_Logon", TODO: fix and add back in
     "RunAs_Logon",
     "Network_Logon"
 ]
@@ -89,7 +89,7 @@ def generate_ACTION():
         "OBJECT_OP",
         "REGISTRY_OP",
         "PROCESS_OP",
-        "LOCK_UNLOCK"
+        #"LOCK_UNLOCK" TODO: Remove?
     ]
     choice = random.choice(ACTION)
 

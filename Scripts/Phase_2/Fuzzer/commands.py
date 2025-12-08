@@ -28,7 +28,7 @@ class CreateObjectCommand(Command):
     def __init__(self):
         path = get_random_value(FILES_PATH)
 
-        self.command_string = f'New-Item -Path "{path}" -ItemType File -Force | Out-Null'
+        self.command_string = f'"Create" | Out-File "{path}"'
 
 
 class DeleteObjectCommand(Command):
@@ -41,7 +41,7 @@ class ModifyObjectCommand(Command):
     def __init__(self):
         path = get_random_value(DELETE_MODIFY_FILES_PATH)
         self.command_string = (
-            f'Add-Content -Path "{path}" -Value "ModifiedF"'
+            f'Add-Content -Path "{path}" -Value "Modified"'
         )
 
 
@@ -183,7 +183,8 @@ class RunAsLogonCommand(Command): # TODO: Should we add as token login?
     def __init__(self):
         user, password = get_random_key_value(USERS_PATH)
         full_user = f"DESKTOP-40HV17C\\{user}" # This should work, but asks password
-        exe = get_random_value(PROCESSES_PATH)     #TODO: should this take a whole script as argument? or just a process?
+        #exe = get_random_value(PROCESSES_PATH)     #TODO: should this take a whole script as argument? or just a process?
+        exe = "cmd.exe"
         self.command_string = f"""    
 $RunAsCmd = "runas.exe /netonly /user:{full_user} `"{exe} /c exit`""
 cmd.exe /c $RunAsCmd
