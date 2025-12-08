@@ -5,18 +5,30 @@ from Scripts.Phase_2.Fuzzer.pools.pool_access import get_all_values
 def build_powershell_script(command_strings, output_path): # TODO: hardcode path, maybe generated files?
     output_path = Path(output_path)
         
-    all_delete = get_all_values("files.json")
-    all_create = get_all_values("delete_modify_files.json")
+    all_delete_file = get_all_values("files.json")
+    all_create_file = get_all_values("delete_modify_files.json")
+    all_delete_registry = get_all_values("registry_names.json")
+    all_create_registry = get_all_values("delete_modify_registry.json")
 
     cleanup = []
 
-    for file in all_create:
+    for file in all_delete_file:
         command = f'if (!(Test-Path "{file}")) {{ New-Item -ItemType File -Path "{file}" -Force | Out-Null }}'
         cleanup.append(command)
 
-    for file in all_delete:
+    for file in all_create_file:
         command = f'if (Test-Path "{file}") {{ Remove-Item "{file}" -Force -Recurse }}'
         cleanup.append(command)
+
+    for registry in all_delete_registry:
+        command = f'Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "{registry}"'
+        cleanup.append(command)
+
+
+    for registry in all_create_registry:
+        command = f'Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "{registry}" -Value "abc"'
+        cleanup.append(command)
+
 
     start_marker = [
         '$Path = "C:\\Temp\\FuzzStarter.txt"',
