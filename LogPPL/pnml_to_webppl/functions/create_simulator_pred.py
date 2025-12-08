@@ -52,24 +52,26 @@ def create_simulator_loop_function(function_str, dpn, verbose, simulation_query)
 
 
 def create_simulator_function(function_str, steps, sample_size, dpn, verbose, simulation_query):
-    # INLINE ALL PREDICATES
+    # define all predicate functions
     function_str = (
-        "var Predicates = {};\n\n"
-        "Predicates.firedNTimes = function(trace, id, n) {\n"
-        "  return trace.counts[id] >= n;\n"
-        "};\n\n"
-        "Predicates.firedAtLeastOnce = function(trace, id) {\n"
-        "  return trace.counts[id] >= 1;\n"
-        "};\n\n"
-        "Predicates.firedGroupAllOnce = function(trace, ids) {\n"
-        "  for (var i = 0; i < ids.length; i++) {\n"
-        "    if (trace.counts[ids[i]] < 1) {\n"
-        "      return false;\n"
+        "var Predicates = {\n"
+        "  firedNTimes: function(trace, id, n) {\n"
+        "    return trace.counts[id] >= n;\n"
+        "  },\n"
+        "  firedAtLeastOnce: function(trace, id) {\n"
+        "    return trace.counts[id] >= 1;\n"
+        "  },\n"
+        "  firedGroupAllOnce: function(trace, ids) {\n"
+        "    for (var i = 0; i < ids.length; i++) {\n"
+        "      if (trace.counts[ids[i]] < 1) {\n"
+        "        return false;\n"
+        "      }\n"
         "    }\n"
+        "    return true;\n"
         "  }\n"
-        "  return true;\n"
         "};\n\n"
     ) + function_str
+
 
     function_str += "var simulator = function(){\ninit();\n"
 
@@ -87,16 +89,22 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
     function_str += "}\n\n"
 
     # MODEL WITH CONDITION
-    predicate_expr = (
+    predicate_expr_all = (
         "(Predicates.firedNTimes(trace, '4625_9_8_2_7_3', 5) && "
         "Predicates.firedAtLeastOnce(trace, '4657_common') && "
         "Predicates.firedGroupAllOnce(trace, ['4624_2', '4688_cmd', '4663']))"
     )
 
+    predicate_expr_repeat =  "Predicates.firedNTimes(trace, '4625_9_8_2_7_3', 5)"
+
+    predicate_expr_redflag = "Predicates.firedAtLeastOnce(trace, '4657_common')"
+
+    predicate_expr_composite = "Predicates.firedGroupAllOnce(trace, ['4624_2', '4688_cmd', '4663'])"
+
     function_str += (
         "var model = function() {\n"
         "  var trace = simulator();\n"
-        f"  condition({predicate_expr});\n"
+        f"  condition({predicate_expr_repeat});\n"
         "  return trace;\n"
         "};\n\n"
     )
