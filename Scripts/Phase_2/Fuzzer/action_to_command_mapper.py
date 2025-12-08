@@ -14,6 +14,7 @@ def map_action_to_command(action): # TODO: make private?
         "Unlock_Workstation": UnlockWorkstationCommand,
         "Modify_Object": ModifyObjectCommand,
         "Modify_Registry": ModifyRegistryCommand,
+        "Modify_CommonStartup_Registry": ModifyCommonRegistryCommand,
         "Network_Logon": NetworkLogonCommand,
         "Network_Logoff": NetworkLogoffCommand,
         "RunAs_Logon": RunAsLogonCommand,

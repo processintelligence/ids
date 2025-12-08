@@ -9,6 +9,7 @@ REGISTRY_VALUES_PATH = "registry_values.json"
 TASKS_PATH = "tasks.json"
 USERS_PATH = "users.json"
 DELETE_MODIFY_FILES_PATH = "delete_modify_files.json"
+DELETE_MODIFY_REGISTRY_PATH = "delete_modify_registry.json"
 REGISTRY_KEY = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run"
 
 
@@ -40,7 +41,7 @@ class ModifyObjectCommand(Command):
     def __init__(self):
         path = get_random_value(DELETE_MODIFY_FILES_PATH)
         self.command_string = (
-            f'Add-Content -Path "{path}" -Value "Modified at $(Get-Date)"'
+            f'Add-Content -Path "{path}" -Value "ModifiedF"'
         )
 
 
@@ -57,7 +58,7 @@ class CreateRegistryCommand(Command):
 class DeleteRegistryCommand(Command):
     def __init__(self):
         key = REGISTRY_KEY
-        name = get_random_value(REGISTRY_NAMES_PATH)
+        name = get_random_value(DELETE_MODIFY_REGISTRY_PATH)
         self.command_string = (
             f'Remove-ItemProperty -Path "{key}" -Name "{name}"'
         )
@@ -66,7 +67,7 @@ class DeleteRegistryCommand(Command):
 class ModifyRegistryCommand(Command):
     def __init__(self):
         key = REGISTRY_KEY
-        name = get_random_value(FILES_PATH)
+        name = get_random_value(DELETE_MODIFY_REGISTRY_PATH)
         value = get_random_value(REGISTRY_VALUES_PATH)
         self.command_string = (
             f'Set-ItemProperty -Path "{key}" -Name "{name}" -Value "{value}"'
@@ -85,7 +86,7 @@ class ModifyCommonRegistryCommand(Command):
         )
 
 
-class FailedLogonCommand(Command): # TODO: could failedlogin be reprodiced without cmd?
+class FailedLogonCommand(Command):
     def __init__(self):
         user, correct_pass = get_random_key_value(USERS_PATH)
         wrong_pass = "Wrong"
@@ -189,7 +190,7 @@ cmd.exe /c $RunAsCmd
 """.strip()
 
 
-class ServiceLogonCommand(Command): # TODO: FIx the service script
+class ServiceLogonCommand(Command): # TODO: Fix the service script
     def __init__(self):
         exe = get_random_value(PROCESSES_PATH)
         service_name = "TempService4624" # TODO: Random service name?
