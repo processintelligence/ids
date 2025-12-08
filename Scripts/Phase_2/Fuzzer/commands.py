@@ -185,8 +185,9 @@ class RunAsLogonCommand(Command): # TODO: Should we add as token login?
         full_user = f"DESKTOP-40HV17C\\{user}" # This should work, but asks password
         exe = get_random_value(PROCESSES_PATH)     #TODO: should this take a whole script as argument? or just a process?
         self.command_string = f"""    
-$RunAsCmd = "runas.exe /netonly /user:{full_user} `"{exe}`""
+$RunAsCmd = "runas.exe /netonly /user:{full_user} `"{exe} /c exit`""
 cmd.exe /c $RunAsCmd
+Start-Sleep -Seconds 1
 """.strip()
 
 
