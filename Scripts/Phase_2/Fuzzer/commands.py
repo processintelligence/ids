@@ -73,13 +73,13 @@ class ModifyRegistryCommand(Command):
         )
 
 
-# TODO: Should we add ModifyCommonStartupRegistryCommand?
+# Should we add ModifyCommonStartupRegistryCommand?
 # We create a common startup registry key in the usual Run location, then modify that
 class ModifyCommonRegistryCommand(Command):
     def __init__(self):
         key = REGISTRY_KEY
-        name = "SOMETHING SOMETHING COMMON"
-        value = get_random_value("SOMETHING SOMEHTING VALUE")
+        name = "CommonDummy"
+        value = get_random_value(REGISTRY_VALUES_PATH) + str(random.randint(1, 100000))
         self.command_string = (
             f'Set-ItemProperty -Path "{key}" -Name "{name}" -Value "{value}"'
         )
@@ -181,7 +181,7 @@ class NetworkLogoffCommand(Command):
 class RunAsLogonCommand(Command): # TODO: Should we add as token login?
     def __init__(self):
         user, password = get_random_key_value(USERS_PATH)
-        full_user = f"DESKTOP-40HV17C\\{user}" # TODO: This should work.
+        full_user = f"DESKTOP-40HV17C\\{user}" # This should work, but asks password
         exe = get_random_value(PROCESSES_PATH)     #TODO: should this take a whole script as argument? or just a process?
         self.command_string = f"""    
 $RunAsCmd = "runas.exe /netonly /user:{full_user} `"{exe}`""
