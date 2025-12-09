@@ -8,8 +8,6 @@ def run_powershell_script(script_path):
     try:
         result = subprocess.run(
             ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(script_path)],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
         )
         return result.returncode == 0
 
