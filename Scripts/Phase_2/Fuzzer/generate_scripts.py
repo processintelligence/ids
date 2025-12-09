@@ -19,7 +19,7 @@ def generate_n_scripts(n, seed):
 
         commands = map_actions_to_commands(actions)
 
-        script_path = output_dir / f"trace_{i:05d}.ps1"
+        script_path = output_dir / f"script_{i:05d}.ps1"
 
         build_powershell_script(commands, script_path)
 

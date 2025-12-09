@@ -22,7 +22,11 @@ def build_powershell_script(command_strings, output_path): # TODO: hardcode path
 
     # TODO: Add try catch to all this so we only get errors from the commands inside the scripts
     for registry in all_delete_registry:
-        command = f'Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "{registry}"'
+        command = (
+            f'Try {{ '
+            f'Remove-ItemProperty -Path "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" -Name "{registry}" '
+            f'}} Catch {{ }}'
+        )
         cleanup.append(command)
 
 
