@@ -12,11 +12,11 @@ def build_powershell_script(command_strings, output_path): # TODO: hardcode path
 
     cleanup = []
 
-    for file in all_delete_file:
+    for file in all_create_file:
         command = f'if (!(Test-Path "{file}")) {{ New-Item -ItemType File -Path "{file}" -Force | Out-Null }}'
         cleanup.append(command)
 
-    for file in all_create_file:
+    for file in all_delete_file:
         command = f'if (Test-Path "{file}") {{ Remove-Item "{file}" -Force -Recurse }}'
         cleanup.append(command)
 
@@ -24,14 +24,14 @@ def build_powershell_script(command_strings, output_path): # TODO: hardcode path
     for registry in all_delete_registry:
         command = (
             f'Try {{ '
-            f'Remove-ItemProperty -Path "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" -Name "{registry}" '
+            f'Remove-ItemProperty -Path "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" -Name "{registry}" -ErrorAction Stop'
             f'}} Catch {{ }}'
         )
         cleanup.append(command)
 
 
     for registry in all_create_registry:
-        command = f'Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "{registry}" -Value "abc"'
+        command = f'Set-ItemProperty -Path "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" -Name "{registry}" -Value "abc"'
         cleanup.append(command)
 
 
