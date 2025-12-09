@@ -4,6 +4,7 @@ from lxml import etree
 import math
 import pm4py
 from pm4py.objects.conversion.log import converter as log_converter
+from pm4py.objects.log.obj import EventLog, Trace
 
 def _is_nan_value(v):
     if v is None:
@@ -77,7 +78,6 @@ def csv_to_xes(csv_path, xes_out):
     )
     df["concept:name"] = df["EventID"]
 
-    # drop events missing case id, timestamp, or activity
     df = df.dropna(subset=["case:concept:name", "time:timestamp", "concept:name"])
 
     df["case:concept:name"] = df["case:concept:name"].astype(str)
@@ -97,8 +97,7 @@ def csv_to_xes(csv_path, xes_out):
 
     pm4py.write_xes(event_log, xes_out)
 
-def csv_to_xes_time_windows(csv_path, xes_out, windows,
-                            timestamp_col="TimeCreated.SystemTime"):
+def csv_to_xes_time_windows(csv_path, xes_out, windows, timestamp_col="TimeCreated.SystemTime"):
     df = pd.read_csv(csv_path)
 
     if timestamp_col not in df.columns:
@@ -115,10 +114,11 @@ def csv_to_xes_time_windows(csv_path, xes_out, windows,
 
     pieces = []
     for i, (start, end) in enumerate(windows, start=1):
-        start_ts = pd.to_datetime(start)
-        end_ts = pd.to_datetime(end)
+        start_ts = pd.to_datetime(start, utc=True).tz_convert(None)
+        end_ts = pd.to_datetime(end, utc=True).tz_convert(None)
 
-        mask = (df["time:timestamp"] >= start_ts) & (df["time:timestamp"] <= end_ts)
+        # strictly between FuzzStarter and FuzzEnder
+        mask = (df["time:timestamp"] > start_ts) & (df["time:timestamp"] < end_ts)
         sub = df.loc[mask].copy()
         if sub.empty:
             continue
@@ -148,23 +148,177 @@ def csv_to_xes_time_windows(csv_path, xes_out, windows,
             for k in keys_to_del:
                 del event[k]
 
+    event_log = enrich_event_ids(event_log)
+    event_log = drop_leading(event_log)
+    event_log = drop_trailing(event_log)
     pm4py.write_xes(event_log, xes_out)
 
-#Main for testing 
+
+
+def get_fuzz_time_windows_from_csv(csv_path, timestamp_col="TimeCreated.SystemTime", object_col="EventData.ObjectName", eventid_col="EventID", start_substring="FuzzStarter", end_substring="FuzzEnder", start_eventid=4663, end_eventid=None):
+
+        df = pd.read_csv(csv_path)
+
+        for col in (timestamp_col, object_col, eventid_col):
+            if col not in df.columns:
+                raise ValueError(f"Required column '{col}' not found in CSV.")
+
+        df = df.copy()
+        df["_parsed_ts"] = pd.to_datetime(df[timestamp_col], errors="coerce", utc=True)
+        df = df.dropna(subset=["_parsed_ts"])
+
+        df = df.sort_values("_parsed_ts")
+
+        windows = []
+        current_start = None
+
+        for _, row in df.iterrows():
+            obj_val = row[object_col]
+            obj = "" if _is_nan_value(obj_val) else str(obj_val)
+            eventid = row[eventid_col]
+            ts = row["_parsed_ts"]
+
+            # START condition: FuzzStarter + EventID == 4663
+            if start_substring in obj and eventid == start_eventid:
+                current_start = ts
+
+            # END condition: first FuzzEnder after a start
+            elif end_substring in obj and (end_eventid is None or eventid == end_eventid):
+                if current_start is not None:
+                    windows.append((current_start.isoformat(), ts.isoformat()))
+                    current_start = None
+
+        return windows
+
+def enrich_event_ids(event_log):
+    for trace in event_log:
+        for event in trace:
+
+            raw_eid = event.get("EventID", event.get("concept:name"))
+            if raw_eid is None:
+                continue
+
+            eid = str(raw_eid)
+            new_name = None
+
+            # 4624 / 4634 -> append LogonType
+            if eid in ("4624", "4634"):
+                lt = event.get("EventData.LogonType")
+                if lt is not None and not _is_nan_value(lt):
+                    if isinstance(lt, float):
+                        if lt.is_integer():
+                            lt_str = str(int(lt))
+                        else:
+                            lt_str = str(lt)
+                    else:
+                        s = str(lt)
+                        lt_str = s[:-2] if s.endswith(".0") else s
+
+                    new_name = f"{eid}_{lt_str}"
+
+            # 4688 -> append NewProcessName
+            elif eid == "4688":
+                npn = event.get("EventData.NewProcessName")
+                if npn is not None and not _is_nan_value(npn):
+                    s = str(npn)
+                    proc_name = s.replace("/", "\\").split("\\")[-1]
+                    new_name = f"{eid}_{proc_name}"
+
+            # 4657 -> ObjectValueName contains 'common' then append 'common' else append operationtype
+            elif eid == "4657":
+                obj_val = event.get("EventData.ObjectValueName")
+                op_type = event.get("EventData.operationtype") or event.get("EventData.OperationType")
+
+                has_obj_val = obj_val is not None and not _is_nan_value(obj_val)
+                has_op_type = op_type is not None and not _is_nan_value(op_type)
+
+                if has_obj_val and "common" in str(obj_val).lower():
+                    new_name = f"{eid}_common"
+                elif has_op_type:
+                    s = str(op_type)
+
+                    if "1905" in s:
+                        op_label = "modified"
+                    elif "1904" in s:
+                        op_label = "created"
+                    elif "1906" in s:
+                        op_label = "deleted"
+                    else:
+                        op_label = s
+
+                    new_name = f"{eid}_{op_label}"
+
+
+            if new_name is not None:
+                event["concept:name"] = str(new_name)
+
+    return event_log
+
+
+def get_eid(ev):
+    raw = ev.get("EventID", ev.get("concept:name", ""))
+    return str(raw) if raw is not None else ""
+
+
+def drop_leading(event_log):
+    new_log = EventLog(attributes=event_log.attributes)
+
+    for trace in event_log:
+        events = list(trace)
+        if not events:
+            continue
+
+        drop_count = 0
+
+        if len(events) > drop_count and get_eid(events[drop_count]).startswith("4658"):
+            drop_count += 1
+
+        if len(events) > drop_count and get_eid(events[drop_count]).startswith("4688"):
+            drop_count += 1
+
+        if len(events) > drop_count and get_eid(events[drop_count]).startswith("4688"):
+            drop_count += 1
+
+        remaining = events[drop_count:]
+        if not remaining:
+            continue
+
+        new_trace = Trace(remaining, attributes=trace.attributes)
+        new_log.append(new_trace)
+
+    return new_log
+
+def drop_trailing(event_log):
+    new_log = EventLog(attributes=event_log.attributes)
+
+    for trace in event_log:
+        events = list(trace)
+        if not events:
+            continue
+
+        end_idx = len(events)
+
+        if end_idx > 0 and get_eid(events[end_idx - 1]).startswith("4658"):
+            end_idx -= 1
+
+        if end_idx > 0 and get_eid(events[end_idx - 1]).startswith("4690"):
+            end_idx -= 1
+
+        remaining = events[:end_idx]
+        if not remaining:
+            continue
+
+        new_trace = Trace(remaining, attributes=trace.attributes)
+        new_log.append(new_trace)
+
+    return new_log
+
 if __name__ == "__main__":
-    EVTX_FILE = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Personal/testlog.evtx"
-    CSV_OUT = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/evtx_csv/evtx_csv.csv"
-    XES_OUT = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/csv_xes/csv_xes.xes"
-    XES_OUT_TIMED = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/csv_xes/csv_xes_time_window.xes"
+    EVTX_FILE = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Personal/1000ScriptsBackup.evtx"
+    CSV_OUT = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/evtx_csv/evtx_csv_1000.csv"
+    XES_OUT = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/csv_xes/csv_xes_time_window.xes"
 
-    evtx_to_csv(EVTX_FILE, CSV_OUT)
-    csv_to_xes(CSV_OUT, XES_OUT)
-
-    windows = [
-        ("2025-12-01 13:39:40", "2025-12-01 13:39:52"),
-        ("2025-12-01 13:40:49", "2025-12-01 13:40:59"),
-        ("2025-12-01 13:41:01", "2025-12-01 13:41:16"),
-    ]
-
-    csv_to_xes_time_windows(CSV_OUT, XES_OUT_TIMED, windows)
-
+    #evtx_to_csv(EVTX_FILE, CSV_OUT)
+    windows = get_fuzz_time_windows_from_csv(CSV_OUT)
+    csv_to_xes_time_windows(CSV_OUT, XES_OUT, windows)
+    print("Generated XES from EVTX")
