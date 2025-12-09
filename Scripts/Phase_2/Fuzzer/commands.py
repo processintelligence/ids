@@ -10,7 +10,7 @@ TASKS_PATH = "tasks.json"
 USERS_PATH = "users.json"
 DELETE_MODIFY_FILES_PATH = "delete_modify_files.json"
 DELETE_MODIFY_REGISTRY_PATH = "delete_modify_registry.json"
-REGISTRY_KEY = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run"
+REGISTRY_KEY = "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
 
 
 class Command:
