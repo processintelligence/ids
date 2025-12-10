@@ -61,7 +61,6 @@ def evtx_list_to_csv(evtx_paths, csv_out):
 
     df = pd.DataFrame(rows)
     df.to_csv(csv_out, index=False)
-    print(f"Combined CSV written to {csv_out} from {len(evtx_paths)} EVTX files")
 
 def csv_to_xes(csv_path, xes_out):
     df = pd.read_csv(csv_path)
@@ -317,14 +316,15 @@ def drop_trailing(event_log):
 if __name__ == "__main__":
     EVTX_FILE1 = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Scripts/Phase_2/evtx_files/300Scripts1_backup.evtx"
     EVTX_FILE2 = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Scripts/Phase_2/evtx_files/300Scripts2_backup.evtx"
-    EVTX_FILE3 = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Scripts/Phase_2/evtx_to_xes/evtx_files/300Scripts3_backup.evtx"
+    EVTX_FILE3 = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Scripts/Phase_2/evtx_files/300Scripts3_backup.evtx"
 
     evtx_files = [EVTX_FILE1, EVTX_FILE2, EVTX_FILE3]
 
     CSV_OUT = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/evtx_csv/evtx_csv_1000.csv"
     XES_OUT = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/csv_xes/csv_xes_time_window.xes"
 
-    evtx_list_to_csv(evtx_files, CSV_OUT)
+    #evtx_list_to_csv(evtx_files, CSV_OUT)
+
     windows = get_fuzz_time_windows_from_csv(CSV_OUT)
     csv_to_xes_time_windows(CSV_OUT, XES_OUT, windows)
 
