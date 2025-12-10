@@ -11,7 +11,6 @@ real_xes  = r"C:\Users\lomo0\Documents\RandomScripts\wls_processtype_PROM.xes"
 
 real_xes_2 = r"c:\Users\lomo0\Documents\RandomScripts\wls_800MB.xes"
 
-# Read XES log
 log = xes_importer.apply(real_xes)
 
 for trace in log:
@@ -22,8 +21,6 @@ for trace in log:
     trace.insert(0, new_event)
 
 
-
-# Read Petri net from PNML
 net, im, fm = pm4py.read_pnml(pmnl_path)
 
 for t in net.transitions:
@@ -46,13 +43,10 @@ print("Max fitness:", max(trace_fitnesses))
 
 bad_traces = [log[i] for i, r in enumerate(results) if not r["trace_is_fit"]]
 print("Number of bad traces:", len(bad_traces))
-#print randomly
 
-# Define the trace to exclude
 exclude_trace = ["4608", "4672", "4624_3", "4634_3"]
 exclude_trace2 = ["4608", "4672", "4624_3"]
 
-# Filter bad traces, excluding the one above
 filtered_bad_traces = []
 for trace in bad_traces:
     trace_seq = [evt["concept:name"] for evt in trace]

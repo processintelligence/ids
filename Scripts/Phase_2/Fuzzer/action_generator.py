@@ -1,9 +1,7 @@
 import random
 
 
-# -------------------------------------------------------------
 # TERMINAL SYMBOLS
-# -------------------------------------------------------------
 
 SUCCESSFUL_MAIN_LOGONS = [
     "Interactive_Logon",
@@ -43,9 +41,7 @@ NETWORK_LOGOFF = "Network_Logoff"
 SUBLOGOFF = ["Sub_Logoff"]
 
 
-# -------------------------------------------------------------
 # PRODUCTION RULES
-# -------------------------------------------------------------
 
 def generate_SESSION():
     events = []
@@ -56,7 +52,7 @@ def generate_SESSION():
 def generate_MAIN_LOGON():
     events = []
 
-    # Generate 0–3 failed login attempts before success
+    # FAILED_LOGON
     if random.random() < 0.25:
         failures = random.randint(1, 3)
         events.extend([FAILED_LOGON] * failures)
@@ -108,7 +104,6 @@ def generate_ACTION():
     elif choice == "LOCK_UNLOCK":
         return generate_LOCK_UNLOCK()
 
-    # if max recursion reached
     return []
 
 
