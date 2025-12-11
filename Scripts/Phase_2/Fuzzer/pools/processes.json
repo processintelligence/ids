@@ -1,5 +1,4 @@
 {
     "process1": "notepad.exe",
-    "process2": "powershell.exe",
-    "process3": "cmd.exe"
+    "process2": "cmd.exe"
 }
