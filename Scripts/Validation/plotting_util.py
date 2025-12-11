@@ -128,7 +128,7 @@ def diff_maps(mapA, mapB, verbose=False, threshold=0):
             diff[src][dst] = result
 
             if verbose:
-                print(f"{src}: {a} - {dst}: {b} = {result}")
+                print(f"{src} -> {dst}: {a} - {b} = {result}")
 
     return diff, black_list, white_list
 
