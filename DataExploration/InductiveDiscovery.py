@@ -2,11 +2,12 @@ import os
 import pm4py
 from pm4py.algo.filtering.log.variants import variants_filter
 from pm4py.visualization.petri_net import visualizer as pn_visualizer
+from pm4py.objects.petri_net.exporter import exporter as pnml_exporter
 
-LOG_PATH = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/csv_xes/smaller_script.xes"
+LOG_PATH = r"C:\Users\lomo0\Downloads\XesClean\smaller_script_clean_test.xes"
 
-OUTPUT_DIR = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/pictures"
-OUTPUT_PNG = os.path.join(OUTPUT_DIR, "inductive_miner_infrequent_smaller.png")
+OUTPUT_DIR = r"C:\Users\lomo0\Downloads\XesClean"
+OUTPUT_PNG = os.path.join(OUTPUT_DIR, "inductive_test.png")
 
 
 def filter_noise(log, coverage=0.8):
@@ -28,6 +29,9 @@ def main():
         log,
         noise_threshold=0.01 #0.7
     )
+
+    output_pnml = r"PNMLFiles\inductive_test.pmnl"
+    pnml_exporter.apply(net, im, output_pnml, final_marking=fm)
 
     # 4. Visualize and save Petri net
     gviz = pn_visualizer.apply(
