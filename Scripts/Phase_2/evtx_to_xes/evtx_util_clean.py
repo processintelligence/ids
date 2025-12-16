@@ -23,7 +23,7 @@ class LogConfig:
     end_eventid: Optional[int] = None
 
     allowed_4688: FrozenSet[str] = frozenset({
-        "4688_cmd", "4688_conhost", "4688_powershell", "4688_notepad"
+        "4688_cmd", "4688_powershell", "4688_notepad", #"4688_conhost"
     })
 
     trace_start_prefix: str = "4624_2"
@@ -265,20 +265,23 @@ def filter_traces(event_log, config: LogConfig = LogConfig()):
         if not events:
             continue
 
+        # Find last 4624_2
         start_idx = None
-        for i, ev in enumerate(events):
-            cname = str(ev.get("concept:name", ""))
+        for i in range(len(events) - 1, -1, -1):
+            cname = str(events[i].get("concept:name", ""))
             if cname.startswith(config.trace_start_prefix):
                 start_idx = i
                 break
 
+        # Find first 4634_2
         end_idx = None
-        for j in range(len(events) - 1, -1, -1):
-            cname = str(events[j].get("concept:name", ""))
+        for j, ev in enumerate(events):
+            cname = str(ev.get("concept:name", ""))
             if cname.startswith(config.trace_end_prefix):
                 end_idx = j
                 break
 
+        # Must have both boundaries in correct order
         if start_idx is None or end_idx is None or start_idx > end_idx:
             continue
 
