@@ -3,6 +3,9 @@ import xml.etree.ElementTree as ET
 import datetime
 from collections import Counter
 
+# CONVERT LOS ALAMOS TO XES
+# Like wlsToXes, but time etc is compliant with Prom
+
 # Input and output file paths
 INPUT_FILE = "C:/Users/lomo0/Downloads/wls_trimmed.json"
 OUTPUT_FILE = "C:/Users/lomo0/Downloads/wls_processtype_PROM.xes"

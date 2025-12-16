@@ -9,7 +9,8 @@ REGISTRY_VALUES_PATH = "registry_values.json"
 TASKS_PATH = "tasks.json"
 USERS_PATH = "users.json"
 DELETE_MODIFY_FILES_PATH = "delete_modify_files.json"
-REGISTRY_KEY = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run"
+DELETE_MODIFY_REGISTRY_PATH = "delete_modify_registry.json"
+REGISTRY_KEY = "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
 
 
 class Command:
@@ -27,7 +28,7 @@ class CreateObjectCommand(Command):
     def __init__(self):
         path = get_random_value(FILES_PATH)
 
-        self.command_string = f'New-Item -Path "{path}" -ItemType File -Force | Out-Null'
+        self.command_string = f'"Create" | Out-File "{path}"'
 
 
 class DeleteObjectCommand(Command):
@@ -40,7 +41,7 @@ class ModifyObjectCommand(Command):
     def __init__(self):
         path = get_random_value(DELETE_MODIFY_FILES_PATH)
         self.command_string = (
-            f'Add-Content -Path "{path}" -Value "Modified at $(Get-Date)"'
+            f'Add-Content -Path "{path}" -Value "Modified"'
         )
 
 
@@ -57,7 +58,7 @@ class CreateRegistryCommand(Command):
 class DeleteRegistryCommand(Command):
     def __init__(self):
         key = REGISTRY_KEY
-        name = get_random_value(REGISTRY_NAMES_PATH)
+        name = get_random_value(DELETE_MODIFY_REGISTRY_PATH)
         self.command_string = (
             f'Remove-ItemProperty -Path "{key}" -Name "{name}"'
         )
@@ -66,26 +67,26 @@ class DeleteRegistryCommand(Command):
 class ModifyRegistryCommand(Command):
     def __init__(self):
         key = REGISTRY_KEY
-        name = get_random_value(FILES_PATH)
+        name = get_random_value(DELETE_MODIFY_REGISTRY_PATH)
         value = get_random_value(REGISTRY_VALUES_PATH)
         self.command_string = (
             f'Set-ItemProperty -Path "{key}" -Name "{name}" -Value "{value}"'
         )
 
 
-# TODO: Should we add ModifyCommonStartupRegistryCommand?
+# Should we add ModifyCommonStartupRegistryCommand?
 # We create a common startup registry key in the usual Run location, then modify that
 class ModifyCommonRegistryCommand(Command):
     def __init__(self):
         key = REGISTRY_KEY
-        name = "SOMETHING SOMETHING COMMON"
-        value = get_random_value("SOMETHING SOMEHTING VALUE")
+        name = "CommonDummy"
+        value = get_random_value(REGISTRY_VALUES_PATH) + str(random.randint(1, 100000))
         self.command_string = (
             f'Set-ItemProperty -Path "{key}" -Name "{name}" -Value "{value}"'
         )
 
 
-class FailedLogonCommand(Command): # TODO: could failedlogin be reprodiced without cmd?
+class FailedLogonCommand(Command):
     def __init__(self):
         user, correct_pass = get_random_key_value(USERS_PATH)
         wrong_pass = "Wrong"
@@ -181,15 +182,17 @@ class NetworkLogoffCommand(Command):
 class RunAsLogonCommand(Command): # TODO: Should we add as token login?
     def __init__(self):
         user, password = get_random_key_value(USERS_PATH)
-        full_user = f".\\{user}"
-        exe = get_random_value(PROCESSES_PATH)     #TODO: should this take a whole script as argument? or just a process?
+        full_user = f"DESKTOP-40HV17C\\{user}" # This should work, but asks password
+        #exe = get_random_value(PROCESSES_PATH)     #TODO: should this take a whole script as argument? or just a process?
+        exe = "cmd.exe" # CMD is one of the only processes we can also close
         self.command_string = f"""    
-$RunAsCmd = "runas.exe /netonly /user:{full_user} `"{exe}`""
+$RunAsCmd = "runas.exe /netonly /user:{full_user} `"{exe} /c exit`""
 cmd.exe /c $RunAsCmd
+Start-Sleep -Seconds 1
 """.strip()
 
 
-class ServiceLogonCommand(Command): # TODO: FIx the service script
+class ServiceLogonCommand(Command): # TODO: Fix the service script
     def __init__(self):
         exe = get_random_value(PROCESSES_PATH)
         service_name = "TempService4624" # TODO: Random service name?

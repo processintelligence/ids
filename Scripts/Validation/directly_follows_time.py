@@ -25,7 +25,6 @@ def generate_naive_df_time(xes_path):
             if name_attr is None or time_attr is None:
                 continue
 
-            # parse time
             timestamp = datetime.fromisoformat(time_attr.get("value"))
 
             events.append((name_attr.get("value"), timestamp))
@@ -60,7 +59,6 @@ def generate_translated_df_time(xes_path):
             if name_attr is None or time_attr is None:
                 continue
 
-            # parse time
             timestamp = datetime.fromisoformat(time_attr.get("value"))
 
             #if the event is 'init_t', dont add it

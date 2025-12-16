@@ -3,5 +3,4 @@ param(
     [string]$Name = "Test4657"
 )
 
-# 4657_delete (%%1906)
 Remove-ItemProperty -Path $Path -Name $Name

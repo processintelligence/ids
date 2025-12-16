@@ -1,21 +1,19 @@
 import random
 
 
-# -------------------------------------------------------------
 # TERMINAL SYMBOLS
-# -------------------------------------------------------------
 
 SUCCESSFUL_MAIN_LOGONS = [
     "Interactive_Logon",
-    "Network_Logon"
+    #"Network_Logon"
 ]
 
 FAILED_LOGON = "Failed_Logon"
 
 SUBLOGONS = [
-    "Batch_Logon",
-    "Service_Logon",
-    "RunAs_Logon",
+    #"Batch_Logon",
+    #"Service_Logon", TODO: fix and add back in
+    #"RunAs_Logon",
     "Network_Logon"
 ]
 
@@ -26,10 +24,10 @@ OBJECT_OPS = [
 ]
 
 REGISTRY_OPS = [
-    "Create_Registry",
-    "Delete_Registry",
-    "Modify_Registry",
-    "Modify_CommonStartup_Registry"
+    #"Create_Registry",
+    #"Delete_Registry",
+    #"Modify_Registry",
+    #"Modify_CommonStartup_Registry"
 ]
 
 PROCESS_OPS_GENERIC = ["Start_Process"]
@@ -43,9 +41,7 @@ NETWORK_LOGOFF = "Network_Logoff"
 SUBLOGOFF = ["Sub_Logoff"]
 
 
-# -------------------------------------------------------------
 # PRODUCTION RULES
-# -------------------------------------------------------------
 
 def generate_SESSION():
     events = []
@@ -56,7 +52,7 @@ def generate_SESSION():
 def generate_MAIN_LOGON():
     events = []
 
-    # Generate 0–3 failed login attempts before success
+    # FAILED_LOGON
     if random.random() < 0.25:
         failures = random.randint(1, 3)
         events.extend([FAILED_LOGON] * failures)
@@ -87,9 +83,9 @@ def generate_ACTION():
     ACTION = [
         "SUBLOGON",
         "OBJECT_OP",
-        "REGISTRY_OP",
+        #"REGISTRY_OP",
         "PROCESS_OP",
-        "LOCK_UNLOCK"
+        #"LOCK_UNLOCK" TODO: Remove?
     ]
     choice = random.choice(ACTION)
 
@@ -108,15 +104,17 @@ def generate_ACTION():
     elif choice == "LOCK_UNLOCK":
         return generate_LOCK_UNLOCK()
 
-    # if max recursion reached
     return []
 
 
 def generate_SUBLOGON():
     events = []
 
-    sublogin_choice = random.choice(SUBLOGONS)
-    events.append(sublogin_choice)
+    sublogon_choice = random.choice(SUBLOGONS)
+    events.append(sublogon_choice)
+
+    if sublogon_choice == "Network_Logon":
+        events.append(NETWORK_LOGOFF)
 
     #if sublogin_choice == "RunAs_Logon":
         #events.extend(generate_ACTIONS())
