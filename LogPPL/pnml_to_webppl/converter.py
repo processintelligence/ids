@@ -2,7 +2,8 @@ import LogPPL.pnml_to_webppl.functions.create_init as init_function
 import LogPPL.pnml_to_webppl.functions.create_enabler as enabler_function
 from LogPPL.pnml_to_webppl.dpn import DPN
 from LogPPL.pnml_to_webppl.functions.create_logging import create_logging as logging_function
-from LogPPL.pnml_to_webppl.functions.create_simulator_pred import create_simulator_function, create_simulator_loop_function
+#from LogPPL.pnml_to_webppl.functions.create_simulator_pred import create_simulator_function, create_simulator_loop_function
+from LogPPL.pnml_to_webppl.functions.create_simulator import create_simulator_function, create_simulator_loop_function
 import LogPPL.pnml_to_webppl.functions.create_firing as firing_function
 from LogPPL.pnml_to_webppl.functions import utils_string
 
