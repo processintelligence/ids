@@ -5,15 +5,15 @@ import random
 
 SUCCESSFUL_MAIN_LOGONS = [
     "Interactive_Logon",
-    "Network_Logon"
+    #"Network_Logon"
 ]
 
 FAILED_LOGON = "Failed_Logon"
 
 SUBLOGONS = [
-    "Batch_Logon",
+    #"Batch_Logon",
     #"Service_Logon", TODO: fix and add back in
-    "RunAs_Logon",
+    #"RunAs_Logon",
     "Network_Logon"
 ]
 
@@ -24,10 +24,10 @@ OBJECT_OPS = [
 ]
 
 REGISTRY_OPS = [
-    "Create_Registry",
-    "Delete_Registry",
-    "Modify_Registry",
-    "Modify_CommonStartup_Registry"
+    #"Create_Registry",
+    #"Delete_Registry",
+    #"Modify_Registry",
+    #"Modify_CommonStartup_Registry"
 ]
 
 PROCESS_OPS_GENERIC = ["Start_Process"]
@@ -83,7 +83,7 @@ def generate_ACTION():
     ACTION = [
         "SUBLOGON",
         "OBJECT_OP",
-        "REGISTRY_OP",
+        #"REGISTRY_OP",
         "PROCESS_OP",
         #"LOCK_UNLOCK" TODO: Remove?
     ]
@@ -110,8 +110,11 @@ def generate_ACTION():
 def generate_SUBLOGON():
     events = []
 
-    sublogin_choice = random.choice(SUBLOGONS)
-    events.append(sublogin_choice)
+    sublogon_choice = random.choice(SUBLOGONS)
+    events.append(sublogon_choice)
+
+    if sublogon_choice == "Network_Logon":
+        events.append(NETWORK_LOGOFF)
 
     #if sublogin_choice == "RunAs_Logon":
         #events.extend(generate_ACTIONS())
