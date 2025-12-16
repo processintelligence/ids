@@ -3,6 +3,7 @@ from PetriNetUtil.PNMLToDataPNML import generate_data_petrinet
 from LogPPL.scripts.generate_uniform_traces import simulate_dpn
 from Scripts.Validation.directly_follows import *
 from Scripts.Validation.plotting_util import *
+from Scripts.Phase_2.petrinet_cleaner import fix_transition_ids_inplace
 import json
 
 def fill_uniform_probabilities(config_path):
@@ -27,11 +28,13 @@ def fill_uniform_probabilities(config_path):
 # PIPELINE
 
 # XES for heat map comparison
-xes_path_scripts = f"GeneratedFiles/WebPPL_XES/data_phase_1_net.xes"
+xes_path_scripts = r"C:\Users\lomo0\Downloads\XesClean\smaller_script_clean_test.xes"
 
 # PMNL to simulate XES from
-pnml_path = f"PNMLFiles\phase_1_net.pnml"
-config_dir = f"GeneratedFiles"
+pnml_path = r"PNMLFiles\inductive_test.pmnl"
+config_dir = r"GeneratedFiles"
+
+fix_transition_ids_inplace(pnml_path)
 
 config_path = generate_config_structure(pnml_path, config_dir)
 
@@ -51,8 +54,9 @@ os.makedirs(xes_dir, exist_ok=True)
 base_name = os.path.splitext(os.path.basename(data_pnml_path))[0]
 xes_path_model = os.path.abspath(os.path.join(xes_dir, f"{base_name}.xes"))
 
-directly_follows_model = generate_translated_directly_follows(xes_path_model)
-directly_follows_scripts = generate_translated_directly_follows(xes_path_scripts)
+directly_follows_model = generate_translated_directly_follows_VM(xes_path_model)
+directly_follows_scripts = generate_translated_directly_follows_VM(xes_path_scripts)
+
 log_normalize_model = log_normalize_directly_follows(directly_follows_model)
 row_normalize_model = row_normalize_directly_follows(directly_follows_model)
 

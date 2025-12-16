@@ -148,13 +148,13 @@ def generate_translated_directly_follows_VM(xes_path):
                 if name_attr.get('value').startswith('tau'):
                     continue
                 #if name starts with '4688', add it as '4688' except if it is 'conhost' or 'cmd'. Also safe is exe is part of the name
-                if name_attr.get('value').startswith('4688') and (name_attr.get('value').endswith('_cmd') or name_attr.get('value').endswith('_conhost') or name_attr.get('value').endswith('_cmd.exe') or name_attr.get('value').endswith('_conhost.exe')):
-                    cleaned_value = name_attr.get('value').replace('.exe', '')
-                    events.append(cleaned_value)
-                    continue
-                elif name_attr.get('value').startswith('4688'):
-                    events.append('4688')
-                    continue
+                #if name_attr.get('value').startswith('4688') and (name_attr.get('value').endswith('_cmd') or name_attr.get('value').endswith('_conhost') or name_attr.get('value').endswith('_cmd.exe') or name_attr.get('value').endswith('_conhost.exe')):
+                    #cleaned_value = name_attr.get('value').replace('.exe', '')
+                    #events.append(cleaned_value)
+                    #continue
+                #elif name_attr.get('value').startswith('4688'):
+                    #events.append('4688')
+                    #continue
                 #if name starts with '4672', add it as '4672'
                 if name_attr.get('value').startswith('4672'):
                     events.append('4672')
@@ -165,12 +165,12 @@ def generate_translated_directly_follows_VM(xes_path):
                 #if name starts with '4634', add it as '4634' and does not contain _3, _4, _5, but if its _10, _11 we dont want to keep it at all
                 if name_attr.get('value').startswith('4634') and (name_attr.get('value').endswith('_10') or name_attr.get('value').endswith('_1')):
                     continue
-                if name_attr.get('value').startswith('4634') and (name_attr.get('value').endswith('_3') or name_attr.get('value').endswith('_4') or name_attr.get('value').endswith('_5')):
-                    events.append(name_attr.get('value')) 
-                    continue
-                elif name_attr.get('value').startswith('4634'):
-                    events.append('4634')
-                    continue
+                #if name_attr.get('value').startswith('4634') and (name_attr.get('value').endswith('_3') or name_attr.get('value').endswith('_4') or name_attr.get('value').endswith('_5')):
+                    #events.append(name_attr.get('value')) 
+                    #continue
+                #elif name_attr.get('value').startswith('4634'):
+                    #events.append('4634')
+                    #continue
                 #if name starts with '4656', add it as '4688'
                 #if name_attr.get('value').startswith('4656'):
                     #events.append('4688')
