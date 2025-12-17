@@ -29,11 +29,11 @@ def fill_uniform_probabilities(config_path):
 # PIPELINE
 
 # XES for heat map comparison
-xes_path_scripts = r"C:\Users\lomo0\Downloads\XesNoConhost\smaller_script_clean_test.xes"
+xes_path_scripts = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/csv_xes/smaller_script_clean_test.xes"
 
 # PMNL to simulate XES from
-pnml_path = r"PNMLFiles\inductive_test.pmnl"
-config_dir = r"GeneratedFiles"
+pnml_path = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/PNML/heuristics_test1.pnml"
+config_dir = r"Configs"
 
 fix_transition_ids_inplace(pnml_path)
 
@@ -65,6 +65,11 @@ print(f"PRECISION: {precision}")
 directly_follows_model = generate_translated_directly_follows_VM(xes_path_model)
 directly_follows_scripts = generate_translated_directly_follows_VM(xes_path_scripts)
 
+directly_follows_scripts["4634_2"] = defaultdict(int)
+directly_follows_model["4634_2"] = defaultdict(int)
+
+
+
 log_normalize_model = log_normalize_directly_follows(directly_follows_model)
 row_normalize_model = row_normalize_directly_follows(directly_follows_model)
 
@@ -72,6 +77,13 @@ log_normalize_scripts = log_normalize_directly_follows(directly_follows_scripts)
 row_normalize_scripts = row_normalize_directly_follows(directly_follows_scripts)
 
 diff_row, black, white = diff_maps(row_normalize_scripts, row_normalize_model, verbose=True, threshold=10)
+
+print("black")
+print(black, len(black))
+
+print("white")
+print(white, len(white))
+
 
 plot_dfg_heatmap(log_normalize_model, title="Log Normalized - Model", color_scheme="3-band")
 plot_dfg_heatmap(row_normalize_model, title="Row Normalized - Model", color_scheme="3-band")
