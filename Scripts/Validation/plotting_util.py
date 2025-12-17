@@ -119,10 +119,15 @@ def diff_maps(mapA, mapB, verbose=False, threshold=0):
     black_list, white_list = find_black_white(mapA, mapB, threshold=threshold)
 
     diff = {}
-    for src in mapA:
+
+    all_srcs = set(mapA.keys()) | set(mapB.keys())
+
+    for src in all_srcs:
         diff[src] = {}
-        for dst in mapA[src]:
-            a = mapA[src].get(dst, 0.0)
+        dsts = set(mapA.get(src, {}).keys()) | set(mapB.get(src, {}).keys())
+
+        for dst in dsts:
+            a = mapA.get(src, {}).get(dst, 0.0)
             b = mapB.get(src, {}).get(dst, 0.0)
             result = a - b
             diff[src][dst] = result
@@ -132,23 +137,26 @@ def diff_maps(mapA, mapB, verbose=False, threshold=0):
 
     return diff, black_list, white_list
 
-
 def find_black_white(mapA, mapB, threshold=0):
     black_list = []
     white_list = []
 
-    for src in mapA:
-        for dst in mapA[src]:
-            a = mapA[src].get(dst, 0.0)
-            b = mapB.get(src, {}).get(dst, 0.0)
+    all_srcs = set(mapA.keys()) | set(mapB.keys())
 
-            if a == 0 and b > 0:
-                white_list.append((src, dst))
+    for src in all_srcs:
+        dsts = set(mapA.get(src, {}).keys()) | set(mapB.get(src, {}).keys())
+        for dst in dsts:
+            a = mapA.get(src, {}).get(dst, 0.0)
+            b = mapB.get(src, {}).get(dst, 0.0)
 
             if a > threshold and b == 0:
                 black_list.append((src, dst))
 
+            if a == 0 and b > threshold:
+                white_list.append((src, dst))
+
     return black_list, white_list
+
 
 
 def generate_random_directly_follows_data(n=20, min_val=0, max_val=20, seed=42):
