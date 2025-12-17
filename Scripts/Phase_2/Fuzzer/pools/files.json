@@ -1,3 +1,7 @@
 {
-    "file1": "path/to/file"
+    "file1": "C:/Temp/testfile1.txt",
+    "file2": "C:/Temp/testfile2.txt",
+    "file3": "C:/Temp/testfile3.txt",
+    "file4": "C:/Temp/testfile4.txt",
+    "file5": "C:/Temp/testfile5.txt"
 }

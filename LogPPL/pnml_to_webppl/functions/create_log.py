@@ -57,6 +57,8 @@ def generate_event_log(path_to_webppl, full_path):
     except subprocess.CalledProcessError as e:
         # If an error occurs, print the error output
         print("Error occurred while checking WebPPL version:")
+        print(e.returncode)
+        print(e.stdout)
         print(e.stderr)
 
     event_log = generate_trace_ids(event_log)

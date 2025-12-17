@@ -3,6 +3,9 @@ import xml.etree.ElementTree as ET
 import datetime
 from collections import Counter
 
+# CONVERT LOS ALAMOS TO XES
+# Divide login type and processes in sub-events
+
 INPUT_FILE = "C:/Users/lomo0/Downloads/wls_day-01"
 OUTPUT_FILE = "C:/Users/lomo0/Downloads/wls_full.xes"
 
