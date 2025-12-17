@@ -9,7 +9,7 @@ pmnl_path = r"C:\Users\lomo0\Documents\GitHub\MasterRepo\MasterRepo\PNMLFiles\ph
 
 real_xes  = r"C:\Users\lomo0\Documents\RandomScripts\wls_processtype_PROM.xes"
 
-real_xes_2 = r"c:\Users\lomo0\Documents\RandomScripts\wls_800MB.xes"
+real_xes_2 = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Personal/wls_800MB.xes"
 
 # Read XES log
 log = xes_importer.apply(real_xes)
@@ -62,7 +62,7 @@ for trace in bad_traces:
 print("Number of bad traces after excluding the target trace:", len(filtered_bad_traces))
 
 # Print all filtered bad traces
-""" for i, trace in enumerate(filtered_bad_traces):
-    print(f"\n=== Bad Trace #{i+1} ===")
-    for event in trace:
-        print(event["concept:name"]) """
+#for i, trace in enumerate(filtered_bad_traces):
+#    print(f"\n=== Bad Trace #{i+1} ===")
+#    for event in trace:
+#        print(event["concept:name"])
