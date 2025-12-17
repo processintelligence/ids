@@ -4,6 +4,7 @@ from LogPPL.scripts.generate_uniform_traces import simulate_dpn
 from Scripts.Validation.directly_follows import *
 from Scripts.Validation.plotting_util import *
 from Scripts.Phase_2.petrinet_cleaner import fix_transition_ids_inplace
+from Scripts.Validation.evaluation_metrics import compute_precison, compute_fitness
 import json
 
 def fill_uniform_probabilities(config_path):
@@ -28,7 +29,7 @@ def fill_uniform_probabilities(config_path):
 # PIPELINE
 
 # XES for heat map comparison
-xes_path_scripts = r"C:\Users\lomo0\Downloads\XesClean\smaller_script_clean_test.xes"
+xes_path_scripts = r"C:\Users\lomo0\Downloads\XesNoConhost\smaller_script_clean_test.xes"
 
 # PMNL to simulate XES from
 pnml_path = r"PNMLFiles\inductive_test.pmnl"
@@ -53,6 +54,13 @@ xes_dir = os.path.join("GeneratedFiles", "WebPPL_XES")
 os.makedirs(xes_dir, exist_ok=True)
 base_name = os.path.splitext(os.path.basename(data_pnml_path))[0]
 xes_path_model = os.path.abspath(os.path.join(xes_dir, f"{base_name}.xes"))
+
+# EVAULUATION
+fitness = compute_fitness(pnml_path, xes_path_scripts)
+print(f"FITNESS: {fitness}")
+
+precision = compute_precison(pnml_path, xes_path_scripts)
+print(f"PRECISION: {precision}")
 
 directly_follows_model = generate_translated_directly_follows_VM(xes_path_model)
 directly_follows_scripts = generate_translated_directly_follows_VM(xes_path_scripts)

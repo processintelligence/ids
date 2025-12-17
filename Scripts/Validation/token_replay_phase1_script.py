@@ -3,15 +3,17 @@ from pm4py.objects.log.importer.xes import importer as xes_importer
 from pm4py.algo.conformance.tokenreplay import algorithm as token_replay
 from pm4py.objects.log.obj import Event
 
+from pm4py.algo.evaluation.precision import algorithm as precision_evaluator
 
-xes_path = r"C:\Users\lomo0\Documents\GitHub\MasterRepo\MasterRepo\GeneratedFiles\WebPPL_XES\data_phase_1_net.xes"
-pmnl_path = r"C:\Users\lomo0\Documents\GitHub\MasterRepo\MasterRepo\PNMLFiles\phase_1_net.pnml"
 
-real_xes  = r"C:\Users\lomo0\Documents\RandomScripts\wls_processtype_PROM.xes"
+#xes_path = r"C:\Users\lomo0\Documents\GitHub\MasterRepo\MasterRepo\GeneratedFiles\WebPPL_XES\data_phase_1_net.xes"
+pmnl_path = r"PNMLFiles\phase_1_net.pnml"
+
+phase2_xes  = r"C:\Users\lomo0\Downloads\XesNoConhost\smaller_script_clean_test.xes"
 
 real_xes_2 = r"c:\Users\lomo0\Documents\RandomScripts\wls_800MB.xes"
 
-log = xes_importer.apply(real_xes)
+log = xes_importer.apply(real_xes_2)
 
 for trace in log:
     trace._list = [evt for evt in trace if evt.get("concept:name") != "init_t"]
@@ -33,6 +35,16 @@ params = {
     "try_to_reach_final_marking_through_hidden": True,
     "walk_through_hidden_trans": True
 }
+
+""" precision = precision_evaluator.apply(
+    log,
+    net,
+    im,
+    fm
+)
+
+print("Precision:", precision) """
+
 
 results = token_replay.apply(log, net, im, fm, parameters=params)
 
@@ -56,7 +68,7 @@ for trace in bad_traces:
 print("Number of bad traces after excluding the target trace:", len(filtered_bad_traces))
 
 # Print all filtered bad traces
-""" for i, trace in enumerate(filtered_bad_traces):
+for i, trace in enumerate(filtered_bad_traces):
     print(f"\n=== Bad Trace #{i+1} ===")
     for event in trace:
-        print(event["concept:name"]) """
+        print(event["concept:name"])
