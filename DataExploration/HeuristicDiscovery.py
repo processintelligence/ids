@@ -17,22 +17,35 @@ OUTPUT_DIR = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Generate
 OUTPUT_PNG = os.path.join(OUTPUT_DIR, "heuristics_test1.png")
 OUTPUT_PNML = os.path.join(OUTPUT_DIR, "heuristics_test1.pnml")
 
-# --- Variant filtering ---
 APPLY_VARIANT_FILTERING = True
-VARIANT_COVERAGE = 0.8          # lower → higher precision, lower fitness
+VARIANT_COVERAGE = 0.75
+DEPENDENCY_THRESHOLD = 0.45
+AND_THRESHOLD = 0.9
+LOOP_TWO_THRESHOLD = 0.6
 
-# --- Heuristics Miner parameters ---
-DEPENDENCY_THRESHOLD = 0.9      # higher → fewer arcs → higher precision
-AND_THRESHOLD = 0.8             # higher → stricter concurrency detection
-LOOP_TWO_THRESHOLD = 0.8        # higher → stricter loop detection
 
 #Results: 
 #0.8, 0.9, 0.8, 0,8 = 0.88, 0.70
 
-# =====================================================
-# =====================================================
+#0.7, 0.7, 0.7, 0.7 = 0.88, 0.70 
+#0.8, 0.9, 0.6, 0.6 = 0.87, 0.70
+
+#0.75, 0.5, 0.8, 0.65 = 0.89, 0.70
+
+#0.75, 0.45, 0.9, 0.6 = 0.92, 0.58, good heatmap
 
 
+
+#0.7, 0.9, 0.9, 0.9 = 0.92, 0.58 
+#0.9, 0.7, 0.7, 0.7 = 0.88, 0.66, a little too much behaviour
+#0.5, 0.7, 0.7, 0.7 = 0.95, 0.76, way to few events 
+#0.9, 0.9, 0.85, 0.8 = 0.89, 0.66, a little too much behaviour 
+#0.9, 0.9, 0.9, 0.9 = 0.92, 0.56
+
+
+
+# =====================================================
+# =====================================================
 
 
 def filter_noise(log, coverage):
