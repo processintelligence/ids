@@ -66,7 +66,7 @@ def create_simulator_loop_function(function_str, dpn, verbose, simulation_query)
     return function_str
 
 
-def create_simulator_function(function_str, steps, sample_size, dpn, verbose, simulation_query):
+def create_simulator_function(function_str, steps, sample_size, dpn, verbose, simulation_query, attacktype):
     function_str = (
         "var firedNTimes = function(trace, id, n) {\n"
         "  var key = 'count_' + id;\n"
@@ -123,16 +123,19 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
     function_str += "}\n\n"
 
     # MODEL WITH CONDITION
-    predicate_expr_repeat = "firedNTimes(trace, '4625_9_8_2_7_3', 5)"
-    predicate_expr_redflag = "firedAtLeastOnce(trace, '4657_common')"
-    predicate_expr_known = "firedAtLeastOnce(trace, '4608')"
-    predicate_expr_composite = "firedGroupAllOnce(trace, ['4624_2', '4688_cmd', '4663'])"
-    predicate_expr_true = "true"
+    predicate_expr_map = {
+        "Repeat": "firedNTimes(trace, '4625_9_8_2_7_3', 5)",
+        "Redflag": "firedAtLeastOnce(trace, '4657_common')",
+        "Composite": "firedGroupAllOnce(trace, ['4624_4', '4688_cmd', '4663', '4657_registry'])",
+    }
+
+    predicate_expr = predicate_expr_map.get(attacktype, "true")
+
 
     function_str += (
         "var model = function() {\n"
         "  var trace = simulator();\n"
-        f"  condition({predicate_expr_repeat});\n"
+        f"  condition({predicate_expr});\n"
         "  return trace;\n"
         "};\n\n"
     )

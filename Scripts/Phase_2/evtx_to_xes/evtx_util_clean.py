@@ -1,14 +1,16 @@
-import os
 import math
+import os
+import tempfile
+import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
-from typing import List, Optional, Sequence, Tuple, Set
+from pathlib import Path
+from typing import FrozenSet, List, Optional, Sequence, Set, Tuple
 import pandas as pd
+import pm4py
 from Evtx.Evtx import Evtx
 from lxml import etree
-import pm4py
 from pm4py.objects.conversion.log import converter as log_converter
 from pm4py.objects.log.obj import EventLog, Trace
-from typing import FrozenSet
 
 
 @dataclass
@@ -292,12 +294,7 @@ def filter_traces(event_log, config: LogConfig = LogConfig()):
     return new_log
 
 
-def csv_to_xes(
-    csv_path,
-    xes_out,
-    windows,
-    config: LogConfig = LogConfig(),
-):
+def csv_to_xes(csv_path, xes_out, windows, config: LogConfig = LogConfig()):
     df = pd.read_csv(csv_path)
 
     if config.timestamp_col not in df.columns:
@@ -349,22 +346,50 @@ def csv_to_xes(
 
     pm4py.write_xes(event_log, xes_out)
 
+def keep_last_trace(xes):
+    xes_path = Path(xes)
 
-if __name__ == "__main__":
-    config = LogConfig()
+    tree = ET.parse(xes_path)
+    root = tree.getroot()
 
-    EVTX_SMALL_1 = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Scripts/Phase_2/evtx_files/300SmallerBackup1.evtx"
-    EVTX_SMALL_2 = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Scripts/Phase_2/evtx_files/300SmallerBackup2.evtx"
-    EVTX_SMALL_3 = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Scripts/Phase_2/evtx_files/300SmallerBackup3.evtx"
+    ns = ""
+    if root.tag.startswith("{"):
+        ns = root.tag.split("}", 1)[0][1:]
+        ET.register_namespace("", ns)
 
-    evtx_files_small = [EVTX_SMALL_1, EVTX_SMALL_2, EVTX_SMALL_3]
+    def q(tag: str) -> str:
+        return f"{{{ns}}}{tag}" if ns else tag
 
-    CSV_OUT_SMALL = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/evtx_csv/evtx_csv_small.csv"
-    XES_OUT_SMALL = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/csv_xes/smaller_script_clean_test.xes"
+    traces = [child for child in list(root) if child.tag == q("trace")]
+    if not traces:
+        raise ValueError("No <trace> elements found in this XES file.")
 
-    # evtx_to_csv(evtx_files_small, CSV_OUT_SMALL)
+    first_trace = traces[0]
+    last_trace = traces[-1]
 
-    windows = get_time_windows_from_csv(CSV_OUT_SMALL, config)
-    csv_to_xes(CSV_OUT_SMALL, XES_OUT_SMALL, windows, config)
+    first_name = None
+    for child in list(first_trace):
+        if child.tag == q("string") and child.attrib.get("key") == "concept:name":
+            first_name = child.attrib.get("value")
+            break
 
-    print("Generated XES from combined EVTX files")
+    for tr in traces:
+        root.remove(tr)
+
+    if first_name is not None:
+        name_elem = None
+        for child in list(last_trace):
+            if child.tag == q("string") and child.attrib.get("key") == "concept:name":
+                name_elem = child
+                break
+        if name_elem is None:
+            last_trace.insert(0, ET.Element(q("string"), {"key": "concept:name", "value": first_name}))
+        else:
+            name_elem.set("value", first_name)
+
+    root.append(last_trace)
+
+    with tempfile.NamedTemporaryFile("wb", delete=False, dir=str(xes_path.parent), suffix=".xes") as tmp:
+        tmp_path = Path(tmp.name)
+        tree.write(tmp, encoding="utf-8", xml_declaration=True)
+    os.replace(tmp_path, xes_path)

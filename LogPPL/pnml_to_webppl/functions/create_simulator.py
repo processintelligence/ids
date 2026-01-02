@@ -59,7 +59,7 @@ def create_simulator_loop_function(function_str, dpn, verbose, simulation_query)
     return function_str
 
 
-def create_simulator_function(function_str, steps, sample_size, dpn, verbose, simulation_query):
+def create_simulator_function(function_str, steps, sample_size, dpn, verbose, simulation_query, attacktype):
     # Initialize the JavaScript function string
     function_str += "var simulator = function(){\ninit();\n"
 

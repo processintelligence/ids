@@ -1,8 +1,11 @@
 import argparse
 from PetriNetUtil.PNMLToDataPNML import generate_data_petrinet
 from LogPPL.scripts.generate_uniform_traces import simulate_dpn
+from Scripts.Phase_2.evtx_to_xes.evtx_util_clean import keep_last_trace
 
-def main(): 
+ALLOWED_ATTACKTYPES = ("Composite", "Redflag", "Repeat")
+
+def main():
     parser = argparse.ArgumentParser(
         description="Generate data PNML by injecting variables, guards, write variables, and simulate uniform traces."
     )
@@ -27,6 +30,14 @@ def main():
         help="Number of traces to sample during simulation (default: 100)."
     )
 
+    parser.add_argument(
+        "--attacktype",
+        default=None,
+        choices=ALLOWED_ATTACKTYPES,
+        help=f'Attack type to simulate. Allowed: {", ".join(ALLOWED_ATTACKTYPES)}. Leave blank for benign.'
+    )
+
+
     args = parser.parse_args()
 
     config_path = args.config
@@ -36,11 +47,11 @@ def main():
     print(f"Data PNML written to: {data_pnml_path}")
 
     print(">>> Simulating data PNML to generate uniform traces...")
-    simulate_dpn(
-        steps=args.steps,
-        sample_size=args.sample_size,
-        pnml_path=data_pnml_path
-    )
+    xes_path = simulate_dpn(steps=args.steps, sample_size=args.sample_size,pnml_path=data_pnml_path,attacktype=args.attacktype)
+
+    if args.attacktype is not None:
+        keep_last_trace(xes_path)
+
 
 if __name__ == "__main__":
     main()

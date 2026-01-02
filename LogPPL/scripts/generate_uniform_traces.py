@@ -22,7 +22,7 @@ def build_uniform_distributions(dpn):
 
     return distributions
 
-def simulate_dpn(steps, sample_size, pnml_path):
+def simulate_dpn(steps, sample_size, pnml_path, attacktype=None):
     pnml_path = os.path.abspath(pnml_path)
     if not os.path.exists(pnml_path):
         print(f"PNML file not found: {pnml_path}")
@@ -45,7 +45,8 @@ def simulate_dpn(steps, sample_size, pnml_path):
         simulation_steps=steps,
         sample_size=sample_size,
         simulation_query="false",
-        distributions=distributions
+        distributions=distributions,
+        attacktype=attacktype
     )
 
     base_name = os.path.splitext(os.path.basename(pnml_path))[0]
@@ -71,3 +72,5 @@ def simulate_dpn(steps, sample_size, pnml_path):
         print(f"Saved XES to: {xes_path}")
     except Exception as e:
         print(f"Error running webppl: {e}")
+
+    return xes_path
