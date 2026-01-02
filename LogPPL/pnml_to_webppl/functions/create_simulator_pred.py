@@ -1,3 +1,14 @@
+# =============================================================================
+# Attribution
+# -----------------------------------------------------------------------------
+# 2026 Emil Pontoppidan Rasmussen (s204441) and Emil Løvstrand Mortensen (s204483).
+# This code extends prior work by Rivkin et al.
+#
+# Portions of the simulator-generation pipeline are adapted/derived from the
+# Rivkin et al. codebase.
+# =============================================================================
+
+
 def create_simulator_enabled_transitions_function(function_str, dpn, verbose, simulation_query):
     function_str += "var enabledTransitions = filter(function(x) {\nreturn "
 
@@ -66,7 +77,7 @@ def create_simulator_loop_function(function_str, dpn, verbose, simulation_query)
 
 def create_simulator_function(function_str, steps, sample_size, dpn, verbose, simulation_query, attacktype):
     function_str = (
-        # Count based helpers
+        # COUNT-BASED HELPERS
         "var firedNTimes = function(trace, id, n) {\n"
         "  var key = 'count_' + id;\n"
         "  var c = globalStore[key] || 0;\n"
@@ -99,23 +110,13 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
         "  globalStore[key] += 1;\n"
         "};\n\n"
         "\n"
-        # Sequence based helpers
+
+        # SEQUENCE-BASED HELPERS
         "var recordEvent = function(label) {\n"
         "  if (globalStore.eventSeq === undefined) {\n"
         "    globalStore.eventSeq = [];\n"
         "  }\n"
         "  globalStore.eventSeq = globalStore.eventSeq.concat([label]);\n"
-        "};\n\n"
-        "\n"
-        "// sequence-based: event x happens at least once\n"
-        "// (trace param kept for API compatibility)\n"
-        "var happenedAtLeastOnce = function(trace, label) {\n"
-        "  var xs = globalStore.eventSeq || [];\n"
-        "  var go = function(i) {\n"
-        "    if (i >= xs.length) { return false; }\n"
-        "    return (xs[i] === label) ? true : go(i + 1);\n"
-        "  };\n"
-        "  return go(0);\n"
         "};\n\n"
         "\n"
         "// max run length of consecutive occurrences of `label`\n"
@@ -133,21 +134,6 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
         "// event x happens at least y times in a row\n"
         "var firedAtLeastYInARow = function(trace, label, y) {\n"
         "  return maxRunLength(label) >= y;\n"
-        "};\n\n"
-        "\n"
-        "// whether pair (a,b) appears adjacently anywhere\n"
-        "var adjacentPairExists = function(a, b) {\n"
-        "  var xs = globalStore.eventSeq || [];\n"
-        "  var go = function(i) {\n"
-        "    if (i >= xs.length - 1) { return false; }\n"
-        "    return (xs[i] === a && xs[i + 1] === b) ? true : go(i + 1);\n"
-        "  };\n"
-        "  return go(0);\n"
-        "};\n\n"
-        "\n"
-        "// forbid c immediately followed by d (global ban)\n"
-        "var notDirectlyAfter = function(trace, c, d) {\n"
-        "  return !adjacentPairExists(c, d);\n"
         "};\n\n"
         "\n"
         "// existential version: there exists at least one occurrence of c\n"
@@ -171,7 +157,6 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
     function_str += "globalStore.eventSeq = [];\n"
 
     function_str += "globalStore.trace = '';\n"
-
     function_str += "globalStore.xesOutput = '';\n\n"
 
     for transition in dpn.net.transitions:
@@ -198,18 +183,16 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
     function_str += "return { marking: globalStore.currentMarking };\n"
     function_str += "};\n\n"
 
-    # Predicate maps
+    # ---- Predicate maps ----
     predicate_expr_map = {
-        # count based predicates
-        #"Repeat": "firedNTimes(trace, '4625_9_8_2_7_3', 5)",
-        #"Redflag": "firedAtLeastOnce(trace, '4657_common')",
-        #"Composite": "firedGroupAllOnce(trace, ['4624_4', '4688_cmd', '4663', '4657_registry'])",
+        # count-based predicates
+        # "Repeat": "firedNTimes(trace, '4625_9_8_2_7_3', 5)",
+        # "Redflag": "firedAtLeastOnce(trace, '4657_common')",
+        # "Composite": "firedGroupAllOnce(trace, ['4624_4', '4688_cmd', '4663', '4657_registry'])",
 
-        # sequence based predicates
+        # sequence-aware predicates 
         "Repeat": "firedAtLeastYInARow(trace, '4625_9_8_2_7_3', 5)",
-
         "Redflag": "firedAtLeastOnce(trace, '4657_common')",
-
         "Composite": (
             "firedAtLeastOnce(trace, '4624_4') && "
             "firedAtLeastOnce(trace, '4688_cmd') && "
@@ -228,7 +211,7 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
         "};\n\n"
     )
 
-    # ---- INFERENCE ----
+    # inference
     function_str += (
         "var dist = Infer({\n"
         "  method: 'MCMC',\n"
