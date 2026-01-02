@@ -1,3 +1,7 @@
+# simulator_predicates.py
+# Full file: keeps OLD count-based predicates + adds NEW order-based predicates
+# (including the "exists a 4663 not followed by 4657_registry" composite semantics)
+
 def create_simulator_enabled_transitions_function(function_str, dpn, verbose, simulation_query):
     function_str += "var enabledTransitions = filter(function(x) {\nreturn "
 
@@ -34,24 +38,27 @@ def create_simulator_sample_transition_function(function_str, net, verbose):
         else:
             function_str += f"else if (transition == {i}) {{\n"
 
-        # Log transition to XES
+        # Log transition to XES (whatever your log_transition does)
         function_str += f'log_transition("{transition.label}");\n'
-        # Increment count for this label in globalStore
+        # Record order (NEW)
+        function_str += f'recordEvent("{transition.label}");\n'
+        # Increment count (OLD)
         function_str += f'incrementCount("{transition.label}");\n'
         # Fire the transition
         function_str += f"fire_{transition.name}();\n"
         function_str += "}\n"
 
     function_str += (
-        'else {\nconsole.log("Selected illegal transition; should never happen.");\n}'
-        "\nsimulator_loop(steps - 1);\n}\n\n"
+        'else {\nconsole.log("Selected illegal transition; should never happen.");\n}\n'
+        "simulator_loop(steps - 1);\n"
+        "}\n\n"
     )
     return function_str
 
 
 def create_simulator_init_function(function_str, verbose):
+    # IMPORTANT: do NOT reset outputs here (simulator_loop is recursive)
     function_str += "var simulator_loop = function(steps) {\n\n"
-    function_str += 'globalStore.xesOutput = "";\n\n'
     return function_str
 
 
@@ -68,6 +75,7 @@ def create_simulator_loop_function(function_str, dpn, verbose, simulation_query)
 
 def create_simulator_function(function_str, steps, sample_size, dpn, verbose, simulation_query, attacktype):
     function_str = (
+        # ===== OLD COUNT-BASED HELPERS =====
         "var firedNTimes = function(trace, id, n) {\n"
         "  var key = 'count_' + id;\n"
         "  var c = globalStore[key] || 0;\n"
@@ -99,10 +107,83 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
         "  }\n"
         "  globalStore[key] += 1;\n"
         "};\n\n"
+        "\n"
+        # ===== NEW ORDER / SEQUENCE HELPERS =====
+        "var recordEvent = function(label) {\n"
+        "  if (globalStore.eventSeq === undefined) {\n"
+        "    globalStore.eventSeq = [];\n"
+        "  }\n"
+        "  globalStore.eventSeq = globalStore.eventSeq.concat([label]);\n"
+        "};\n\n"
+        "\n"
+        "// sequence-based: event x happens at least once\n"
+        "// (trace param kept for API compatibility)\n"
+        "var happenedAtLeastOnce = function(trace, label) {\n"
+        "  var xs = globalStore.eventSeq || [];\n"
+        "  var go = function(i) {\n"
+        "    if (i >= xs.length) { return false; }\n"
+        "    return (xs[i] === label) ? true : go(i + 1);\n"
+        "  };\n"
+        "  return go(0);\n"
+        "};\n\n"
+        "\n"
+        "// max run length of consecutive occurrences of `label`\n"
+        "var maxRunLength = function(label) {\n"
+        "  var xs = globalStore.eventSeq || [];\n"
+        "  var go = function(i, cur, best) {\n"
+        "    if (i >= xs.length) { return best; }\n"
+        "    var cur2 = (xs[i] === label) ? (cur + 1) : 0;\n"
+        "    var best2 = (cur2 > best) ? cur2 : best;\n"
+        "    return go(i + 1, cur2, best2);\n"
+        "  };\n"
+        "  return go(0, 0, 0);\n"
+        "};\n\n"
+        "\n"
+        "// event x happens at least y times in a row\n"
+        "var firedAtLeastYInARow = function(trace, label, y) {\n"
+        "  return maxRunLength(label) >= y;\n"
+        "};\n\n"
+        "\n"
+        "// whether pair (a,b) appears adjacently anywhere\n"
+        "var adjacentPairExists = function(a, b) {\n"
+        "  var xs = globalStore.eventSeq || [];\n"
+        "  var go = function(i) {\n"
+        "    if (i >= xs.length - 1) { return false; }\n"
+        "    return (xs[i] === a && xs[i + 1] === b) ? true : go(i + 1);\n"
+        "  };\n"
+        "  return go(0);\n"
+        "};\n\n"
+        "\n"
+        "// forbid c immediately followed by d (global ban)\n"
+        "var notDirectlyAfter = function(trace, c, d) {\n"
+        "  return !adjacentPairExists(c, d);\n"
+        "};\n\n"
+        "\n"
+        "// existential version: there exists at least one occurrence of c\n"
+        "// that is NOT immediately followed by d (allowed that other c's are followed by d)\n"
+        "var existsNotFollowedBy = function(trace, c, d) {\n"
+        "  var xs = globalStore.eventSeq || [];\n"
+        "  var go = function(i) {\n"
+        "    if (i >= xs.length) { return false; }\n"
+        "    if (xs[i] === c) {\n"
+        "      if (i === xs.length - 1) { return true; }\n"
+        "      if (xs[i + 1] !== d) { return true; }\n"
+        "    }\n"
+        "    return go(i + 1);\n"
+        "  };\n"
+        "  return go(0);\n"
+        "};\n\n"
     ) + function_str
 
-    # Simulator wrapper
+    # ---- Simulator wrapper ----
     function_str += "var simulator = function(){\ninit();\n"
+
+    # Reset per-run sequence (NEW)
+    function_str += "globalStore.eventSeq = [];\n"
+
+    # Reset outputs safely (avoid trace/xesOutput mismatch)
+    function_str += "globalStore.trace = '';\n"
+    function_str += "globalStore.xesOutput = '';\n\n"
 
     # Reset all counts for this run (per transition label)
     for transition in dpn.net.transitions:
@@ -112,25 +193,57 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
     for transition in dpn.net.transitions:
         function_str += f"update_enabled_{transition.name}();\n"
 
+    # Wrap the trace (write to BOTH, so whichever log_transition uses you still see output)
     function_str += "\n"
-    function_str += 'globalStore.trace += "<trace>\\n";\n\n'
+    function_str += "globalStore.trace += '<trace>\\n';\n"
+    function_str += "globalStore.xesOutput += '<trace>\\n';\n\n"
     function_str += f"simulator_loop({steps});\n\n"
-    function_str += 'globalStore.trace += "</trace>\\n";\n\n'
-    function_str += "console.log(globalStore.trace);\n\n"
+    function_str += "globalStore.trace += '</trace>\\n';\n"
+    function_str += "globalStore.xesOutput += '</trace>\\n';\n\n"
 
-    # Return a simple trace object (marking only; predicates use globalStore counts)
+    # Print whichever is populated
+    function_str += (
+        "if (globalStore.xesOutput && globalStore.xesOutput.length > 0) {\n"
+        "  console.log(globalStore.xesOutput);\n"
+        "} else {\n"
+        "  console.log(globalStore.trace);\n"
+        "}\n\n"
+    )
+
+    # Return a simple trace object (predicates use globalStore counts/sequence)
     function_str += "return { marking: globalStore.currentMarking };\n"
-    function_str += "}\n\n"
+    function_str += "};\n\n"
 
-    # MODEL WITH CONDITION
+    # ---- MODEL WITH CONDITION ----
+    # OLD predicates remain available unchanged, plus NEW ones.
     predicate_expr_map = {
-        "Repeat": "firedNTimes(trace, '4625_9_8_2_7_3', 5)",
+        # ===== OLD PREDICATES (count-based) =====
+        #"Repeat": "firedNTimes(trace, '4625_9_8_2_7_3', 5)",
+        #"Redflag": "firedAtLeastOnce(trace, '4657_common')",
+        #"Composite": "firedGroupAllOnce(trace, ['4624_4', '4688_cmd', '4663', '4657_registry'])",
+
+        # ===== NEW PREDICATES =====
+        # repeat: fire 4625_9_8_2_7_3 at least 5 times in a row
+        "Repeat": "firedAtLeastYInARow(trace, '4625_9_8_2_7_3', 5)",
+
+        # redflag: fire 4657_common at least once (you can also use happenedAtLeastOnce)
         "Redflag": "firedAtLeastOnce(trace, '4657_common')",
-        "Composite": "firedGroupAllOnce(trace, ['4624_4', '4688_cmd', '4663', '4657_registry'])",
+
+        # composite (your semantics):
+        # 4624_4 at least once
+        # 4688_cmd at least once
+        # 4657_registry at least once
+        # 4663 at least once where it is NOT followed by 4657_registry
+        # (allowed that other 4663 occurrences ARE followed by 4657_registry)
+        "Composite": (
+            "firedAtLeastOnce(trace, '4624_4') && "
+            "firedAtLeastOnce(trace, '4688_cmd') && "
+            "firedAtLeastOnce(trace, '4657_registry') && "
+            "existsNotFollowedBy(trace, '4663', '4657_registry')"
+        ),
     }
 
     predicate_expr = predicate_expr_map.get(attacktype, "true")
-
 
     function_str += (
         "var model = function() {\n"
@@ -140,22 +253,13 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
         "};\n\n"
     )
 
-    #INFERENCE ON MCMC
+    # ---- INFERENCE ----
     function_str += (
         "var dist = Infer({\n"
         "  method: 'MCMC',\n"
         f"  samples: {sample_size},\n"
         "}, model);\n\n"
-)
-
-    # INFERENCE ON SMC
-    #function_str += (
-    #    "var dist = Infer({\n"
-    #    "  method: 'SMC',\n"
-    #    f"  particles: {sample_size},\n"
-    #    "}, model);\n\n"
-    #)
-
+    )
 
     function_str += "// Extract the samples\n"
     function_str += "var samplesArray = dist.samples;\n"
