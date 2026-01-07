@@ -5,43 +5,35 @@ from collections import defaultdict
 from pm4py.objects.log.obj import Event
 
 
-# =========================
 # PATHS
-# =========================
-XES_PATH = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Personal/wls_800MB.xes"
-PNML_PATH = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/PNMLFiles/phase_1_net.pnml"
+XES_PATH = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/csv_xes/smaller_script_clean_test.xes"
+PNML_PATH = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/PNML/heuristics_test1.pnml"
 
-
-# =========================
 # LOAD LOG
-# =========================
 log = xes_importer.apply(XES_PATH)
 
-# optional log cleaning (keep your logic)
+#leave out init_t
 for trace in log:
     trace._list = [evt for evt in trace if evt.get("concept:name") != "init_t"]
 
-for trace in log:
-    new_event = Event({"concept:name": "4608"})
-    trace.insert(0, new_event)
+#this code is only important 
+#for trace in log:
+#    new_event = Event({"concept:name": "4608"})
+#    trace.insert(0, new_event)
 
 
-# =========================
-# LOAD PETRI NET
-# =========================
+# instantiate petrinet 
 net, im, fm = pm4py.read_pnml(PNML_PATH)
 
-# normalize tau transitions: set label=None (invisible)
+# make tau invisible - should be alright but double checking
 for t in net.transitions:
     if t.label and str(t.label).startswith("tau"):
         t.label = None
 
 
-# =========================
 # TOKEN REPLAY
-# =========================
 params = {
-    "consider_remaining_in_fitness": False,
+    "consider_remaining_in_fitness": False, #we dont want penalize unfinished traces
     "try_to_reach_final_marking_through_hidden": True,
     "walk_through_hidden_trans": True
 }
@@ -49,46 +41,38 @@ params = {
 replay_results = token_replay.apply(log, net, im, fm, parameters=params)
 
 
-# =========================
-# HELPERS
-# =========================
 def marking_to_key(marking):
-    """Convert a marking to a hashable canonical form."""
+    #returns a marking on hte form (place, token_count)
     return tuple(sorted((p.name, marking[p]) for p in marking if marking[p] > 0))
 
 
 def fire_transition(marking, transition):
-    """Fire a transition and return the new marking."""
+    # fires the transition and returns the new
     new_marking = marking.copy()
 
     # consume tokens
     for arc in transition.in_arcs:
         src = arc.source
-        new_marking[src] -= arc.weight
+        new_marking[src] -= 1
         if new_marking[src] == 0:
             del new_marking[src]
 
     # produce tokens
     for arc in transition.out_arcs:
         tgt = arc.target
-        new_marking[tgt] = new_marking.get(tgt, 0) + arc.weight
+        new_marking[tgt] = new_marking.get(tgt, 0) + 1
 
     return new_marking
 
 
 def transition_id(t):
-    """
-    Return a stable string identifier for a transition:
-    - visible: its label
-    - silent (tau): "tau::<transition_name>"
-    """
+    #returns label for a transition
     return t.label if t.label is not None else f"tau::{t.name}"
 
 
-# =========================
-# COUNT MARKING -> TRANSITION (INCLUDING TAU)
-# =========================
+#in a given marking, how many times is a specific transition fired
 marking_transition_counts = defaultdict(int)
+#in a given marking, how many times is any transition fired
 marking_total_counts = defaultdict(int)
 
 for trace_result in replay_results:
@@ -107,9 +91,7 @@ for trace_result in replay_results:
         current_marking = fire_transition(current_marking, t)
 
 
-# =========================
 # COMPUTE PROBABILITIES
-# =========================
 marking_transition_probabilities = defaultdict(dict)
 
 for (m_key, t_id), count in marking_transition_counts.items():
@@ -117,9 +99,8 @@ for (m_key, t_id), count in marking_transition_counts.items():
     marking_transition_probabilities[m_key][t_id] = count / total if total > 0 else 0.0
 
 
-# =========================
+#MAIN  OR CLI
 # OUTPUT RESULTS
-# =========================
 print("\n================ MARKING → TRANSITION PROBABILITIES (INCLUDING TAU) ================\n")
 
 # sort markings for nicer output
