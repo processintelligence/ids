@@ -22,6 +22,9 @@ def compute_precison(pmnl_path, xes_path):
 def compute_fitness(pmnl_path, xes_path):
     log = xes_importer.apply(xes_path)
 
+    for trace in log:
+        trace._list = [evt for evt in trace if evt.get("concept:name") != "init_t"]
+
     net, initial_marking, final_marking = pnml_importer.apply(pmnl_path)
 
     results = token_replay.apply(log, net, initial_marking, final_marking)
