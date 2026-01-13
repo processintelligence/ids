@@ -3,7 +3,7 @@ from PetriNetUtil.PNMLToDataPNML import generate_data_petrinet
 from LogPPL.scripts.generate_uniform_traces import simulate_dpn
 from Scripts.Phase_2.evtx_to_xes.evtx_util_clean import keep_last_trace
 
-ALLOWED_ATTACKTYPES = ("Composite", "Redflag", "Repeat")
+ALLOWED_ATTACKTYPES = ("Composite", "Redflag", "Repeat", "4th")
 
 def main():
     parser = argparse.ArgumentParser(

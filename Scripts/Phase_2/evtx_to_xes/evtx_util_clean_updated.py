@@ -2,9 +2,10 @@ import math
 import os
 import tempfile
 import xml.etree.ElementTree as ET
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
-from typing import FrozenSet, List, Optional, Sequence, Set, Tuple
+from typing import FrozenSet, List, Optional, Sequence, Tuple
+
 import pandas as pd
 import pm4py
 from Evtx.Evtx import Evtx
@@ -24,9 +25,12 @@ class LogConfig:
     start_eventid: int = 4663
     end_eventid: Optional[int] = None
 
-    allowed_4688: FrozenSet[str] = frozenset({
-        "4688_cmd", "4688_notepad", #"4688_powershell", #"4688_conhost"
-    })
+    allowed_4688: FrozenSet[str] = frozenset(
+        {
+            "4688_cmd",
+            # "4688_notepad",  # "4688_powershell", #"4688_conhost"
+        }
+    )
 
     trace_start_prefix: str = "4624_2"
     trace_end_prefix: str = "4634_2"
@@ -42,7 +46,7 @@ def _is_nan_value(v):
     return False
 
 
-def _parse_event_xml(xml_string):
+def _parse_event_xml(xml_string: str):
     event_dict = {}
     root = etree.fromstring(xml_string.encode("utf-8"))
 
@@ -88,9 +92,31 @@ def _matches_eventid(val, expected: Optional[int]) -> bool:
         return str(val) == str(expected)
 
 
+def _normalize_logon_id(v):
+    if v is None or _is_nan_value(v):
+        return None
+    return str(v).strip().lower()
+
+
+def _format_logon_type_value(lt):
+    if lt is None or _is_nan_value(lt):
+        return None
+
+    if isinstance(lt, float):
+        return str(int(lt)) if lt.is_integer() else str(lt)
+
+    s = str(lt)
+    return s[:-2] if s.endswith(".0") else s
+
+
+def _normalize_handle(v):
+    if v is None or _is_nan_value(v):
+        return None
+    return str(v).strip().lower()
+
+
 def evtx_to_csv(evtx_paths: Sequence[str], csv_out: str) -> None:
     rows = []
-
     for evtx_path in evtx_paths:
         with Evtx(evtx_path) as log:
             for record in log.records():
@@ -153,35 +179,131 @@ def _enrich_new_process_name(event, eid):
         return None
 
     s = str(npn)
-    #removing ".exe"
-    proc = s.replace("/", "\\").split("\\")[-1] 
+    proc = s.replace("/", "\\").split("\\")[-1]
     proc = os.path.splitext(proc)[0]
     return f"{eid}_{proc}"
 
+
+def _enrich_4657(event, eid):
+    val = (
+        event.get("EventData.ObjectValueName")
+        or event.get("EventData.ValueName")
+        or event.get("EventData.OperationType")
+        or event.get("EventData.Type")
+    )
+    if val is None or _is_nan_value(val):
+        return None
+
+    if "common" in str(val).strip().lower():
+        return f"{eid}_common"
+
+    return None
 
 
 ENRICHMENT_HANDLERS = {
     "4624": _enrich_logon_type,
     "4634": _enrich_logon_type,
     "4688": _enrich_new_process_name,
+    "4657": _enrich_4657,
 }
 
 
-def enrich_event_ids(event_log):
+def enrich_event_ids(event_log: EventLog) -> EventLog:
+    new_log = EventLog(attributes=event_log.attributes)
+
     for trace in event_log:
+        logonid_to_lt = {}
+
         for event in trace:
             raw_eid = event.get("EventID", event.get("concept:name"))
             if raw_eid is None:
                 continue
 
             eid = str(raw_eid)
+            base_eid = eid.split("_", 1)[0]
+            if base_eid != "4624":
+                continue
+
+            lt_str = _format_logon_type_value(event.get("EventData.LogonType"))
+            if lt_str is None:
+                continue
+
+            subj = _normalize_logon_id(event.get("EventData.SubjectLogonId"))
+            targ = _normalize_logon_id(event.get("EventData.TargetLogonId"))
+
+            if subj:
+                logonid_to_lt[subj] = lt_str
+            if targ:
+                logonid_to_lt[targ] = lt_str
+
+        for event in trace:
+            raw_eid = event.get("EventID", event.get("concept:name"))
+            if raw_eid is None:
+                continue
+
+            eid = str(raw_eid)
+            base_eid = eid.split("_", 1)[0]
+
             handler = ENRICHMENT_HANDLERS.get(eid)
-            new_name = handler(event, eid) if handler is not None else None
+            if handler is None and "_" in eid:
+                handler = ENRICHMENT_HANDLERS.get(base_eid)
 
-            if new_name:
-                event["concept:name"] = str(new_name)
+            if handler is not None:
+                handler_eid = eid if ENRICHMENT_HANDLERS.get(eid) is not None else base_eid
+                new_name = handler(event, handler_eid)
+                if new_name:
+                    event["concept:name"] = str(new_name)
 
-    return event_log
+            if base_eid == "4672":
+                id4672 = _normalize_logon_id(
+                    event.get("EventData.TargetLogonId")
+                    or event.get("EventData.SubjectLogonId")
+                )
+                if id4672:
+                    lt_str = logonid_to_lt.get(id4672)
+                    if lt_str is not None:
+                        event["concept:name"] = f"4672_{lt_str}"
+
+        events = list(trace)
+        merged_events = []
+        i = 0
+
+        while i < len(events):
+            if i < len(events) - 1:
+                ev1 = events[i]
+                ev2 = events[i + 1]
+
+                eid1 = str(ev1.get("EventID", ev1.get("concept:name", ""))).split("_", 1)[0]
+                eid2 = str(ev2.get("EventID", ev2.get("concept:name", ""))).split("_", 1)[0]
+
+                if eid1 == "4690" and eid2 == "4658":
+                    h1 = _normalize_handle(
+                        ev1.get("EventData.TargetHandleId") or ev1.get("EventData.TargetHandleID")
+                    )
+                    h2 = _normalize_handle(
+                        ev2.get("EventData.HandleId") or ev2.get("EventData.HandleID")
+                    )
+
+                    if h1 and h2 and h1 == h2:
+                        ev1["concept:name"] = "4690_4658"
+                        merged_events.append(ev1)
+                        i += 2
+                        continue
+
+            cur = events[i]
+            cur_eid = str(cur.get("EventID", cur.get("concept:name", ""))).split("_", 1)[0]
+            cur_name = str(cur.get("concept:name", ""))
+
+            if cur_eid == "4690" and cur_name != "4690_4658":
+                i += 1
+                continue
+
+            merged_events.append(cur)
+            i += 1
+
+        new_log.append(Trace(merged_events, attributes=trace.attributes))
+
+    return new_log
 
 
 def filter_events(event_log, config: LogConfig = LogConfig()):
@@ -247,10 +369,14 @@ def drop_trailing(event_log):
             continue
 
         end_idx = len(events)
+
         if end_idx > 0 and get_eid(events[end_idx - 1]).startswith("4658"):
             end_idx -= 1
+
         if end_idx > 0 and get_eid(events[end_idx - 1]).startswith("4690"):
-            end_idx -= 1
+            cname = str(events[end_idx - 1].get("concept:name", ""))
+            if cname != "4690_4658":
+                end_idx -= 1
 
         remaining = events[:end_idx]
         if remaining:
@@ -267,15 +393,20 @@ def filter_traces(event_log, config: LogConfig = LogConfig()):
         if not events:
             continue
 
-        # Find last 4624_2
+        # NEW RULE:
+        # Start at the FIRST occurrence of either:
+        #   - any event whose concept:name starts with config.trace_start_prefix (e.g. 4624_2)
+        #   - OR EventID/concept:name base == 4625
+        # whichever comes first in the trace.
         start_idx = None
-        for i in range(len(events) - 1, -1, -1):
-            cname = str(events[i].get("concept:name", ""))
-            if cname.startswith(config.trace_start_prefix):
-                start_idx = i
+        for idx, ev in enumerate(events):
+            cname = str(ev.get("concept:name", ""))
+            base = get_eid(ev).split("_", 1)[0]
+            if cname.startswith(config.trace_start_prefix) or base == "4625":
+                start_idx = idx
                 break
 
-        # Find first 4634_2
+        # Find first 4634_2 (or whatever prefix is configured)
         end_idx = None
         for j, ev in enumerate(events):
             cname = str(ev.get("concept:name", ""))
@@ -283,11 +414,10 @@ def filter_traces(event_log, config: LogConfig = LogConfig()):
                 end_idx = j
                 break
 
-        # Must have both boundaries in correct order
         if start_idx is None or end_idx is None or start_idx > end_idx:
             continue
 
-        trimmed_events = events[start_idx:end_idx + 1]
+        trimmed_events = events[start_idx : end_idx + 1]
         if trimmed_events:
             new_log.append(Trace(trimmed_events, attributes=trace.attributes))
 
@@ -302,8 +432,7 @@ def csv_to_xes(csv_path, xes_out, windows, config: LogConfig = LogConfig()):
 
     df = df.copy()
     df["time:timestamp"] = (
-        pd.to_datetime(df[config.timestamp_col], errors="coerce", utc=True)
-        .dt.tz_convert(None)
+        pd.to_datetime(df[config.timestamp_col], errors="coerce", utc=True).dt.tz_convert(None)
     )
     df = df.dropna(subset=["time:timestamp"])
 
@@ -330,7 +459,6 @@ def csv_to_xes(csv_path, xes_out, windows, config: LogConfig = LogConfig()):
 
     event_log = log_converter.apply(df_traces, variant=log_converter.Variants.TO_EVENT_LOG)
 
-    # drop NaNs in attributes
     for trace in event_log:
         for k in [k for k, v in trace.attributes.items() if _is_nan_value(v)]:
             del trace.attributes[k]
@@ -345,6 +473,7 @@ def csv_to_xes(csv_path, xes_out, windows, config: LogConfig = LogConfig()):
     event_log = filter_traces(event_log, config)
 
     pm4py.write_xes(event_log, xes_out)
+
 
 def keep_last_trace(xes):
     xes_path = Path(xes)

@@ -199,6 +199,10 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
             "firedAtLeastOnce(trace, '4657_registry') && "
             "existsNotFollowedBy(trace, '4663', '4657_registry')"
         ),
+        "4th": (
+            "firedAtLeastOnce(trace, '4688_passworddll') && "
+            "firedAtLeastOnce(trace, '4657_lsa')"
+        )
     }
 
     predicate_expr = predicate_expr_map.get(attacktype, "true")

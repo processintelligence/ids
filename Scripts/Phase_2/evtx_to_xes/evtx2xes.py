@@ -1,4 +1,4 @@
-from Scripts.Phase_2.evtx_to_xes.evtx_util_clean import *
+from Scripts.Phase_2.evtx_to_xes.evtx_util_clean_updated import *
 import argparse
 import os
 import sys
@@ -51,7 +51,7 @@ def main():
     windows = get_time_windows_from_csv(csv_out, config)
     print(f"Found {len(windows)} window(s)")
 
-    print(">>> CSV -> XES")
+    print(">>> CSV -> XES (as well as log obtaining)")
     csv_to_xes(csv_out, xes_out, windows, config)
     print(f"XES written to: {xes_out}")
 
