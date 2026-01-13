@@ -2,66 +2,36 @@ $Path = "C:\Temp\FuzzStarter.txt"
 
 "START" | Out-File -FilePath $Path -Force -Encoding ascii
 
-param(
-    [string]$Username = "InvalidUser",
-    [string]$WrongPassword = "WrongPassword123!"
-)
-
-$secure = ConvertTo-SecureString $WrongPassword -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential($Username, $secure)
-
+$secure = ConvertTo-SecureString "WrongPassword123" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential("InvalidUser", $secure)
 try {
     Start-Process "cmd.exe" -Credential $cred -ErrorAction Stop
 }
 catch {
 }
-param(
-    [string]$Username = "InvalidUser",
-    [string]$WrongPassword = "WrongPassword123!"
-)
-
-$secure = ConvertTo-SecureString $WrongPassword -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential($Username, $secure)
-
+$secure = ConvertTo-SecureString "WrongPassword123" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential("InvalidUser", $secure)
 try {
     Start-Process "cmd.exe" -Credential $cred -ErrorAction Stop
 }
 catch {
 }
-param(
-    [string]$Username = "InvalidUser",
-    [string]$WrongPassword = "WrongPassword123!"
-)
-
-$secure = ConvertTo-SecureString $WrongPassword -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential($Username, $secure)
-
+$secure = ConvertTo-SecureString "WrongPassword123" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential("InvalidUser", $secure)
 try {
     Start-Process "cmd.exe" -Credential $cred -ErrorAction Stop
 }
 catch {
 }
-param(
-    [string]$Username = "InvalidUser",
-    [string]$WrongPassword = "WrongPassword123!"
-)
-
-$secure = ConvertTo-SecureString $WrongPassword -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential($Username, $secure)
-
+$secure = ConvertTo-SecureString "WrongPassword123" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential("InvalidUser", $secure)
 try {
     Start-Process "cmd.exe" -Credential $cred -ErrorAction Stop
 }
 catch {
 }
-param(
-    [string]$Username = "InvalidUser",
-    [string]$WrongPassword = "WrongPassword123!"
-)
-
-$secure = ConvertTo-SecureString $WrongPassword -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential($Username, $secure)
-
+$secure = ConvertTo-SecureString "WrongPassword123" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential("InvalidUser", $secure)
 try {
     Start-Process "cmd.exe" -Credential $cred -ErrorAction Stop
 }

@@ -30,7 +30,7 @@ public class HandleUtil {
 $intertoken = [IntPtr]::Zero
 [LogonUtil]::LogonUser($username, $domain, $password, 2, 0, [ref] $intertoken)
 
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\CurrentVersion\Run" -Name "Common" -Value "abc"
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "Common" -Value "abc"
 
 [HandleUtil]::CloseHandle($intertoken) | Out-Null
 
