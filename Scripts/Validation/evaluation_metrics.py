@@ -3,7 +3,8 @@ from pm4py.objects.log.importer.xes import importer as xes_importer
 from pm4py.objects.petri_net.importer import importer as pnml_importer
 from pm4py.algo.evaluation.precision import algorithm as precision_evaluator
 from pm4py.algo.conformance.tokenreplay import algorithm as token_replay
-
+from pm4py.algo.evaluation.replay_fitness import algorithm as fitness_evaluator
+from pm4py.algo.conformance.alignments.petri_net import algorithm as alignments
 
 def compute_precison(pmnl_path, xes_path):
     log = xes_importer.apply(xes_path)
@@ -34,6 +35,21 @@ def compute_fitness(pmnl_path, xes_path):
         
     return average_fitness
     
+def compute_alignment_fitness(pmnl_path, xes_path):
+    log = xes_importer.apply(xes_path)
 
+    for trace in log:
+        trace._list = [evt for evt in trace if evt.get("concept:name") != "init_t"]
+
+    net, initial_marking, final_marking = pnml_importer.apply(pmnl_path)
+
+    result = fitness_evaluator.apply(
+        log,
+        net,
+        initial_marking,
+        final_marking,
+        variant=fitness_evaluator.Variants.ALIGNMENT_BASED
+    )
+    return result["averageFitness"]
 
 
