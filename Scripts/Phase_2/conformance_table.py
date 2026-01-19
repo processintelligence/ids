@@ -31,7 +31,7 @@ def print_conformance_table(conformance_table, xes_paths):
         print(row)
 
 
-# Dictionary: {pmnl_name: {xes_name: fitness}}
+# Dict: {pmnl_name: {xes_name: fitness}}
 conformance_table = {}
 
 for pmnl_path in pmnl_paths:
