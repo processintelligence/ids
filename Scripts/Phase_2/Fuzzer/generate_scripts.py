@@ -1,7 +1,6 @@
 import random
 from pathlib import Path
 import argparse
-
 from Scripts.Phase_2.Fuzzer.action_generator import generate_SESSION
 from Scripts.Phase_2.Fuzzer.action_to_command_mapper import map_actions_to_commands
 from Scripts.Phase_2.Fuzzer.script_builder import build_powershell_script

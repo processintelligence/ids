@@ -1,8 +1,6 @@
 import random
 
-
 # TERMINAL SYMBOLS
-
 SUCCESSFUL_MAIN_LOGONS = [
     "Interactive_Logon",
     "Network_Logon"
@@ -12,7 +10,6 @@ FAILED_LOGON = "Failed_Logon"
 
 SUBLOGONS = [
     "Batch_Logon",
-    #"Service_Logon", TODO: fix and add back in
     "RunAs_Logon",
     "Network_Logon"
 ]
@@ -32,8 +29,6 @@ REGISTRY_OPS = [
 
 PROCESS_OPS_GENERIC = ["Start_Process"]
 PROCESS_OPS_CMD = ["Start_CMD_Process"]
-
-LOCK_UNLOCK_PAIR = ["Lock_Workstation", "Unlock_Workstation"]
 
 INTERACTIVE_LOGOFF = "Interactive_Logoff"
 NETWORK_LOGOFF = "Network_Logoff"
@@ -85,8 +80,8 @@ def generate_ACTION():
         "OBJECT_OP",
         "REGISTRY_OP",
         "PROCESS_OP",
-        #"LOCK_UNLOCK" TODO: Remove?
     ]
+
     choice = random.choice(ACTION)
 
     if choice == "SUBLOGON":
@@ -101,9 +96,6 @@ def generate_ACTION():
     elif choice == "PROCESS_OP":
         return generate_PROCESS_OP()
 
-    elif choice == "LOCK_UNLOCK":
-        return generate_LOCK_UNLOCK()
-
     return []
 
 
@@ -116,9 +108,6 @@ def generate_SUBLOGON():
     if sublogon_choice == "Network_Logon":
         events.append(NETWORK_LOGOFF)
 
-    #if sublogin_choice == "RunAs_Logon":
-        #events.extend(generate_ACTIONS())
-        #events.extend(generate_SUBLOGOFF())  # TODO: No sublogoff command - remove? And what do we do with actions?
     return events
 
 def generate_SUBLOGOFF():
@@ -138,10 +127,6 @@ def generate_PROCESS_OP():
         return PROCESS_OPS_GENERIC[:] 
     else:
         return PROCESS_OPS_CMD[:]      
-
-
-def generate_LOCK_UNLOCK():
-    return LOCK_UNLOCK_PAIR[:]
 
 
 #TEST

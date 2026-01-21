@@ -13,16 +13,12 @@ ACTIONS         ::= ( ACTION )* ;
 ACTION          ::= SUBLOGON
                   | OBJECT_OP
                   | REGISTRY_OP
-                  | PROCESS_OP
-                  | LOCK_UNLOCK ;
+                  | PROCESS_OP;
 
 SUBLOGON        ::= "Batch_Logon"
-                  | "Service_Logon"
-                  | "RunAs_Logon" ACTIONS SUBLOGOFF   // Not sure if this takes ACTIONS or more like action is just a parameter we choose
+                  | "RunAs_Logon"
                   | "Network_Logon" ;
-
-SUBLOGOFF       ::= "Logoff" ;
-
+                  
 OBJECT_OP       ::= "Create_Object"
                   | "Delete_Object"
                   | "Modify_Object" ;
@@ -35,8 +31,6 @@ REGISTRY_OP     ::= "Create_Registry"
 PROCESS_OP      ::= PROCESS_GENERIC
                   | PROCESS_CMD ;
 
-PROCESS_GENERIC ::= "Start_Process" ;   // Possibly add more
+PROCESS_GENERIC ::= "Start_Process" ;
 
 PROCESS_CMD ::= "Start_CMD_Process" ;
-
-LOCK_UNLOCK     ::= "Lock_Workstation" "Unlock_Workstation" ;

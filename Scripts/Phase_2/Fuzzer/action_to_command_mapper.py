@@ -1,6 +1,6 @@
 from Scripts.Phase_2.Fuzzer.commands import *
 
-def map_action_to_command(action): # TODO: make private?
+def map_action_to_command(action):
     mapping = {
         "Batch_Logon": BatchLogonCommand,
         "Create_Object": CreateObjectCommand,
@@ -23,18 +23,8 @@ def map_action_to_command(action): # TODO: make private?
         "Start_Process": StartProcessCommand,
     }
 
-    # TODO: Is exceptions for unknown actions needed? Should not be possible?
-
     return mapping[action]().getCommand()
 
 def map_actions_to_commands(action_list):
     return [map_action_to_command(a) for a in action_list]
 
-
-""" #MAPPER TEST
-trace = ["Interactive_Logon", "Start_Process", "Create_Object", "Logoff"]
-
-command_strings = map_actions_to_commands(trace)
-
-for line in command_strings:
-    print(line) """

@@ -2,7 +2,7 @@ from pathlib import Path
 from Scripts.Phase_2.Fuzzer.pools.pool_access import get_all_values
 
 
-def build_powershell_script(command_strings, output_path): # TODO: hardcode path, maybe generated files?
+def build_powershell_script(command_strings, output_path):
     output_path = Path(output_path)
         
     all_delete_file = get_all_values("files.json")
@@ -20,7 +20,6 @@ def build_powershell_script(command_strings, output_path): # TODO: hardcode path
         command = f'if (Test-Path "{file}") {{ Remove-Item "{file}" -Force -Recurse }}'
         cleanup.append(command)
 
-    # TODO: Add try catch to all this so we only get errors from the commands inside the scripts
     for registry in all_delete_registry:
         command = (
             f'Try {{ '
