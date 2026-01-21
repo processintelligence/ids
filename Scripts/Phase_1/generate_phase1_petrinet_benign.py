@@ -3,7 +3,6 @@ from pm4py.objects.petri_net.importer import importer as pnml_importer
 from pm4py.objects.petri_net.obj import PetriNet
 from pm4py.objects.petri_net.utils import petri_utils
 from pm4py.objects.petri_net.obj import PetriNet, Marking
-
 from pm4py.objects.petri_net.exporter import exporter as pnml_exporter
 from pm4py.visualization.petri_net import visualizer as pn_visualizer
 import os
@@ -69,7 +68,6 @@ t_4688_conhost = PetriNet.Transition("4688_conhost", "4688_conhost")
 t_4688_priv = PetriNet.Transition("4688_priv", "4688_priv")
 t_4688_unpriv = PetriNet.Transition("4688_unpriv", "4688_unpriv")
 
-#PetriNet.Transition(name, label), set label as None to allow silent 
 tau_1 = PetriNet.Transition("tau_1", None)
 tau_2 = PetriNet.Transition("tau_2", None)
 tau_3 = PetriNet.Transition("tau_3", None)
@@ -209,11 +207,6 @@ fm = Marking()
 fm[pSink] = 1
 
 
-
-print("Places:", sorted([p.name for p in net.places]))
-print("Transitions:", sorted([t.name for t in net.transitions]))
-print("Arcs:", [(a.source.name, a.target.name) for a in net.arcs])
-
 gviz = pn_visualizer.apply(net, im, fm)
 pn_visualizer.view(gviz)
 
@@ -224,10 +217,6 @@ pnml_path = os.path.join(out_dir, pnml_name)
 pnml_exporter.apply(net, im, pnml_path, final_marking=fm)
 
 print(f"PNML written to: {pnml_path}")
-
-
-
-# TODO: Should be in a petri net util class?
 
 PNML_PATH = "Scripts/Phase_1/pnml/phase_1_benign.pnml"
 
@@ -240,24 +229,3 @@ def get_benign_pn():
     net, initial_marking, final_marking = pnml_importer.apply(str(PNML_PATH))
     return net, initial_marking, final_marking
 
-def get_place_by_id(net, place_id):
-    for p in net.places:
-        if p.name == place_id:
-            return p
-    raise KeyError(f"place id '{place_id}' not found in net places.")
-
-def get_transition_by_id(net, trans_id):
-    for t in net.transitions:
-        if t.name == trans_id:
-            return t
-    raise KeyError(f"Transition id '{trans_id}' not found in net transitions.")
-
-def remap_marking(marking, new_net):
-    new_marking = Marking()
-    name_to_place = {p.name: p for p in new_net.places}
-    for old_place, tokens in marking.items():
-        p2 = name_to_place.get(old_place.name)
-        if p2 is None:
-            raise KeyError(f"Place '{old_place.name}' from marking not found in new net.")
-        new_marking[p2] = tokens
-    return new_marking

@@ -1,10 +1,10 @@
-$inputFile = "C:\Users\lomo0\Downloads\wls_day-01"
+$inputFile = "C:\Users\lomo0\Downloads\wls_day-01" #TODO: insert paths
 $outputFile = "C:\Users\lomo0\Downloads\wls_trimmed"
-$sizeToKeep = 200MB
+$sizeToKeep = 800MB
 $bufferSize = 1MB
 
 $in = [System.IO.File]::OpenRead($inputFile)
-$out = [System.IO.File]::Create($outputFile)
+$out = [System.IO.File]::Create($outputFile) 
 
 $remaining = $sizeToKeep
 $buffer = New-Object byte[] $bufferSize

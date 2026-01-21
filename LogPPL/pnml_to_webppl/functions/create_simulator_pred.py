@@ -7,6 +7,7 @@
 # Portions of the simulator-generation pipeline are adapted/derived from the
 # Rivkin et al. codebase.
 # =============================================================================
+#TODO: FIX ET AL
 
 
 def create_simulator_enabled_transitions_function(function_str, dpn, verbose, simulation_query):
@@ -119,7 +120,6 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
         "  globalStore.eventSeq = globalStore.eventSeq.concat([label]);\n"
         "};\n\n"
         "\n"
-        "// max run length of consecutive occurrences of `label`\n"
         "var maxRunLength = function(label) {\n"
         "  var xs = globalStore.eventSeq || [];\n"
         "  var go = function(i, cur, best) {\n"
@@ -131,13 +131,10 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
         "  return go(0, 0, 0);\n"
         "};\n\n"
         "\n"
-        "// event x happens at least y times in a row\n"
         "var firedAtLeastYInARow = function(trace, label, y) {\n"
         "  return maxRunLength(label) >= y;\n"
         "};\n\n"
         "\n"
-        "// existential version: there exists at least one occurrence of c\n"
-        "// that is NOT immediately followed by d (allowed that other c's are followed by d)\n"
         "var existsNotFollowedBy = function(trace, c, d) {\n"
         "  var xs = globalStore.eventSeq || [];\n"
         "  var go = function(i) {\n"
@@ -183,13 +180,8 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
     function_str += "return { marking: globalStore.currentMarking };\n"
     function_str += "};\n\n"
 
-    # ---- Predicate maps ----
+    # Predicate maps 
     predicate_expr_map = {
-        # count-based predicates
-        # "Repeat": "firedNTimes(trace, '4625_9_8_2_7_3', 5)",
-        # "Redflag": "firedAtLeastOnce(trace, '4657_common')",
-        # "Composite": "firedGroupAllOnce(trace, ['4624_4', '4688_cmd', '4663', '4657_registry'])",
-
         # sequence-aware predicates 
         "Repeat": "firedAtLeastYInARow(trace, '4625_9_8_2_7_3', 5)",
         "Redflag": "firedAtLeastOnce(trace, '4657_common')",

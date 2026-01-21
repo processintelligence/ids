@@ -1,9 +1,7 @@
-#Usage (from repository root):
-#python -m scripts.generate_uniform_traces --pnml examples/data/newtry.pnml --sim_steps 10 --samples 10 --run-webppl
+#TODO: Create copyright thing 
 
 import argparse
 import os
-
 from LogPPL.pnml_to_webppl.dpn import DPN
 from LogPPL.pnml_to_webppl.converter import convert_dpn_to_webPPL
 from LogPPL.pnml_to_webppl.functions.create_log import find_npm_global_path, generate_event_log
@@ -59,8 +57,7 @@ def simulate_dpn(steps, sample_size, pnml_path, attacktype=None):
     print("Looking for webppl executable...")
     webppl_exec = find_npm_global_path()
     if webppl_exec is None or not os.path.exists(webppl_exec):
-        print("webppl executable not found. Install webppl globally (npm i -g webppl)")
-        print(wppl_path)
+        print("webppl executable not found")
         return
 
     print(f"Running webppl ({webppl_exec}) to generate XES log. This may take a while...")

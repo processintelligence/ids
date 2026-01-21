@@ -3,10 +3,10 @@ import xml.etree.ElementTree as ET
 import datetime
 from collections import Counter
 
-# CONVERT LOS ALAMOS TO XES
-# Divide login type and processes in sub-events
+# CONVERT LOS ALAMOS DATA TO XES
+# Divide login type and processes into sub-events
 
-INPUT_FILE = "C:/Users/lomo0/Downloads/wls_day-01"
+INPUT_FILE = "C:/Users/lomo0/Downloads/wls_day-01" #TODO: input correct files 
 OUTPUT_FILE = "C:/Users/lomo0/Downloads/wls_full.xes"
 
 # XES setup
@@ -47,7 +47,7 @@ with open(INPUT_FILE, "r", encoding="utf-8") as f:
         try:
             data = json.loads(line)
         except json.JSONDecodeError as e:
-            print(f"⚠️ Skipping malformed JSON on line {line_no}: {e}")
+            print(f"Error on line {line_no}: {e}")
             continue
 
         username = data.get("UserName")
@@ -73,16 +73,16 @@ with open(INPUT_FILE, "r", encoding="utf-8") as f:
         try:
             ts_str = datetime.datetime.fromtimestamp(float(timestamp)).isoformat()
         except Exception:
-            ts_str = str(timestamp) #TODO: ???????????????????
+            ts_str = str(timestamp)
 
         case_id = str(logonid)
         if case_id not in traces:
             traces[case_id] = []
         traces[case_id].append((activity_name, ts_str))
 
+# Filter infrequent 4688 events
 event_counts = Counter(all_4688_events)
 frequent_4688 = {evt for evt, count in event_counts.items() if count >= 10}
-print(f"Number of 4688 events appearing >=10 times: {len(frequent_4688)}") # TODO: More aggressive to exclude up to cmd.exe
 
 for case_id in list(traces.keys()):
     filtered_events = []
@@ -94,10 +94,9 @@ for case_id in list(traces.keys()):
 
 filtered_traces = {cid: evts for cid, evts in traces.items() if 2 <= len(evts) < 10}
 removed_count = len(traces) - len(filtered_traces)
-print(f"Removed {removed_count} traces (1 event or ≥10 events)")
+print(f"Removed {removed_count} traces")
 print(f"Remaining traces: {len(filtered_traces)}")
 
-# Prettify
 def indent(elem, level=0):
     i = "\n" + level * "  "
     if len(elem):
@@ -123,4 +122,3 @@ for case_id, events in filtered_traces.items():
 indent(log)
 tree = ET.ElementTree(log)
 tree.write(OUTPUT_FILE, encoding="UTF-8", xml_declaration=True)
-print(f"Cleaned XES file written to {OUTPUT_FILE}")

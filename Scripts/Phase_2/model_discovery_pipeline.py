@@ -1,5 +1,5 @@
-from PetriNetUtil.PNMLToDataPNML import generate_config_structure
-from PetriNetUtil.PNMLToDataPNML import generate_data_petrinet
+from Scripts.Simulation.pnml_to_data_pnml import generate_config_structure
+from Scripts.Simulation.pnml_to_data_pnml import generate_data_petrinet
 from LogPPL.scripts.generate_uniform_traces import simulate_dpn
 from Scripts.Validation.directly_follows import *
 from Scripts.Validation.plotting_util import *
@@ -7,14 +7,11 @@ from Scripts.Phase_2.petrinet_cleaner import fix_transition_ids_inplace
 from Scripts.Validation.evaluation_metrics import compute_precison, compute_fitness
 import json
 
-
 import os
 import pm4py
-
 from pm4py.algo.filtering.log.variants import variants_filter
 from pm4py.visualization.petri_net import visualizer as pn_visualizer
 from pm4py.objects.petri_net.exporter import exporter as pnml_exporter
-
 import itertools
 
 
@@ -33,27 +30,16 @@ BEST_RESULT = {
 }
 
 
+LOG_PATH = "GeneratedFiles/csv_xes/phase_2_final.xes"
 
-# =====================================================
-# ================= CONFIGURATION =====================
-# =====================================================
+OUTPUT_DIR_PNML = "GeneratedFiles/PNML"
+OUTPIT_DIR_PNG = "GeneratedFiles/PNG"
 
-# --- Paths ---
-LOG_PATH = r"C:\Users\lomo0\Downloads\900Rogue\smaller_script_rogue_fixed.xes"
-
-OUTPUT_DIR = r"PNMLFiles\heuristic_test"
-OUTPUT_PNG = os.path.join(OUTPUT_DIR, "h_rogue.png")
-OUTPUT_PNML = os.path.join(OUTPUT_DIR, "h_rogue.pnml")
-
-
-# =====================================================
-# =====================================================
+OUTPUT_PNG = os.path.join(OUTPIT_DIR_PNG, "best_discovered_model.png")
+OUTPUT_PNML = os.path.join(OUTPUT_DIR_PNML, "best_discovered_model.pnml")
 
 
 def filter_noise(log, coverage):
-    """
-    Keep only the most frequent variants until the given coverage is reached.
-    """
     return variants_filter.filter_log_variants_percentage(
         log,
         percentage=coverage
@@ -89,16 +75,13 @@ def count_reachable_transitions(net):
 
 
 def run_pipeline(var_param, dep_param, and_param, loop_param,):
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    os.makedirs(OUTPUT_DIR_PNML, exist_ok=True)
 
-    # 1. Read XES log
     log = pm4py.read_xes(LOG_PATH)
 
-    # 2. Optional variant-based filtering
     if APPLY_VARIANT_FILTERING:
         log = filter_noise(log, coverage=var_param)
 
-    # 3. Discover Petri net with Heuristics Miner
     net, im, fm = pm4py.discover_petri_net_heuristics(
         log,
         dependency_threshold=dep_param,
@@ -106,8 +89,6 @@ def run_pipeline(var_param, dep_param, and_param, loop_param,):
         loop_two_threshold=loop_param,
     )
 
-
-    # 4. Export PNML
     pnml_exporter.apply(
         net,
         im,
@@ -115,7 +96,6 @@ def run_pipeline(var_param, dep_param, and_param, loop_param,):
         final_marking=fm
     )
 
-    # 5. Visualize and save PNG
     gviz = pn_visualizer.apply(
         net,
         im,
@@ -125,14 +105,8 @@ def run_pipeline(var_param, dep_param, and_param, loop_param,):
         parameters={"format": "png"},
     )
     pn_visualizer.save(gviz, OUTPUT_PNG)
-    #pn_visualizer.view(gviz)
-
-    # 
 
 
-    # PMNL to simulate XES from
-    #pnml_path = r"PNMLFiles\heuristic_test\h_actionprob.pnml"
-    #pnml_path = r"C:\Users\lomo0\Downloads\XesNoConhost\IDHM_Prom.pnml"
     config_dir = r"Configs"
 
     fix_transition_ids_inplace(OUTPUT_PNML)

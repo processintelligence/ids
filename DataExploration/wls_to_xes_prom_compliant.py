@@ -6,7 +6,7 @@ from collections import Counter
 # CONVERT LOS ALAMOS TO XES
 # Like wlsToXes, but time etc is compliant with Prom
 
-# Input and output file paths
+# TODO: Insert paths
 INPUT_FILE = "C:/Users/lomo0/Downloads/wls_trimmed.json"
 OUTPUT_FILE = "C:/Users/lomo0/Downloads/wls_processtype_PROM.xes"
 
@@ -22,7 +22,6 @@ log = ET.Element(
     }
 )
 
-# === Extensions ===
 ET.SubElement(log, "{http://www.xes-standard.org/}extension", {
     "name": "Concept",
     "prefix": "concept",
@@ -34,7 +33,6 @@ ET.SubElement(log, "{http://www.xes-standard.org/}extension", {
     "uri": "http://www.xes-standard.org/time.xesext"
 })
 
-# === Global definitions (must come before classifier) ===
 global_trace = ET.SubElement(log, "{http://www.xes-standard.org/}global", {"scope": "trace"})
 ET.SubElement(global_trace, "{http://www.xes-standard.org/}string", {
     "key": "concept:name", "value": "UNKNOWN"
@@ -48,7 +46,6 @@ ET.SubElement(global_event, "{http://www.xes-standard.org/}date", {
     "key": "time:timestamp", "value": "1970-01-01T00:00:00.000+00:00"
 })
 
-# === Classifier (after globals!) ===
 ET.SubElement(log, "{http://www.xes-standard.org/}classifier", {
     "name": "Activity classifier",
     "keys": "concept:name"
@@ -57,7 +54,6 @@ ET.SubElement(log, "{http://www.xes-standard.org/}classifier", {
 traces = {}
 all_4688_events = []
 
-# === Read and process JSON lines ===
 with open(INPUT_FILE, "r", encoding="utf-8") as f:
     for line_no, line in enumerate(f, start=1):
         line = line.strip()
@@ -66,7 +62,7 @@ with open(INPUT_FILE, "r", encoding="utf-8") as f:
         try:
             data = json.loads(line)
         except json.JSONDecodeError as e:
-            print(f"⚠️ Skipping malformed JSON on line {line_no}: {e}")
+            print(f"Error on line {line_no}: {e}")
             continue
 
         username = data.get("UserName")
@@ -81,7 +77,7 @@ with open(INPUT_FILE, "r", encoding="utf-8") as f:
         if not username.startswith("User"):
             continue
 
-        # Build activity label
+        # Build activity
         if activity in [4624, 4634] and logontype is not None:
             activity_name = f"{activity}_{logontype}"
         elif activity == 4688 and process_name:
@@ -90,7 +86,7 @@ with open(INPUT_FILE, "r", encoding="utf-8") as f:
         else:
             activity_name = str(activity)
 
-        # Convert timestamp to valid XES UTC format
+        # Convert timestamp
         try:
             ts = datetime.datetime.utcfromtimestamp(float(timestamp))
             ts_str = ts.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "+00:00"
@@ -100,10 +96,9 @@ with open(INPUT_FILE, "r", encoding="utf-8") as f:
         case_id = str(logonid)
         traces.setdefault(case_id, []).append((activity_name, ts_str))
 
-# === Filter rare 4688 ===
+# Filter infrequent 4688 events
 event_counts = Counter(all_4688_events)
 frequent_4688 = {evt for evt, count in event_counts.items() if count >= 10}
-print(f"✅ Number of 4688 events appearing >=10 times: {len(frequent_4688)}")
 
 for case_id in list(traces.keys()):
     filtered_events = [
@@ -113,17 +108,14 @@ for case_id in list(traces.keys()):
     ]
     traces[case_id] = filtered_events
 
-# === Remove short/long traces ===
 filtered_traces = {cid: evts for cid, evts in traces.items() if 2 <= len(evts) < 10}
 removed_count = len(traces) - len(filtered_traces)
-print(f"✅ Removed {removed_count} traces (1 event or ≥10 events)")
-print(f"✅ Remaining traces: {len(filtered_traces)}")
+print(f"Removed {removed_count} traces")
+print(f"{len(filtered_traces)} remaining")
 
-# === Sort events by timestamp (recommended for ProM visualization) ===
 for case_id in filtered_traces:
     filtered_traces[case_id].sort(key=lambda x: x[1])
 
-# === Pretty print helper ===
 def indent(elem, level=0):
     i = "\n" + level * "  "
     if len(elem):
@@ -137,7 +129,6 @@ def indent(elem, level=0):
         if not elem.tail or not elem.tail.strip():
             elem.tail = i
 
-# === Build XES structure ===
 for case_id, events in filtered_traces.items():
     trace = ET.SubElement(log, "{http://www.xes-standard.org/}trace")
     ET.SubElement(trace, "{http://www.xes-standard.org/}string", {
@@ -152,8 +143,6 @@ for case_id, events in filtered_traces.items():
             "key": "time:timestamp", "value": ts_str
         })
 
-# === Write XES ===
 indent(log)
 tree = ET.ElementTree(log)
 tree.write(OUTPUT_FILE, encoding="UTF-8", xml_declaration=True)
-print(f"✅ Fully ProM-compliant XES file written to {OUTPUT_FILE}")

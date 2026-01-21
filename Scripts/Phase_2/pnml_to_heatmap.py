@@ -1,5 +1,5 @@
-from PetriNetUtil.PNMLToDataPNML import generate_config_structure
-from PetriNetUtil.PNMLToDataPNML import generate_data_petrinet
+from Scripts.Simulation.pnml_to_data_pnml import generate_config_structure
+from Scripts.Simulation.pnml_to_data_pnml import generate_data_petrinet
 from LogPPL.scripts.generate_uniform_traces import simulate_dpn
 from Scripts.Validation.directly_follows import *
 from Scripts.Validation.plotting_util import *
@@ -28,11 +28,9 @@ def fill_uniform_probabilities(config_path):
 
 # PIPELINE
 
-# XES for heat map comparison
-xes_path_scripts = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/csv_xes/smaller_script_clean_test.xes"
+xes_path_scripts = "GeneratedFiles/csv_xes/phase_2_final.xes"
+pnml_path = "Scripts/Phase_2/PetriNet/pnml/phase_2_benign.pnml"
 
-# PMNL to simulate XES from
-pnml_path = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/GeneratedFiles/PNML/heuristics_test1.pnml"
 config_dir = r"Configs"
 
 fix_transition_ids_inplace(pnml_path)
@@ -45,7 +43,7 @@ print(f"Uniform config written to : {config_path}")
 data_pnml_path = generate_data_petrinet(config_path)
 print(f"Data PNML written to : {data_pnml_path}")
 
-steps = 15
+steps = 25
 sample_size = 5000
 simulate_dpn(steps=steps, sample_size=sample_size, pnml_path=data_pnml_path)
 print(f"Simulated {sample_size} traces of length {steps}")
