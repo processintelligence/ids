@@ -158,7 +158,6 @@ def find_black_white(mapA, mapB, threshold=0):
     return black_list, white_list
 
 
-
 def generate_random_directly_follows_data(n=20, min_val=0, max_val=20, seed=42):
     random.seed(seed)
     labels = [f"Act_{i:02d}" for i in range(1, n + 1)]

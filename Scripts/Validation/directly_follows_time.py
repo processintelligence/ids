@@ -6,6 +6,7 @@ import numpy as np
 import copy
 from datetime import datetime
 
+
 def generate_naive_df_time(xes_path):
     # dict[A][B] = list of time differences between A and B
     time_diffs = defaultdict(lambda: defaultdict(list))
@@ -142,8 +143,6 @@ def generate_translated_df_time(xes_path):
 
     return time_diffs
 
-import numpy as np
-
 def compute_df_stats(df_dict):
     stats = {}
 
@@ -178,7 +177,7 @@ def compute_df_stats(df_dict):
 
 
 
-xes_path_R = r"c:\Users\lomo0\Documents\RandomScripts\wls_800MB.xes"
+xes_path_R = "LosAlamos/wls_800MB.xes"
 df_time_R = generate_translated_df_time(xes_path_R)
 
 df_stats = compute_df_stats(df_time_R)

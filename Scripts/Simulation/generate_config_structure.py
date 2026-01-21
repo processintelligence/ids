@@ -1,6 +1,6 @@
 import argparse
-from PetriNetUtil.PNMLToDataPNML import generate_config_structure
-from probability_mining_rogue import *
+from Scripts.Simulation.pnml_to_data_pnml import generate_config_structure
+from Scripts.Util.probability_mining import *
 
 def main():
     parser = argparse.ArgumentParser(

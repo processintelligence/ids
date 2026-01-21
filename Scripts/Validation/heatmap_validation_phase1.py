@@ -2,10 +2,9 @@ from directly_follows import *
 from plotting_util import *
 from collections import defaultdict
 
-#xes_path_R = r"c:\Users\lomo0\Documents\RandomScripts\wls_800MB.xes"
-#xes_path_P = r"C:\Users\lomo0\Documents\GitHub\MasterRepo\MasterRepo\GeneratedFiles\WebPPL_XES\data_phase_1_net.xes"
-xes_path_P = "/Users/emilpontoppidanrasmussen/Desktop/master/MasterRepo/Personal/data_phase_1_20000.xes"
-xes_path_R = "Personal/wls_800MB.xes"
+
+xes_path_P = "FIND A GOOD XES" #TODO: CREATE THE NEW XES
+xes_path_R = "LosAlamos/wls_800MB.xes"
 
 directly_follows_P = generate_translated_directly_follows(xes_path_P)
 directly_follows_R = generate_translated_directly_follows(xes_path_R)

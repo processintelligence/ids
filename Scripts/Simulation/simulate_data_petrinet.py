@@ -1,7 +1,7 @@
 import argparse
-from PetriNetUtil.PNMLToDataPNML import generate_data_petrinet
+from Scripts.Simulation.pnml_to_data_pnml import generate_data_petrinet
 from LogPPL.scripts.generate_uniform_traces import simulate_dpn
-from Scripts.Phase_2.evtx_to_xes.evtx_util_clean import keep_last_trace
+from Scripts.Phase_2.evtx_to_xes.evtx_util import keep_last_trace
 
 ALLOWED_ATTACKTYPES = ("Composite", "Redflag", "Repeat", "4th")
 

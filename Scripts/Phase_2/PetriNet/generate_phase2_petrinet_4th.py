@@ -1,5 +1,5 @@
 from pathlib import Path
-from Scripts.Phase_2.PetriNet.generate_phase2_petrinet_benign import *
+from Scripts.Util.petri_net_util import *
 from copy import deepcopy
 from pm4py.objects.petri_net.obj import PetriNet
 from pm4py.objects.petri_net.utils import petri_utils
@@ -8,7 +8,7 @@ from pm4py.objects.petri_net.exporter import exporter as pnml_exporter
 OUTPUT_PNML_PATH = "Scripts/Phase_2/PetriNet/pnml/phase_2_4th.pnml"
 
 #petri nets
-benign_pn, benign_im, benign_fm = get_benign_pn()
+benign_pn, benign_im, benign_fm = get_benign_pn("Scripts/Phase_2/PetriNet/pnml/phase_2_benign_extended.pnml")
 fourth_pn = deepcopy(benign_pn)
 
 #mapping the markings
