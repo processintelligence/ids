@@ -10,7 +10,7 @@ def plot_pnml(pnml_path):
 
 
 if __name__ == "__main__":
-    path = "Scripts/Phase_2/PetriNet/pnml/phase_2_composite.pnml"
+    path = "Scripts/Phase_1/pnml/phase_1_composite.pnml"
 
     plot_pnml(path)
     

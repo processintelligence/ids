@@ -30,20 +30,15 @@ p15 = PetriNet.Place("p15")
 p16 = PetriNet.Place("p16")
 p17 = PetriNet.Place("p17")
 p18 = PetriNet.Place("p18")
-pSource = PetriNet.Place("Source")
-pSink = PetriNet.Place("Sink")
 
 net.places.update({
     p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13,
-    p14, p15, p16, p17, p18, pSource, pSink
+    p14, p15, p16, p17, p18
 })
 
 # Transitions
-t_4608 = PetriNet.Transition("4608", "4608")
 t_4624_3 = PetriNet.Transition("4624_3", "4624_3")
 t_4634_3 = PetriNet.Transition("4634_3", "4634_3")
-t_1100 = PetriNet.Transition("1100", "1100")
-t_4609 = PetriNet.Transition("4609", "4609")
 t_4624_9 = PetriNet.Transition("4624_9", "4624_9")
 t_4624_8 = PetriNet.Transition("4624_8", "4624_8")
 t_4624_2 = PetriNet.Transition("4624_2", "4624_2")
@@ -72,7 +67,7 @@ tau_1 = PetriNet.Transition("tau_1", None)
 tau_2 = PetriNet.Transition("tau_2", None)
 tau_3 = PetriNet.Transition("tau_3", None)
 tau_4 = PetriNet.Transition("tau_4", None)
-tau_5 = PetriNet.Transition("tau_5", None)
+#tau_5 = PetriNet.Transition("tau_5", None)
 tau_6 = PetriNet.Transition("tau_6", None)
 tau_7 = PetriNet.Transition("tau_7", None)
 tau_8 = PetriNet.Transition("tau_8", None)
@@ -80,20 +75,17 @@ tau_9 = PetriNet.Transition("tau_9", None)
 tau_10 = PetriNet.Transition("tau_10", None)
 
 net.transitions.update({
-    t_4608, t_4624_3, t_4634_3, t_1100, t_4609,
+    t_4624_3, t_4634_3,
     t_4624_9, t_4624_8, t_4624_2, t_4624_7, t_4634_2_7_8_9,
     t_4800, t_4801,
     t_4624_4, t_4634_4, t_4634_5, t_4624_5,
     t_4672, t_4672_3, t_4672_4, t_4672_5,
     t_4688_cmd, t_4688_conhost, t_4688_priv, t_4688_unpriv,
-    tau_1, tau_2, tau_3, tau_4, tau_5, tau_6, tau_7, tau_8, tau_9, tau_10
+    tau_1, tau_2, tau_3, tau_4, tau_6, tau_7, tau_8, tau_9, tau_10, #tau_5
 })
 
 
 # place -> transition
-petri_utils.add_arc_from_to(pSource, t_4608, net)
-
-
 petri_utils.add_arc_from_to(p1, t_4624_9, net)
 petri_utils.add_arc_from_to(p1, t_4624_8, net)
 petri_utils.add_arc_from_to(p1, t_4624_2, net)
@@ -142,22 +134,14 @@ petri_utils.add_arc_from_to(p16, t_4688_conhost, net)
 
 petri_utils.add_arc_from_to(p17, t_4688_priv, net)
 
-petri_utils.add_arc_from_to(p18, t_4609, net)
-petri_utils.add_arc_from_to(p18, t_1100, net)
-petri_utils.add_arc_from_to(p18, tau_5, net)
+#petri_utils.add_arc_from_to(p18, tau_5, net)
 
 
 
 # transition -> place
-petri_utils.add_arc_from_to(t_4608, p1, net)
-
 petri_utils.add_arc_from_to(t_4624_3, p3, net)
 
 petri_utils.add_arc_from_to(t_4634_3, p18, net)
-
-petri_utils.add_arc_from_to(t_1100, pSink, net)
-
-petri_utils.add_arc_from_to(t_4609, pSink, net)
 
 petri_utils.add_arc_from_to(t_4624_9, p10, net)
 petri_utils.add_arc_from_to(t_4624_8, p5, net)
@@ -191,7 +175,7 @@ petri_utils.add_arc_from_to(tau_1, p10, net)
 petri_utils.add_arc_from_to(tau_2, p9, net)
 petri_utils.add_arc_from_to(tau_3, p17, net)
 petri_utils.add_arc_from_to(tau_4, p7, net)
-petri_utils.add_arc_from_to(tau_5, p1, net)
+#petri_utils.add_arc_from_to(tau_5, p1, net)
 petri_utils.add_arc_from_to(tau_6, p2, net)
 petri_utils.add_arc_from_to(tau_7, p2, net)
 petri_utils.add_arc_from_to(tau_8, p6, net)
@@ -201,14 +185,10 @@ petri_utils.add_arc_from_to(tau_10, p13, net)
 
 # Markings
 im = Marking()
-im[pSource] = 1
+im[p1] = 1
 
 fm = Marking()
-fm[pSink] = 1
-
-
-gviz = pn_visualizer.apply(net, im, fm)
-pn_visualizer.view(gviz)
+fm[p18] = 1
 
 # export PNML
 out_dir = "Scripts/Phase_1/pnml"

@@ -17,14 +17,11 @@ redflag_fm = remap_marking(benign_fm, redflag_pn)
 
 #transitions
 t_4656 = PetriNet.Transition("4656", "4656")
-t_4657 = PetriNet.Transition("4657", "4657")
 t_4657_common = PetriNet.Transition("4657_common", "4657_common")
 t_4658 = PetriNet.Transition("4658", "4658")
 t_4663 = PetriNet.Transition("4663", "4663")
-tau_11 = PetriNet.Transition("tau_11", "tau_11")
-tau_12 = PetriNet.Transition("tau_12", "tau_12")
 
-redflag_pn.transitions.update({t_4656, t_4657, t_4657_common, t_4658, t_4663, tau_11, tau_12})
+redflag_pn.transitions.update({t_4656, t_4657_common, t_4658, t_4663})
 
 #places
 p19 = PetriNet.Place("p19")
@@ -40,15 +37,9 @@ p6 = get_place_by_id(redflag_pn, "p6")
 petri_utils.add_arc_from_to(p17, t_4656, redflag_pn)
 petri_utils.add_arc_from_to(t_4656, p19, redflag_pn)
 petri_utils.add_arc_from_to(p19, t_4663, redflag_pn)
-petri_utils.add_arc_from_to(p19, tau_11, redflag_pn)
 petri_utils.add_arc_from_to(t_4663, p20, redflag_pn)
-petri_utils.add_arc_from_to(tau_11, p20, redflag_pn)
-petri_utils.add_arc_from_to(p20, tau_12, redflag_pn)
 petri_utils.add_arc_from_to(p20, t_4657_common, redflag_pn)
-petri_utils.add_arc_from_to(p20, t_4657, redflag_pn)
-petri_utils.add_arc_from_to(tau_12, p21, redflag_pn)
 petri_utils.add_arc_from_to(t_4657_common, p21, redflag_pn)
-petri_utils.add_arc_from_to(t_4657, p21, redflag_pn)
 petri_utils.add_arc_from_to(p21, t_4658, redflag_pn)
 petri_utils.add_arc_from_to(t_4658, p6, redflag_pn)
 
