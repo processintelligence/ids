@@ -5,7 +5,6 @@ import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from pathlib import Path
 from typing import FrozenSet, List, Optional, Sequence, Tuple
-
 import pandas as pd
 import pm4py
 from Evtx.Evtx import Evtx
@@ -13,6 +12,7 @@ from lxml import etree
 from pm4py.objects.conversion.log import converter as log_converter
 from pm4py.objects.log.obj import EventLog, Trace
 
+#TODO: comment this class 
 
 @dataclass
 class LogConfig:
@@ -27,8 +27,7 @@ class LogConfig:
 
     allowed_4688: FrozenSet[str] = frozenset(
         {
-            "4688_cmd",
-            # "4688_notepad",  # "4688_powershell", #"4688_conhost"
+            "4688_cmd"
         }
     )
 
@@ -393,11 +392,7 @@ def filter_traces(event_log, config: LogConfig = LogConfig()):
         if not events:
             continue
 
-        # NEW RULE:
-        # Start at the FIRST occurrence of either:
-        #   - any event whose concept:name starts with config.trace_start_prefix (e.g. 4624_2)
-        #   - OR EventID/concept:name base == 4625
-        # whichever comes first in the trace.
+        # keep the first of 4624_2 or 4625
         start_idx = None
         for idx, ev in enumerate(events):
             cname = str(ev.get("concept:name", ""))
@@ -406,7 +401,7 @@ def filter_traces(event_log, config: LogConfig = LogConfig()):
                 start_idx = idx
                 break
 
-        # Find first 4634_2 (or whatever prefix is configured)
+        # Find first 4634_2
         end_idx = None
         for j, ev in enumerate(events):
             cname = str(ev.get("concept:name", ""))

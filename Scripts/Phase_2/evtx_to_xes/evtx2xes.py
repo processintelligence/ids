@@ -1,4 +1,4 @@
-from Scripts.Phase_2.evtx_to_xes.evtx_util_clean_updated import *
+from Scripts.Phase_2.evtx_to_xes.evtx_util import *
 import argparse
 import os
 import sys
@@ -47,6 +47,7 @@ def main():
     evtx_to_csv(evtx_paths, csv_out)
     print(f"CSV written to: {csv_out}")
 
+    #TODO: Call something else than time windows, e.g. start and end 
     print(">>> Detecting time windows")
     windows = get_time_windows_from_csv(csv_out, config)
     print(f"Found {len(windows)} window(s)")
