@@ -6,6 +6,7 @@ import numpy as np
 import copy
 from datetime import datetime
 
+#TODO: DELETE THIS FILE
 
 def generate_naive_df_time(xes_path):
     # dict[A][B] = list of time differences between A and B

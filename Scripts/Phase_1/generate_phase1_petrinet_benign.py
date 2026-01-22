@@ -67,7 +67,6 @@ tau_1 = PetriNet.Transition("tau_1", None)
 tau_2 = PetriNet.Transition("tau_2", None)
 tau_3 = PetriNet.Transition("tau_3", None)
 tau_4 = PetriNet.Transition("tau_4", None)
-#tau_5 = PetriNet.Transition("tau_5", None)
 tau_6 = PetriNet.Transition("tau_6", None)
 tau_7 = PetriNet.Transition("tau_7", None)
 tau_8 = PetriNet.Transition("tau_8", None)
@@ -134,9 +133,6 @@ petri_utils.add_arc_from_to(p16, t_4688_conhost, net)
 
 petri_utils.add_arc_from_to(p17, t_4688_priv, net)
 
-#petri_utils.add_arc_from_to(p18, tau_5, net)
-
-
 
 # transition -> place
 petri_utils.add_arc_from_to(t_4624_3, p3, net)
@@ -155,7 +151,7 @@ petri_utils.add_arc_from_to(t_4624_4, p12, net)
 petri_utils.add_arc_from_to(t_4634_4, p11, net)
 
 petri_utils.add_arc_from_to(t_4624_5, p14, net)
-petri_utils.add_arc_from_to(t_4634_5, p11, net)
+petri_utils.add_arc_from_to(t_4634_5, p18, net)
 
 petri_utils.add_arc_from_to(t_4672, p11, net)
 petri_utils.add_arc_from_to(t_4672_3, p4, net)
@@ -175,7 +171,6 @@ petri_utils.add_arc_from_to(tau_1, p10, net)
 petri_utils.add_arc_from_to(tau_2, p9, net)
 petri_utils.add_arc_from_to(tau_3, p17, net)
 petri_utils.add_arc_from_to(tau_4, p7, net)
-#petri_utils.add_arc_from_to(tau_5, p1, net)
 petri_utils.add_arc_from_to(tau_6, p2, net)
 petri_utils.add_arc_from_to(tau_7, p2, net)
 petri_utils.add_arc_from_to(tau_8, p6, net)

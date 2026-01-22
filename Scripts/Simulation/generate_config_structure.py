@@ -4,7 +4,7 @@ from Scripts.Util.probability_mining import *
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Generatexx config structure and wrapped PNML from a Petri net PNML file."
+        description="Generate config structure and wrapped PNML from a Petri net PNML file."
     )
     parser.add_argument("--pnml", required=True, help="Path to the original PNML file.")
     parser.add_argument("--config-out", required=True, help="Directory where the generated config file should be saved.")

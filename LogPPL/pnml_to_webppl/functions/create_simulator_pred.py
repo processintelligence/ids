@@ -183,13 +183,13 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
     # Predicate maps 
     predicate_expr_map = {
         # sequence-aware predicates 
-        "Repeat": "firedAtLeastYInARow(trace, '4625_9_8_2_7_3', 5)",
+        "Repeat": "firedAtLeastYInARow(trace, '4625', 5)",
         "Redflag": "firedAtLeastOnce(trace, '4657_common')",
         "Composite": (
             "firedAtLeastOnce(trace, '4624_4') && "
             "firedAtLeastOnce(trace, '4688_cmd') && "
-            "firedAtLeastOnce(trace, '4657_registry') && "
-            "existsNotFollowedBy(trace, '4663', '4657_registry')"
+            "firedAtLeastOnce(trace, '4657') && "
+            "existsNotFollowedBy(trace, '4663', '4657')"
         ),
         "4th": (
             "firedAtLeastOnce(trace, '4688_passworddll') && "

@@ -1,9 +1,9 @@
 from Scripts.Validation.evaluation_metrics import *
 
 
-pmnl_path = r"Scripts/Phase_1/pnml/phase_1_benign.pnml"
+pmnl_path = r"Scripts/Phase_2/PetriNet/pnml/phase_2_benign.pnml"
 
-real_xes = r"LosAlamos/wls_800MB.xes"
+real_xes = r"GeneratedFiles/csv_xes/phase_2_final.xes"
 
 fitness = compute_fitness(pmnl_path, real_xes)
 

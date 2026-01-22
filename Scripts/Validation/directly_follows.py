@@ -47,6 +47,8 @@ def generate_translated_directly_follows(xes_path):
                 #if the event is '4608', dont add it
                 if name_attr.get('value').startswith('4608'):
                     continue
+                if name_attr.get('value').startswith('4648'):
+                    continue
                 #if the event is '4609', dont add it
                 if name_attr.get('value').startswith('4609'):
                     continue

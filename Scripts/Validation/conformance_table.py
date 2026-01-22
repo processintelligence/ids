@@ -1,7 +1,7 @@
 from .evaluation_metrics import compute_alignment_fitness
 import os
 
-#"""
+"""
 pmnl_paths = [
     "Scripts/Phase_2/PetriNet/pnml/phase_2_benign_extended.pnml",
     "Scripts/Phase_3/PetriNet/pnml/phase_3_redflag.pnml",
@@ -13,7 +13,7 @@ xes_paths = [
     "GeneratedFiles/csv_xes/RedFlag.xes",
     "GeneratedFiles/csv_xes/Repeat.xes",
 ]
-#"""
+"""
 """
 pmnl_paths = [
     "Scripts/Phase_2/PetriNet/pnml/phase_2_benign_extended.pnml",
@@ -29,6 +29,19 @@ xes_paths = [
     "GeneratedFiles/csv_xes/Composite.xes",
 ]
 """
+pmnl_paths = [
+    "Scripts/Phase_1/pnml/phase_1_benign.pnml",
+    "Scripts/Phase_1/pnml/phase_1_redflag.pnml",
+    "Scripts/Phase_1/pnml/phase_1_repeat.pnml",
+    "Scripts/Phase_1/pnml/phase_1_composite.pnml",
+]
+
+xes_paths = [
+    "GeneratedFiles/WebPPL_XES/data_phase_1_benign.xes",
+    "GeneratedFiles/WebPPL_XES/data_phase_1_redflag.xes",
+    "GeneratedFiles/WebPPL_XES/data_phase_1_repeat.xes",
+    "GeneratedFiles/WebPPL_XES/data_phase_1_composite.xes",
+]
 
 def print_conformance_table(conformance_table, xes_paths):
     print("Conformance Table (Fitness)")
