@@ -2,6 +2,7 @@ from Scripts.Validation.directly_follows import *
 from Scripts.Validation.plotting_util import *
 from collections import defaultdict
 
+# Compute heatmaps for phase 1 to compare our simulated logs with the Los Alamos dataset
 
 xes_path_P = "GeneratedFiles/WebPPL_XES/data_phase_1_benign.xes"
 xes_path_R = "LosAlamos/wls_800MB.xes"
