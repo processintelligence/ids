@@ -35,6 +35,7 @@ def simulate_dpn(steps, sample_size, pnml_path, attacktype=None):
     dpn_preview = DPN(pnml_path, distributions={})
     distributions = build_uniform_distributions(dpn_preview)
 
+    # Convert to WebPPL
     print("Converting PNML to WebPPL")
 
     webppl_code = convert_dpn_to_webPPL(
@@ -54,13 +55,14 @@ def simulate_dpn(steps, sample_size, pnml_path, attacktype=None):
 
     print(f"Saved WebPPL to: {wppl_path}")
 
-    print("Looking for webppl executable...")
+
+    #Run WebPPL and generate XES
     webppl_exec = find_npm_global_path()
     if webppl_exec is None or not os.path.exists(webppl_exec):
         print("webppl executable not found")
         return
-
-    print(f"Running webppl ({webppl_exec}) to generate XES log. This may take a while...")
+    
+    print(f"Running webppl ({webppl_exec})")
     try:
         xes_str = generate_event_log(webppl_exec, wppl_path)
         xes_path = os.path.abspath(os.path.join(xes_dir, f"{base_name}.xes"))

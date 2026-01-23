@@ -7,6 +7,7 @@ from Scripts.Phase_2.petrinet_cleaner import fix_transition_ids_inplace
 from Scripts.Validation.evaluation_metrics import compute_precison, compute_fitness
 import json
 
+# Insert equal probabilities in all outgoing arcs from a place to allow simulation
 def fill_uniform_probabilities(config_path):
     with open(config_path, "r") as f:
         config = json.load(f)
@@ -60,13 +61,12 @@ print(f"FITNESS: {fitness}")
 precision = compute_precison(pnml_path, xes_path_scripts)
 print(f"PRECISION: {precision}")
 
+# Heatmaps
 directly_follows_model = generate_translated_directly_follows_VM(xes_path_model)
 directly_follows_scripts = generate_translated_directly_follows_VM(xes_path_scripts)
 
 directly_follows_scripts["4634_2"] = defaultdict(int)
 directly_follows_model["4634_2"] = defaultdict(int)
-
-
 
 log_normalize_model = log_normalize_directly_follows(directly_follows_model)
 row_normalize_model = row_normalize_directly_follows(directly_follows_model)
