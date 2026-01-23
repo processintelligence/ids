@@ -1,7 +1,7 @@
 from pathlib import Path
 from Scripts.Phase_2.Fuzzer.pools.pool_access import get_all_values
 
-
+# Build a single Powershell script
 def build_powershell_script(command_strings, output_path):
     output_path = Path(output_path)
         
@@ -12,6 +12,7 @@ def build_powershell_script(command_strings, output_path):
 
     cleanup = []
 
+    # Before adding the command strings, ensure that all files and registry keys have the default values
     for file in all_create_file:
         command = f'if (!(Test-Path "{file}")) {{ New-Item -ItemType File -Path "{file}" -Force | Out-Null }}'
         cleanup.append(command)
@@ -33,7 +34,7 @@ def build_powershell_script(command_strings, output_path):
         command = f'Set-ItemProperty -Path "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" -Name "{registry}" -Value "abc"'
         cleanup.append(command)
 
-
+    # Add a start and end marker to the script to isolate script execution in the logs
     start_marker = [
         '$Path = "C:\\Temp\\FuzzStarter.txt"',
         '"START" | Out-File -FilePath $Path -Force -Encoding ascii'

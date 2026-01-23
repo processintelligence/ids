@@ -12,6 +12,7 @@ DELETE_MODIFY_FILES_PATH = "delete_modify_files.json"
 DELETE_MODIFY_REGISTRY_PATH = "delete_modify_registry.json"
 REGISTRY_KEY = "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
 
+# Create a class for each action and initialize the command string
 
 class Command:
     def getCommand(self):

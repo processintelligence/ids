@@ -1,5 +1,7 @@
 import random
 
+# Generate a list of actions based on our grammar
+
 # TERMINAL SYMBOLS
 SUCCESSFUL_MAIN_LOGONS = [
     "Interactive_Logon",
