@@ -2,6 +2,7 @@ from Scripts.Validation.directly_follows import *
 from Scripts.Validation.plotting_util import *
 from collections import defaultdict
 
+# Compute heatmaps for phase 2 to compare our simulated logs with the VM scripts
 
 xes_path_VM = "GeneratedFiles/csv_xes/phase_2_final.xes"
 xes_path_simulated = "GeneratedFiles/WebPPL_XES/data_phase_2_benign.xes"

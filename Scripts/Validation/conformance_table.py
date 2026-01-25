@@ -62,10 +62,11 @@ def print_conformance_table(conformance_table, xes_paths):
         print(row)
 
 
+# Compute and display a table of fitness values for each PNML and XES combination
 if __name__ == "__main__":
     # Dict: {pmnl_name: {xes_name: fitness}}
     conformance_table = {}
-
+    
     for pmnl_path in pmnl_paths:
         pmnl_name = os.path.basename(pmnl_path).replace('.pnml', '  ').replace('phase_3_', '').replace('phase_2_', '').replace('_extended', '').replace('phase_1_', '')
 

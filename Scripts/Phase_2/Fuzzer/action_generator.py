@@ -1,6 +1,7 @@
 import random
 from enum import Enum
 
+# Generate a list of actions based on our grammar
 
 # TERMINAL SYMBOLS
 

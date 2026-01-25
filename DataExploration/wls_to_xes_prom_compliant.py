@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 import datetime
 from collections import Counter
 
-# CONVERT LOS ALAMOS TO XES
+# CONVERT LOS ALAMOS DATA TO XES
 # Like wlsToXes, but time etc is compliant with Prom
 
 # TODO: Insert paths
@@ -54,6 +54,7 @@ ET.SubElement(log, "{http://www.xes-standard.org/}classifier", {
 traces = {}
 all_4688_events = []
 
+# Read and process JSON
 with open(INPUT_FILE, "r", encoding="utf-8") as f:
     for line_no, line in enumerate(f, start=1):
         line = line.strip()
@@ -72,12 +73,13 @@ with open(INPUT_FILE, "r", encoding="utf-8") as f:
         logontype = data.get("LogonType")
         process_name = data.get("ProcessName")
 
+        # Skip invalid entries and non-user traces
         if username is None or logonid is None or activity is None or timestamp is None:
             continue
         if not username.startswith("User"):
             continue
 
-        # Build activity
+        # Include login type and process name in activity
         if activity in [4624, 4634] and logontype is not None:
             activity_name = f"{activity}_{logontype}"
         elif activity == 4688 and process_name:
@@ -129,6 +131,7 @@ def indent(elem, level=0):
         if not elem.tail or not elem.tail.strip():
             elem.tail = i
 
+# Insert traces into XES
 for case_id, events in filtered_traces.items():
     trace = ET.SubElement(log, "{http://www.xes-standard.org/}trace")
     ET.SubElement(trace, "{http://www.xes-standard.org/}string", {

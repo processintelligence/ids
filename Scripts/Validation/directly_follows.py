@@ -5,6 +5,7 @@ import math
 import numpy as np
 import copy
 
+# Compute a basic directly follows relation from an XES log
 def generate_naive_directly_follows(xes_path):
     directly_follows = defaultdict(lambda: defaultdict(int))
 
@@ -27,6 +28,9 @@ def generate_naive_directly_follows(xes_path):
 
     return directly_follows
 
+
+# Compute a directly follows relation from an XES log
+# Contains additional rules to translate between the Los Alamos data and our phase 1 petri net
 def generate_translated_directly_follows(xes_path):
     directly_follows = defaultdict(lambda: defaultdict(int))
 
@@ -120,6 +124,9 @@ def generate_translated_directly_follows(xes_path):
 
     return directly_follows
 
+
+# Compute a directly follows relation from an XES log
+# Contains additional rules to translate between the VM scripts logs and our phase 2 petri net
 def generate_translated_directly_follows_VM(xes_path):
     directly_follows = defaultdict(lambda: defaultdict(int))
 
@@ -153,6 +160,7 @@ def generate_translated_directly_follows_VM(xes_path):
 
     return directly_follows
 
+# Log normalize so that very high values doesnt dominate the heatmap
 def log_normalize_directly_follows(directly_follows_dict, base=10):
     normalized = copy.deepcopy(directly_follows_dict)
 
@@ -164,7 +172,7 @@ def log_normalize_directly_follows(directly_follows_dict, base=10):
 
     return normalized
 
-
+# Row normalize to get percentage values for better comparison
 def row_normalize_directly_follows(directly_follows_dict):
     normalized = copy.deepcopy(directly_follows_dict)
 

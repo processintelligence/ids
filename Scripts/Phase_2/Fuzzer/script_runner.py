@@ -14,8 +14,9 @@ def run_powershell_script(script_path):
     except Exception:
         return False
 
+# Run all Powershell scripts in the GeneratedFiles folder
 
-def run_all_tests(delay):
+def run_all_scripts(delay):
     script_dir = "GeneratedFiles/PowershellScripts"
     directory = Path(script_dir)
     scripts = sorted(directory.glob("*.ps1"))
@@ -42,7 +43,7 @@ def main():
     parser.add_argument("-t", "--delay", type=float, default=0.5, help="Delay between runs (seconds)")
     args = parser.parse_args()
 
-    run_all_tests(args.delay)
+    run_all_scripts(args.delay)
 
 
 if __name__ == "__main__":

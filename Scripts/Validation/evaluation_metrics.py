@@ -6,6 +6,9 @@ from pm4py.algo.conformance.tokenreplay import algorithm as token_replay
 from pm4py.algo.evaluation.replay_fitness import algorithm as fitness_evaluator
 from pm4py.algo.conformance.alignments.petri_net import algorithm as alignments
 
+# Use PM4PY implementations to compute conformance metrics for evaluation
+
+
 def compute_precison(pmnl_path, xes_path):
     log = xes_importer.apply(xes_path)
 

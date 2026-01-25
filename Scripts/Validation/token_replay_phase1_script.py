@@ -1,5 +1,7 @@
 from Scripts.Validation.evaluation_metrics import *
 
+# Compute fitness and precision scores for the phase 1 petri net
+# Since the petri net is designed by hand, we compute fitness with the real data from Los Alamos
 
 pmnl_path = r"Scripts/Phase_1/pnml/phase_1_benign.pnml"
 

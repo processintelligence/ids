@@ -1,5 +1,7 @@
 from Scripts.Phase_2.Fuzzer.commands import *
 
+# Map an action name to its corresponding command string
+
 def map_action_to_command(action):
     mapping = {
         "Batch_Logon": BatchLogonCommand,
@@ -10,15 +12,12 @@ def map_action_to_command(action):
         "Failed_Logon": FailedLogonCommand,
         "Interactive_Logon": InteractiveLogonCommand,
         "Interactive_Logoff": InteractiveLogoffCommand,
-        "Lock_Workstation": LockWorkstationCommand,
-        "Unlock_Workstation": UnlockWorkstationCommand,
         "Modify_Object": ModifyObjectCommand,
         "Modify_Registry": ModifyRegistryCommand,
         "Modify_CommonStartup_Registry": ModifyCommonRegistryCommand,
         "Network_Logon": NetworkLogonCommand,
         "Network_Logoff": NetworkLogoffCommand,
         "RunAs_Logon": RunAsLogonCommand,
-        "Service_Logon": ServiceLogonCommand,
         "Start_CMD_Process": StartCMDProcessCommand,
         "Start_Process": StartProcessCommand,
     }

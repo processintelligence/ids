@@ -14,6 +14,7 @@ from pm4py.visualization.petri_net import visualizer as pn_visualizer
 from pm4py.objects.petri_net.exporter import exporter as pnml_exporter
 import itertools
 
+# All parameters that will be tried in the discovery pipeline
 
 APPLY_VARIANT_FILTERING = False
 
@@ -45,6 +46,7 @@ def filter_noise(log, coverage):
         percentage=coverage
     )
 
+# Insert equal probabilities in all outgoing arcs from a place to allow simulation
 def fill_uniform_probabilities(config_path):
     with open(config_path, "r") as f:
         config = json.load(f)
@@ -64,6 +66,8 @@ def fill_uniform_probabilities(config_path):
     with open(config_path, "w") as f:
         json.dump(config, f, indent=4)
 
+
+# Count reachable transitions to ensure most events are reachable
 def count_reachable_transitions(net):
     directly_follows = generate_translated_directly_follows_VM(net)
     
@@ -73,7 +77,7 @@ def count_reachable_transitions(net):
 
     return len(directly_follows.items())
 
-
+# For each parameter combination, discover model and compute conformance metrics
 def run_pipeline(var_param, dep_param, and_param, loop_param,):
     os.makedirs(OUTPUT_DIR_PNML, exist_ok=True)
 
@@ -147,6 +151,7 @@ def run_pipeline(var_param, dep_param, and_param, loop_param,):
 
 if __name__ == "__main__":
 
+    # Discover models with all possible parameter combinations and find the best one
     for var_param, dep_param, and_param, loop_param in itertools.product(
         VARIANT_COVERAGE_VALUES,
         DEPENDENCY_VALUES,

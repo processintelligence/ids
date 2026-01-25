@@ -1,5 +1,6 @@
 from Scripts.Validation.evaluation_metrics import *
 
+# Compute fitness and precision scores for the phase 2 petri net
 
 pmnl_path = r"Scripts/Phase_2/PetriNet/pnml/phase_2_benign.pnml"
 
