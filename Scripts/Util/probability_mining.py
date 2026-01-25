@@ -6,10 +6,12 @@ from typing import Dict, Tuple, Any
 import json
 
 def marking_to_key(marking):
+    # Convert a marking into a  key 
     return tuple(sorted((p.name, marking[p]) for p in marking if marking[p] > 0))
 
 
 def is_enabled(marking, transition):
+    # check if transition is enabled under marking 
     for arc in transition.in_arcs:
         p = arc.source
         if marking.get(p, 0) <= 0:
@@ -25,7 +27,7 @@ def fire_transition(marking, transition):
         p = arc.source
         new_marking[p] = new_marking.get(p, 0) - 1
         if new_marking[p] <= 0:
-            new_marking.pop(p, None)
+            new_marking.pop(p, None)  
 
     # produce
     for arc in transition.out_arcs:
@@ -40,6 +42,7 @@ def transition_id(t):
 
 
 def preset_place_names(t):
+    # Return the set of input place names for transition t
     return {arc.source.name for arc in t.in_arcs}
 
 
@@ -50,32 +53,38 @@ def load_log_and_net(xes_path, pnml_path):
 
 
 def normalize_tau_labels(net):
+    # Treat transitions whose label starts with "tau" as hidden by clearing their label
     for t in net.transitions:
         if t.label and str(t.label).startswith("tau"):
             t.label = None
 
 
 def replay_and_collect(log, net, im, fm):
-    
+    # Run token-based replay and collect empirical counts of transition firings per marking.
+
     params = {
-        "consider_remaining_in_fitness": False,
-        "try_to_reach_final_marking_through_hidden": True,
-        "walk_through_hidden_trans": True,
+        "consider_remaining_in_fitness": False,                 # ignore remaining tokens in fitness
+        "try_to_reach_final_marking_through_hidden": True,      # allow hidden transitions to reach final marking
+        "walk_through_hidden_trans": True,                      # allow traversal of hidden transitions
     }
 
     replay_results = token_replay.apply(log, net, im, fm, parameters=params)
 
-    marking_transition_counts = defaultdict(int)  # (marking_key, transition_id) -> count
-    marking_total_counts = defaultdict(int)       # marking_key -> total firings
-    traces_used = 0
-    traces_cut_early = 0
+    # (marking_key, transition_id) -> count
+    marking_transition_counts = defaultdict(int)  
+    # marking_key -> total firings
+    marking_total_counts = defaultdict(int)      
+    # number of replay results with at least one activated transition 
+    traces_used = 0                      
+    # traces stopped due to first non-enabled transition         
+    traces_cut_early = 0                          
 
     for tr in replay_results:
         activated = tr.get("activated_transitions", [])
         if not activated:
             continue
 
-        current_marking = im.copy()
+        current_marking = im.copy() 
         traces_used += 1
 
         for t in activated:
@@ -85,7 +94,7 @@ def replay_and_collect(log, net, im, fm):
                 break
 
             m_key = marking_to_key(current_marking)
-            t_id = transition_id(t)
+            t_id = transition_id(t)        
 
             marking_transition_counts[(m_key, t_id)] += 1
             marking_total_counts[m_key] += 1
@@ -96,6 +105,7 @@ def replay_and_collect(log, net, im, fm):
 
 
 def compute_marking_transition_probabilities(marking_transition_counts, marking_total_counts):
+    # Convert counts into conditional probabilities
     marking_transition_probabilities = defaultdict(dict)
     for (m_key, t_id), count in marking_transition_counts.items():
         total = marking_total_counts[m_key]
@@ -104,6 +114,7 @@ def compute_marking_transition_probabilities(marking_transition_counts, marking_
 
 
 def pretty_print_marking_probs(marking_transition_probabilities, traces_used, traces_cut_early):
+    # Debug/inspection output: show per-marking transition probabilities and basic trace stats.
     print("\n================ MARKING → TRANSITION PROBABILITIES (PREFIX-BASED, INCL. TAU) ================\n")
     print(f"Traces processed: {traces_used}")
     print(f"Traces cut early (non-enabled transition encountered): {traces_cut_early}\n")
@@ -128,13 +139,11 @@ def pretty_print_marking_probs(marking_transition_probabilities, traces_used, tr
 
 
 def pretty_print_probs(prob_map):
-
     print(f"\n================ PLACE→TRANSITION ARC PROBABILITIES ================\n")
     if not prob_map:
         print("(empty)")
         return
 
-    # Sort by place then descending prob
     def sort_key(item):
         k, v = item
         place = k.split("_", 1)[0] if "_" in k else k
@@ -145,18 +154,19 @@ def pretty_print_probs(prob_map):
 
 
 def build_place_transition_arc_prob_map(net,marking_transition_probabilities, marking_total_counts):
-    t_by_id = {transition_id(t): t for t in net.transitions}
+    t_by_id = {transition_id(t): t for t in net.transitions} 
 
-    num = defaultdict(float)   # (place_name, t_id) -> weighted sum
-    denom = defaultdict(float) # place_name -> weighted sum
+    num = defaultdict(float)
+    denom = defaultdict(float)
 
     for m_key, t_probs in marking_transition_probabilities.items():
-        weight = marking_total_counts.get(m_key, 0)
+        weight = marking_total_counts.get(m_key, 0)  # how often this marking state was observed
         if weight <= 0:
             continue
 
-        places_in_marking = {place_name for (place_name, tokens) in m_key if tokens > 0}
+        places_in_marking = {place_name for (place_name, tokens) in m_key if tokens > 0}  # active places
 
+        # Precompute place names for each transition observed at this marking
         preset_by_tid = {}
         for t_id in t_probs.keys():
             t_obj = t_by_id.get(t_id)
@@ -164,6 +174,7 @@ def build_place_transition_arc_prob_map(net,marking_transition_probabilities, ma
                 continue
             preset_by_tid[t_id] = preset_place_names(t_obj)
 
+        # For each place that currently has tokens, attribute probabilities to its outgoing choices
         for p_name in places_in_marking:
             relevant_tids = [t_id for t_id, preset in preset_by_tid.items() if p_name in preset]
             if not relevant_tids:
@@ -173,6 +184,7 @@ def build_place_transition_arc_prob_map(net,marking_transition_probabilities, ma
             for t_id in relevant_tids:
                 num[(p_name, t_id)] += t_probs[t_id] * weight
 
+    # Convert weighted sums to probabilities and flatten as "place_transition" keys
     arc_prob_map: Dict[str, float] = {}
     for (p_name, t_id), v in num.items():
         d = denom.get(p_name, 0.0)
@@ -181,7 +193,8 @@ def build_place_transition_arc_prob_map(net,marking_transition_probabilities, ma
 
     return arc_prob_map
 
-def fill_place_transition_arc_probs(json_path, arc_prob_map, decimals: int = 4):
+def fill_place_transition_arc_probs(json_path, arc_prob_map, decimals = 4):
+    # Fill config entries with formatted probabilities
     with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
@@ -210,8 +223,6 @@ def run_probability_mining_and_fill_config(pnml_path, xes_path, config_json_path
     mt_counts, m_totals, traces_used, traces_cut_early = replay_and_collect(log, net, im, fm)
     m_probs = compute_marking_transition_probabilities(mt_counts, m_totals)
 
-
     arc_prob_map = build_place_transition_arc_prob_map(net, m_probs, m_totals)
-
 
     fill_place_transition_arc_probs(json_path=config_json_path, arc_prob_map=arc_prob_map, decimals=4)

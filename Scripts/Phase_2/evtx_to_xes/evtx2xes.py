@@ -47,9 +47,8 @@ def main():
     evtx_to_csv(evtx_paths, csv_out)
     print(f"CSV written to: {csv_out}")
 
-    #TODO: Call something else than time windows, e.g. start and end 
     print(">>> Detecting time windows")
-    windows = get_time_windows_from_csv(csv_out, config)
+    windows = get_start_and_end_from_csv(csv_out, config)
     print(f"Found {len(windows)} window(s)")
 
     print(">>> CSV -> XES (as well as log obtaining)")

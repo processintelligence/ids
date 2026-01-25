@@ -12,30 +12,32 @@ from lxml import etree
 from pm4py.objects.conversion.log import converter as log_converter
 from pm4py.objects.log.obj import EventLog, Trace
 
-#TODO: comment this class 
-
 @dataclass
 class LogConfig:
+    # Column names expected in the CSV
     timestamp_col: str = "TimeCreated.SystemTime"
     object_col: str = "EventData.ObjectName"
     eventid_col: str = "EventID"
 
-    start_substring: str = "FuzzStarter"
-    end_substring: str = "FuzzEnder"
+    start_substring: str = "FuzzStarter" # Marker to define when a trace starts
+    end_substring: str = "FuzzEnder" # Markter to define when a trace ends
     start_eventid: int = 4663
     end_eventid: Optional[int] = None
 
+    # Set of allowed 4688 events 
     allowed_4688: FrozenSet[str] = frozenset(
         {
             "4688_cmd"
         }
     )
 
+    # Prefixes used to identify the logical start/end of a trace after enrichment.
     trace_start_prefix: str = "4624_2"
     trace_end_prefix: str = "4634_2"
 
 
 def _is_nan_value(v):
+    # Handle NaN values
     if v is None:
         return False
     if isinstance(v, float) and math.isnan(v):
@@ -45,7 +47,7 @@ def _is_nan_value(v):
     return False
 
 
-def _parse_event_xml(xml_string: str):
+def _parse_event_xml(xml_string):
     event_dict = {}
     root = etree.fromstring(xml_string.encode("utf-8"))
 
@@ -82,7 +84,8 @@ def get_eid(ev):
     return str(raw) if raw is not None else ""
 
 
-def _matches_eventid(val, expected: Optional[int]) -> bool:
+def _matches_eventid(val, expected):
+    # Checks if event ids are equal
     if expected is None:
         return True
     try:
@@ -92,12 +95,14 @@ def _matches_eventid(val, expected: Optional[int]) -> bool:
 
 
 def _normalize_logon_id(v):
+    # Normalize id for comparison
     if v is None or _is_nan_value(v):
         return None
     return str(v).strip().lower()
 
 
 def _format_logon_type_value(lt):
+    # Format logon types
     if lt is None or _is_nan_value(lt):
         return None
 
@@ -109,12 +114,15 @@ def _format_logon_type_value(lt):
 
 
 def _normalize_handle(v):
+    # Normalize id 
+    """Normalize handle IDs for comparison: strip, lowercase; return None for NaN-like values."""
     if v is None or _is_nan_value(v):
         return None
     return str(v).strip().lower()
 
 
 def evtx_to_csv(evtx_paths: Sequence[str], csv_out: str) -> None:
+    #exports an evtx file into csv format 
     rows = []
     for evtx_path in evtx_paths:
         with Evtx(evtx_path) as log:
@@ -127,7 +135,8 @@ def evtx_to_csv(evtx_paths: Sequence[str], csv_out: str) -> None:
     pd.DataFrame(rows).to_csv(csv_out, index=False)
 
 
-def get_time_windows_from_csv(csv_path, config: LogConfig = LogConfig()):
+def get_start_and_end_from_csv(csv_path, config):
+    # Finds the start and end of all traces in the csv
     df = pd.read_csv(csv_path)
 
     required = (config.timestamp_col, config.object_col, config.eventid_col)
@@ -139,7 +148,7 @@ def get_time_windows_from_csv(csv_path, config: LogConfig = LogConfig()):
     df["_parsed_ts"] = pd.to_datetime(df[config.timestamp_col], errors="coerce", utc=True)
     df = df.dropna(subset=["_parsed_ts"]).sort_values("_parsed_ts")
 
-    windows: List[Tuple[str, str]] = []
+    windows = []
     current_start = None
 
     for _, row in df.iterrows():
@@ -148,6 +157,7 @@ def get_time_windows_from_csv(csv_path, config: LogConfig = LogConfig()):
         eventid = row[config.eventid_col]
         ts = row["_parsed_ts"]
 
+        # Adding to windows all times of start and end 
         if config.start_substring in obj and _matches_eventid(eventid, config.start_eventid):
             current_start = ts
         elif config.end_substring in obj and _matches_eventid(eventid, config.end_eventid):
@@ -159,6 +169,7 @@ def get_time_windows_from_csv(csv_path, config: LogConfig = LogConfig()):
 
 
 def _enrich_logon_type(event, eid):
+    # enriching login ids with tids logon type 
     lt = event.get("EventData.LogonType")
     if lt is None or _is_nan_value(lt):
         return None
@@ -173,6 +184,7 @@ def _enrich_logon_type(event, eid):
 
 
 def _enrich_new_process_name(event, eid):
+    #enrich a process with the process name 
     npn = event.get("EventData.NewProcessName")
     if npn is None or _is_nan_value(npn):
         return None
@@ -184,6 +196,7 @@ def _enrich_new_process_name(event, eid):
 
 
 def _enrich_4657(event, eid):
+    #enrichinh specific types of 4657 events 
     val = (
         event.get("EventData.ObjectValueName")
         or event.get("EventData.ValueName")
@@ -199,6 +212,7 @@ def _enrich_4657(event, eid):
     return None
 
 
+# Mapping of base EventID -> enrichment function that can produce a more specific `concept:name`.
 ENRICHMENT_HANDLERS = {
     "4624": _enrich_logon_type,
     "4634": _enrich_logon_type,
@@ -207,12 +221,13 @@ ENRICHMENT_HANDLERS = {
 }
 
 
-def enrich_event_ids(event_log: EventLog) -> EventLog:
+def enrich_event_ids(event_log):
     new_log = EventLog(attributes=event_log.attributes)
 
     for trace in event_log:
         logonid_to_lt = {}
 
+        # Collect LogonType by logon ID from 4624 events.
         for event in trace:
             raw_eid = event.get("EventID", event.get("concept:name"))
             if raw_eid is None:
@@ -235,6 +250,7 @@ def enrich_event_ids(event_log: EventLog) -> EventLog:
             if targ:
                 logonid_to_lt[targ] = lt_str
 
+        # Apply enrichments and special-case 4672.
         for event in trace:
             raw_eid = event.get("EventID", event.get("concept:name"))
             if raw_eid is None:
@@ -263,6 +279,7 @@ def enrich_event_ids(event_log: EventLog) -> EventLog:
                     if lt_str is not None:
                         event["concept:name"] = f"4672_{lt_str}"
 
+        # Merge certain 4690+4658 adjacent pairs and drop unmerged 4690s.
         events = list(trace)
         merged_events = []
         i = 0
@@ -293,6 +310,7 @@ def enrich_event_ids(event_log: EventLog) -> EventLog:
             cur_eid = str(cur.get("EventID", cur.get("concept:name", ""))).split("_", 1)[0]
             cur_name = str(cur.get("concept:name", ""))
 
+            # Drop standalone 4690 events unless they were merged into 4690_4658.
             if cur_eid == "4690" and cur_name != "4690_4658":
                 i += 1
                 continue
@@ -305,10 +323,13 @@ def enrich_event_ids(event_log: EventLog) -> EventLog:
     return new_log
 
 
-def filter_events(event_log, config: LogConfig = LogConfig()):
+def filter_events(event_log, config):
     new_log = EventLog(attributes=event_log.attributes)
 
+    # Keeping only allowed events
     allowed_4688 = config.allowed_4688
+
+    # For certain events we dont want duplicates in a row 
     dedup_names = {config.trace_start_prefix, config.trace_end_prefix}
 
     for trace in event_log:
@@ -336,6 +357,7 @@ def filter_events(event_log, config: LogConfig = LogConfig()):
 
 
 def drop_leading(event_log):
+    # We see a very specific start pattern for some traces that are normalized
     new_log = EventLog(attributes=event_log.attributes)
 
     for trace in event_log:
@@ -360,6 +382,7 @@ def drop_leading(event_log):
 
 
 def drop_trailing(event_log):
+    # We see a very specific end pattern for some traces that are normalized
     new_log = EventLog(attributes=event_log.attributes)
 
     for trace in event_log:
@@ -384,7 +407,7 @@ def drop_trailing(event_log):
     return new_log
 
 
-def filter_traces(event_log, config: LogConfig = LogConfig()):
+def filter_traces(event_log, config):
     new_log = EventLog(attributes=event_log.attributes)
 
     for trace in event_log:
@@ -420,6 +443,7 @@ def filter_traces(event_log, config: LogConfig = LogConfig()):
 
 
 def csv_to_xes(csv_path, xes_out, windows, config: LogConfig = LogConfig()):
+    # converting a csv file into an xes file 
     df = pd.read_csv(csv_path)
 
     if config.timestamp_col not in df.columns:
@@ -454,6 +478,7 @@ def csv_to_xes(csv_path, xes_out, windows, config: LogConfig = LogConfig()):
 
     event_log = log_converter.apply(df_traces, variant=log_converter.Variants.TO_EVENT_LOG)
 
+    # Clean NaN-like values from PM4Py structures to avoid invalid XES attributes.
     for trace in event_log:
         for k in [k for k, v in trace.attributes.items() if _is_nan_value(v)]:
             del trace.attributes[k]
@@ -471,6 +496,7 @@ def csv_to_xes(csv_path, xes_out, windows, config: LogConfig = LogConfig()):
 
 
 def keep_last_trace(xes):
+    # Xes util method that cuts everything but the last trace from an xes 
     xes_path = Path(xes)
 
     tree = ET.parse(xes_path)

@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -11,6 +9,8 @@ def strip_namespace(tag):
 
 
 def fix_transition_ids_inplace(pnml_path):
+    # update all arc endpoints that referenced the old ids.
+
     pnml_file = Path(pnml_path)
     if not pnml_file.exists():
         raise FileNotFoundError(f"File not found: {pnml_path}")
@@ -20,6 +20,7 @@ def fix_transition_ids_inplace(pnml_path):
 
     id_map = {}  # old_id -> new_id
 
+    # update transition id attributes based on their content.
     for t in root.iter():
         if strip_namespace(t.tag) != "transition":
             continue
@@ -30,7 +31,8 @@ def fix_transition_ids_inplace(pnml_path):
                 name_el = child
                 break
         if name_el is None:
-            continue
+            # skip transitions without name
+            continue  
 
         text_el = None
         for child in name_el:
@@ -38,17 +40,20 @@ def fix_transition_ids_inplace(pnml_path):
                 text_el = child
                 break
         if text_el is None or text_el.text is None:
-            continue
-
-        new_id = text_el.text.strip()
+            # skip if text is missing 
+            continue  
+        
+        # desired id is the displayed transition name text
+        new_id = text_el.text.strip()  
         if not new_id:
             continue
 
         old_id = t.get("id")
         if old_id and old_id != new_id:
-            id_map[old_id] = new_id
-            t.set("id", new_id)
+            id_map[old_id] = new_id    
+            t.set("id", new_id)     
 
+    # update references (typically arcs) that point to old ids via source/target attributes.
     if id_map:
         for elem in root.iter():
             for attr in ("source", "target"):
@@ -56,4 +61,5 @@ def fix_transition_ids_inplace(pnml_path):
                 if val in id_map:
                     elem.set(attr, id_map[val])
 
-    tree.write(pnml_file, encoding="utf-8", xml_declaration=True)
+    # write changes in-place
+    tree.write(pnml_file, encoding="utf-8", xml_declaration=True)  
