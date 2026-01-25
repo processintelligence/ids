@@ -1,7 +1,7 @@
 from .evaluation_metrics import compute_alignment_fitness
 import os
 
-"""
+""" PHASE 2 GOOD
 pmnl_paths = [
     "Scripts/Phase_2/PetriNet/pnml/phase_2_benign_extended.pnml",
     "Scripts/Phase_3/PetriNet/pnml/phase_3_redflag.pnml",
@@ -14,7 +14,8 @@ xes_paths = [
     "GeneratedFiles/csv_xes/Repeat.xes",
 ]
 """
-"""
+
+""" PHASE 2 BAD
 pmnl_paths = [
     "Scripts/Phase_2/PetriNet/pnml/phase_2_benign_extended.pnml",
     "Scripts/Phase_2/PetriNet/pnml/phase_2_redflag.pnml",
@@ -29,6 +30,8 @@ xes_paths = [
     "GeneratedFiles/csv_xes/Composite.xes",
 ]
 """
+
+#""" PHASE 1
 pmnl_paths = [
     "Scripts/Phase_1/pnml/phase_1_benign.pnml",
     "Scripts/Phase_1/pnml/phase_1_redflag.pnml",
@@ -42,6 +45,7 @@ xes_paths = [
     "GeneratedFiles/WebPPL_XES/data_phase_1_repeat.xes",
     "GeneratedFiles/WebPPL_XES/data_phase_1_composite.xes",
 ]
+#"""
 
 def print_conformance_table(conformance_table, xes_paths):
     print("Conformance Table (Fitness)")
@@ -63,7 +67,7 @@ if __name__ == "__main__":
     conformance_table = {}
 
     for pmnl_path in pmnl_paths:
-        pmnl_name = os.path.basename(pmnl_path).replace('.pnml', '  ').replace('phase_3_', '').replace('phase_2_', '').replace('_extended', '')
+        pmnl_name = os.path.basename(pmnl_path).replace('.pnml', '  ').replace('phase_3_', '').replace('phase_2_', '').replace('_extended', '').replace('phase_1_', '')
 
         conformance_table[pmnl_name] = {}
         for xes_path in xes_paths:

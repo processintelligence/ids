@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 import random
+import matplotlib.patches as patches
+from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 
 COLOR_SCHEMES = {
     "3-band": [
@@ -47,16 +49,19 @@ def nested_map_to_matrix(nested_map):
 
     return mat, labels, idx
 
-import matplotlib.patches as patches
 
 def plot_dfg_heatmap(
-        nested_map,
+    nested_map,
     title="Directly-Follows Heatmap",
     black_list=None,
     white_list=None,
     color_scheme="4-band",
     interpolation="nearest",
-    figsize_scale=0.3
+    figsize_scale=0.3,
+    center_zero=False,
+    symmetric_zero=False,
+    vmin=None,
+    vmax=None
 ):
     black_list = black_list or []
     white_list = white_list or []
@@ -66,10 +71,30 @@ def plot_dfg_heatmap(
 
     cmap = get_colormap(color_scheme)
 
-    fig, ax = plt.subplots(figsize=(1.0 + figsize_scale * n,
-                                    1.0 + figsize_scale * n))
+    norm = None
+    if center_zero:
+        # determine limits
+        auto_min = float(np.nanmin(mat))
+        auto_max = float(np.nanmax(mat))
 
-    im = ax.imshow(mat, cmap=cmap, interpolation=interpolation)
+        _vmin = auto_min if vmin is None else float(vmin)
+        _vmax = auto_max if vmax is None else float(vmax)
+
+        if symmetric_zero:
+            L = max(abs(_vmin), abs(_vmax))
+            _vmin, _vmax = -L, L
+
+        # ensure ordering
+        if _vmin > _vmax:
+            _vmin, _vmax = _vmax, _vmin
+
+        norm = TwoSlopeNorm(vmin=_vmin, vcenter=0.0, vmax=_vmax)
+
+    fig, ax = plt.subplots(
+        figsize=(1.0 + figsize_scale * n, 1.0 + figsize_scale * n)
+    )
+
+    im = ax.imshow(mat, cmap=cmap, norm=norm, interpolation=interpolation)
 
     ax.set_xticks(range(n), labels=labels, rotation=90, fontsize=8)
     ax.set_yticks(range(n), labels=labels, fontsize=8)
@@ -77,6 +102,7 @@ def plot_dfg_heatmap(
     ax.set_ylabel("source")
     ax.set_title(title)
 
+    # grid between cells
     ax.set_xticks(np.arange(-0.5, n, 1), minor=True)
     ax.set_yticks(np.arange(-0.5, n, 1), minor=True)
     ax.grid(which="minor", color="black", linestyle="-", linewidth=0.5)
@@ -85,34 +111,38 @@ def plot_dfg_heatmap(
     cbar = plt.colorbar(im, ax=ax)
     cbar.ax.set_ylabel("count", rotation=270, labelpad=12)
 
+    # overlays
     for src, dst in black_list:
-        i = idx[src]
-        j = idx[dst]
-        ax.add_patch(
-            patches.Rectangle(
-                (j - 0.5, i - 0.5),
-                1, 1,
-                facecolor="black",
-                edgecolor="black",
-                linewidth=1
+        if src in idx and dst in idx:
+            i = idx[src]
+            j = idx[dst]
+            ax.add_patch(
+                patches.Rectangle(
+                    (j - 0.5, i - 0.5),
+                    1, 1,
+                    facecolor="black",
+                    edgecolor="black",
+                    linewidth=1
+                )
             )
-        )
 
     for src, dst in white_list:
-        i = idx[src]
-        j = idx[dst]
-        ax.add_patch(
-            patches.Rectangle(
-                (j - 0.5, i - 0.5),
-                1, 1,
-                facecolor="white",
-                edgecolor="black",
-                linewidth=1
+        if src in idx and dst in idx:
+            i = idx[src]
+            j = idx[dst]
+            ax.add_patch(
+                patches.Rectangle(
+                    (j - 0.5, i - 0.5),
+                    1, 1,
+                    facecolor="white",
+                    edgecolor="black",
+                    linewidth=1
+                )
             )
-        )
 
     plt.tight_layout()
     plt.show()
+
 
 
 def diff_maps(mapA, mapB, verbose=False, threshold=0):

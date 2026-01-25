@@ -23,11 +23,37 @@ row_normalize_R = row_normalize_directly_follows(directly_follows_R)
 
 diff_row, black, white = diff_maps(row_normalize_R, row_normalize_P, verbose=True, threshold=10)
 
-plot_dfg_heatmap(log_normalize_R, title="Log Normalized Los Alamos Dataset", color_scheme="3-band")
-plot_dfg_heatmap(row_normalize_R, title="Row Normalized Los Alamos Dataset", color_scheme="3-band")
+plot_dfg_heatmap(
+    log_normalize_R,
+    title="Log Normalized Los Alamos Dataset",
+    color_scheme="3-band"
+)
 
-plot_dfg_heatmap(log_normalize_P, title="Log Normalized Phase 1", color_scheme="3-band")
-plot_dfg_heatmap(row_normalize_P, title="Row Normalized Phase 1", color_scheme="3-band")
+plot_dfg_heatmap(
+    row_normalize_R,
+    title="Row Normalized Los Alamos Dataset",
+    color_scheme="3-band"
+)
 
+plot_dfg_heatmap(
+    log_normalize_P,
+    title="Log Normalized Phase 1",
+    color_scheme="3-band"
+)
 
-plot_dfg_heatmap(diff_row, title="Difference between Los Alamos and Phase 1", color_scheme="3-band", black_list=black, white_list=white)
+plot_dfg_heatmap(
+    row_normalize_P,
+    title="Row Normalized Phase 1",
+    color_scheme="3-band"
+)
+
+plot_dfg_heatmap(
+    diff_row,
+    title="Difference between Los Alamos and Phase 1",
+    color_scheme="3-band",
+    black_list=black,
+    white_list=white,
+    center_zero=True,
+    symmetric_zero=True
+)
+

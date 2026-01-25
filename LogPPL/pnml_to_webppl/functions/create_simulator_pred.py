@@ -103,6 +103,36 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
         "  };\n"
         "  return helper(0);\n"
         "};\n\n"
+        "var hasToFinish = function() {\n"
+        "  var ids = ['4634_3', '4634_5', '4634_2_7_8_9', '4634_2'];\n"
+        "  var helper = function(index) {\n"
+        "    if (index >= ids.length) {\n"
+        "      return false;\n"
+        "    }\n"
+        "    var key = 'count_' + ids[index];\n"
+        "    var c = globalStore[key] || 0;\n"
+        "    if (c >= 1) {\n"
+        "      return true;\n"
+        "    }\n"
+        "    return helper(index + 1);\n"
+        "  };\n"
+        "  return helper(0);\n"
+        "};\n\n"
+        "var hasToLogIn = function() {\n"
+        "  var ids = ['4624_2', '4624_3', '4624_9', '4624_8', '4624_7'];\n"
+        "  var helper = function(index) {\n"
+        "    if (index >= ids.length) {\n"
+        "      return false;\n"
+        "    }\n"
+        "    var key = 'count_' + ids[index];\n"
+        "    var c = globalStore[key] || 0;\n"
+        "    if (c >= 1) {\n"
+        "      return true;\n"
+        "    }\n"
+        "    return helper(index + 1);\n"
+        "  };\n"
+        "  return helper(0);\n"
+        "};\n\n"
         "var incrementCount = function(label) {\n"
         "  var key = 'count_' + label;\n"
         "  if (globalStore[key] === undefined) {\n"
@@ -111,6 +141,7 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
         "  globalStore[key] += 1;\n"
         "};\n\n"
         "\n"
+
 
         # SEQUENCE-BASED HELPERS
         "var recordEvent = function(label) {\n"
@@ -135,6 +166,18 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
         "  return maxRunLength(label) >= y;\n"
         "};\n\n"
         "\n"
+        "var happensBefore = function(trace, a, b) {\n"
+        "  var xs = globalStore.eventSeq || [];\n"
+        "  var findFirst = function(label, i) {\n"
+        "    if (i >= xs.length) { return -1; }\n"
+        "    if (xs[i] === label) { return i; }\n"
+        "    return findFirst(label, i + 1);\n"
+        "  };\n"
+        "  var ia = findFirst(a, 0);\n"
+        "  var ib = findFirst(b, 0);\n"
+        "  return (ia !== -1) && (ib !== -1) && (ia < ib);\n"
+        "};\n\n"
+        "\n"
         "var existsNotFollowedBy = function(trace, c, d) {\n"
         "  var xs = globalStore.eventSeq || [];\n"
         "  var go = function(i) {\n"
@@ -148,6 +191,7 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
         "  return go(0);\n"
         "};\n\n"
     ) + function_str
+
 
     function_str += "var simulator = function(){\ninit();\n"
 
@@ -183,19 +227,24 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
     # Predicate maps 
     predicate_expr_map = {
         # sequence-aware predicates 
-        "Repeat": "firedAtLeastYInARow(trace, '4625', 5)",
-        "Redflag": "firedAtLeastOnce(trace, '4657_common')",
+        "Repeat": "hasToFinish() && hasToLogIn() && firedAtLeastYInARow(trace, '4625', 5)",
+        "Redflag": "hasToFinish() && firedAtLeastOnce(trace, '4657_common')",
         "Composite": (
+            "hasToFinish() && "
             "firedAtLeastOnce(trace, '4624_4') && "
             "firedAtLeastOnce(trace, '4688_cmd') && "
             "firedAtLeastOnce(trace, '4657') && "
+            "happensBefore(trace, '4624_4', '4688_cmd') && "
+            "happensBefore(trace, '4624_4', '4657') && "
             "existsNotFollowedBy(trace, '4663', '4657')"
         ),
         "4th": (
+            "hasToFinish() && "
             "firedAtLeastOnce(trace, '4688_passworddll') && "
             "firedAtLeastOnce(trace, '4657_lsa')"
         )
     }
+
 
     predicate_expr = predicate_expr_map.get(attacktype, "true")
 
