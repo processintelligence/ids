@@ -242,7 +242,8 @@ def create_simulator_function(function_str, steps, sample_size, dpn, verbose, si
             "hasToFinish() && "
             "firedAtLeastOnce(trace, '4688_passworddll') && "
             "firedAtLeastOnce(trace, '4657_lsa')"
-        )
+        ),
+        "Benign": "hasToFinish()"
     }
 
 

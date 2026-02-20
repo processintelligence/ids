@@ -9,7 +9,7 @@ from pm4py.objects.petri_net.exporter import exporter as pnml_exporter
 from pm4py.algo.filtering.log.variants import variants_filter
 
 
-LOG_PATH = "GeneratedFiles/csv_xes/smaller_script_prob_72_58_cor.xes"
+LOG_PATH = "GeneratedFiles/csv_xes/full_vm_log.xes"
 
 OUTPUT_DIR_PNML = "GeneratedFiles/PNML"
 OUTPUT_DIR_PNG = "GeneratedFiles/PNG"

@@ -12,6 +12,7 @@ directly_follows_R = generate_translated_directly_follows(xes_path_R)
 
 directly_follows_P["4634_3"] = defaultdict(int)
 directly_follows_P["4634"] = defaultdict(int)
+directly_follows_P["4634_5"] = defaultdict(int)
 
 directly_follows_R["4634_5"] = defaultdict(int)
 
@@ -38,19 +39,19 @@ plot_dfg_heatmap(
 
 plot_dfg_heatmap(
     log_normalize_P,
-    title="Log Normalized Phase 1",
+    title="Log Normalized Manuel Model",
     color_scheme="3-band"
 )
 
 plot_dfg_heatmap(
     row_normalize_P,
-    title="Row Normalized Phase 1",
+    title="Row Normalized Manuel Model",
     color_scheme="3-band"
 )
 
 plot_dfg_heatmap(
     diff_row,
-    title="Difference between Los Alamos and Phase 1",
+    title="Difference: Los Alamos - Manuel Model",
     color_scheme="3-band",
     black_list=black,
     white_list=white,
