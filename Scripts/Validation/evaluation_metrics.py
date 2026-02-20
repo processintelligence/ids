@@ -9,7 +9,7 @@ from pm4py.algo.conformance.alignments.petri_net import algorithm as alignments
 # Use PM4PY implementations to compute conformance metrics for evaluation
 
 
-def compute_precison(pmnl_path, xes_path):
+def compute_precision(pmnl_path, xes_path):
     log = xes_importer.apply(xes_path)
 
     net, initial_marking, final_marking = pnml_importer.apply(pmnl_path)

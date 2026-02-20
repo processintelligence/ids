@@ -4,7 +4,7 @@ from LogPPL.scripts.generate_uniform_traces import simulate_dpn
 from Scripts.Validation.directly_follows import *
 from Scripts.Validation.plotting_util import *
 from Scripts.Phase_2.petrinet_cleaner import fix_transition_ids_inplace
-from Scripts.Validation.evaluation_metrics import compute_precison, compute_fitness
+from Scripts.Validation.evaluation_metrics import compute_precision, compute_fitness
 import json
 
 # Insert equal probabilities in all outgoing arcs from a place to allow simulation
@@ -58,7 +58,7 @@ xes_path_model = os.path.abspath(os.path.join(xes_dir, f"{base_name}.xes"))
 fitness = compute_fitness(pnml_path, xes_path_scripts)
 print(f"FITNESS: {fitness}")
 
-precision = compute_precison(pnml_path, xes_path_scripts)
+precision = compute_precision(pnml_path, xes_path_scripts)
 print(f"PRECISION: {precision}")
 
 # Heatmaps

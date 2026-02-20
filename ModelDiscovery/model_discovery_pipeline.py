@@ -4,7 +4,7 @@ from LogPPL.scripts.generate_uniform_traces import simulate_dpn
 from Scripts.Validation.directly_follows import *
 from Scripts.Validation.plotting_util import *
 from Scripts.Phase_2.petrinet_cleaner import fix_transition_ids_inplace
-from Scripts.Validation.evaluation_metrics import compute_precison, compute_fitness
+from Scripts.Validation.evaluation_metrics import compute_precision, compute_fitness
 import json
 
 import os
@@ -142,7 +142,7 @@ def run_pipeline(var_param, dep_param, and_param, loop_param,):
     fitness = compute_fitness(OUTPUT_PNML, LOG_PATH)
     print(f"FITNESS: {fitness}")
 
-    precision = compute_precison(OUTPUT_PNML, LOG_PATH)
+    precision = compute_precision(OUTPUT_PNML, LOG_PATH)
     print(f"PRECISION: {precision}")
 
     return fitness, precision
