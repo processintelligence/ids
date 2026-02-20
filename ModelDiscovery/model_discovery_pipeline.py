@@ -13,15 +13,37 @@ from pm4py.algo.filtering.log.variants import variants_filter
 from pm4py.visualization.petri_net import visualizer as pn_visualizer
 from pm4py.objects.petri_net.exporter import exporter as pnml_exporter
 import itertools
+import argparse
+
+parser = argparse.ArgumentParser(description="Run discovery pipeline on an XES log.")
+
+parser.add_argument("xes_path", help="Path to the XES log file")
+
+parser.add_argument("--variant_params", nargs="+", type=float, default=[0.5, 0.8, 0.99],
+                    help="List of variant coverage parameter values")
+
+parser.add_argument("--dependency_params", nargs="+", type=float, default=[0.5, 0.8, 0.99],
+                    help="List of dependency threshold parameter values")
+
+parser.add_argument("--and_params", nargs="+", type=float, default=[0.5, 0.8, 0.99],
+                    help="List of and threshold parameter values")
+
+parser.add_argument("--loop_params", nargs="+", type=float, default=[0.5, 0.8, 0.99],
+                    help="List of loop-two threshold parameter values")
+
+args = parser.parse_args()
+
+
+LOG_PATH = args.xes_path
+
 
 # All parameters that will be tried in the discovery pipeline
+APPLY_VARIANT_FILTERING = True
 
-APPLY_VARIANT_FILTERING = False
-
-VARIANT_COVERAGE_VALUES = [0.0]
-DEPENDENCY_VALUES = [0.5,0.8,0.99]
-AND_VALUES = [0.5,0.8,0.99]
-LOOP_TWO_VALUES = [0.5,0.8,0.99]
+VARIANT_COVERAGE_VALUES = args.variant_params
+DEPENDENCY_VALUES = args.dependency_params
+AND_VALUES = args.and_params
+LOOP_TWO_VALUES = args.loop_params
 
 
 BEST_RESULT = {
@@ -29,9 +51,6 @@ BEST_RESULT = {
     "precision": -1,
     "params": None
 }
-
-
-LOG_PATH = "GeneratedFiles/csv_xes/phase_2_final.xes"
 
 OUTPUT_DIR_PNML = "GeneratedFiles/PNML"
 OUTPIT_DIR_PNG = "GeneratedFiles/PNG"
@@ -78,10 +97,9 @@ def count_reachable_transitions(net):
     return len(directly_follows.items())
 
 # For each parameter combination, discover model and compute conformance metrics
-def run_pipeline(var_param, dep_param, and_param, loop_param,):
+def run_pipeline(log, var_param, dep_param, and_param, loop_param):
     os.makedirs(OUTPUT_DIR_PNML, exist_ok=True)
-
-    log = pm4py.read_xes(LOG_PATH)
+    os.makedirs(OUTPIT_DIR_PNG, exist_ok=True)
 
     if APPLY_VARIANT_FILTERING:
         log = filter_noise(log, coverage=var_param)
@@ -151,6 +169,9 @@ def run_pipeline(var_param, dep_param, and_param, loop_param,):
 
 if __name__ == "__main__":
 
+    # Read log once 
+    log = pm4py.read_xes(LOG_PATH)
+
     # Discover models with all possible parameter combinations and find the best one
     for var_param, dep_param, and_param, loop_param in itertools.product(
         VARIANT_COVERAGE_VALUES,
@@ -158,8 +179,9 @@ if __name__ == "__main__":
         AND_VALUES,
         LOOP_TWO_VALUES
     ):
+        
         print(f"\nRunning: var={var_param}, dep={dep_param}, and={and_param}, loop={loop_param}")
-        fitness, precision = run_pipeline(var_param, dep_param, and_param, loop_param)
+        fitness, precision = run_pipeline(log, var_param, dep_param, and_param, loop_param)
 
         score = (fitness + precision) / 2
 
