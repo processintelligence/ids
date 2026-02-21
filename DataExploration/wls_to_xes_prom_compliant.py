@@ -6,9 +6,8 @@ from collections import Counter
 # CONVERT LOS ALAMOS DATA TO XES
 # Like wlsToXes, but time etc is compliant with Prom
 
-# TODO: Insert paths
-INPUT_FILE = "C:/Users/lomo0/Downloads/wls_trimmed.json"
-OUTPUT_FILE = "C:/Users/lomo0/Downloads/wls_processtype_PROM.xes"
+INPUT_FILE = "INSERT TRIMMED JSON"
+OUTPUT_FILE = "INSERT XES OUTPUT PATH"
 
 # XES setup
 xes_ns = "http://www.xes-standard.org/"

@@ -1,5 +1,5 @@
-$inputFile = "C:\Users\lomo0\Downloads\wls_day-01" #TODO: insert paths
-$outputFile = "C:\Users\lomo0\Downloads\wls_trimmed"
+$inputFile = "INSERT WLS PATH"
+$outputFile = "INSERT WLS OUTPUT PATH"
 $sizeToKeep = 800MB
 $bufferSize = 1MB
 

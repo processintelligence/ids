@@ -7,7 +7,6 @@
 # Portions of the simulator-generation pipeline are adapted/derived from the
 # Rivkin et al. codebase.
 # =============================================================================
-#TODO: FIX ET AL
 
 
 def create_simulator_enabled_transitions_function(function_str, dpn, verbose, simulation_query):

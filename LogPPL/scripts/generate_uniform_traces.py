@@ -1,5 +1,3 @@
-#TODO: Create copyright thing 
-
 import argparse
 import os
 from LogPPL.pnml_to_webppl.dpn import DPN

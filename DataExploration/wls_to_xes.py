@@ -6,8 +6,8 @@ from collections import Counter
 # CONVERT LOS ALAMOS DATA TO XES
 # Divide login type and processes into sub-events
 
-INPUT_FILE = "C:/Users/lomo0/Downloads/wls_day-01" #TODO: input correct files 
-OUTPUT_FILE = "C:/Users/lomo0/Downloads/wls_full.xes"
+INPUT_FILE = "INPUT WLS FILE PATH" 
+OUTPUT_FILE = "INPUT XES OUTPUT PATH"
 
 # XES setup
 xes_ns = "http://www.xes-standard.org/"
