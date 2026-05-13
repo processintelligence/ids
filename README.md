@@ -1,5 +1,11 @@
 # Introduction
 
+This repository contains all software, data, models that are used for the Paper:
+
+> **Process Mining for Intrusion Detection in Cybersecurity: A Conformance-based Point of View**
+
+The work is based on:
+
 This repository contains the software artifacts implemented during the master’s thesis carried out by **Emil Løvstrand Mortensen** and **Emil Pontoppidan Rasmussen**.
 
 For further information, we encourage reading the thesis titled:
