@@ -4,13 +4,13 @@ This repository contains all software, data, models that are used for the Paper:
 
 > **Process Mining for Intrusion Detection in Cybersecurity: A Conformance-based Point of View**
 
-The work is based on:
-
-This repository contains the software artifacts implemented during the master’s thesis carried out by **Emil Løvstrand Mortensen** and **Emil Pontoppidan Rasmussen**.
+The paper is based on the master's thesis carried out by **Emil Løvstrand Mortensen** and **Emil Pontoppidan Rasmussen**. This repository contains the software artifacts implemented during the work.
 
 For further information, we encourage reading the thesis titled:
 
 > **Modeling and Simulating Attacks with Process Mining for Cybersecurity Research**
+
+The thesis is available at [Link at the thesis](https://findit.dtu.dk/en/catalog/69c335e9e49dd032fcd99903)
 
 # Abstract 
 Cybersecurity threats are increasing as digital systems grow in scale and complexity. Detailed system monitoring logs provide an important source of evidence for detecting breaches and understanding attacker behavior. In practice, however, compromised-system logs are scarce and difficult to analyze. Formal process models offer a structured representation of system behavior, enabling explicit reasoning about benign and malicious activity. This thesis aimed to investigate whether process mining and formal representation of models can be used in the context of cybersecurity to model and analyze benign and malicious behavior in a more flexible way than analyzing the actual compromised system. This was achieved by modeling benign \textit{Windows} system behavior in two ways: manual modeling and automated modeling using process mining techniques. Attacks inspired by the \textit{MITRE ATT\&CK} framework were then injected to obtain attack models, which supported simulation and classification of behavior. The realism of the models was validated using conformance checking and behavioral analysis. The models and simulated logs exhibit high conformance with observed behavior, indicating substantial realism of the obtained models, and the classification results are promising, as the approach detects and classifies attacks.
