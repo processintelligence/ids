@@ -1,0 +1,398 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="imported_1769005480.480598" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>imported_1769005480.480598</text>
+    </name>
+    <page id="n0">
+      <place id="p16">
+        <name>
+          <text>p16</text>
+        </name>
+      </place>
+      <place id="intplace_4658">
+        <name>
+          <text>intplace_4658</text>
+        </name>
+      </place>
+      <place id="pre_4672_2">
+        <name>
+          <text>pre_4672_2</text>
+        </name>
+      </place>
+      <place id="intplace_4688_cmd">
+        <name>
+          <text>intplace_4688_cmd</text>
+        </name>
+      </place>
+      <place id="intplace_4656">
+        <name>
+          <text>intplace_4656</text>
+        </name>
+      </place>
+      <place id="pre_4688_cmd">
+        <name>
+          <text>pre_4688_cmd</text>
+        </name>
+      </place>
+      <place id="pre_4658">
+        <name>
+          <text>pre_4658</text>
+        </name>
+      </place>
+      <place id="pre_4656">
+        <name>
+          <text>pre_4656</text>
+        </name>
+      </place>
+      <place id="pre_4690_4658">
+        <name>
+          <text>pre_4690_4658</text>
+        </name>
+      </place>
+      <place id="intplace_4672_2">
+        <name>
+          <text>intplace_4672_2</text>
+        </name>
+      </place>
+      <place id="pre_4624_3">
+        <name>
+          <text>pre_4624_3</text>
+        </name>
+      </place>
+      <place id="pre_4672_3">
+        <name>
+          <text>pre_4672_3</text>
+        </name>
+      </place>
+      <place id="sink0">
+        <name>
+          <text>sink0</text>
+        </name>
+      </place>
+      <place id="intplace_4634_3">
+        <name>
+          <text>intplace_4634_3</text>
+        </name>
+      </place>
+      <place id="p18">
+        <name>
+          <text>p18</text>
+        </name>
+      </place>
+      <place id="p19">
+        <name>
+          <text>p19</text>
+        </name>
+      </place>
+      <place id="pre_4634_2">
+        <name>
+          <text>pre_4634_2</text>
+        </name>
+      </place>
+      <place id="source0">
+        <name>
+          <text>source0</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="pre_4634_3">
+        <name>
+          <text>pre_4634_3</text>
+        </name>
+      </place>
+      <place id="p17">
+        <name>
+          <text>p17</text>
+        </name>
+      </place>
+      <place id="intplace_4663">
+        <name>
+          <text>intplace_4663</text>
+        </name>
+      </place>
+      <transition id="hid_20">
+        <name>
+          <text>hid_20</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="039884ff-db8c-48fb-ab80-48c3443311af" />
+      </transition>
+      <transition id="hid_32">
+        <name>
+          <text>hid_32</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="b8f8217d-f26a-4e66-9c17-bdf4cc69e13f" />
+      </transition>
+      <transition id="4625_3">
+        <name>
+          <text>4625</text>
+        </name>
+      </transition>
+      <transition id="4672_3">
+        <name>
+          <text>4672_3</text>
+        </name>
+      </transition>
+      <transition id="tau_17">
+        <name>
+          <text>tau_17</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="cbb78e4f-cb15-4a28-ae69-68198593cfee" />
+      </transition>
+      <transition id="tau_19">
+        <name>
+          <text>tau_19</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="0b394e1c-a90c-4cc0-9193-40c8e431a3a4" />
+      </transition>
+      <transition id="4624_2">
+        <name>
+          <text>4624_2</text>
+        </name>
+      </transition>
+      <transition id="4656">
+        <name>
+          <text>4656</text>
+        </name>
+      </transition>
+      <transition id="4672_2">
+        <name>
+          <text>4672_2</text>
+        </name>
+      </transition>
+      <transition id="4634_3">
+        <name>
+          <text>4634_3</text>
+        </name>
+      </transition>
+      <transition id="4625_2">
+        <name>
+          <text>4625</text>
+        </name>
+      </transition>
+      <transition id="4690_4658">
+        <name>
+          <text>4690_4658</text>
+        </name>
+      </transition>
+      <transition id="4658">
+        <name>
+          <text>4658</text>
+        </name>
+      </transition>
+      <transition id="4688_cmd">
+        <name>
+          <text>4688_cmd</text>
+        </name>
+      </transition>
+      <transition id="4625_4">
+        <name>
+          <text>4625</text>
+        </name>
+      </transition>
+      <transition id="hid_28">
+        <name>
+          <text>hid_28</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="7bb79571-b770-4048-8b71-ca3cea2e7be3" />
+      </transition>
+      <transition id="hid_18">
+        <name>
+          <text>hid_18</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="20314f9f-57e1-47d3-ae7a-3f35dd5aeea1" />
+      </transition>
+      <transition id="4625_1">
+        <name>
+          <text>4625</text>
+        </name>
+      </transition>
+      <transition id="tau_18">
+        <name>
+          <text>tau_18</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="c62c0e9b-724b-4448-bee1-33e3b60311f1" />
+      </transition>
+      <transition id="tau_20">
+        <name>
+          <text>tau_20</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="35e55c01-64e4-4a6d-abea-f9e03dddfa6b" />
+      </transition>
+      <transition id="hid_26">
+        <name>
+          <text>hid_26</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="9849b989-3b6f-4766-82bb-6b8130777f3b" />
+      </transition>
+      <transition id="hid_24">
+        <name>
+          <text>hid_24</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="1af11060-5585-42a4-93b4-825ec9e83eb7" />
+      </transition>
+      <transition id="hid_34">
+        <name>
+          <text>hid_34</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="a986eab0-8806-4b32-9bd6-9b2acff1e286" />
+      </transition>
+      <transition id="hid_35">
+        <name>
+          <text>hid_35</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="fffe9728-ba90-4897-ad7a-7d58508b3259" />
+      </transition>
+      <transition id="hid_21">
+        <name>
+          <text>hid_21</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="77835910-7dfd-45ac-9f5a-e346d8c04fde" />
+      </transition>
+      <transition id="hid_33">
+        <name>
+          <text>hid_33</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="69b50be9-8a6b-4cc1-9656-1fcfc0e0d1f1" />
+      </transition>
+      <transition id="4624_3">
+        <name>
+          <text>4624_3</text>
+        </name>
+      </transition>
+      <transition id="4634_2">
+        <name>
+          <text>4634_2</text>
+        </name>
+      </transition>
+      <transition id="hid_19">
+        <name>
+          <text>hid_19</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="4fee15a3-ae3c-4964-9a3e-a55798872350" />
+      </transition>
+      <transition id="hid_29">
+        <name>
+          <text>hid_29</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="4028b645-4866-41a5-83a1-cb1511f4dbc0" />
+      </transition>
+      <transition id="4663">
+        <name>
+          <text>4663</text>
+        </name>
+      </transition>
+      <transition id="hid_23">
+        <name>
+          <text>hid_23</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="88a2a245-39bb-46e9-b4e8-80473f36fe36" />
+      </transition>
+      <transition id="hid_6">
+        <name>
+          <text>hid_6</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="93efe2cb-30c8-43f2-b69b-fc1144873134" />
+      </transition>
+      <transition id="4660">
+        <name>
+          <text>4660</text>
+        </name>
+      </transition>
+      <transition id="hid_30">
+        <name>
+          <text>hid_30</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="3d291992-1563-4a09-9329-0f29ebe295c7" />
+      </transition>
+      <transition id="hid_25">
+        <name>
+          <text>hid_25</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="04a5219f-2a17-45b5-9f3c-78c6fdab73ae" />
+      </transition>
+      <arc id="4989058640" source="pre_4672_2" target="4672_2"><inscription><text>1</text></inscription></arc>
+      <arc id="4989079120" source="tau_19" target="p16"><inscription><text>1</text></inscription></arc>
+      <arc id="4989054672" source="intplace_4672_2" target="hid_19"><inscription><text>1</text></inscription></arc>
+      <arc id="4989058768" source="pre_4624_3" target="4624_3"><inscription><text>1</text></inscription></arc>
+      <arc id="4989079248" source="p18" target="4625_3"><inscription><text>1</text></inscription></arc>
+      <arc id="4989054800" source="intplace_4688_cmd" target="hid_28"><inscription><text>1</text></inscription></arc>
+      <arc id="4989058896" source="hid_26" target="pre_4690_4658"><inscription><text>1</text></inscription></arc>
+      <arc id="4989079376" source="4625_3" target="p19"><inscription><text>1</text></inscription></arc>
+      <arc id="4989054928" source="intplace_4658" target="hid_6"><inscription><text>1</text></inscription></arc>
+      <arc id="4989059024" source="hid_23" target="pre_4624_3"><inscription><text>1</text></inscription></arc>
+      <arc id="4989075600" source="4634_3" target="intplace_4634_3"><inscription><text>1</text></inscription></arc>
+      <arc id="4989075728" source="hid_32" target="pre_4634_2"><inscription><text>1</text></inscription></arc>
+      <arc id="4989055056" source="4658" target="intplace_4658"><inscription><text>1</text></inscription></arc>
+      <arc id="4989075856" source="4656" target="intplace_4656"><inscription><text>1</text></inscription></arc>
+      <arc id="4989079504" source="p19" target="tau_20"><inscription><text>1</text></inscription></arc>
+      <arc id="4989079632" source="tau_20" target="p16"><inscription><text>1</text></inscription></arc>
+      <arc id="4989055184" source="hid_35" target="pre_4658"><inscription><text>1</text></inscription></arc>
+      <arc id="4989079760" source="p19" target="4625_4"><inscription><text>1</text></inscription></arc>
+      <arc id="4989055312" source="hid_29" target="pre_4688_cmd"><inscription><text>1</text></inscription></arc>
+      <arc id="4989079888" source="4625_4" target="p16"><inscription><text>1</text></inscription></arc>
+      <arc id="4989055440" source="4672_2" target="intplace_4672_2"><inscription><text>1</text></inscription></arc>
+      <arc id="4989055696" source="4663" target="intplace_4663"><inscription><text>1</text></inscription></arc>
+      <arc id="4989058384" source="4624_3" target="pre_4672_3"><inscription><text>1</text></inscription></arc>
+      <arc id="4989078736" source="p17" target="4625_2"><inscription><text>1</text></inscription></arc>
+      <arc id="4989055824" source="hid_20" target="pre_4690_4658"><inscription><text>1</text></inscription></arc>
+      <arc id="4989055952" source="hid_6" target="pre_4624_3"><inscription><text>1</text></inscription></arc>
+      <arc id="4989056080" source="intplace_4688_cmd" target="hid_30"><inscription><text>1</text></inscription></arc>
+      <arc id="4989056208" source="pre_4690_4658" target="4690_4658"><inscription><text>1</text></inscription></arc>
+      <arc id="4989056336" source="hid_18" target="pre_4624_3"><inscription><text>1</text></inscription></arc>
+      <arc id="4989058512" source="intplace_4658" target="hid_34"><inscription><text>1</text></inscription></arc>
+      <arc id="4989078864" source="4625_2" target="p18"><inscription><text>1</text></inscription></arc>
+      <arc id="4989052368" source="intplace_4656" target="4663"><inscription><text>1</text></inscription></arc>
+      <arc id="4989056464" source="intplace_4634_3" target="hid_25"><inscription><text>1</text></inscription></arc>
+      <arc id="4989056592" source="intplace_4634_3" target="hid_23"><inscription><text>1</text></inscription></arc>
+      <arc id="4989056720" source="intplace_4688_cmd" target="hid_6"><inscription><text>1</text></inscription></arc>
+      <arc id="4989056976" source="4634_2" target="sink0"><inscription><text>1</text></inscription></arc>
+      <arc id="4989078992" source="p18" target="tau_19"><inscription><text>1</text></inscription></arc>
+      <arc id="4989056848" source="4672_3" target="pre_4634_3"><inscription><text>1</text></inscription></arc>
+      <arc id="4989052880" source="pre_4634_2" target="4634_2"><inscription><text>1</text></inscription></arc>
+      <arc id="4989053520" source="intplace_4663" target="4660"><inscription><text>1</text></inscription></arc>
+      <arc id="4989054544" source="hid_25" target="pre_4688_cmd"><inscription><text>1</text></inscription></arc>
+      <arc id="4989053648" source="intplace_4688_cmd" target="hid_29"><inscription><text>1</text></inscription></arc>
+      <arc id="4989054160" source="4690_4658" target="pre_4656"><inscription><text>1</text></inscription></arc>
+      <arc id="4989053776" source="hid_30" target="pre_4690_4658"><inscription><text>1</text></inscription></arc>
+      <arc id="4989053904" source="hid_24" target="pre_4634_2"><inscription><text>1</text></inscription></arc>
+      <arc id="4989052240" source="hid_33" target="pre_4688_cmd"><inscription><text>1</text></inscription></arc>
+      <arc id="4989052752" source="intplace_4634_3" target="hid_26"><inscription><text>1</text></inscription></arc>
+      <arc id="4989052496" source="hid_34" target="pre_4690_4658"><inscription><text>1</text></inscription></arc>
+      <arc id="4989052624" source="4624_2" target="pre_4672_2"><inscription><text>1</text></inscription></arc>
+      <arc id="4989053008" source="intplace_4672_2" target="hid_18"><inscription><text>1</text></inscription></arc>
+      <arc id="4989053136" source="intplace_4658" target="hid_33"><inscription><text>1</text></inscription></arc>
+      <arc id="4989053264" source="intplace_4672_2" target="hid_20"><inscription><text>1</text></inscription></arc>
+      <arc id="4989057232" source="pre_4688_cmd" target="4688_cmd"><inscription><text>1</text></inscription></arc>
+      <arc id="4989057104" source="pre_4634_3" target="4634_3"><inscription><text>1</text></inscription></arc>
+      <arc id="4989053392" source="hid_19" target="pre_4634_2"><inscription><text>1</text></inscription></arc>
+      <arc id="4989057360" source="hid_21" target="pre_4658"><inscription><text>1</text></inscription></arc>
+      <arc id="4989057488" source="intplace_4656" target="hid_21"><inscription><text>1</text></inscription></arc>
+      <arc id="4982319440" source="source0" target="tau_17"><inscription><text>1</text></inscription></arc>
+      <arc id="4989057616" source="intplace_4663" target="hid_35"><inscription><text>1</text></inscription></arc>
+      <arc id="4989077968" source="tau_17" target="p16"><inscription><text>1</text></inscription></arc>
+      <arc id="4989078096" source="p16" target="4624_2"><inscription><text>1</text></inscription></arc>
+      <arc id="4989057744" source="pre_4658" target="4658"><inscription><text>1</text></inscription></arc>
+      <arc id="4989078224" source="source0" target="4625_1"><inscription><text>1</text></inscription></arc>
+      <arc id="4989057872" source="intplace_4634_3" target="hid_24"><inscription><text>1</text></inscription></arc>
+      <arc id="4989078352" source="4625_1" target="p17"><inscription><text>1</text></inscription></arc>
+      <arc id="4989058000" source="pre_4672_3" target="4672_3"><inscription><text>1</text></inscription></arc>
+      <arc id="4989078480" source="p17" target="tau_18"><inscription><text>1</text></inscription></arc>
+      <arc id="4989054032" source="intplace_4658" target="hid_32"><inscription><text>1</text></inscription></arc>
+      <arc id="4989058128" source="hid_28" target="pre_4634_2"><inscription><text>1</text></inscription></arc>
+      <arc id="4989078608" source="tau_18" target="p16"><inscription><text>1</text></inscription></arc>
+      <arc id="4989058256" source="pre_4656" target="4656"><inscription><text>1</text></inscription></arc>
+      <arc id="4989054288" source="4688_cmd" target="intplace_4688_cmd"><inscription><text>1</text></inscription></arc>
+      <arc id="4989054416" source="4660" target="pre_4658"><inscription><text>1</text></inscription></arc>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink0">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>
